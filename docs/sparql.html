@@ -117,6 +117,10 @@ const EXAMPLES = [
   ?c ?p ?つながり先 . VALUES ?p { skos:exactMatch skos:closeMatch skos:broadMatch }
   BIND(STRAFTER(STR(?p), "#") AS ?関係)
 } GROUP BY ?種類 ?関係 ?つながり先 ORDER BY DESC(?件数) ?種類`],
+  ["代表地点の市区町村（統計LODの標準地域コード）と住所LOD", `SELECT ?施設 ?標準地域コード ?住所LOD WHERE {
+  ?s schema:name ?施設 ; whis:pointMunicipality ?標準地域コード ; whis:pointAddressArea ?住所LOD .
+  FILTER(LANG(?施設) = "ja")
+} ORDER BY ?標準地域コード`],
   ["座標の一覧（緯度・経度）", `SELECT ?id ?施設 ?緯度 ?経度 WHERE {
   ?s dcterms:identifier ?id ; schema:name ?施設 ; wgs84:lat ?緯度 ; wgs84:long ?経度 .
   FILTER(LANG(?施設) = "ja")

@@ -41,6 +41,8 @@ ONTOLOGY_TERMS = [
     ("representativePoint", "文字列", "座標を取った代表地点の名前（取水口・堰・池など）。"),
     ("facilityCategory", "SKOS の概念", "施設の種類を、下の「施設の種類（SKOS）」の概念で表したもの。国連食糧農業機関（FAO）の多言語シソーラス AGROVOC と Wikidata のクラスにつながる。"),
     ("pointElevation", "数値（m）", "代表地点の標高（東京湾平均海面からの高さ）。国土地理院の標高タイル（地理院タイル）で、細かいものから順に 1mメッシュ（DEM1A）→5mメッシュ（DEM5A→DEM5B→DEM5C）→10mメッシュ（DEM10B）の値を使った（地理院地図の標高表示と同じ順）。池や川の上の点は水面の高さになる。目安の値。"),
+    ("pointAddressArea", "IRI（住所LOD）", "代表地点がある大字・町丁目を表す、住所LOD（Linked Open Addresses Japan）の IRI。住所LODに大字の項目がないときは市区町村の IRI。"),
+    ("pointMunicipality", "IRI（統計LOD）", "代表地点がある市区町村を表す、統計LOD（政府統計の総合窓口 e-Stat）の標準地域コードの IRI。人口などの統計とつなげられる。"),
     ("pointElevationSource", "文字列", "標高を求めた数値標高モデルの種類（DEM1A＝航空レーザ測量の1mメッシュ、DEM5A＝5mメッシュ、DEM10B＝10mメッシュ など）。"),
     ("pointAddress", "文字列", "代表地点の座標がある場所の住所（市区町村・大字）。国土地理院の逆ジオコーダで座標から求めた。川の上の堰などは、隣の市町村になることがある。"),
 ]
@@ -185,9 +187,10 @@ def aerial_html(r, terrain):
 </script>"""
 
 
-def resource_page(r, base, creator, imgs=None, exts=None, terrain=None):
+def resource_page(r, base, creator, imgs=None, exts=None, terrain=None, addr=None):
     e = html.escape
     t = current_terrain(r, terrain)
+    al = (addr or [{}])[0]
 
     def cell(k):
         v = e(r.get(k, "") or "—")
@@ -200,6 +203,13 @@ def resource_page(r, base, creator, imgs=None, exts=None, terrain=None):
             v = f'<a href="../ontology.html#type-{e(slug)}">{v}</a>'
         if k == "point_address" and t.get("elevation_m"):
             v += f"（標高 約{e(t['elevation_m'])}m・{e(t.get('elevation_dem', ''))}）"
+        if k == "point_address" and (al.get("loa_uri") or al.get("sac_uri")):
+            links = []
+            if al.get("loa_uri"):
+                links.append(f'<a href="{e(al["loa_uri"])}">住所LOD</a>')
+            if al.get("sac_uri"):
+                links.append(f'<a href="{e(al["sac_uri"])}">統計LOD（標準地域コード {e(al.get("municipality_code", ""))}）</a>')
+            v += "<br><small>" + "／".join(links) + "</small>"
         return v
     rows = "".join(f"<tr><th>{e(lbl)}</th><td>{cell(k)}</td></tr>" for k, lbl in FIELD_LABELS)
     wd = (f'<a href="https://www.wikidata.org/wiki/{e(r["wikidata_qid"])}">{e(r["wikidata_qid"])}</a>（確認済み）'
@@ -303,6 +313,8 @@ def void_ttl(g, base):
         "ndl": ("国立国会図書館典拠", "https://id.ndl.go.jp/", "https://id.ndl.go.jp/"),
         "kunishitei": ("国指定文化財等データベース", "https://kunishitei.bunka.go.jp/", "https://kunishitei.bunka.go.jp/"),
         "bunka": ("文化遺産オンライン", "https://bunka.nii.ac.jp/", "https://bunka.nii.ac.jp/"),
+        "loa": ("住所LOD（Linked Open Addresses Japan）", "https://uedayou.net/loa/", "https://uedayou.net/loa/"),
+        "estat": ("統計LOD（標準地域コード）", "https://data.e-stat.go.jp/lodw/", "http://data.e-stat.go.jp/lod/sac/"),
     }
     for key, (title, home, prefix) in targets.items():
         t = URIRef(base + "void.ttl#" + key)
@@ -310,6 +322,7 @@ def void_ttl(g, base):
         v.add((t, RDFS.seeAlso, URIRef(home)))
     for pred, name in [(OWL.sameAs, "sameAs"), (SCHEMA.hasPart, "hasPart"), (WHIS.waterSource, "waterSource"),
                        (RDFS.seeAlso, "seeAlso"), (SCHEMA.image, "image"),
+                       (WHIS.pointAddressArea, "pointAddressArea"), (WHIS.pointMunicipality, "pointMunicipality"),
                        (SKOS.exactMatch, "exactMatch"), (SKOS.closeMatch, "closeMatch"), (SKOS.broadMatch, "broadMatch")]:
         counts = {}
         for o in g.objects(None, pred):
@@ -341,6 +354,7 @@ def main(argv=None):
     ap.add_argument("--images", default=str(ROOT / "data" / "images.csv"))
     ap.add_argument("--extlinks", default=str(ROOT / "data" / "external_links.csv"))
     ap.add_argument("--terrain", default=str(ROOT / "data" / "point_terrain.csv"))
+    ap.add_argument("--addrlinks", default=str(ROOT / "data" / "address_links.csv"))
     a = ap.parse_args(argv)
     base = a.base.rstrip("/") + "/"
     docs = Path(a.docs)
@@ -349,7 +363,7 @@ def main(argv=None):
     rc = conv.main(["--csv", a.csv, "--base", base, "--prefqid", a.prefqid,
                     "--out-ttl", str(docs / "whis_japan.ttl"), "--out-geojson", str(docs / "whis_japan.geojson"),
                     "--creator", a.creator, "--modified", a.modified,
-                    "--images", a.images, "--extlinks", a.extlinks, "--terrain", a.terrain])
+                    "--images", a.images, "--extlinks", a.extlinks, "--terrain", a.terrain, "--addrlinks", a.addrlinks])
     from rdflib import Graph, URIRef
     g = Graph().parse(docs / "whis_japan.ttl", format="turtle")
     (docs / "whis_japan.jsonld").write_text(g.serialize(format="json-ld", indent=1), encoding="utf-8")
@@ -357,7 +371,8 @@ def main(argv=None):
     images = conv.load_optional_csv(a.images)
     exts = conv.load_optional_csv(a.extlinks)
     terrain = conv.load_optional_csv(a.terrain)
-    for src in [a.images, a.extlinks, a.terrain]:
+    addr = conv.load_optional_csv(a.addrlinks)
+    for src in [a.images, a.extlinks, a.terrain, a.addrlinks]:
         if Path(src).exists():
             shutil.copyfile(src, docs / Path(src).name)
     # 地図の部品（背景の切り替え・昔の航空写真の重ね合わせ）
@@ -372,7 +387,8 @@ def main(argv=None):
         rows = list(csv.DictReader(f))
     for r in rows:
         (docs / "resource" / f"{r['id']}.html").write_text(
-            resource_page(r, base, a.creator, images.get(r["id"]), exts.get(r["id"]), terrain.get(r["id"])), encoding="utf-8")
+            resource_page(r, base, a.creator, images.get(r["id"]), exts.get(r["id"]), terrain.get(r["id"]), addr.get(r["id"])),
+            encoding="utf-8")
         # 施設ごとの機械可読ファイル（その施設を主語とする三つ組と、座標のノード）
         s = URIRef(base + "resource/" + r["id"])
         sub = Graph()

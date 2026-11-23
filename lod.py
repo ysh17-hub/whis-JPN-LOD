@@ -88,6 +88,13 @@ def counts(rows):
     if (ROOT / "data" / "point_terrain.csv").exists():
         _, ter = read_rows(ROOT / "data" / "point_terrain.csv")
     c["N_ELEV"] = sum(1 for r in ter if r.get("elevation_m"))
+    adr = []
+    if (ROOT / "data" / "address_links.csv").exists():
+        _, adr = read_rows(ROOT / "data" / "address_links.csv")
+    c["N_LOA"] = sum(1 for r in adr if r.get("loa_uri"))
+    c["N_LOA_TOWN"] = sum(1 for r in adr if r.get("loa_uri") and r.get("loa_level") != "市区町村")
+    c["N_SAC"] = sum(1 for r in adr if r.get("sac_uri"))
+    c["N_SAC_DISTINCT"] = len({r["sac_uri"] for r in adr if r.get("sac_uri")})
     for k, col in [("N_AIR1945", "aerial_1945_1950"), ("N_AIR1961", "aerial_1961_1969"), ("N_AIR1974", "aerial_1974_1978")]:
         c[k] = sum(1 for r in ter if r.get(col) == "1")
     # 標高を、地理院地図の標高表示（標高API）と照合した結果。API は 1m・5m メッシュを 0.1m、10m メッシュを 1m 単位で返すので、同じ単位に丸めて比べる

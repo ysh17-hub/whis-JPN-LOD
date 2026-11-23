@@ -63,6 +63,12 @@ whisx:StructureShape
         [ sh:path <REPLACE_BASE/ontology#facilityCategory> ; sh:minCount 1 ; sh:maxCount 1 ;
           sh:class skos:Concept ;
           sh:message "施設の種類は、語彙で定めた SKOS の概念のどれか1つ"@ja ] ,
+        [ sh:path <REPLACE_BASE/ontology#pointAddressArea> ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+          sh:pattern "^https://uedayou\\.net/loa/" ;
+          sh:message "代表地点の住所は住所LODの IRI 1つ"@ja ] ,
+        [ sh:path <REPLACE_BASE/ontology#pointMunicipality> ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+          sh:pattern "^http://data\\.e-stat\\.go\\.jp/lod/sac/C[0-9]{5}-[0-9]{8}$" ;
+          sh:message "代表地点の市区町村は統計LODの標準地域コードの IRI 1つ"@ja ] ,
         [ sh:path <REPLACE_BASE/ontology#pointElevation> ; sh:maxCount 1 ; sh:datatype xsd:decimal ;
           sh:minInclusive -10 ; sh:maxInclusive 3800 ;
           sh:message "標高は1つの数値（m）で、日本の陸地としてありうる範囲"@ja ] .

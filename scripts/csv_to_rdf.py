@@ -169,7 +169,8 @@ def load_optional_csv(path):
     return out
 
 
-def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None, terrain=None):
+def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None, terrain=None, addrlinks=None):
+    addrlinks = addrlinks or {}
     images = images or {}
     extlinks = extlinks or {}
     terrain = terrain or {}
@@ -205,6 +206,10 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None,
          "facility category (SKOS concept linked to AGROVOC and Wikidata)", SKOS.Concept),
         (WHIS.pointElevation, "代表地点の標高（m。東京湾平均海面からの高さ。地理院タイルの標高タイルから求めた目安）",
          "elevation of the representative point in metres above mean sea level (from GSI DEM tiles)", XSD.decimal),
+        (WHIS.pointAddressArea, "代表地点がある大字・町丁目（住所LOD の IRI）",
+         "address area (oaza/chome) of the representative point in Linked Open Addresses Japan", None),
+        (WHIS.pointMunicipality, "代表地点がある市区町村（統計LOD の標準地域コード）",
+         "municipality of the representative point (standard area code in e-Stat statistical LOD)", None),
         (WHIS.pointElevationSource, "標高を求めた数値標高モデル（DEM1A＝1mメッシュ・航空レーザ測量、DEM5A＝5mメッシュ など）",
          "digital elevation model used for the elevation", XSD.string),
     ]:
@@ -297,6 +302,12 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None,
             g.add((s, WHIS.facilityType, Literal(r["facility_type"], lang="ja")))
             if r["facility_type"] in FACILITY_TYPE_CONCEPTS:
                 g.add((s, WHIS.facilityCategory, WHIS["type-" + FACILITY_TYPE_CONCEPTS[r["facility_type"]][0]]))
+        # 代表地点の住所の IRI（住所LOD）と市区町村（統計LOD の標準地域コード）。data/address_links.csv
+        for al in addrlinks.get(r["id"], [])[:1]:
+            if al.get("loa_uri"):
+                g.add((s, WHIS.pointAddressArea, URIRef(al["loa_uri"])))
+            if al.get("sac_uri"):
+                g.add((s, WHIS.pointMunicipality, URIRef(al["sac_uri"])))
         # 代表地点の標高（data/point_terrain.csv。地理院タイルの標高タイルから求めた値）
         # 座標を直したのに標高が古いままにならないよう、求めたときの座標が今の座標と同じときだけ使う
         for t in terrain.get(r["id"], [])[:1]:
@@ -392,6 +403,7 @@ def main(argv=None):
     ap.add_argument("--images", default=None)
     ap.add_argument("--extlinks", default=None)
     ap.add_argument("--terrain", default=None)
+    ap.add_argument("--addrlinks", default=None)
     a = ap.parse_args(argv)
 
     with open(a.csv, encoding="utf-8-sig") as f:
@@ -413,7 +425,8 @@ def main(argv=None):
         "sources": sorted({u for r in rows for u in split_urls(r.get("source_url"))}),
     }
     g = build_graph(rows, a.base, load_pref_qids(a.prefqid), meta,
-                    load_optional_csv(a.images), load_optional_csv(a.extlinks), load_optional_csv(a.terrain))
+                    load_optional_csv(a.images), load_optional_csv(a.extlinks), load_optional_csv(a.terrain),
+                    load_optional_csv(a.addrlinks))
     Path(a.out_ttl).parent.mkdir(parents=True, exist_ok=True)
     g.serialize(destination=a.out_ttl, format="turtle")
     Path(a.out_geojson).parent.mkdir(parents=True, exist_ok=True)
