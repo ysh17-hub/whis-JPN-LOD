@@ -32,12 +32,14 @@ ONTOLOGY_TERMS = [
     ("registeredYear", "xsd:gYear", "ICID（国際かんがい排水委員会）による登録年。"),
     ("builtYear", "xsd:gYear", "建設年。着工・完成・供用開始のどれかは builtYearBasis に書く。"),
     ("builtYearBasis", "文字列", "builtYear の根拠（着工・完成・供用開始・資料記載年など）。"),
-    ("facilityType", "文字列", "施設の種類（水路・ため池・堰・用水群・揚水機場など）。農水省の対象施設区分に合わせた。"),
-    ("waterSource", "文字列またはWikidata", "水源の川・湖など。Wikidata の QID が分かるときは IRI で示す。"),
+    ("facilityType", "文字列", "施設の種類（水路・ため池・堰・用水群・揚水機場）。農林水産省が示す対象施設の例（ダム、ため池などの貯水施設、堰・分水施設、水路など）を参考に作成者が分類した。"),
+    ("waterSource", "Wikidataの項目（なければ文字列）", "水源の川・湖など。Wikidata に同じ川・湖の項目があるときは、その IRI で示す（複数あり得る）。"),
+    ("waterSourceName", "文字列", "水源の名前を資料の表記のまま記録したもの（例：奥入瀬川（十和田湖））。"),
     ("prefectureCode", "文字列", "都道府県コード（ISO 3166-2:JP 形式、例: JP-04）。"),
     ("irrigatedArea", "xsd:decimal", "かんがい面積（ha）。資料によって値が異なるものは空欄にし、comment に両方を書いた。"),
     ("managedBy", "文字列", "管理者（土地改良区など）。"),
     ("representativePoint", "文字列", "座標を取った代表地点の名前（取水口・堰・池など）。"),
+    ("pointAddress", "文字列", "代表地点の座標がある場所の住所（市区町村・大字）。国土地理院の逆ジオコーダで座標から求めた。川の上の堰などは、隣の市町村になることがある。"),
 ]
 
 FIELD_LABELS = [
@@ -45,6 +47,7 @@ FIELD_LABELS = [
     ("registered_year", "登録年"), ("built_year", "建設年"), ("built_year_basis", "建設年の根拠"),
     ("facility_type", "種類"), ("water_source_river", "水源"), ("managing_org", "管理者"),
     ("irrigated_area_ha", "かんがい面積（ha）"), ("representative_point", "代表地点"),
+    ("point_address", "代表地点の住所（座標から）"),
     ("lat", "緯度"), ("lon", "経度"), ("note", "注記"),
 ]
 
@@ -61,6 +64,7 @@ def jsonld_for(r, base):
                 ([{"@value": r["name_en"], "@language": "en"}] if r.get("name_en") else []),
         "address": {"@type": "PostalAddress", "addressCountry": "JP",
                     "addressRegion": r["prefecture"], "addressLocality": r.get("municipality", "")},
+        "url": uri,
         "isPartOf": base + "dataset",
         "citation": conv.split_urls(r.get("source_url")),
     }
@@ -69,35 +73,110 @@ def jsonld_for(r, base):
         d["geo"] = {"@type": "GeoCoordinates", "latitude": lat, "longitude": lon}
     if r.get("verified") == "1" and r.get("wikidata_qid"):
         d["sameAs"] = "http://www.wikidata.org/entity/" + r["wikidata_qid"]
+    rel = conv.split_qids(r.get("wikidata_related"))
+    if rel:
+        d["hasPart"] = [{"@id": "http://www.wikidata.org/entity/" + q} for q in rel]
     return d
 
 
+def add_media(d, imgs, exts):
+    if imgs:
+        d["image"] = [{"@type": "ImageObject", "contentUrl": im["image_url"], "url": im["file_page"],
+                       "creditText": im.get("artist", ""), "license": im.get("license_url") or im.get("license", "")}
+                      for im in imgs]
+    same_ext = [x["url"] for x in (exts or []) if x["relation"] == "same"]
+    if same_ext:
+        d["subjectOf"] = same_ext
+    return d
+
+
+LIGHTBOX = """<div id="lb" onclick="if(event.target===this)this.style.display='none'"><div><img id="lbimg" alt=""><p id="lbcap"></p><button onclick="document.getElementById('lb').style.display='none'">閉じる</button></div></div>
+<script>
+function openImg(a){var d=a.dataset;document.getElementById('lbimg').src=d.big;document.getElementById('lbimg').alt=d.alt;
+document.getElementById('lbcap').innerHTML=d.cap;document.getElementById('lb').style.display='flex';return false;}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb').style.display='none';});
+</script>"""
+
 PAGE_CSS = """body{font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;max-width:820px;margin:24px auto;padding:0 16px;line-height:1.6}
 table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #eee;padding:6px;text-align:left;vertical-align:top}
-th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-right:12px}small{color:#666}"""
+th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-right:12px}small{color:#666}
+.gallery{display:flex;flex-wrap:wrap;gap:12px}.gallery figure{margin:0;width:240px}.gallery img{width:240px;height:170px;object-fit:cover;border-radius:4px;cursor:zoom-in;display:block}
+.gallery figcaption{font-size:12px;color:#555;line-height:1.4;margin-top:4px}
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center}
+#lb>div{max-width:92vw;max-height:92vh;text-align:center;color:#fff}#lb img{max-width:92vw;max-height:78vh}#lb p{font-size:13px}#lb a{color:#9cf}
+#lb button{font-size:14px;padding:4px 14px}"""
 
 
-def resource_page(r, base, creator):
+def gallery_html(imgs):
+    """Wikimedia Commons の写真（押すと大きく表示。作者・ライセンス・出典つき）。"""
+    if not imgs:
+        return ""
     e = html.escape
-    rows = "".join(f"<tr><th>{e(lbl)}</th><td>{e(r.get(k, '') or '—')}</td></tr>" for k, lbl in FIELD_LABELS)
+    figs = []
+    for im in imgs:
+        lic = (f'<a href="{e(im["license_url"])}">{e(im["license"])}</a>' if im.get("license_url") else e(im.get("license", "")))
+        who = ("" if im["relation"] == "same" else f"構成施設「{e(im['label'])}」　")
+        cap = (f'{who}撮影：{e(im.get("artist", ""))}／{lic}／'
+               f'<a href="{e(im["file_page"])}">Wikimedia Commons</a>')
+        figs.append(
+            f'<figure><a href="{e(im["file_page"])}" onclick="return openImg(this)" '
+            f'data-big="{e(im["image_url"])}?width=1280" data-alt="{e(im["label"])}" data-cap="{e(cap)}">'
+            f'<img src="{e(im["image_url"])}?width=500" alt="{e(im["label"])}の写真" loading="lazy"></a>'
+            f'<figcaption>{cap}</figcaption></figure>')
+    return ('<h2>写真</h2><p><small>Wikidata の項目に登録されている Wikimedia Commons の写真です。押すと大きく表示されます。'
+            'このデータセットのライセンス（CC BY 4.0）ではなく、各写真のライセンスに従います。</small></p>'
+            f'<div class="gallery">{"".join(figs)}</div>')
+
+
+def ext_html(exts):
+    """Wikidata 経由でつながる外部のデータベース・百科事典。"""
+    if not exts:
+        return ""
+    e = html.escape
+    items = []
+    for x in exts:
+        who = "" if x["relation"] == "same" else f"（構成施設「{e(x['label'])}」）"
+        items.append(f'<li>{e(x["source_label"])}{who}：<a href="{e(x["url"])}">{e(x["value"])}</a></li>')
+    return ('<h2>ほかのデータベース・百科事典</h2><p><small>つながっている Wikidata の項目に登録されている外部ID・記事です'
+            f'（{e(exts[0].get("retrieved", ""))} 時点）。</small></p><ul>{"".join(items)}</ul>')
+
+
+def resource_page(r, base, creator, imgs=None, exts=None):
+    e = html.escape
+
+    def cell(k):
+        v = e(r.get(k, "") or "—")
+        if k == "water_source_river":
+            qs = conv.split_qids(r.get("water_source_river_qid"))
+            if qs:
+                v += "（Wikidata：" + "、".join(f'<a href="https://www.wikidata.org/wiki/{e(q)}">{e(q)}</a>' for q in qs) + "）"
+        return v
+    rows = "".join(f"<tr><th>{e(lbl)}</th><td>{cell(k)}</td></tr>" for k, lbl in FIELD_LABELS)
     wd = (f'<a href="https://www.wikidata.org/wiki/{e(r["wikidata_qid"])}">{e(r["wikidata_qid"])}</a>（確認済み）'
-          if r.get("verified") == "1" and r.get("wikidata_qid") else "—")
+          if r.get("verified") == "1" and r.get("wikidata_qid") else ("—" if not r.get("wikidata_related") else ""))
+    rel = conv.split_qids(r.get("wikidata_related"))
+    if rel:
+        wd += "<br>構成施設：" + "、".join(f'<a href="https://www.wikidata.org/wiki/{e(q)}">{e(q)}</a>' for q in rel)
     srcs = "".join(f'<li><a href="{e(u)}">{e(u)}</a></li>' for u in conv.split_urls(r.get("source_url")))
-    ld = json.dumps(jsonld_for(r, base), ensure_ascii=False, indent=1).replace("</", "<\\/")
+    ld = json.dumps(add_media(jsonld_for(r, base), imgs, exts), ensure_ascii=False, indent=1).replace("</", "<\\/")
     return f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(r['name_ja'])}｜世界かんがい施設遺産（日本）LOD</title>
-<link rel="alternate" type="text/turtle" href="../whis_japan.ttl">
+<link rel="alternate" type="text/turtle" href="{e(r['id'])}.ttl">
+<link rel="alternate" type="application/ld+json" href="{e(r['id'])}.jsonld">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">
 {ld}
 </script></head><body>
-<nav><a href="../index.html">地図</a><a href="../ontology.html">語彙</a><a href="../whis_japan.ttl">Turtle</a><a href="../whis_japan.jsonld">JSON-LD</a><a href="../whis_japan.csv">CSV</a></nav>
+<nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a></nav>
 <h1>{e(r['name_ja'])}</h1>
-<p><small>URI: <code>{e(base + 'resource/' + r['id'])}</code></small></p>
+<p><small>URI: <code>{e(base + 'resource/' + r['id'])}</code>　この施設のデータ：<a href="{e(r['id'])}.ttl">Turtle</a>／<a href="{e(r['id'])}.jsonld">JSON-LD</a></small></p>
 <table>{rows}<tr><th>Wikidata</th><td>{wd}</td></tr></table>
+{gallery_html(imgs or [])}
+{ext_html(exts or [])}
 <h2>出典</h2><ul>{srcs}</ul>
 <p><small>データ: CC BY 4.0（作成: {e(creator)}）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>
+{LIGHTBOX}
 </body></html>
 """
 
@@ -109,7 +188,7 @@ def ontology_page(base):
     return f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>語彙 whis:｜世界かんがい施設遺産（日本）LOD</title><style>{PAGE_CSS}</style></head><body>
-<nav><a href="index.html">地図</a><a href="whis_japan.ttl">Turtle</a></nav>
+<nav><a href="index.html">地図</a><a href="sparql.html">SPARQL</a><a href="whis_japan.ttl">Turtle</a><a href="shapes.ttl">SHACL</a></nav>
 <h1>独自語彙 whis:</h1>
 <p>名前空間: <code>{e(base)}ontology#</code><br>
 既存の語彙（schema.org、GeoSPARQL、W3C Basic Geo、DCMI Terms、DCAT、OWL）で表せない項目だけを定義しています。</p>
@@ -126,6 +205,8 @@ def main(argv=None):
     ap.add_argument("--csv", default=str(ROOT / "data" / "whis_japan.csv"))
     ap.add_argument("--prefqid", default=str(ROOT / "data" / "prefecture_qid.csv"))
     ap.add_argument("--docs", default=str(ROOT / "docs"))
+    ap.add_argument("--images", default=str(ROOT / "data" / "images.csv"))
+    ap.add_argument("--extlinks", default=str(ROOT / "data" / "external_links.csv"))
     a = ap.parse_args(argv)
     base = a.base.rstrip("/") + "/"
     docs = Path(a.docs)
@@ -133,18 +214,43 @@ def main(argv=None):
 
     rc = conv.main(["--csv", a.csv, "--base", base, "--prefqid", a.prefqid,
                     "--out-ttl", str(docs / "whis_japan.ttl"), "--out-geojson", str(docs / "whis_japan.geojson"),
-                    "--creator", a.creator, "--modified", a.modified])
-    from rdflib import Graph
+                    "--creator", a.creator, "--modified", a.modified,
+                    "--images", a.images, "--extlinks", a.extlinks])
+    from rdflib import Graph, URIRef
     g = Graph().parse(docs / "whis_japan.ttl", format="turtle")
     (docs / "whis_japan.jsonld").write_text(g.serialize(format="json-ld", indent=1), encoding="utf-8")
     shutil.copyfile(a.csv, docs / "whis_japan.csv")
+    images = conv.load_optional_csv(a.images)
+    exts = conv.load_optional_csv(a.extlinks)
+    for src in [a.images, a.extlinks]:
+        if Path(src).exists():
+            shutil.copyfile(src, docs / Path(src).name)
+    shapes = ROOT / "shapes" / "whis_shapes.ttl"
+    if shapes.exists():
+        (docs / "shapes.ttl").write_text(
+            shapes.read_text(encoding="utf-8").replace("REPLACE_BASE", base.rstrip("/")), encoding="utf-8")
 
-    with open(a.csv, encoding="utf-8") as f:
+    with open(a.csv, encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
     for r in rows:
-        (docs / "resource" / f"{r['id']}.html").write_text(resource_page(r, base, a.creator), encoding="utf-8")
+        (docs / "resource" / f"{r['id']}.html").write_text(
+            resource_page(r, base, a.creator, images.get(r["id"]), exts.get(r["id"])), encoding="utf-8")
+        # 施設ごとの機械可読ファイル（その施設を主語とする三つ組と、座標のノード）
+        s = URIRef(base + "resource/" + r["id"])
+        sub = Graph()
+        for pfx, ns in g.namespaces():
+            sub.bind(pfx, ns)
+        for t in g.triples((s, None, None)):
+            sub.add(t)
+        for t in g.triples((URIRef(str(s) + "/geometry"), None, None)):
+            sub.add(t)
+        for _, _, img in g.triples((s, URIRef("https://schema.org/image"), None)):
+            for t in g.triples((img, None, None)):
+                sub.add(t)
+        (docs / "resource" / f"{r['id']}.ttl").write_text(sub.serialize(format="turtle"), encoding="utf-8")
+        (docs / "resource" / f"{r['id']}.jsonld").write_text(sub.serialize(format="json-ld", indent=1), encoding="utf-8")
     (docs / "ontology.html").write_text(ontology_page(base), encoding="utf-8")
-    print(f"施設ページ {len(rows)} 件、ontology.html、JSON-LD、CSV を {docs} に出力しました")
+    print(f"施設ページ {len(rows)} 件（HTML・Turtle・JSON-LD）、ontology.html、JSON-LD、CSV を {docs} に出力しました")
     return rc
 
 

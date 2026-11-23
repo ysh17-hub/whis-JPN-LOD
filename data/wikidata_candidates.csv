@@ -1,7 +1,7 @@
 id,name_ja,prefecture,search_term,rank,qid,label,description,lat,lon,url
 WHIS-JP-001,稲生川,青森県,稲生川,1,Q11596736,稲生川,日本の用水路,40.634044,141.256741,https://www.wikidata.org/wiki/Q11596736
 WHIS-JP-002,雄川堰,群馬県,雄川堰,1,Q11659214,雄川,群馬県甘楽町、富岡市を流れる河川,36.25723,138.915612,https://www.wikidata.org/wiki/Q11659214
-WHIS-JP-003,深良用水,静岡県,深良用水,1,Q11560257,深良用水,神奈川県・箱根の芦ノ湖の湖水を静岡県裾野市に引く水路,35.230123, 138.984754,https://www.wikidata.org/wiki/Q11560257
+WHIS-JP-003,深良用水,静岡県,深良用水,1,Q11560257,深良用水,神奈川県・箱根の芦ノ湖の湖水を静岡県裾野市に引く水路,35.21667,138.95,https://www.wikidata.org/wiki/Q11560257
 WHIS-JP-003,深良用水,静岡県,深良用水,2,Q86735679,深良用水350感謝祭,,,,https://www.wikidata.org/wiki/Q86735679
 WHIS-JP-005,立梅用水,三重県,立梅用水,1,Q6447936,櫛田川,三重県の川,34.6082,136.5687,https://www.wikidata.org/wiki/Q6447936
 WHIS-JP-006,狭山池,大阪府,狭山池,1,Q11571743,狭山池,大阪府大阪狭山市にあるため池,34.503333333,135.549722222,https://www.wikidata.org/wiki/Q11571743

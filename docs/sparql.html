@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPARQLで調べる｜世界かんがい施設遺産（日本）LOD</title>
+<style>
+body{font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;max-width:980px;margin:20px auto;padding:0 16px;line-height:1.6;color:#222}
+nav a{margin-right:12px}
+h1{font-size:1.4em;margin:.4em 0}
+h2{font-size:1.1em;margin:1.4em 0 .4em}
+.box{border:1px solid #ddd;border-radius:6px;padding:12px;margin:10px 0}
+select,button{font-size:14px;padding:4px 8px}
+textarea{width:100%;height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;box-sizing:border-box}
+table{border-collapse:collapse;width:100%;font-size:13px;margin-top:8px}
+th,td{border-bottom:1px solid #eee;padding:4px 6px;text-align:left;vertical-align:top}
+th{background:#f6f6f6}
+.muted{color:#666;font-size:12px}
+.err{color:#b00;white-space:pre-wrap}
+#status{font-size:13px;color:#555}
+</style>
+</head>
+<body>
+<nav><a href="index.html">地図</a><a href="ontology.html">語彙</a><a href="whis_japan.ttl">Turtle</a><a href="shapes.ttl">SHACL</a><a href="https://github.com/ysh17-hub/whis-lod">GitHub</a></nav>
+<h1>SPARQLで調べる</h1>
+<p>このページの中で、データ全体（<a href="whis_japan.ttl">whis_japan.ttl</a>）を読み込んで SPARQL を実行します。サーバーは使わず、ブラウザの中だけで動きます（<a href="https://github.com/oxigraph/oxigraph">Oxigraph</a> の WebAssembly 版を使用）。<br>
+下の「Wikidata と組み合わせる」では、このデータから取り出した Wikidata の項目を使って、Wikidata の公開 SPARQL サービスに問い合わせます。</p>
+<p id="status">データを読み込んでいます…</p>
+
+<h2>このデータに問い合わせる</h2>
+<div class="box">
+  <label>例：<select id="examples"></select></label>
+  <textarea id="query" spellcheck="false"></textarea>
+  <button id="run">実行</button> <span class="muted" id="count"></span>
+  <div id="result"></div>
+</div>
+
+<h2>Wikidata と組み合わせる</h2>
+<div class="box">
+  <label>例：<select id="wdExamples"></select></label>
+  <p class="muted" id="wdDesc"></p>
+  <button id="wdRun">Wikidata に問い合わせる</button>
+  <a id="wdOpen" target="_blank" rel="noopener">Wikidata Query Service で開く</a>
+  <span class="muted" id="wdCount"></span>
+  <div id="wdResult"></div>
+</div>
+
+<p class="muted">データ：CC BY 4.0。Wikidata のデータは CC0。Oxigraph は MIT または Apache-2.0 ライセンスです。</p>
+
+<script type="module">
+import init, * as oxigraph from "./sparql/web.js";
+
+const BASE = new URL(".", location.href).href;
+const PREFIX = `PREFIX whis: <https://ysh17-hub.github.io/whis-lod/ontology#>
+PREFIX schema: <https://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+`;
+
+const EXAMPLES = [
+  ["都道府県ごとの件数", `SELECT ?都道府県 (COUNT(?s) AS ?件数) WHERE {
+  ?s a whis:HeritageIrrigationStructure ; schema:addressRegion ?都道府県 .
+} GROUP BY ?都道府県 ORDER BY DESC(?件数)`],
+  ["登録年ごとの件数", `SELECT ?登録年 (COUNT(?s) AS ?件数) WHERE {
+  ?s a whis:HeritageIrrigationStructure ; whis:registeredYear ?登録年 .
+} GROUP BY ?登録年 ORDER BY ?登録年`],
+  ["同じ川・湖から水を引く遺産（Wikidataの項目でまとめる）", `SELECT ?水源 (SAMPLE(?名前) AS ?水源の名前) (COUNT(?s) AS ?件数) (GROUP_CONCAT(?施設; separator="、") AS ?施設) WHERE {
+  ?s whis:waterSource ?水源 ; whis:waterSourceName ?名前 ; schema:name ?施設 .
+  FILTER(isIRI(?水源) && LANG(?施設) = "ja")
+} GROUP BY ?水源 HAVING (COUNT(?s) > 1) ORDER BY DESC(?件数)`],
+  ["建設年が古い順（年が分かる施設・上位10件）", `SELECT ?施設 ?建設年 ?何の年か WHERE {
+  ?s whis:builtYear ?建設年 ; schema:name ?施設 .
+  OPTIONAL { ?s whis:builtYearBasis ?何の年か }
+  FILTER(LANG(?施設) = "ja")
+} ORDER BY ?建設年 LIMIT 10`],
+  ["建設から登録までの年数（長い順・上位10件）", `SELECT ?施設 ?建設年 ?登録年 ?年数 WHERE {
+  ?s whis:builtYear ?b ; whis:registeredYear ?r ; schema:name ?施設 .
+  BIND(STR(?b) AS ?建設年) BIND(STR(?r) AS ?登録年)
+  BIND(xsd:integer(STR(?r)) - xsd:integer(STR(?b)) AS ?年数)
+  FILTER(LANG(?施設) = "ja")
+} ORDER BY DESC(?年数) LIMIT 10`],
+  ["Wikidataとのつながり（同じ施設／構成施設）", `SELECT ?施設 ?同じ施設 (GROUP_CONCAT(STR(?part); separator=" ") AS ?構成施設) WHERE {
+  ?s a whis:HeritageIrrigationStructure ; schema:name ?施設 .
+  FILTER(LANG(?施設) = "ja")
+  OPTIONAL { ?s owl:sameAs ?同じ施設 }
+  OPTIONAL { ?s schema:hasPart ?part }
+  FILTER(BOUND(?同じ施設) || BOUND(?part))
+} GROUP BY ?施設 ?同じ施設 ORDER BY ?施設`],
+  ["施設の種類ごとの件数", `SELECT ?種類 (COUNT(?s) AS ?件数) WHERE {
+  ?s whis:facilityType ?種類 .
+} GROUP BY ?種類 ORDER BY DESC(?件数)`],
+  ["出典の発行元（ドメイン）ごとの資料数", `SELECT ?発行元 (COUNT(DISTINCT ?url) AS ?資料数) WHERE {
+  ?s a whis:HeritageIrrigationStructure ; dcterms:source ?url .
+  BIND(STRBEFORE(STRAFTER(STR(?url), "://"), "/") AS ?発行元)
+} GROUP BY ?発行元 ORDER BY DESC(?資料数)`],
+  ["写真と撮影者・ライセンス（Wikimedia Commons）", `SELECT ?施設 ?写真 ?撮影者 ?ライセンス WHERE {
+  ?s schema:name ?施設 ; schema:image ?写真 .
+  ?写真 schema:creditText ?撮影者 ; schema:license ?ライセンス .
+  FILTER(LANG(?施設) = "ja")
+} ORDER BY ?施設`],
+  ["ほかのデータベースへのつながり（rdfs:seeAlso）の数", `SELECT ?つながり先 (COUNT(*) AS ?件数) WHERE {
+  ?s a whis:HeritageIrrigationStructure ; rdfs:seeAlso ?url .
+  BIND(STRBEFORE(STRAFTER(STR(?url), "://"), "/") AS ?つながり先)
+} GROUP BY ?つながり先 ORDER BY DESC(?件数)`],
+  ["座標の一覧（緯度・経度）", `SELECT ?id ?施設 ?緯度 ?経度 WHERE {
+  ?s dcterms:identifier ?id ; schema:name ?施設 ; wgs84:lat ?緯度 ; wgs84:long ?経度 .
+  FILTER(LANG(?施設) = "ja")
+} ORDER BY ?id`],
+];
+
+const WD_EXAMPLES = [
+  {
+    title: "水源の川の長さと流域面積（Wikidata）",
+    desc: "このデータで水源につないだ川・湖の項目について、Wikidata にある長さ（P2043）と流域面積（P2053）を取り出します。",
+    local: `SELECT DISTINCT ?q WHERE { ?s whis:waterSource ?q . FILTER(isIRI(?q)) }`,
+    wd: (values) => `SELECT ?川 ?川Label ?長さ_km ?流域面積_km2 WHERE {
+  VALUES ?川 { ${values} }
+  OPTIONAL { ?川 p:P2043/psn:P2043/wikibase:quantityAmount ?m . BIND(ROUND(?m/100)/10 AS ?長さ_km) }
+  OPTIONAL { ?川 p:P2053/psn:P2053/wikibase:quantityAmount ?a . BIND(ROUND(?a/1000)/1000 AS ?流域面積_km2) }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "ja,en". }
+} ORDER BY DESC(?長さ_km)`
+  },
+  {
+    title: "つながった施設の日本語版ウィキペディア記事と画像（Wikidata）",
+    desc: "同じ施設・構成施設としてつないだ Wikidata の項目から、日本語版ウィキペディアの記事と画像（P18）を取り出します。",
+    local: `SELECT DISTINCT ?q WHERE { { ?s owl:sameAs ?q } UNION { ?s schema:hasPart ?q } }`,
+    wd: (values) => `SELECT ?項目 ?項目Label ?記事 ?画像 WHERE {
+  VALUES ?項目 { ${values} }
+  OPTIONAL { ?記事 schema:about ?項目 ; schema:isPartOf <https://ja.wikipedia.org/> }
+  OPTIONAL { ?項目 wdt:P18 ?画像 }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "ja,en". }
+} ORDER BY ?項目Label`
+  },
+  {
+    title: "Wikidata で「かんがい施設遺産」と記録されている日本の項目（Q22127466）",
+    desc: "Wikidata の遺産保護指定（P1435）が「かんがい施設遺産」になっている日本の項目を一覧にし、このデータでつながっているかを示します。",
+    local: `SELECT DISTINCT ?q WHERE { { ?s owl:sameAs ?q } UNION { ?s schema:hasPart ?q } }`,
+    wd: (values) => `SELECT ?項目 ?項目Label ?このデータでつながっている WHERE {
+  ?項目 wdt:P1435 wd:Q22127466 ; wdt:P17 wd:Q17 .
+  BIND(?項目 IN (${values.split(" ").join(", ")}) AS ?このデータでつながっている)
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "ja,en". }
+} ORDER BY ?項目Label`
+  },
+];
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function cellHtml(term) {
+  if (!term) return "";
+  const v = term.value;
+  if (term.termType === "NamedNode" || /^https?:\/\//.test(v)) {
+    let label = v.replace("https://ysh17-hub.github.io/whis-lod/resource/", "res:").replace("http://www.wikidata.org/entity/", "wd:");
+    return `<a href="${esc(v)}" target="_blank" rel="noopener">${esc(label)}</a>`;
+  }
+  return esc(v);
+}
+
+function renderTable(target, vars, rows) {
+  if (!rows.length) { target.innerHTML = '<p class="muted">結果はありませんでした。</p>'; return; }
+  let h = "<table><tr>" + vars.map((v) => `<th>${esc(v)}</th>`).join("") + "</tr>";
+  for (const r of rows) h += "<tr>" + vars.map((v) => `<td>${cellHtml(r[v])}</td>`).join("") + "</tr>";
+  target.innerHTML = h + "</table>";
+}
+
+let store;
+
+function runLocal() {
+  const q = $("query").value;
+  try {
+    const full = q.includes("PREFIX whis:") ? q : PREFIX + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" + q;
+    const res = store.query(full);
+    if (typeof res === "boolean") { $("result").innerHTML = `<p>${res ? "はい（true）" : "いいえ（false）"}</p>`; return; }
+    if (!Array.isArray(res)) { $("result").innerHTML = `<pre>${esc(String(res))}</pre>`; return; }
+    const vars = res.length ? [...res[0].keys()] : [];
+    const rows = res.map((m) => Object.fromEntries([...m.entries()]));
+    $("count").textContent = `${rows.length} 件`;
+    renderTable($("result"), vars, rows);
+  } catch (e) {
+    $("result").innerHTML = `<p class="err">エラー：${esc(e.message || e)}</p>`;
+  }
+}
+
+function wdQueryFor(i) {
+  const ex = WD_EXAMPLES[i];
+  const res = store.query(PREFIX + ex.local);
+  const values = res.map((m) => "wd:" + m.get("q").value.split("/").pop()).join(" ");
+  return ex.wd(values);
+}
+
+async function runWikidata() {
+  const i = +$("wdExamples").value;
+  const q = wdQueryFor(i);
+  $("wdResult").innerHTML = '<p class="muted">問い合わせ中…</p>';
+  try {
+    const r = await fetch("https://query.wikidata.org/sparql?format=json&query=" + encodeURIComponent(q),
+      { headers: { Accept: "application/sparql-results+json" } });
+    const j = await r.json();
+    const vars = j.head.vars;
+    const rows = j.results.bindings.map((b) => Object.fromEntries(vars.map((v) => [v, b[v] ? { value: b[v].value, termType: b[v].type === "uri" ? "NamedNode" : "Literal" } : null])));
+    $("wdCount").textContent = `${rows.length} 件`;
+    renderTable($("wdResult"), vars, rows);
+  } catch (e) {
+    $("wdResult").innerHTML = `<p class="err">Wikidata に問い合わせできませんでした：${esc(e.message || e)}<br>「Wikidata Query Service で開く」からも実行できます。</p>`;
+  }
+}
+
+function updateWdLink() {
+  const i = +$("wdExamples").value;
+  $("wdDesc").textContent = WD_EXAMPLES[i].desc;
+  $("wdOpen").href = "https://query.wikidata.org/#" + encodeURIComponent(wdQueryFor(i));
+}
+
+(async function () {
+  try {
+    await init();
+    store = new oxigraph.Store();
+    const ttl = await (await fetch("whis_japan.ttl")).text();
+    store.load(ttl, { format: "text/turtle", base_iri: BASE });
+    $("status").textContent = `読み込み完了：${store.size} 個の三つ組（トリプル）`;
+  } catch (e) {
+    $("status").innerHTML = `<span class="err">読み込みに失敗しました：${esc(e.message || e)}</span>`;
+    return;
+  }
+  EXAMPLES.forEach(([t], i) => $("examples").insertAdjacentHTML("beforeend", `<option value="${i}">${esc(t)}</option>`));
+  WD_EXAMPLES.forEach((ex, i) => $("wdExamples").insertAdjacentHTML("beforeend", `<option value="${i}">${esc(ex.title)}</option>`));
+  const setEx = () => { $("query").value = EXAMPLES[+$("examples").value][1]; runLocal(); };
+  $("examples").onchange = setEx;
+  $("run").onclick = runLocal;
+  $("wdExamples").onchange = () => { updateWdLink(); $("wdResult").innerHTML = ""; $("wdCount").textContent = ""; };
+  $("wdRun").onclick = runWikidata;
+  setEx();
+  updateWdLink();
+})();
+</script>
+</body>
+</html>

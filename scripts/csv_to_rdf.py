@@ -12,12 +12,17 @@
 
 方針:
 - owl:sameAs（Wikidataとの同一関係）は verified=1 の行だけに付ける。
+- 遺産の一部分（構成施設）だけが Wikidata にある場合は wikidata_related に QID を書き（複数は ; 区切り）、
+  schema:hasPart で結ぶ（同一ではないので sameAs にはしない）。
+- 水源の川・湖が Wikidata にあるときは water_source_river_qid に QID を書き（複数は ; 区切り）、
+  whis:waterSource で Wikidata の IRI に結ぶ。名前は whis:waterSourceName に必ず残す。
   （自動で候補を探しても、本人が確かめるまでは「同じもの」とは言わない）
 - 座標がない行も RDF には出す。GeoJSON（地図用）には座標がある行だけ出す。
 - 語彙は schema.org / GeoSPARQL / W3C Basic Geo / DCMI / DCAT を使い、
   足りない分だけ独自語彙 whis: を最小限で定義する。
 """
 import argparse
+import re
 import csv
 import json
 import sys
@@ -68,6 +73,11 @@ def parse_float(s):
         return None
 
 
+def split_qids(s):
+    """wikidata_related は「;」区切りで複数可。"""
+    return [q.strip() for q in (s or "").replace("；", ";").split(";") if q.strip()]
+
+
 def split_urls(s):
     """source_url は「 | 」区切りで複数可。"""
     return [u.strip() for u in (s or "").split("|") if u.strip()]
@@ -92,6 +102,14 @@ def validate(rows):
         y = r.get("registered_year", "")
         if not (y.isdigit() and 2014 <= int(y) <= 2100):
             problems.append(f"{rid}: registered_year が不正です（{y}）")
+        for q in split_qids(r.get("wikidata_related")):
+            if not re.fullmatch(r"Q\d+", q):
+                problems.append(f"{rid}: wikidata_related の形が正しくありません（{q}）")
+        for q in split_qids(r.get("water_source_river_qid")):
+            if not re.fullmatch(r"Q\d+", q):
+                problems.append(f"{rid}: water_source_river_qid の形が正しくありません（{q}）")
+        if r.get("wikidata_qid") and r.get("wikidata_qid") in split_qids(r.get("wikidata_related")):
+            problems.append(f"{rid}: 同じQIDが wikidata_qid と wikidata_related の両方にあります")
         if r.get("verified") == "1" and not r.get("wikidata_qid"):
             problems.append(f"{rid}: verified=1 なのに wikidata_qid が空です")
         by = r.get("built_year", "")
@@ -107,7 +125,19 @@ def validate(rows):
     return problems
 
 
-def build_graph(rows, base, pref_qids, dataset_meta):
+def load_optional_csv(path):
+    """data/images.csv や data/external_links.csv（なければ空）を id ごとにまとめて読む。"""
+    out = {}
+    if path and Path(path).exists():
+        with open(path, encoding="utf-8-sig") as f:
+            for r in csv.DictReader(f):
+                out.setdefault(r["id"], []).append(r)
+    return out
+
+
+def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None):
+    images = images or {}
+    extlinks = extlinks or {}
     base = base.rstrip("/") + "/"
     RES = Namespace(base + "resource/")
     WHIS = Namespace(base + "ontology#")
@@ -124,14 +154,17 @@ def build_graph(rows, base, pref_qids, dataset_meta):
     g.add((WHIS.HeritageIrrigationStructure, RDFS.label, Literal("World Heritage Irrigation Structure", lang="en")))
     for prop, ja, en, rng in [
         (WHIS.registeredYear, "登録年", "year of registration", XSD.gYear),
-        (WHIS.builtYear, "建設年（着工・完成のどちらかは note に記載）", "year built", XSD.gYear),
+        (WHIS.builtYear, "建設年（何の年かは builtYearBasis に記載）", "year built", XSD.gYear),
         (WHIS.facilityType, "施設の種類", "facility type", XSD.string),
-        (WHIS.waterSource, "水源の川", "water source (river)", None),
+        (WHIS.waterSource, "水源（川・湖など。Wikidataにあれば IRI）", "water source (river, lake, etc.)", None),
+        (WHIS.waterSourceName, "水源の名前（資料の表記）", "name of the water source as written in the sources", None),
         (WHIS.prefectureCode, "都道府県コード（ISO 3166-2:JP）", "prefecture code", XSD.string),
         (WHIS.irrigatedArea, "かんがい面積（ha）", "irrigated area (ha)", XSD.decimal),
         (WHIS.managedBy, "管理者", "managing organization", XSD.string),
         (WHIS.builtYearBasis, "建設年の根拠（着工・完成・供用開始など）", "basis of built year", XSD.string),
         (WHIS.representativePoint, "代表地点（座標を取る場所の名前）", "representative point name", XSD.string),
+        (WHIS.pointAddress, "代表地点の住所（国土地理院の逆ジオコーダで座標から求めた市区町村・大字）",
+         "address of the representative point (reverse-geocoded by GSI)", XSD.string),
     ]:
         g.add((prop, RDF.type, RDF.Property))
         g.add((prop, RDFS.label, Literal(ja, lang="ja")))
@@ -149,6 +182,22 @@ def build_graph(rows, base, pref_qids, dataset_meta):
     g.add((ds, DCTERMS.modified, Literal(dataset_meta["modified"], datatype=XSD.date)))
     for s in dataset_meta["sources"]:
         g.add((ds, DCTERMS.source, URIRef(s)))
+    g.add((ds, DCAT.landingPage, URIRef(base)))
+    g.add((ds, DCTERMS.spatial, WD["Q17"]))  # 日本
+    g.add((ds, DCTERMS.language, URIRef("http://id.loc.gov/vocabulary/iso639-1/ja")))
+    for kw in ["世界かんがい施設遺産", "World Heritage Irrigation Structures", "かんがい", "農業水利", "ICID"]:
+        g.add((ds, DCAT.keyword, Literal(kw, lang="en" if kw.isascii() else "ja")))
+    for fname, mtype, fmt in [("whis_japan.ttl", "text/turtle", "Turtle"),
+                              ("whis_japan.jsonld", "application/ld+json", "JSON-LD"),
+                              ("whis_japan.geojson", "application/geo+json", "GeoJSON"),
+                              ("whis_japan.csv", "text/csv", "CSV")]:
+        dist = URIRef(base + fname + "#distribution")
+        g.add((ds, DCAT.distribution, dist))
+        g.add((dist, RDF.type, DCAT.Distribution))
+        g.add((dist, DCAT.downloadURL, URIRef(base + fname)))
+        g.add((dist, DCAT.mediaType, URIRef("https://www.iana.org/assignments/media-types/" + mtype)))
+        g.add((dist, DCTERMS.format, Literal(fmt)))
+        g.add((dist, DCTERMS.license, URIRef(dataset_meta["license"])))
 
     for r in rows:
         s = RES[r["id"]]
@@ -180,14 +229,19 @@ def build_graph(rows, base, pref_qids, dataset_meta):
             g.add((s, WHIS.builtYearBasis, Literal(r["built_year_basis"], lang="ja")))
         if r.get("representative_point"):
             g.add((s, WHIS.representativePoint, Literal(r["representative_point"], lang="ja")))
+        if r.get("point_address"):
+            g.add((s, WHIS.pointAddress, Literal(r["point_address"], lang="ja")))
 
         # 種類・水源・管理者・面積
         if r.get("facility_type"):
             g.add((s, WHIS.facilityType, Literal(r["facility_type"], lang="ja")))
-        if r.get("water_source_river_qid"):
-            g.add((s, WHIS.waterSource, WD[r["water_source_river_qid"]]))
-        elif r.get("water_source_river"):
-            g.add((s, WHIS.waterSource, Literal(r["water_source_river"], lang="ja")))
+        river_qids = split_qids(r.get("water_source_river_qid"))
+        for q in river_qids:
+            g.add((s, WHIS.waterSource, WD[q]))
+        if r.get("water_source_river"):
+            g.add((s, WHIS.waterSourceName, Literal(r["water_source_river"], lang="ja")))
+            if not river_qids:
+                g.add((s, WHIS.waterSource, Literal(r["water_source_river"], lang="ja")))
         if r.get("managing_org"):
             g.add((s, WHIS.managedBy, Literal(r["managing_org"], lang="ja")))
         area = parse_float(r.get("irrigated_area_ha"))
@@ -207,10 +261,30 @@ def build_graph(rows, base, pref_qids, dataset_meta):
         # 外部リンク
         if r.get("verified") == "1" and r.get("wikidata_qid"):
             g.add((s, OWL.sameAs, WD[r["wikidata_qid"]]))
+        for q in split_qids(r.get("wikidata_related")):
+            g.add((s, SCHEMA.hasPart, WD[q]))
         if r.get("icid_page_url"):
             g.add((s, RDFS.seeAlso, URIRef(r["icid_page_url"])))
         for u in split_urls(r.get("source_url")):
             g.add((s, DCTERMS.source, URIRef(u)))
+        # 写真（Wikidata の P18 にある Wikimedia Commons の画像。作者とライセンスつき）
+        for im in images.get(r["id"], []):
+            img = URIRef(im["file_page"])
+            g.add((s, SCHEMA.image, img))
+            g.add((img, RDF.type, SCHEMA.ImageObject))
+            g.add((img, SCHEMA.contentUrl, URIRef(im["image_url"])))
+            g.add((img, SCHEMA.name, Literal(im["file"])))
+            if im.get("artist"):
+                g.add((img, SCHEMA.creditText, Literal(im["artist"])))
+            if im.get("license_url"):
+                g.add((img, SCHEMA.license, URIRef(im["license_url"])))
+            elif im.get("license"):
+                g.add((img, SCHEMA.license, Literal(im["license"])))
+            g.add((img, SCHEMA.about, WD[im["qid"]]))
+        # 外部データベース：遺産と「同じ施設」の Wikidata 項目にある外部ID（GeoNames、OpenStreetMap など）
+        for ex in extlinks.get(r["id"], []):
+            if ex.get("relation") == "same":
+                g.add((s, RDFS.seeAlso, URIRef(ex["url"])))
         if r.get("note"):
             g.add((s, RDFS.comment, Literal(r["note"], lang="ja")))
     return g
@@ -225,7 +299,8 @@ def build_geojson(rows):
         props = {k: r.get(k, "") for k in
                  ["id", "name_ja", "name_en", "prefecture", "municipality", "registered_year",
                   "built_year", "built_year_basis", "facility_type", "water_source_river", "managing_org",
-                  "irrigated_area_ha", "representative_point", "wikidata_qid", "verified", "source_url", "note"]}
+                  "irrigated_area_ha", "representative_point", "point_address", "wikidata_qid", "wikidata_related",
+                  "water_source_river_qid", "verified", "source_url", "note"]}
         feats.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [lon, lat]},
                       "properties": props})
     return {"type": "FeatureCollection", "features": feats}
@@ -240,9 +315,11 @@ def main(argv=None):
     ap.add_argument("--out-geojson", required=True)
     ap.add_argument("--creator", default="【氏名またはハンドルネーム】")
     ap.add_argument("--modified", default="2026-12-31")
+    ap.add_argument("--images", default=None)
+    ap.add_argument("--extlinks", default=None)
     a = ap.parse_args(argv)
 
-    with open(a.csv, encoding="utf-8") as f:
+    with open(a.csv, encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
 
     problems = validate(rows)
@@ -260,7 +337,8 @@ def main(argv=None):
         "modified": a.modified,
         "sources": sorted({u for r in rows for u in split_urls(r.get("source_url"))}),
     }
-    g = build_graph(rows, a.base, load_pref_qids(a.prefqid), meta)
+    g = build_graph(rows, a.base, load_pref_qids(a.prefqid), meta,
+                    load_optional_csv(a.images), load_optional_csv(a.extlinks))
     Path(a.out_ttl).parent.mkdir(parents=True, exist_ok=True)
     g.serialize(destination=a.out_ttl, format="turtle")
     Path(a.out_geojson).parent.mkdir(parents=True, exist_ok=True)

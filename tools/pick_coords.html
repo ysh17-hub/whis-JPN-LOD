@@ -19,6 +19,9 @@
   input[type=text] { width: 95%; padding: 3px; }
   .cand { border-top: 1px dashed #ccc; padding-top: 4px; margin-top: 4px; }
   #unsaved { color: #b00; font-weight: bold; }
+  .hint { background: #fff7e0; border: 1px solid #e0b040; padding: 6px; margin: 6px 0; border-radius: 6px; }
+  .hint .trap { color: #b00; }
+  .warn { color: #b00; font-size: 12px; }
 </style>
 </head>
 <body>
@@ -28,6 +31,7 @@
     <b>① 読み込む</b><br>
     whis_japan.csv（必須）：<input type="file" id="fMain" accept=".csv"><br>
     wikidata_candidates.csv（あれば）：<input type="file" id="fCand" accept=".csv"><br>
+    手順4_目安データ.csv（あれば）：<input type="file" id="fHint" accept=".csv"><br>
     <span id="restoreArea"></span>
   </div>
   <div class="box">
@@ -79,8 +83,8 @@ photo.addTo(map);
 L.control.layers({ "航空写真": photo, "標準地図（地名が見える）": std }).addTo(map);
 const layer = L.layerGroup().addTo(map);
 
-let HEAD = [], DATA = [], CANDS = [], cur = null, unsaved = 0;
-const SAVE_KEY = "whis_pick_autosave_v2";
+let HEAD = [], DATA = [], CANDS = [], HINTS = {}, cur = null, unsaved = 0;
+const SAVE_KEY = "whis_pick_autosave_v3";  // v2 の古い自動保存は使わない（古いデータに戻ってしまうため）
 
 function autosave() {
   try { localStorage.setItem(SAVE_KEY, JSON.stringify({ HEAD, DATA, at: new Date().toLocaleString("ja-JP") })); } catch (e) { /* 保存できない環境では何もしない */ }
@@ -90,12 +94,12 @@ function showRestore() {
   try { s = JSON.parse(localStorage.getItem(SAVE_KEY) || "null"); } catch (e) { s = null; }
   const el = document.getElementById("restoreArea");
   if (s && s.DATA && s.DATA.length) {
-    el.innerHTML = `<button id="restore">自動保存から再開（${escapeHtml(s.at)}）</button><br><span class="muted">ブラウザを閉じてしまったときに使います</span>`;
+    el.innerHTML = `<button id="restore">自動保存から再開（${escapeHtml(s.at)}）</button><br><span class="muted">作業の途中でブラウザを閉じてしまったときだけ使います。<b>ふだんは data/whis_japan.csv を読み込んでください</b>（自動保存はその時点の古い内容に戻ります）</span>`;
     document.getElementById("restore").onclick = () => { HEAD = s.HEAD; DATA = s.DATA; ready(); };
   }
 }
 function ensureCols() {
-  ["lat", "lon", "wikidata_qid", "verified", "wikidata_checked", "representative_point"].forEach(h => { if (!HEAD.includes(h)) HEAD.push(h); });
+  ["lat", "lon", "wikidata_qid", "wikidata_related", "verified", "wikidata_checked", "representative_point"].forEach(h => { if (!HEAD.includes(h)) HEAD.push(h); });
 }
 function ready() {
   ensureCols(); document.getElementById("save").disabled = false; cur = null; unsaved = 0; renderList(); updUnsaved();
@@ -116,46 +120,78 @@ function renderList() {
   document.querySelectorAll(".row").forEach(el => el.onclick = () => select(+el.dataset.i));
 }
 
-function select(i) {
+function select(i, opts = {}) {
   cur = i; const r = DATA[i]; layer.clearLayers();
   const cs = CANDS.filter(c => c.id === r.id);
   const srcs = (r.source_url || "").split("|").map(u => u.trim()).filter(Boolean);
-  const wdState = r.verified === "1" ? `<span class="ok">対応あり：${escapeHtml(r.wikidata_qid)}</span>`
-    : r.wikidata_checked === "1" ? `<span class="ok">確認済み：Wikidataに該当なし</span>` : `<span class="ng">未確認</span>`;
+  const rel = (r.wikidata_related || "").split(";").map(x => x.trim()).filter(Boolean);
+  const wdState = (r.verified === "1" ? `<span class="ok">同じ施設：${escapeHtml(r.wikidata_qid)}</span>`
+    : r.wikidata_checked === "1" ? `<span class="ok">確認済み：施設全体はWikidataになし</span>` : `<span class="ng">未確認</span>`)
+    + (rel.length ? `<br><span class="ok">構成施設として記録：${rel.map(escapeHtml).join("、")}</span>` : "");
+  const hn = HINTS[r.id];
+  const qDefault = hn && hn.search ? hn.search : (r.prefecture + r.municipality.split(/[、・]/)[0]).replace(/他$/, "");
   let html = `<b>${escapeHtml(r.name_ja)}</b>　<span class="muted">${escapeHtml(r.id)}</span><br>
-    <span class="muted">${escapeHtml(r.prefecture)} ${escapeHtml(r.municipality)}</span><br>
+    <span class="muted">${escapeHtml(r.prefecture)} ${escapeHtml(r.municipality)}（遺産全体の所在地。クリックする場所の住所とは限りません）</span><br>`;
+  if (hn) {
+    const hs = (hn.sources || "").split("|").map(u => u.trim()).filter(Boolean);
+    html += `<div class="hint" id="hintBox"><b>目安（手順4_目安データ）</b><br>
+      ${hn.address ? `<b>場所</b>：${escapeHtml(hn.address)}<br>` : ""}
+      ${hn.look ? `<b>見分け方</b>：${escapeHtml(hn.look)}<br>` : ""}
+      ${hn.trap ? `<span class="trap"><b>間違えやすい</b>：${escapeHtml(hn.trap)}</span><br>` : ""}
+      ${hn.click ? `<b>クリックする所</b>：${escapeHtml(hn.click)}<br>` : ""}
+      ${hn.caution ? `<span class="warn"><b>注意</b>：${escapeHtml(hn.caution)}</span><br>` : ""}
+      ${hn.rp_suggest && hn.rp_suggest !== r.representative_point ? `<b>代表地点の提案</b>：${escapeHtml(hn.rp_suggest)} <button id="useRp">この名前を代表地点に入れる</button><br>` : ""}
+      <span class="muted">資料：${hs.map((u, k) => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener">${k + 1}</a>`).join(" ")}</span></div>`;
+  }
+  html += `
     代表地点：<input type="text" id="rp" value="${escapeHtml(r.representative_point)}" placeholder="例：○○頭首工、○○池（取水口・堰・池など）"><br>
     座標：<b>${r.lat ? escapeHtml(r.lat + ", " + r.lon) : "なし"}</b>
     <button id="clr">座標を消す</button><br>
     <span class="muted">航空写真で場所を確かめて、地図をクリックすると記録されます。</span><br>
-    緯度経度／地理院地図URLを貼り付け：<input type="text" id="paste" placeholder="38.5772,140.9553 か 地理院地図のURL" style="width:60%"><button id="pasteBtn">設定</button><br>
-    地名で移動：<input type="text" id="q" value="${escapeHtml((r.prefecture + r.municipality.split(/[、・]/)[0]).replace(/他$/, ""))}" style="width:60%"><button id="qBtn">移動</button>
+    緯度経度／地理院地図URLを貼り付け：<input type="text" id="paste" placeholder="38.5772,140.9553 か 地理院地図のURL" style="width:60%"><br>
+    <button id="goBtn">移動だけ（座標は入れない）</button><button id="pasteBtn">この座標を記録</button><br>
+    地名で移動：<input type="text" id="q" value="${escapeHtml(qDefault)}" style="width:60%"><button id="qBtn">移動</button>
     <span id="qMsg" class="muted"></span><br>
     <a href="#" id="gsiLink" target="_blank" rel="noopener">いまの場所を地理院地図で開く</a><br>
-    <div class="cand"><b>出典</b>（施設の位置図が載っていることがあります）<br>${srcs.map(u => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener">${escapeHtml(u.replace(/^https?:\/\//, "").slice(0, 60))}</a>`).join("<br>")}</div>
+    <div class="cand"><b>出典</b><br>${srcs.slice().sort((a, b) => (/\/ICID\/his\/attach\/pdf\//.test(b) ? 1 : 0) - (/\/ICID\/his\/attach\/pdf\//.test(a) ? 1 : 0)).map(u =>
+      /\/ICID\/his\/attach\/pdf\//.test(u)
+        ? `<a href="${escapeHtml(u)}" target="_blank" rel="noopener"><b>農水省の施設概要PDF（写真・位置図）</b></a>`
+        : `<a href="${escapeHtml(u)}" target="_blank" rel="noopener">${escapeHtml(u.replace(/^https?:\/\//, "").slice(0, 60))}</a>`).join("<br>")}</div>
     <div class="cand"><b>Wikidata</b>：${wdState}<br>`;
   if (cs.length) {
     html += cs.map((c, k) =>
       `<div>・<a href="${escapeHtml(c.url)}" target="_blank" rel="noopener">${escapeHtml(c.qid)}</a>
         ${escapeHtml(c.label)} <span class="muted">${escapeHtml(c.description)}（検索語：${escapeHtml(c.search_term)}）${c.lat ? "" : "座標なし"}</span><br>
         ${c.lat ? `<button data-k="${k}" class="useC">この座標へ移動</button>` : ""}
-        <button data-k="${k}" class="verC">同じ施設と確認</button></div>`).join("");
+        <button data-k="${k}" class="verC">同じ施設と確認</button>
+        <button data-k="${k}" class="partC">構成施設として記録</button></div>`).join("");
+    html += `<span class="warn">オレンジの丸はWikidataの座標です。水路の項目では市街地など取水口でない場所のことがあります。上の「見分け方」と航空写真で確かめてください。</span><br>`;
   } else {
     html += `<span class="muted">候補ファイルを読み込んでいないか、候補がありません。</span><br>`;
   }
-  html += `<button id="noWd">Wikidataに該当なし（確認済み）</button> <button id="resetWd">Wikidataの確認を取り消す</button></div>
+  html += `<button id="noWd">施設全体はWikidataになし（確認済み）</button> <button id="resetWd">Wikidataの確認を全部取り消す</button></div>
     <button id="next" class="main">次の未入力の施設へ ▶</button>`;
   document.getElementById("detail").innerHTML = html;
 
   document.getElementById("rp").onchange = e => { r.representative_point = e.target.value.trim(); changed(false); };
   document.getElementById("clr").onclick = () => { r.lat = r.lon = ""; changed(); };
-  document.getElementById("pasteBtn").onclick = () => {
+  const readPaste = () => {
     const v = document.getElementById("paste").value.trim();
     const u = v.match(/#\d+\/(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)/);   // 地理院地図のURL（#ズーム/緯度/経度/）
     const m = u || v.match(/(-?\d+(?:\.\d+)?)\s*[,，\s]\s*(-?\d+(?:\.\d+)?)/);
-    if (!m) { alert("「38.5772,140.9553」（緯度,経度の順）か、地理院地図のURLを貼り付けてください"); return; }
-    setLL(+m[1], +m[2]);
+    if (!m) { alert("「38.5772,140.9553」（緯度,経度の順）か、地理院地図のURLを貼り付けてください"); return null; }
+    const lat = +m[1], lon = +m[2];
+    if (lat < 20 || lat > 46 || lon < 122 || lon > 154) { alert("日本の範囲外の座標です。緯度,経度の順になっているか確かめてください"); return null; }
+    return [lat, lon];
   };
+  document.getElementById("pasteBtn").onclick = () => { const ll = readPaste(); if (ll) setLL(ll[0], ll[1]); };
+  document.getElementById("goBtn").onclick = () => {
+    const ll = readPaste(); if (!ll) return;
+    map.setView(ll, 17);
+    L.circleMarker(ll, { radius: 10, color: "#7a3cff", weight: 3, dashArray: "4" }).bindTooltip("貼り付けた地点（まだ記録していません）").addTo(layer);
+  };
+  const ub = document.getElementById("useRp");
+  if (ub) ub.onclick = () => { r.representative_point = hn.rp_suggest; changed(); };
   document.getElementById("qBtn").onclick = () => searchPlace(document.getElementById("q").value);
   const gl = document.getElementById("gsiLink");
   gl.onclick = () => { const c = map.getCenter(); gl.href = `https://maps.gsi.go.jp/#${map.getZoom()}/${c.lat.toFixed(6)}/${c.lng.toFixed(6)}/`; };
@@ -166,12 +202,19 @@ function select(i) {
       r.wikidata_qid = c.qid; r.verified = "1"; r.wikidata_checked = "1"; changed();
     }
   });
+  document.querySelectorAll(".partC").forEach(b => b.onclick = () => {
+    const c = cs[+b.dataset.k];
+    if (rel.includes(c.qid)) { alert("すでに記録しています"); return; }
+    if (confirm(`${c.qid}（${c.label}）を「${r.name_ja}」の一部分（構成施設）として記録しますか？\n例：用水群の中の一つの堰、用水の途中の水路橋など。`)) {
+      r.wikidata_related = rel.concat([c.qid]).join(";"); r.wikidata_checked = "1"; changed();
+    }
+  });
   document.getElementById("noWd").onclick = () => {
-    if (confirm(`「${r.name_ja}」はWikidataに該当する項目がない、と記録しますか？`)) {
+    if (confirm(`「${r.name_ja}」の施設全体にあたる項目はWikidataにない、と記録しますか？\n（構成施設として記録したものは残ります）`)) {
       r.wikidata_qid = ""; r.verified = "0"; r.wikidata_checked = "1"; changed();
     }
   };
-  document.getElementById("resetWd").onclick = () => { r.wikidata_qid = ""; r.verified = "0"; r.wikidata_checked = ""; changed(); };
+  document.getElementById("resetWd").onclick = () => { r.wikidata_qid = ""; r.wikidata_related = ""; r.verified = "0"; r.wikidata_checked = ""; changed(); };
   document.getElementById("next").onclick = () => {
     const n = DATA.findIndex((x, j) => j > cur && (!x.lat || (x.wikidata_checked !== "1" && x.verified !== "1")));
     const m = n >= 0 ? n : DATA.findIndex(x => !x.lat || (x.wikidata_checked !== "1" && x.verified !== "1"));
@@ -180,8 +223,9 @@ function select(i) {
 
   cs.filter(c => c.lat).forEach(c => L.circleMarker([+c.lat, +c.lon], { radius: 8, color: "#ff6600", weight: 3 })
     .bindTooltip(`候補 ${c.qid} ${c.label}`).addTo(layer));
-  if (r.lat) { L.marker([+r.lat, +r.lon]).bindTooltip("いまの座標").addTo(layer); map.setView([+r.lat, +r.lon], 16); }
-  else if (cs.some(c => c.lat)) { const c = cs.find(c => c.lat); map.setView([+c.lat, +c.lon], 14); }
+  if (r.lat) { L.marker([+r.lat, +r.lon]).bindTooltip("いまの座標").addTo(layer); if (!opts.keepView) map.setView([+r.lat, +r.lon], 16); }
+  else if (hn && hn.search && !opts.keepView) { map.setView([36.5, 137.5], 5); searchPlace(hn.search); }
+  else if (!hn && cs.some(c => c.lat)) { const c = cs.find(c => c.lat); map.setView([+c.lat, +c.lon], 14); }
   renderList();
 }
 
@@ -190,11 +234,11 @@ async function searchPlace(q) {
   try {
     const res = await fetch("https://msearch.gsi.go.jp/address-search/AddressSearch?q=" + encodeURIComponent(q));
     const js = await res.json();
-    if (!js.length) { msg.textContent = "見つかりませんでした"; return; }
+    if (!js.length) { msg.textContent = "見つかりませんでした。地図を手で動かすか、緯度経度を貼り付けて「移動だけ」を押してください"; return; }
     const [lon, lat] = js[0].geometry.coordinates;
-    map.setView([lat, lon], 14); msg.textContent = js[0].properties.title || "";
+    map.setView([lat, lon], 15); msg.textContent = "移動しました：" + (js[0].properties.title || "") + "（地区の中心付近です。ここから見分け方で探します）";
   } catch (e) {
-    msg.textContent = "検索できませんでした。地図を手で動かすか、地理院地図で探して緯度経度を貼り付けてください";
+    msg.textContent = "検索できませんでした。地図を手で動かすか、緯度経度を貼り付けて「移動だけ」を押してください";
   }
 }
 function setLL(lat, lon) {
@@ -202,13 +246,17 @@ function setLL(lat, lon) {
   if (lat < 20 || lat > 46 || lon < 122 || lon > 154) { alert("日本の範囲外の座標です。緯度,経度の順になっているか確かめてください"); return; }
   DATA[cur].lat = lat.toFixed(6); DATA[cur].lon = lon.toFixed(6); changed();
 }
-function changed(redraw = true) { unsaved++; updUnsaved(); autosave(); if (redraw) select(cur); else renderList(); }
+function changed(redraw = true) { unsaved++; updUnsaved(); autosave(); if (redraw) select(cur, { keepView: true }); else renderList(); }
 map.on("click", e => setLL(e.latlng.lat, e.latlng.lng));
 
 document.getElementById("fMain").onchange = async e => {
   const p = parseCSV(await e.target.files[0].text()); HEAD = p.head; DATA = p.data; ready();
 };
 document.getElementById("fCand").onchange = async e => { CANDS = parseCSV(await e.target.files[0].text()).data; if (cur !== null) select(cur); };
+document.getElementById("fHint").onchange = async e => {
+  HINTS = Object.fromEntries(parseCSV(await e.target.files[0].text()).data.map(h => [h.id, h]));
+  if (cur !== null) select(cur);
+};
 document.getElementById("save").onclick = () => {
   const blob = new Blob([toCSV(HEAD, DATA)], { type: "text/csv" });
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "whis_japan.csv"; a.click();
@@ -217,7 +265,7 @@ document.getElementById("save").onclick = () => {
 window.addEventListener("beforeunload", e => { if (unsaved) { e.preventDefault(); e.returnValue = ""; } });
 showRestore();
 // 自動テスト用
-window.__pick = { parseCSV, toCSV, get DATA() { return DATA; }, get HEAD() { return HEAD; }, setLL, select };
+window.__pick = { parseCSV, toCSV, get DATA() { return DATA; }, get HEAD() { return HEAD; }, get HINTS() { return HINTS; }, setLL, select, map };
 </script>
 </body>
 </html>

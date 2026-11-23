@@ -64,10 +64,25 @@ def counts(rows):
         "N_CHECKED": sum(1 for r in rows if r.get("wikidata_checked") == "1" or r.get("verified") == "1"),
     }
     c["N_NO_WD"] = sum(1 for r in rows if r.get("wikidata_checked") == "1" and r.get("verified") != "1")
+    c["N_RELATED"] = sum(1 for r in rows if (r.get("wikidata_related") or "").strip())
+    c["N_RIVER_QID"] = sum(1 for r in rows if (r.get("water_source_river_qid") or "").strip())
+    c["N_RIVER_DISTINCT"] = len({q.strip() for r in rows for q in (r.get("water_source_river_qid") or "").split(";") if q.strip()})
     for k in ["facility_type", "water_source_river", "representative_point", "built_year",
-              "managing_org", "name_en", "irrigated_area_ha"]:
+              "managing_org", "name_en", "irrigated_area_ha", "point_address"]:
         c["N_" + k] = filled(k)
     c["N_SOURCES"] = len({u.strip() for r in rows for u in (r.get("source_url") or "").split("|") if u.strip()})
+    # 写真と外部データベース（data/images.csv・data/external_links.csv。なければ 0）
+    imgs, exts = [], []
+    if (ROOT / "data" / "images.csv").exists():
+        _, imgs = read_rows(ROOT / "data" / "images.csv")
+    if (ROOT / "data" / "external_links.csv").exists():
+        _, exts = read_rows(ROOT / "data" / "external_links.csv")
+    c["N_PHOTO"] = len(imgs)
+    c["N_PHOTO_FAC"] = len({r["id"] for r in imgs})
+    c["N_EXT"] = len(exts)
+    c["N_EXT_FAC"] = len({r["id"] for r in exts})
+    c["N_SEEALSO_FAC"] = len({r["id"] for r in exts if r.get("relation") == "same"})
+    c["N_EXT_SOURCES"] = len({r["source"] for r in exts})
     return c
 
 
@@ -133,6 +148,20 @@ def cmd_import():
         sys.exit(1)
     c_old, c_new = counts(r_old), counts(r_new)
     changed = sum(1 for a, b in zip(r_old, r_new) if any(a.get(k, "") != b.get(k, "") for k in h_new))
+    # 大事な列の変更を1件ずつ見せる（古いファイルや自動保存で、確認済みのデータが戻ってしまうのを防ぐ）
+    watch = ["lat", "lon", "wikidata_qid", "wikidata_related", "water_source_river_qid", "verified"]
+    erased = 0
+    for a, b in zip(r_old, r_new):
+        for k in watch:
+            va, vb = a.get(k, ""), b.get(k, "")
+            if k in h_new and va != vb:
+                mark = ""
+                if va and not vb:
+                    mark = "  ← 値が消えます"
+                    erased += 1
+                print(f"  {a['id']} {a['name_ja']}｜{k}：{va or '（空）'} → {vb or '（空）'}{mark}")
+    if erased:
+        print(f"※ 今のデータにある値が {erased} か所で空になります。古いファイルや自動保存を読み込んでいないか確認してください。")
     print(f"変更のある行：{changed} 行")
     print(f"座標あり：{c_old['N_COORDS']} → {c_new['N_COORDS']} ／ Wikidata確認済み：{c_old['N_CHECKED']} → {c_new['N_CHECKED']}")
     if ask("取り込みますか？（y / n）", "y").lower() != "y":
@@ -147,6 +176,28 @@ def cmd_import():
 
 
 # ---------- build ----------
+def run_shacl(docs, today):
+    """docs/whis_japan.ttl が shapes の形に合っているかを pyshacl で確かめる。入っていなければ飛ばす。"""
+    try:
+        import pyshacl
+    except ImportError:
+        print("（pyshacl が入っていないので、SHACL のチェックは飛ばしました。入れるなら: python3 -m pip install pyshacl）")
+        return None
+    from rdflib import Graph
+    if not (docs / "shapes.ttl").exists():
+        return None
+    data = Graph().parse(docs / "whis_japan.ttl", format="turtle")
+    shapes = Graph().parse(docs / "shapes.ttl", format="turtle")
+    conforms, _, text = pyshacl.validate(data, shacl_graph=shapes, inference="none")
+    (docs / "shacl_report.txt").write_text(
+        f"SHACL validation ({today})\nshapes: shapes.ttl\ndata: whis_japan.ttl\nconforms: {conforms}\n\n{text}",
+        encoding="utf-8")
+    print(f"SHACL のチェック：{'合格（形の誤りなし）' if conforms else '不合格'} → docs/shacl_report.txt")
+    if not conforms:
+        print(text)
+    return conforms
+
+
 def fill(template, values):
     s = template
     for k, v in values.items():
@@ -175,8 +226,12 @@ def cmd_build():
     build_site.main(["--base", base_url(cfg), "--creator", cfg["creator"], "--modified", today,
                      "--csv", str(DATA), "--prefqid", str(ROOT / "data" / "prefecture_qid.csv"),
                      "--docs", str(ROOT / "docs")])
+    conforms = run_shacl(ROOT / "docs", today)
+    if conforms is False:
+        print("SHACL のチェックで誤りが見つかりました。直してから、もう一度 build してください。")
+        sys.exit(1)
     c = counts(rows)
-    values = dict(c, BASE=base_url(cfg), REPO_URL=repo_url(cfg), CREATOR=cfg["creator"], TODAY=today,
+    values = dict(c, BASE=base_url(cfg), SHACL=("合格" if conforms else "未実施"), REPO_URL=repo_url(cfg), CREATOR=cfg["creator"], TODAY=today,
                   YEAR=dt.date.today().year,
                   CREATOR_LINE=cfg["creator"] + (f"（{cfg['affiliation']}）" if cfg.get("affiliation") else ""),
                   AI_NOTE=("\n作成にあたり、資料の探索とプログラムの作成に生成AIを補助として使いました。"
@@ -186,10 +241,12 @@ def cmd_build():
         (ROOT / name).write_text(fill(t, values), encoding="utf-8")
     print(f"\nREADME.md と LICENSE を作りました（作成者：{cfg['creator']}）")
     print(f"座標あり {c['N_COORDS']}/{c['N_ROWS']}、Wikidata 確認 {c['N_CHECKED']}/{c['N_ROWS']}"
-          f"（対応あり {c['N_VERIFIED']}、なし {c['N_NO_WD']}）")
+          f"（対応あり {c['N_VERIFIED']}、なし {c['N_NO_WD']}、構成施設のリンクあり {c['N_RELATED']}）")
+    print(f"水源を Wikidata につないだ施設 {c['N_RIVER_QID']}（川・湖 {c['N_RIVER_DISTINCT']} 件）")
+    print(f"写真 {c['N_PHOTO']} 枚（{c['N_PHOTO_FAC']} 施設）、外部データベース・記事へのリンク {c['N_EXT']} 件（{c['N_EXT_FAC']} 施設）")
     print("\n公開後に開いて確認するURL：")
     b = base_url(cfg)
-    for u in [b, b + "resource/WHIS-JP-026", b + "whis_japan.ttl", b + "ontology.html", repo_url(cfg)]:
+    for u in [b, b + "resource/WHIS-JP-026", b + "whis_japan.ttl", b + "sparql.html", b + "ontology.html", repo_url(cfg)]:
         print("  ", u)
 
 

@@ -28,8 +28,19 @@
   #msg { color: #b00; font-size: 13px; }
   .legend { background: #fff; padding: 6px 8px; font-size: 12px; line-height: 1.5; border-radius: 4px; }
   .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  #about { font-size: 13px; color: #333; margin: 0 0 6px; }
+  #about a { margin-left: 6px; }
+  .pimg { display: block; width: 240px; height: 150px; object-fit: cover; border-radius: 4px; margin: 4px 0 2px; cursor: zoom-in; }
+  .pcap { font-size: 11px; color: #555; }
+  .cam { font-size: 11px; color: #2b6cb0; margin-left: 4px; }
+  #lb { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.85); z-index: 10000; align-items: center; justify-content: center; }
+  #lb > div { max-width: 92vw; max-height: 92vh; text-align: center; color: #fff; font-size: 13px; }
+  #lb img { max-width: 92vw; max-height: 78vh; }
+  #lb a { color: #9cf; }
+  #lb button { font-size: 14px; padding: 4px 14px; }
   footer { font-size: 12px; padding: 6px 14px; border-top: 1px solid #ddd; color: #444; }
   footer a { margin-right: 10px; }
+  @media (max-width: 800px) { .pimg { width: 200px; height: 110px; } }
   @media (max-width: 800px) { #main { grid-template-columns: 1fr; grid-template-rows: 55vh auto; } #side { border-left: 0; } }
 </style>
 </head>
@@ -37,6 +48,8 @@
 <div id="app">
   <header>
     <h1>世界かんがい施設遺産（日本）— Linked Open Data マップ</h1>
+    <p id="about">日本の世界かんがい施設遺産を、出典つきの Linked Open Data にしました。<span id="stats"></span>
+      <a href="sparql.html">SPARQLで調べる</a><a href="ontology.html">語彙</a><a href="https://github.com/ysh17-hub/whis-lod">GitHub</a></p>
     <div id="controls">
       <label>登録年 <input id="year" type="range" min="2014" max="2026" value="2026" step="1"> <b id="yearLabel">2026</b> 年まで</label>
       <label><input id="play" type="checkbox"> 2014年から順に再生</label>
@@ -56,12 +69,13 @@
     </div>
   </div>
   <footer>
-    データ: <a href="whis_japan.ttl">Turtle</a><a href="whis_japan.jsonld">JSON-LD</a><a href="whis_japan.geojson">GeoJSON</a><a href="whis_japan.csv">CSV</a><a href="ontology.html">語彙</a>
+    データ: <a href="whis_japan.ttl">Turtle</a><a href="whis_japan.jsonld">JSON-LD</a><a href="whis_japan.geojson">GeoJSON</a><a href="whis_japan.csv">CSV</a><a href="ontology.html">語彙</a><a href="sparql.html">SPARQLで調べる</a><a href="shapes.ttl">SHACL</a>
     ｜ライセンス <a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a>
     ｜地図: <a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>
     ｜建設年・面積は出典に書かれた範囲のみ（不明・資料で異なるものは空欄）
   </footer>
 </div>
+<div id="lb" onclick="if(event.target===this)this.style.display='none'"><div><img id="lbimg" alt=""><p id="lbcap"></p><button onclick="document.getElementById('lb').style.display='none'">閉じる</button></div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
   const COLORS = { "水路": "#2b6cb0", "用水群": "#2f855a", "ため池": "#c05621", "堰": "#6b46c1", "揚水機場": "#b83280" };
@@ -76,9 +90,12 @@
     return d;
   };
   legend.addTo(map);
+  // 写真つきの吹き出しが凡例の下に隠れないよう、吹き出しを開いている間は凡例を隠す
+  map.on('popupopen', () => { legend.getContainer().style.display = 'none'; });
+  map.on('popupclose', () => { legend.getContainer().style.display = ''; });
   const layer = L.layerGroup().addTo(map);
 
-  let ROWS = [], sortKey = 'registered_year', sortAsc = true, timer = null;
+  let ROWS = [], IMGS = {}, sortKey = 'registered_year', sortAsc = true, timer = null;
 
   function escapeHtml(s) {
     return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -99,17 +116,39 @@
     return rows.filter(r => r.length > 1).map(r => Object.fromEntries(head.map((h, i) => [h, r[i] ?? ''])));
   }
 
+  function openImg(a) {
+    const d = a.dataset;
+    document.getElementById('lbimg').src = d.big;
+    document.getElementById('lbimg').alt = d.alt;
+    document.getElementById('lbcap').innerHTML = d.cap;
+    document.getElementById('lb').style.display = 'flex';
+    return false;
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lb').style.display = 'none'; });
+  function photoHtml(p) {
+    const im = (IMGS[p.id] || [])[0];
+    if (!im) return '';
+    const lic = im.license_url ? `<a href="${escapeHtml(im.license_url)}" target="_blank" rel="noopener">${escapeHtml(im.license)}</a>` : escapeHtml(im.license);
+    const who = im.relation === 'same' ? '' : `構成施設「${escapeHtml(im.label)}」 `;
+    const cap = `${who}撮影：${escapeHtml(im.artist)}／${lic}／<a href="${escapeHtml(im.file_page)}" target="_blank" rel="noopener">Wikimedia Commons</a>`;
+    const more = IMGS[p.id].length > 1 ? `（ほか${IMGS[p.id].length - 1}枚は詳しいページに）` : '';
+    return `<a href="${escapeHtml(im.file_page)}" onclick="return openImg(this)" data-big="${escapeHtml(im.image_url)}?width=1280" ` +
+      `data-alt="${escapeHtml(im.label)}" data-cap="${escapeHtml(cap)}"><img class="pimg" src="${escapeHtml(im.image_url)}?width=500" alt="${escapeHtml(im.label)}の写真" loading="lazy"></a>` +
+      `<div class="pcap">${cap}${more}</div>`;
+  }
   function popup(p) {
     const wd = p.verified === '1' && p.wikidata_qid
       ? `<a href="https://www.wikidata.org/wiki/${escapeHtml(p.wikidata_qid)}" target="_blank" rel="noopener">${escapeHtml(p.wikidata_qid)}</a>` : '—';
-    return `<b>${escapeHtml(p.name_ja)}</b>${p.name_en ? '<br><i>' + escapeHtml(p.name_en) + '</i>' : ''}<br>` +
+    const parts = (p.wikidata_related || '').split(';').filter(Boolean)
+      .map(q => `<a href="https://www.wikidata.org/wiki/${escapeHtml(q)}" target="_blank" rel="noopener">${escapeHtml(q)}</a>`).join('、');
+    return photoHtml(p) + `<b>${escapeHtml(p.name_ja)}</b>${p.name_en ? '<br><i>' + escapeHtml(p.name_en) + '</i>' : ''}<br>` +
       `${escapeHtml(p.prefecture)} ${escapeHtml(p.municipality)}<br>登録: ${escapeHtml(p.registered_year)}年` +
       (p.built_year ? `<br>建設: ${escapeHtml(p.built_year)}年（${escapeHtml(p.built_year_basis)}）` : '') +
       (p.facility_type ? `<br>種類: ${escapeHtml(p.facility_type)}` : '') +
       (p.water_source_river ? `<br>水源: ${escapeHtml(p.water_source_river)}` : '') +
       (p.managing_org ? `<br>管理: ${escapeHtml(p.managing_org)}` : '') +
       (p.irrigated_area_ha ? `<br>かんがい面積: 約${escapeHtml(p.irrigated_area_ha)}ha` : '') +
-      `<br>Wikidata: ${wd}<br><a href="resource/${escapeHtml(p.id)}.html">詳しく（出典つき）</a>`;
+      `<br>Wikidata: ${wd}` + (parts ? `<br>構成施設: ${parts}` : '') + `<br><a href="resource/${escapeHtml(p.id)}.html">詳しく（出典つき）</a>`;
   }
 
   function render() {
@@ -133,7 +172,7 @@
       return sortAsc ? c : -c;
     });
     document.getElementById('rows').innerHTML = sorted.map(p =>
-      `<tr><td>${escapeHtml(p.id.replace('WHIS-JP-', ''))}</td><td><a href="resource/${escapeHtml(p.id)}.html">${escapeHtml(p.name_ja)}</a>${p.lat ? '' : ' <span class="muted">（座標なし）</span>'}</td>` +
+      `<tr><td>${escapeHtml(p.id.replace('WHIS-JP-', ''))}</td><td><a href="resource/${escapeHtml(p.id)}.html">${escapeHtml(p.name_ja)}</a>${IMGS[p.id] ? '<span class="cam" title="写真あり">写真</span>' : ''}${p.lat ? '' : ' <span class="muted">（座標なし）</span>'}</td>` +
       `<td>${escapeHtml(p.prefecture)}</td><td>${escapeHtml(p.registered_year)}</td><td>${escapeHtml(p.built_year || '—')}</td></tr>`).join('');
     document.getElementById('count').textContent = `${shown.length} 施設（地図上 ${onMap}）`;
     document.querySelectorAll('.bar').forEach(b => b.classList.toggle('on', Number(b.dataset.y) <= y));
@@ -157,6 +196,10 @@
       if (sortKey === th.dataset.k) sortAsc = !sortAsc; else { sortKey = th.dataset.k; sortAsc = true; }
       render();
     });
+    const nSame = ROWS.filter(r => r.verified === '1' && r.wikidata_qid).length;
+    const nPhoto = ROWS.filter(r => IMGS[r.id]).length;
+    document.getElementById('stats').textContent =
+      `${ROWS.length}施設／Wikidata と同じ施設 ${nSame}件／写真 ${nPhoto}施設（押すと大きく表示）。`;
     render();
   }
 
@@ -172,14 +215,18 @@
     }, 900);
   });
 
+  // 写真の一覧（なくても地図は動く）
+  const imgsReady = fetch('images.csv').then(r => r.ok ? r.text() : '').then(t => {
+    if (t) parseCSV(t).forEach(im => (IMGS[im.id] = IMGS[im.id] || []).push(im));
+  }).catch(() => {});
   fetch('whis_japan.csv')
     .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
-    .then(t => { ROWS = parseCSV(t); setup(); })
+    .then(t => imgsReady.then(() => { ROWS = parseCSV(t); setup(); }))
     .catch(() => {
       document.getElementById('msg').textContent =
         'データを読み込めませんでした。GitHub Pages などのWebサーバーに置いて開いてください（ファイルを直接開くと読み込めません）。';
     });
-  window.__viewer = { get ROWS() { return ROWS; }, render };
+  window.__viewer = { get ROWS() { return ROWS; }, get IMGS() { return IMGS; }, render };
 </script>
 </body>
 </html>

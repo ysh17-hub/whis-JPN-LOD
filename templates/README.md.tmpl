@@ -5,6 +5,7 @@
 日本にある「世界かんがい施設遺産」%%N_ROWS%%施設（2014〜2026年に認定・登録）の基本情報を、出典付きで、コンピュータが読み取って他のデータとつなげられる形（Linked Open Data）にまとめたデータセットと地図です。
 
 - 地図：%%BASE%%
+- SPARQL（ブラウザの中で問い合わせ）：%%BASE%%sparql.html
 - データ：[Turtle](docs/whis_japan.ttl)／[JSON-LD](docs/whis_japan.jsonld)／[GeoJSON](docs/whis_japan.geojson)／[CSV](data/whis_japan.csv)
 - ライセンス：データは CC BY 4.0、プログラムは MIT（[LICENSE](LICENSE)）
 
@@ -24,19 +25,23 @@
 |---|---|---|
 | 名称・都道府県・市町村・登録年 | %%N_ROWS%% | 農林水産省の登録施設一覧と、2026年8月21日の認定発表による |
 | 施設の種類 | %%N_facility_type%% | 水路・用水群・ため池・堰・揚水機場の5つに分類。農林水産省が示す対象施設の例（ダム、ため池などの貯水施設、堰・分水施設、水路など）を参考にした |
-| 水源 | %%N_water_source_river%% | 水を取る川・湖・湧水・地下水 |
+| 水源 | %%N_water_source_river%% | 水を取る川・湖・湧水・地下水。このうち%%N_RIVER_QID%%施設は、水源の川・湖を Wikidata の項目（%%N_RIVER_DISTINCT%%件）につないだ。Wikidata に項目が見つからなかった川・湧水は名前だけを記録 |
 | 代表地点の名前 | %%N_representative_point%% | 座標を取った場所（取水口・堰・池・水門など） |
 | 緯度・経度 | %%N_COORDS%% | 代表地点の座標（決め方は「データの作り方」の5） |
+| 代表地点の住所 | %%N_point_address%% | 代表地点の座標から、国土地理院の逆ジオコーダ（地理院地図の住所表示の機能）で求めた市区町村と大字。川の上の堰などは、施設の所在地とされる市町村と違うことがある |
 | 建設年 | %%N_built_year%% | 年と一緒に、それが何の年か（着工・完成・供用開始など）を記録 |
 | 管理者 | %%N_managing_org%% | 土地改良区など |
 | 英語名 | %%N_name_en%% | 農林水産省の資料にある英語表記 |
 | かんがい面積 | %%N_irrigated_area_ha%% | 資料によって値が違うものは空欄にし、注記に両方の値を書いた |
-| Wikidata へのリンク | %%N_VERIFIED%% | 同じ施設だと確認できたものだけ。%%N_CHECKED%%施設を確認し、Wikidata に同じ施設の項目が見つからなかったのは%%N_NO_WD%%施設 |
+| Wikidata へのリンク（同じ施設） | %%N_VERIFIED%% | 遺産と同じ範囲の項目だと確認できたものだけ。%%N_CHECKED%%施設を確認し、同じ範囲の項目が見つからなかったのは%%N_NO_WD%%施設 |
+| Wikidata へのリンク（構成施設） | %%N_RELATED%% | 遺産の一部分（用水群の中の水路、水路橋、水門など）だけが Wikidata にある場合は、「同じ」とせず構成施設として結んだ |
+| 写真 | %%N_PHOTO_FAC%% | つながっている Wikidata の項目に登録されている Wikimedia Commons の写真（%%N_PHOTO%%枚）。撮影者とライセンスを一緒に記録し、ページでは押すと大きく表示される |
+| ほかのデータベース・百科事典 | %%N_EXT_FAC%% | つながっている Wikidata の項目にある外部ID・記事（ウィキペディア日本語版、OpenStreetMap、GeoNames、国立国会図書館典拠、国指定文化財等データベース、文化遺産オンライン。%%N_EXT%%件） |
 | 出典URL | %%N_ROWS%% | すべての施設に1つ以上。重複を除くと%%N_SOURCES%%の資料 |
 
 ### このデータでわかること（例）
 
-- **利根川は4つの遺産の水源**です（見沼代用水・天狗岩用水・備前渠用水路・葛西用水）。データの中で「水源」が同じ施設どうしがつながるので、下の SPARQL の Q4 で取り出せます。
+- **利根川は4つの遺産の水源**です（見沼代用水・天狗岩用水・備前渠用水路・葛西用水）。水源を Wikidata の「利根川」の項目につないでいるので、[SPARQLのページ](%%BASE%%sparql.html)で同じ川の遺産をまとめて取り出せ、Wikidata にある川の長さや流域面積とも組み合わせられます。
 - **建設年が分かる施設のうち、最も古いのは満濃池**です。大宝年間（701〜704年）に築かれたと伝えられ、821年に空海が修築しました（香川県）。ただし、狭山池（約1,400年前）のように年を一つに決められない施設は建設年を空欄にしているので、「年が分かる施設の中で」の比較です。
 - **都道府県別では、静岡県が7施設で最も多い**です（2026年認定の小笠地域かんがい用水群を含む）。
 
@@ -51,16 +56,25 @@
 | 所在地 | `schema:addressRegion`（都道府県）、`schema:addressLocality`（市町村）、`whis:prefectureCode`（都道府県コード、ISO 3166-2:JP）、`schema:containedInPlace`（都道府県の Wikidata 項目） |
 | 座標 | GeoSPARQL（`geo:hasGeometry`、`geo:asWKT`）と W3C Basic Geo（`wgs84:lat`、`wgs84:long`）の両方 |
 | 年 | `whis:registeredYear`（登録年）、`whis:builtYear`（建設年）、`whis:builtYearBasis`（何の年か） |
-| 施設の情報 | `whis:facilityType`（種類）、`whis:waterSource`（水源）、`whis:managedBy`（管理者）、`whis:irrigatedArea`（かんがい面積）、`whis:representativePoint`（代表地点） |
+| 施設の情報 | `whis:facilityType`（種類）、`whis:waterSource`（水源）、`whis:managedBy`（管理者）、`whis:irrigatedArea`（かんがい面積）、`whis:representativePoint`（代表地点）、`whis:pointAddress`（代表地点の住所） |
+| 水源 | `whis:waterSource`（Wikidata の川・湖の項目）、`whis:waterSourceName`（資料の表記） |
 | 出典・注記 | `dcterms:source`、`rdfs:comment` |
-| Wikidata とのつながり | `owl:sameAs`（同じ施設だと確認できたものだけ） |
-| データセット全体の説明 | DCAT（`dcat:Dataset`）、`dcterms:license`、`dcterms:creator`、`dcterms:modified` |
+| Wikidata とのつながり | `owl:sameAs`（同じ施設だと確認できたものだけ）、`schema:hasPart`（遺産の一部分＝構成施設） |
+| 写真 | `schema:image` → `schema:ImageObject`（`schema:contentUrl`、`schema:creditText`＝撮影者、`schema:license`、`schema:about`＝写っている Wikidata の項目） |
+| ほかのデータベース | `rdfs:seeAlso`（「同じ施設」の Wikidata 項目にある GeoNames・OpenStreetMap・国立国会図書館典拠などのURL。%%N_SEEALSO_FAC%%施設） |
+| データセット全体の説明 | DCAT（`dcat:Dataset`、`dcat:Distribution`）、`dcterms:license`、`dcterms:creator`、`dcterms:modified` |
 
-施設ごとのURL（例：%%BASE%%resource/WHIS-JP-026 ＝満濃池）をブラウザで開くと、その施設の説明ページが表示されます。ページには、検索エンジンなどが読み取れる形（schema.org の JSON-LD）でもデータを埋め込んでいます。
+施設ごとのURL（例：%%BASE%%resource/WHIS-JP-026 ＝満濃池）をブラウザで開くと、その施設の説明ページが表示されます。ページには、検索エンジンなどが読み取れる形（schema.org の JSON-LD）でもデータを埋め込んでいます。施設ごとの Turtle・JSON-LD ファイル（例：%%BASE%%resource/WHIS-JP-026.ttl）もあり、ページの `<link rel="alternate">` からたどれます。
+
+### データの形のチェック（SHACL）
+
+データがどんな形であるべきか（IDの形、登録年の型、座標の範囲、出典URLが必ずあること、「同じ施設」と「構成施設」に同じ項目を入れないこと など）を、SHACL という決まった書き方で [`shapes/whis_shapes.ttl`](shapes/whis_shapes.ttl) に書いています（公開版：%%BASE%%shapes.ttl）。サイトを作り直すたびに自動でチェックし、結果を %%BASE%%shacl_report.txt に出しています。今回の結果：**%%SHACL%%**
 
 ### SPARQL の例
 
-`scripts/run_queries.py` を使うと、次の問い合わせを自分のパソコンで実行できます（Python の rdflib を使います）。
+[SPARQLのページ](%%BASE%%sparql.html)では、インストールなしでブラウザの中で問い合わせができます（例：都道府県ごとの件数、同じ川から水を引く遺産、建設年が古い順、出典の発行元ごとの資料数）。このデータから取り出した Wikidata の項目を使って、Wikidata 側の情報（川の長さ・流域面積、ウィキペディアの記事や画像）と組み合わせる例もあります。
+
+`scripts/run_queries.py` を使うと、次の問い合わせを自分のパソコンで実行することもできます（Python の rdflib を使います）。
 
 - Q1 都道府県ごとの登録数
 - Q2 登録年ごとの件数
@@ -82,23 +96,29 @@ python scripts/run_queries.py --ttl docs/whis_japan.ttl --base %%BASE%%
 3. 名称は認定時の正式名称にそろえました（例：2026年4月の申請時は「日根荘のかんがい用水群」、8月の認定時は「日根荘大木のかんがい用水群」）。
 4. 変換用のプログラムは、登録基準（建設から100年以上）と合わない建設年、何の年かが書かれていない建設年、日本の範囲から外れた座標などを自動で見つけて知らせます。
 5. 座標は、施設の範囲（水路の全長など）ではなく、**代表地点の1点**です。代表地点（取水口・堰・池など）を国土地理院の航空写真で目で確かめ、座標入力ツール（`tools/pick_coords.html`）で1点ずつ入力しました。
-6. Wikidata の項目と「同じ施設」としてつなぐのは、候補を1件ずつ開いて、名前・場所・説明から同じ施設だと確かめられたものだけです。
+6. Wikidata の項目と「同じ施設」としてつなぐのは、候補を1件ずつ開いて、名前・場所・説明から同じ施設だと確かめられたものだけです。遺産の一部分だけが Wikidata にある場合は「同じ」にせず、構成施設として結んでいます。
+7. 水源の川・湖は、Wikidata の項目の名前・説明・所在地（都道府県）を確かめてからつないでいます。
+8. 写真と外部ID・記事は、つながっている Wikidata の項目（画像 P18、OpenStreetMap P402、GeoNames P1566、国立国会図書館典拠 P349、国指定文化財等データベース P4275、文化遺産オンライン P12144、ウィキペディア日本語版の記事）から集め、`data/images.csv` と `data/external_links.csv` に取得日と一緒に保存しました。写真の撮影者とライセンスは Wikimedia Commons のファイル情報から写しています。写真が構成施設のもの（例：御坂サイフォン橋）のときは、ページにそのことを書いています。
 
 ## 新しい施設が認定されたときの更新手順
 
 1. `data/whis_japan.csv` に1行追加する（IDは続きの番号。出典URLを必ず入れる）
 2. `tools/pick_coords.html` をブラウザで開いて座標を入れ、保存したCSVを `python lod.py import` で取り込む
-3. `python lod.py build` を実行する（docs/ と README.md を作り直す）
-4. 変わったファイルを GitHub に上げる（GitHub Pages に反映される）
+3. `data/whis_japan.csv` を GitHub に上げる
+
+GitHub に上げると、GitHub Actions（[`.github/workflows/build.yml`](.github/workflows/build.yml)）が自動で、CSVのチェック → RDF・施設ページ・README の作り直し → SHACL のチェックを行い、問題がなければ公開サイトに反映します。手元で確かめたいときは `python lod.py build` でも同じことができます。
 
 ## ファイル構成
 
 ~~~
 lod.py                     作業用のコマンド（setup / wikidata / import / build / status）
 data/whis_japan.csv        元データ（編集するのはこのファイルだけ）
+data/images.csv            写真の一覧（Wikimedia Commons のファイル・撮影者・ライセンス・取得日）
+data/external_links.csv    ほかのデータベース・百科事典へのリンク（Wikidata から。取得日つき）
 docs/                      GitHub Pages で公開するもの（build_site.py が作る）
-  index.html               地図（登録年のスライダー、再生、水源での絞り込み）
-  resource/*.html          施設ごとのページ（JSON-LD 付き）
+  index.html               地図（登録年のスライダー、再生、水源での絞り込み、写真を押すと拡大）
+  resource/*.html          施設ごとのページ（JSON-LD 付き。写真・ほかのデータベースへのリンク）
+  resource/*.ttl, *.jsonld 施設ごとの機械可読ファイル
   ontology.html            独自語彙の説明
   whis_japan.ttl / .jsonld / .geojson / .csv
 scripts/
@@ -107,8 +127,12 @@ scripts/
   fetch_wikidata.py        都道府県の Wikidata 項目と、施設の Wikidata 候補を集める
   run_queries.py           SPARQL の例を実行する
 queries/sample_queries.rq  SPARQL の例（Wikidata 側で実行する例を含む）
+  sparql.html              ブラウザの中で SPARQL を実行するページ（sparql/ に Oxigraph の WebAssembly 版）
+  shapes.ttl / shacl_report.txt   データの形の決まり（SHACL）と、チェックの結果
 tools/pick_coords.html     座標を確かめて入力するためのツール（航空写真・Wikidata 候補の表示）
+shapes/whis_shapes.ttl     データの形の決まり（SHACL）
 templates/                 README・LICENSE のひな形（lod.py build が README.md と LICENSE を作る）
+.github/workflows/build.yml  データを更新すると自動でチェックしてサイトを作り直す設定
 ~~~
 
 ## 出典と利用条件
@@ -116,9 +140,12 @@ templates/                 README・LICENSE のひな形（lod.py build が READ
 - 主な出典：農林水産省「世界かんがい施設遺産 登録施設の概要」（https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html ）と各施設の概要PDF、農林水産省「令和8年度世界かんがい施設遺産の認定について」（2026年8月21日、https://www.maff.go.jp/j/press/nousin/sekkei/260821.html ）、地方農政局・都道府県・市町村・土地改良区の公開資料。施設ごとの出典は、各行の `source_url` にあります。
 - 「作成の目的」と「このデータでわかること」の出典：関東農政局「世界かんがい施設遺産」展示資料（https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf ）、農林水産省「観光戦略づくりの手引き（概要版）」（https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-8.pdf ）、香川県「香川県で一番古いダム（貯水池）はどこにあるのですか？」（https://www.pref.kagawa.lg.jp/kasensabo/dam/kabagawa/kiso/ippan05.html ）。
 - 各施設のデータは、資料から名称・年・面積などの事実だけを取り出したもので、資料の文章・図・写真は載せていません。
+- **写真は、このデータセットのライセンス（CC BY 4.0）の対象外**です。Wikimedia Commons にあるファイルを表示しているだけで、各写真の撮影者とライセンス（CC BY、CC BY-SA、パブリックドメインなど）は、写真の下と `data/images.csv` に書いています。使うときは、各写真のライセンスに従ってください。
+- 代表地点の住所：国土地理院の逆ジオコーダ（地理院地図で使われている、座標から住所を求める機能）の結果をもとに作成者が整理しました（%%N_point_address%%地点、2026年11月取得）。地理院地図から呼び出すサーバ側の機能は主に地理院地図からの利用を想定していると、地理院地図の GitHub リポジトリの issue で回答されているため（https://github.com/gsi-cyberjapan/gsimaps/issues/29 ）、自動更新では呼び出していません。
 - 農林水産省ウェブサイトのコンテンツは、出典を記載し、編集・加工した場合はそのことを記載すれば利用できます（農林水産省「リンクについて・著作権」https://www.maff.go.jp/j/use/link.html ）。このデータセットは、農林水産省などの資料をもとに作成者が編集・加工して作成したもので、国や自治体が作成したものではありません。
 - 地図の背景：地理院タイル（国土地理院）。地理院タイルをリアルタイムで読み込んで表示するウェブサイトは、出典を示せば申請なしで利用できます（国土地理院「承認申請Q&A」Q1-12、https://www.gsi.go.jp/LAW/2930-qa.html ）。
-- Wikidata のデータは CC0 です。
+- Wikidata のデータは CC0 です。SPARQL のページでは、Wikidata の公開 SPARQL サービス（https://query.wikidata.org/ ）に問い合わせます。
+- SPARQL のページで使っている Oxigraph（https://github.com/oxigraph/oxigraph ）は MIT または Apache-2.0 ライセンスです。
 
 ## 作成者
 
@@ -132,4 +159,4 @@ templates/                 README・LICENSE のひな形（lod.py build が READ
 
 ### English summary
 
-This repository publishes the %%N_ROWS%% World Heritage Irrigation Structures (WHIS) in Japan, recognized by ICID between 2014 and 2026, as Linked Open Data (Turtle, JSON-LD, GeoJSON and CSV), with source URLs for every record. It reuses schema.org, GeoSPARQL, W3C Basic Geo, DCMI Terms and DCAT, and defines a small `whis:` vocabulary only where needed (registration year, built year and its basis, facility type, water source, managing organization, irrigated area, representative point). Values that differ between official sources are left blank, and both values are recorded in a comment. Links to Wikidata (`owl:sameAs`) are added only after manual verification. Data: CC BY 4.0. Code: MIT.
+This repository publishes the %%N_ROWS%% World Heritage Irrigation Structures (WHIS) in Japan, recognized by ICID between 2014 and 2026, as Linked Open Data (Turtle, JSON-LD, GeoJSON and CSV), with source URLs for every record. It reuses schema.org, GeoSPARQL, W3C Basic Geo, DCMI Terms and DCAT, and defines a small `whis:` vocabulary only where needed (registration year, built year and its basis, facility type, water source, managing organization, irrigated area, representative point). Values that differ between official sources are left blank, and both values are recorded in a comment. Links to Wikidata (`owl:sameAs`) are added only after manual verification; components that exist in Wikidata are linked with `schema:hasPart`, and water sources are linked to Wikidata river and lake items. Data shapes are validated with SHACL on every build (GitHub Actions), and an in-browser SPARQL page (Oxigraph/WebAssembly) is provided. Photos from Wikimedia Commons (via Wikidata P18) are shown with their creators and licenses (`schema:ImageObject`), and external identifiers found in the linked Wikidata items (OpenStreetMap, GeoNames, NDL, Japanese cultural heritage databases, Japanese Wikipedia) are published as `rdfs:seeAlso` links. Data: CC BY 4.0 (photos keep their own licenses). Code: MIT.
