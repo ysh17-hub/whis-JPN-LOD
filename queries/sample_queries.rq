@@ -2,7 +2,7 @@
 # ローカルでは run_queries.py（rdflib）で動作確認済み。
 # Q4 は Wikidata の SPARQL エンドポイント（https://query.wikidata.org/）で実行する「つなげ方」の例。
 
-PREFIX whis:   <https://YOUR_GITHUB_NAME.github.io/whis-lod/ontology#>
+PREFIX whis:   <https://ysh17-hub.github.io/whis-lod/ontology#>
 PREFIX schema: <https://schema.org/>
 PREFIX geo:    <http://www.opengis.net/ont/geosparql#>
 PREFIX wgs:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
