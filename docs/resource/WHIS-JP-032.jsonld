@@ -1,5 +1,17 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(140.020452 38.778738)"
+   }
+  ]
+ },
+ {
   "@id": "https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png",
   "@type": [
    "https://schema.org/ImageObject"
@@ -27,18 +39,6 @@
   "https://schema.org/name": [
    {
     "@value": "Kitadate Ozeki.png"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(140.020452 38.778738)"
    }
   ]
  },
