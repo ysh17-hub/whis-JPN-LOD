@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.549722 34.503333)"
-   }
-  ]
- },
- {
   "@id": "https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG",
   "@type": [
    "https://schema.org/ImageObject"
@@ -158,6 +146,11 @@
     "@value": "大阪府大阪狭山市大字岩室"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+   {
+    "@id": "https://uedayou.net/loa/大阪府大阪狭山市岩室"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
@@ -167,6 +160,11 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM10B"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C27231-20221227"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -184,6 +182,18 @@
    {
     "@language": "ja",
     "@value": "狭山池"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.549722 34.503333)"
    }
   ]
  }

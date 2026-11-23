@@ -27,8 +27,10 @@ res:WHIS-JP-052 a whis:HeritageIrrigationStructure ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "宮城県大崎市鳴子温泉"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/宮城県大崎市鳴子温泉> ;
     whis:pointElevation 289.5 ;
     whis:pointElevationSource "DEM1A" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C04215-20190201> ;
     whis:prefectureCode "JP-04" ;
     whis:registeredYear "2024"^^xsd:gYear ;
     whis:representativePoint "取水堰・取入口"@ja .

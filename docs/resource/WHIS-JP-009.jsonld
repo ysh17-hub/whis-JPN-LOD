@@ -1,5 +1,48 @@
 [
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q17238532"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tsujyunkyo.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "masamic"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Tsujyunkyo.jpg"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(130.993611 32.681667)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -131,6 +174,11 @@
     "@value": "熊本県山都町城原"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+   {
+    "@id": "https://uedayou.net/loa/熊本県上益城郡山都町城原"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
@@ -140,6 +188,11 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM10B"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C43447-20050211"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -157,49 +210,6 @@
    {
     "@language": "ja",
     "@value": "通潤橋"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q17238532"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tsujyunkyo.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "masamic"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Tsujyunkyo.jpg"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(130.993611 32.681667)"
    }
   ]
  }

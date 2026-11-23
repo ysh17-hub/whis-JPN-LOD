@@ -1,5 +1,48 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-043/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.558333 34.462867)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Teragaike_04.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q1018718"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Teragaike_04.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "JEXP"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Teragaike 04.jpg"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-043",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -115,6 +158,11 @@
     "@value": "大阪府河内長野市木戸町"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+   {
+    "@id": "https://uedayou.net/loa/大阪府河内長野市木戸町"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
@@ -124,6 +172,11 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM10B"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C27216-19700401"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -152,49 +205,6 @@
    {
     "@language": "ja",
     "@value": "石川"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-043/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.558333 34.462867)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Teragaike_04.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q1018718"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Teragaike_04.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "JEXP"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Teragaike 04.jpg"
    }
   ]
  }

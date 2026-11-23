@@ -62,18 +62,6 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(133.871392 34.162667)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -212,6 +200,11 @@
     "@value": "香川県まんのう町神野"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+   {
+    "@id": "https://uedayou.net/loa/香川県仲多度郡まんのう町神野"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
@@ -221,6 +214,11 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM10B"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C37406-20060320"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -249,6 +247,18 @@
    {
     "@language": "ja",
     "@value": "金倉川"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(133.871392 34.162667)"
    }
   ]
  }

@@ -25,8 +25,10 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:pointAddress "奈良県天理市柳本町"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/奈良県天理市柳本町> ;
     whis:pointElevation 97.0 ;
     whis:pointElevationSource "DEM10B" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C29204-19700401> ;
     whis:prefectureCode "JP-29" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "崇神天皇陵"@ja .

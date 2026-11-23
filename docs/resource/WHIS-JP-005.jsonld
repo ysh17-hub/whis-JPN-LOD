@@ -130,6 +130,11 @@
     "@value": "三重県松阪市飯南町粥見"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+   {
+    "@id": "https://uedayou.net/loa/三重県松阪市飯南町粥見"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
@@ -139,6 +144,11 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM1A"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C24204-20050101"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [

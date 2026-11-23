@@ -26,8 +26,10 @@ res:WHIS-JP-056 a whis:HeritageIrrigationStructure ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:pointAddress "大分県竹田市大字福原"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/大分県竹田市福原> ;
     whis:pointElevation 412.0 ;
     whis:pointElevationSource "DEM5A" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C44208-20200318> ;
     whis:prefectureCode "JP-44" ;
     whis:registeredYear "2025"^^xsd:gYear ;
     whis:representativePoint "城原井路の神田頭首工"@ja .

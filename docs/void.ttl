@@ -36,6 +36,11 @@
     void:uriSpace "https://commons.wikimedia.org/" ;
     rdfs:seeAlso <https://commons.wikimedia.org/> .
 
+<https://ysh17-hub.github.io/whis-lod/void.ttl#estat> a void:Dataset ;
+    dcterms:title "統計LOD（標準地域コード）" ;
+    void:uriSpace "http://data.e-stat.go.jp/lod/sac/" ;
+    rdfs:seeAlso <https://data.e-stat.go.jp/lodw/> .
+
 <https://ysh17-hub.github.io/whis-lod/void.ttl#exactMatch-wikidata> a void:Linkset ;
     void:linkPredicate skos:exactMatch ;
     void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#wikidata> ;
@@ -69,6 +74,11 @@
     void:uriSpace "https://kunishitei.bunka.go.jp/" ;
     rdfs:seeAlso <https://kunishitei.bunka.go.jp/> .
 
+<https://ysh17-hub.github.io/whis-lod/void.ttl#loa> a void:Dataset ;
+    dcterms:title "住所LOD（Linked Open Addresses Japan）" ;
+    void:uriSpace "https://uedayou.net/loa/" ;
+    rdfs:seeAlso <https://uedayou.net/loa/> .
+
 <https://ysh17-hub.github.io/whis-lod/void.ttl#ndl> a void:Dataset ;
     dcterms:title "国立国会図書館典拠" ;
     void:uriSpace "https://id.ndl.go.jp/" ;
@@ -78,6 +88,18 @@
     dcterms:title "OpenStreetMap" ;
     void:uriSpace "https://www.openstreetmap.org/" ;
     rdfs:seeAlso <https://www.openstreetmap.org/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#pointAddressArea-loa> a void:Linkset ;
+    void:linkPredicate <https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea> ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#loa> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 60 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#pointMunicipality-estat> a void:Linkset ;
+    void:linkPredicate <https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality> ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#estat> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 60 .
 
 <https://ysh17-hub.github.io/whis-lod/void.ttl#sameAs-wikidata> a void:Linkset ;
     void:linkPredicate owl:sameAs ;
@@ -145,6 +167,8 @@
         <https://ysh17-hub.github.io/whis-lod/void.ttl#exactMatch-wikidata>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#hasPart-wikidata>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#image-commons>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#pointAddressArea-loa>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#pointMunicipality-estat>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#sameAs-wikidata>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-geonames>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-jawiki>,
@@ -152,7 +176,7 @@
         <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-ndl>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-osm>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#waterSource-wikidata> ;
-    void:triples 2176 ;
+    void:triples 2302 ;
     void:uriSpace "https://ysh17-hub.github.io/whis-lod/resource/" ;
     void:vocabulary dcterms:,
         geo:,

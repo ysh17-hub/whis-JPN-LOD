@@ -29,8 +29,10 @@ res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "長野県佐久市春日"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/長野県佐久市春日> ;
     whis:pointElevation 739.4 ;
     whis:pointElevationSource "DEM10B" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C20217-20130201> ;
     whis:prefectureCode "JP-20" ;
     whis:registeredYear "2018"^^xsd:gYear ;
     whis:representativePoint "浅科頭首工"@ja .

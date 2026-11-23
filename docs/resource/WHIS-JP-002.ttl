@@ -25,8 +25,10 @@ res:WHIS-JP-002 a whis:HeritageIrrigationStructure ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "群馬県甘楽町大字小幡"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/群馬県甘楽郡甘楽町小幡> ;
     whis:pointElevation 182.2 ;
     whis:pointElevationSource "DEM1A" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C10384-19840901> ;
     whis:prefectureCode "JP-10" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "吹上の石樋"@ja .

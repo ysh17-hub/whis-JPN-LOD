@@ -1,36 +1,5 @@
 [
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Kurumeji15.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q55528468"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Kurumeji15.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "ブレイズマン"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@value": "Public domain"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Kurumeji15.jpg"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-013",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -164,6 +133,11 @@
     "@value": "大阪府岸和田市岡山町"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+   {
+    "@id": "https://uedayou.net/loa/大阪府岸和田市岡山町"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
@@ -173,6 +147,11 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM10B"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C27202-20070801"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -214,6 +193,37 @@
    {
     "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
     "@value": "POINT(135.415956 34.455614)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Kurumeji15.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q55528468"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Kurumeji15.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "ブレイズマン"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@value": "Public domain"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Kurumeji15.jpg"
    }
   ]
  }

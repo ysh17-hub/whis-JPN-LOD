@@ -26,8 +26,10 @@ res:WHIS-JP-059 a whis:HeritageIrrigationStructure ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:pointAddress "大阪府泉佐野市大木"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/大阪府泉佐野市大木> ;
     whis:pointElevation 153.0 ;
     whis:pointElevationSource "DEM10B" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C27213-20020301> ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "東ノ池"@ja .

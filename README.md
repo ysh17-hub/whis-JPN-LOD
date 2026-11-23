@@ -4,8 +4,7 @@
 
 日本にある「世界かんがい施設遺産」60施設（2014〜2026年に認定・登録）の基本情報を、出典付きで、コンピュータが読み取って他のデータとつなげられる形（Linked Open Data）にまとめたデータセットと地図です。
 
-- 地図：https://ysh17-hub.github.io/whis-lod/
-- （背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
+- 地図：https://ysh17-hub.github.io/whis-lod/（背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
 - SPARQL（ブラウザの中で問い合わせ）：https://ysh17-hub.github.io/whis-lod/sparql.html
 - データ：[Turtle](docs/whis_japan.ttl)／[JSON-LD](docs/whis_japan.jsonld)／[GeoJSON](docs/whis_japan.geojson)／[CSV](data/whis_japan.csv)
 - ライセンス：データは CC BY 4.0、プログラムは MIT（[LICENSE](LICENSE)）
@@ -30,6 +29,7 @@
 | 代表地点の名前 | 60 | 座標を取った場所（取水口・堰・池・水門など） |
 | 緯度・経度 | 60 | 代表地点の座標（決め方は「データの作り方」の5） |
 | 代表地点の住所 | 60 | 代表地点の座標から、国土地理院の逆ジオコーダ（地理院地図の住所表示の機能）で求めた市区町村と大字。川の上の堰などは、施設の所在地とされる市町村と違うことがある |
+| 代表地点の住所LOD・統計LOD | 60 | 代表地点の大字・町丁目を住所LOD（Linked Open Addresses Japan）の IRI に（59地点は大字・町丁目、残りは住所LODに大字の項目がないため市区町村）、市区町村を統計LOD（e-Stat）の標準地域コードの IRI（58市区町村）につないだ。住所LODは、LODチャレンジ2026の応募作品「住所 de ジグソーパズル」も使っているデータ。統計LODの標準地域コードを介して、国勢調査などの統計とつなげられる |
 | 代表地点の標高 | 60 | 国土地理院の標高タイル（地理院タイル）から求めた、東京湾平均海面からの高さ（m）。細かいものから順に 1mメッシュ（DEM1A）→5mメッシュ（DEM5A→DEM5B→DEM5C）→10mメッシュ（DEM10B）の値を使った（池や川の水面などで細かいメッシュの値がないときは、次のメッシュ）。どの標高モデルの値かも記録した。地理院地図の標高表示と照合した結果は「データの作り方」の9 |
 | 昔の空中写真があるか | 60 | 代表地点で、国土地理院の空中写真（1945〜1950年：2施設、1961〜1969年：53施設、1974〜1978年：60施設）の画像があるかを確かめて記録した（`data/point_terrain.csv`） |
 | 建設年 | 39 | 年と一緒に、それが何の年か（着工・完成・供用開始など）を記録 |
@@ -66,6 +66,7 @@
 | Wikidata とのつながり | `owl:sameAs`（同じ施設だと確認できたものだけ）、`schema:hasPart`（遺産の一部分＝構成施設） |
 | 写真 | `schema:image` → `schema:ImageObject`（`schema:contentUrl`、`schema:creditText`＝撮影者、`schema:license`、`schema:about`＝写っている Wikidata の項目） |
 | 施設の種類（SKOS） | `whis:facilityCategory` → `skos:Concept`（`skos:closeMatch`・`skos:exactMatch`・`skos:broadMatch` で AGROVOC と Wikidata のクラスへ） |
+| 代表地点の住所・市区町村 | `whis:pointAddressArea`（住所LOD の IRI）、`whis:pointMunicipality`（統計LOD の標準地域コードの IRI。例：`sac:C04215-20190201`＝大崎市） |
 | 代表地点の標高 | `whis:pointElevation`（m、`xsd:decimal`）、`whis:pointElevationSource`（DEM5A・DEM10B など） |
 | ほかのデータベース | `rdfs:seeAlso`（「同じ施設」の Wikidata 項目にある GeoNames・OpenStreetMap・国立国会図書館典拠などのURL。28施設） |
 | データセット全体の説明 | DCAT（`dcat:Dataset`、`dcat:Distribution`）、`dcterms:license`、`dcterms:creator`、`dcterms:modified`。ほかのデータとのつながりの数は VoID（https://ysh17-hub.github.io/whis-lod/void.ttl、`void:Linkset`）で、地図のページには検索エンジン向けに schema.org の `Dataset` を埋め込んでいる |
@@ -127,6 +128,7 @@ for row in g.query("""PREFIX schema: <https://schema.org/> PREFIX whis: <https:/
 8. 写真と外部ID・記事は、つながっている Wikidata の項目（画像 P18、OpenStreetMap P402、GeoNames P1566、国立国会図書館典拠 P349、国指定文化財等データベース P4275、文化遺産オンライン P12144、ウィキペディア日本語版の記事）から集め、`data/images.csv` と `data/external_links.csv` に取得日と一緒に保存しました。写真の撮影者とライセンスは Wikimedia Commons のファイル情報から写しています。写真が構成施設のもの（例：御坂サイフォン橋）のときは、ページにそのことを書いています。
 9. 代表地点の標高は、国土地理院「標高タイルの詳細仕様」（https://maps.gsi.go.jp/development/demtile.html ）の計算式（画素の色の値 x＝2^16R＋2^8G＋B から、分解能0.01mで標高を求める。無効値は (128, 0, 0)）で、PNG形式の標高タイルから求めました。求めた値は、地理院地図の標高表示（国土地理院の標高API）と照合しました（60地点中60地点で、使われた標高モデルの種類と値（APIの単位に丸めた値）が一致。2026-11-23照合）。
 10. 施設の種類と AGROVOC・Wikidata の対応は、AGROVOC の検索API と Wikidata の項目（ラベル・説明・上位クラス）を見て作成者が決めました。意味の範囲が完全には同じと言えないものは `skos:closeMatch`、相手のほうが広いもの（ため池 → AGROVOC の water reservoirs）は `skos:broadMatch` にしています。
+11. 住所LODの IRI は、代表地点の住所（大字・町丁目）から住所LODの階層（都道府県→市区町村→大字・町丁目）をたどって見つけ、IRI が実際に開けることを確かめました（郡の名前・「大字」の有無・丁目の数字の書き方の違いを合わせた）。統計LODの標準地域コードは、住所LODの住所コードの上5桁（市区町村コード）から、統計LODの SPARQL で発行日がいちばん新しい項目を選びました（2026-11-23）。
 
 ## 新しい施設が認定されたときの更新手順
 
@@ -144,6 +146,7 @@ data/whis_japan.csv        元データ（編集するのはこのファイル�
 data/images.csv            写真の一覧（Wikimedia Commons のファイル・撮影者・ライセンス・取得日）
 data/external_links.csv    ほかのデータベース・百科事典へのリンク（Wikidata から。取得日つき）
 data/point_terrain.csv     代表地点の標高と、昔の空中写真があるか（地理院タイルから。取得日つき）
+data/address_links.csv     代表地点の住所LOD・統計LOD（標準地域コード）の IRI（取得日つき）
 docs/                      GitHub Pages で公開するもの（build_site.py が作る）
   index.html               地図（登録年のスライダー、再生、水源・名前での絞り込み、現在地から近い順、写真を押すと拡大、背景の切り替え、昔の空中写真の重ね合わせ）
   gsi_layers.js            地図の背景（地理院タイル）と昔の空中写真の切り替え（templates/ から写す）
@@ -176,6 +179,7 @@ templates/                 README・LICENSE のひな形（lod.py build が READ
 - 代表地点の住所：国土地理院の逆ジオコーダ（地理院地図で使われている、座標から住所を求める機能）の結果をもとに作成者が整理しました（60地点、2026年11月取得）。地理院地図から呼び出すサーバ側の機能は主に地理院地図からの利用を想定していると、地理院地図の GitHub リポジトリの issue で回答されているため（https://github.com/gsi-cyberjapan/gsimaps/issues/29 ）、自動更新では呼び出していません。
 - 農林水産省ウェブサイトのコンテンツは、出典を記載し、編集・加工した場合はそのことを記載すれば利用できます（農林水産省「リンクについて・著作権」https://www.maff.go.jp/j/use/link.html ）。このデータセットは、農林水産省などの資料をもとに作成者が編集・加工して作成したもので、国や自治体が作成したものではありません。
 - 地図の背景・航空写真・空中写真・色別標高図・陰影起伏図・標高：地理院タイル（国土地理院、https://maps.gsi.go.jp/development/ichiran.html ）。地理院タイルをリアルタイムで読み込んで表示するウェブサイトは、出典を示せば申請なしで利用できます（国土地理院「承認申請Q&A」Q1-12、https://www.gsi.go.jp/LAW/2930-qa.html ）。色別標高図は「海域部は海上保安庁海洋情報部の資料を使用して作成」、全国最新写真は「GRUS画像（© Axelspace）」を含むことを、地図の出典表示に書いています（地理院タイル一覧の求めによる）。
+- 住所LOD（https://uedayou.net/loa/ ）と統計LOD（https://data.e-stat.go.jp/lodw/ 、CC BY 4.0）は、IRI を参照しているだけで、内容は写していません。
 - 施設の種類の対応先：AGROVOC（国連食糧農業機関 FAO、https://agrovoc.fao.org/ ）の概念のURIを参照しているだけで、AGROVOC の内容は写していません。
 - Wikidata のデータは CC0 です。SPARQL のページでは、Wikidata の公開 SPARQL サービス（https://query.wikidata.org/ ）に問い合わせます。
 - SPARQL のページで使っている Oxigraph（https://github.com/oxigraph/oxigraph ）は MIT または Apache-2.0 ライセンスです。
@@ -192,4 +196,4 @@ abe
 
 ### English summary
 
-This repository publishes the 60 World Heritage Irrigation Structures (WHIS) in Japan, recognized by ICID between 2014 and 2026, as Linked Open Data (Turtle, JSON-LD, GeoJSON and CSV), with source URLs for every record. It reuses schema.org, GeoSPARQL, W3C Basic Geo, DCMI Terms and DCAT, and defines a small `whis:` vocabulary only where needed (registration year, built year and its basis, facility type, water source, managing organization, irrigated area, representative point). Values that differ between official sources are left blank, and both values are recorded in a comment. Links to Wikidata (`owl:sameAs`) are added only after manual verification; components that exist in Wikidata are linked with `schema:hasPart`, and water sources are linked to Wikidata river and lake items. Data shapes are validated with SHACL on every build (GitHub Actions), and an in-browser SPARQL page (Oxigraph/WebAssembly) is provided. Photos from Wikimedia Commons (via Wikidata P18) are shown with their creators and licenses (`schema:ImageObject`), and external identifiers found in the linked Wikidata items (OpenStreetMap, GeoNames, NDL, Japanese cultural heritage databases, Japanese Wikipedia) are published as `rdfs:seeAlso` links. Facility types are modelled as a SKOS concept scheme mapped to FAO AGROVOC and Wikidata classes. The elevation of each representative point is derived from GSI DEM tiles (DEM1A, then DEM5A/5B/5C, then DEM10B) and cross-checked against the GSI elevation service. The map lets users switch to current aerial imagery and a colour relief map, and overlay historical aerial photographs (1945–1950, 1961–1969, 1974–1978) from GSI to compare land use around each structure. Linksets are described with VoID, and the landing page embeds a schema.org `Dataset` description. Data: CC BY 4.0 (photos keep their own licenses). Code: MIT.
+This repository publishes the 60 World Heritage Irrigation Structures (WHIS) in Japan, recognized by ICID between 2014 and 2026, as Linked Open Data (Turtle, JSON-LD, GeoJSON and CSV), with source URLs for every record. It reuses schema.org, GeoSPARQL, W3C Basic Geo, DCMI Terms and DCAT, and defines a small `whis:` vocabulary only where needed (registration year, built year and its basis, facility type, water source, managing organization, irrigated area, representative point). Values that differ between official sources are left blank, and both values are recorded in a comment. Links to Wikidata (`owl:sameAs`) are added only after manual verification; components that exist in Wikidata are linked with `schema:hasPart`, and water sources are linked to Wikidata river and lake items. Data shapes are validated with SHACL on every build (GitHub Actions), and an in-browser SPARQL page (Oxigraph/WebAssembly) is provided. Photos from Wikimedia Commons (via Wikidata P18) are shown with their creators and licenses (`schema:ImageObject`), and external identifiers found in the linked Wikidata items (OpenStreetMap, GeoNames, NDL, Japanese cultural heritage databases, Japanese Wikipedia) are published as `rdfs:seeAlso` links. Facility types are modelled as a SKOS concept scheme mapped to FAO AGROVOC and Wikidata classes. The elevation of each representative point is derived from GSI DEM tiles (DEM1A, then DEM5A/5B/5C, then DEM10B) and cross-checked against the GSI elevation service. The map lets users switch to current aerial imagery and a colour relief map, and overlay historical aerial photographs (1945–1950, 1961–1969, 1974–1978) from GSI to compare land use around each structure. Linksets are described with VoID, and the landing page embeds a schema.org `Dataset` description. Each representative point is also linked to its address area in Linked Open Addresses Japan and to its municipality's standard area code in the e-Stat statistical LOD, so the data can be joined with official statistics. Data: CC BY 4.0 (photos keep their own licenses). Code: MIT.

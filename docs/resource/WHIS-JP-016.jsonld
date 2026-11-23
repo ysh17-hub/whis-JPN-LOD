@@ -1,79 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(140.024396 37.521342)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Jyurokkyou-s-r1.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q6322355"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jyurokkyou-s-r1.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "河川一等兵"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@value": "Public domain"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Jyurokkyou-s-r1.jpg"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:AsakaSosuiKansenSuiroB.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11451162"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/AsakaSosuiKansenSuiroB.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "BehBeh at Japanese Wikipedia"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "AsakaSosuiKansenSuiroB.JPG"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -220,6 +146,11 @@
     "@value": "福島県猪苗代町大字翁沢"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+   {
+    "@id": "https://uedayou.net/loa/福島県耶麻郡猪苗代町翁沢"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
@@ -229,6 +160,11 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM5B"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C07408-20140819"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -257,6 +193,80 @@
    {
     "@language": "ja",
     "@value": "猪苗代湖"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(140.024396 37.521342)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:AsakaSosuiKansenSuiroB.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11451162"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/AsakaSosuiKansenSuiroB.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "BehBeh at Japanese Wikipedia"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "AsakaSosuiKansenSuiroB.JPG"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Jyurokkyou-s-r1.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q6322355"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jyurokkyou-s-r1.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "河川一等兵"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@value": "Public domain"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Jyurokkyou-s-r1.jpg"
    }
   ]
  }

@@ -34,8 +34,10 @@ res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "熊本県山都町城原"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/熊本県上益城郡山都町城原> ;
     whis:pointElevation 438.0 ;
     whis:pointElevationSource "DEM10B" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C43447-20050211> ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "通潤橋"@ja .

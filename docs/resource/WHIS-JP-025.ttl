@@ -30,8 +30,10 @@ res:WHIS-JP-025 a whis:HeritageIrrigationStructure ;
     whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:pointAddress "山口県宇部市大字沖宇部"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/山口県宇部市沖宇部> ;
     whis:pointElevation 25.1 ;
     whis:pointElevationSource "DEM10B" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C35202-20041101> ;
     whis:prefectureCode "JP-35" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "常盤湖（ときわ公園）"@ja .

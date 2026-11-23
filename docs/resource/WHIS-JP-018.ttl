@@ -26,8 +26,10 @@ res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "村山六ヶ村堰土地改良区"@ja ;
     whis:pointAddress "山梨県北杜市大泉町西井出"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/山梨県北杜市大泉町西井出> ;
     whis:pointElevation 1165.3 ;
     whis:pointElevationSource "DEM10B" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C19209-20060315> ;
     whis:prefectureCode "JP-19" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "東沢頭首工（東沢取水口）"@ja .

@@ -32,8 +32,10 @@ res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     whis:irrigatedArea 3300.0 ;
     whis:managedBy "大崎土地改良区"@ja ;
     whis:pointAddress "宮城県大崎市岩出山下一栗"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/宮城県大崎市岩出山下一栗> ;
     whis:pointElevation 65.2 ;
     whis:pointElevationSource "DEM1A" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C04215-20190201> ;
     whis:prefectureCode "JP-04" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "大堰頭首工"@ja .

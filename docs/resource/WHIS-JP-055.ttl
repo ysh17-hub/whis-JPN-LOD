@@ -27,8 +27,10 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:pointAddress "熊本県山鹿市蒲生"@ja ;
+    whis:pointAddressArea <https://uedayou.net/loa/熊本県山鹿市蒲生> ;
     whis:pointElevation 65.1 ;
     whis:pointElevationSource "DEM1A" ;
+    whis:pointMunicipality <http://data.e-stat.go.jp/lod/sac/C43208-20050115> ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2025"^^xsd:gYear ;
     whis:representativePoint "蒲生池"@ja .
