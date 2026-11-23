@@ -106,8 +106,8 @@ res:WHIS-JP-003 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003/geometry> ;
-    wgs84:lat 35.21667 ;
-    wgs84:long 138.95 ;
+    wgs84:lat 35.230123 ;
+    wgs84:long 138.984754 ;
     schema:addressLocality "裾野市他"@ja ;
     schema:addressRegion "静岡県"@ja ;
     schema:containedInPlace wd:Q131320 ;
@@ -1453,7 +1453,7 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     geo:asWKT "POINT(138.919235 36.236364)"^^geo:wktLiteral .
 
 <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003/geometry> a geo:Geometry ;
-    geo:asWKT "POINT(138.95 35.21667)"^^geo:wktLiteral .
+    geo:asWKT "POINT(138.984754 35.230123)"^^geo:wktLiteral .
 
 <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-004/geometry> a geo:Geometry ;
     geo:asWKT "POINT(136.632419 36.437184)"^^geo:wktLiteral .
