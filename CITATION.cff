@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "このデータを使うときは、次のように引用してください。 If you use this dataset, please cite it as below."
+type: dataset
+title: "世界かんがい施設遺産（日本）Linked Open Data / World Heritage Irrigation Structures in Japan as Linked Open Data"
+authors:
+  - name: "abe"
+license: CC-BY-4.0
+url: "https://ysh17-hub.github.io/whis-lod/"
+repository-code: "https://github.com/ysh17-hub/whis-lod"
+date-released: 2026-11-23
+keywords:
+  - "World Heritage Irrigation Structures"
+  - "世界かんがい施設遺産"
+  - "ICID"
+  - "Linked Open Data"
+  - "Wikidata"
+  - "irrigation"

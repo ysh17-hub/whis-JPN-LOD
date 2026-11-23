@@ -159,6 +159,14 @@ def validate(rows):
     return problems
 
 
+def load_rows(path):
+    """CSV をそのまま行のリストで読む（なければ空）。"""
+    if path and Path(path).exists():
+        with open(path, encoding="utf-8-sig") as f:
+            return list(csv.DictReader(f))
+    return []
+
+
 def load_optional_csv(path):
     """data/images.csv や data/external_links.csv（なければ空）を id ごとにまとめて読む。"""
     out = {}
@@ -169,8 +177,10 @@ def load_optional_csv(path):
     return out
 
 
-def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None, terrain=None, addrlinks=None):
+def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None, terrain=None, addrlinks=None,
+                river_flow=None, wd_labels=None):
     addrlinks = addrlinks or {}
+    river_flow = river_flow or []
     images = images or {}
     extlinks = extlinks or {}
     terrain = terrain or {}
@@ -237,6 +247,19 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None,
         for rel, target in matches:
             g.add((c, getattr(SKOS, rel), target))
 
+    # --- 水源の川がどこへ流れるか（Wikidata の「河口・流出先」P403 を写したもの。Wikidata は CC0） ---
+    # 手元の SPARQL だけで「同じ水系の遺産」を調べられるようにする。data/river_flow.csv
+    P403 = URIRef("http://www.wikidata.org/prop/direct/P403")
+    g.bind("wdt", "http://www.wikidata.org/prop/direct/")
+    for e in river_flow:
+        a, b = WD[e["from_qid"]], WD[e["to_qid"]]
+        g.add((a, P403, b))
+        for q, lab in [(a, e.get("from_label")), (b, e.get("to_label"))]:
+            if lab:
+                g.add((q, RDFS.label, Literal(lab, lang="ja")))
+    for x in (wd_labels or []):          # 水源の川・湖の Wikidata の日本語ラベル（CC0）
+        g.add((WD[x["qid"]], RDFS.label, Literal(x["label_ja"], lang="ja")))
+
     # --- データセットのメタデータ（LODチャレンジの審査観点「開放性」「持続可能性」向け） ---
     ds = URIRef(base + "dataset")
     g.add((ds, RDF.type, DCAT.Dataset))
@@ -282,6 +305,8 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None,
             g.add((s, WHIS.prefectureCode, Literal("JP-" + PREF_CODE[pref])))
         if pref in pref_qids:
             g.add((s, SCHEMA.containedInPlace, WD[pref_qids[pref]]))
+        if pref in PREF_CODE:   # 統計LOD の都道府県の標準地域コード（2026-11-23、統計LOD の SPARQL で確認：C○○000-19700401）
+            g.add((s, SCHEMA.containedInPlace, URIRef(f"http://data.e-stat.go.jp/lod/sac/C{PREF_CODE[pref]}000-19700401")))
         if r.get("municipality"):
             g.add((s, SCHEMA.addressLocality, Literal(r["municipality"], lang="ja")))
 
@@ -404,6 +429,8 @@ def main(argv=None):
     ap.add_argument("--extlinks", default=None)
     ap.add_argument("--terrain", default=None)
     ap.add_argument("--addrlinks", default=None)
+    ap.add_argument("--riverflow", default=None)
+    ap.add_argument("--wdlabels", default=None)
     a = ap.parse_args(argv)
 
     with open(a.csv, encoding="utf-8-sig") as f:
@@ -426,7 +453,8 @@ def main(argv=None):
     }
     g = build_graph(rows, a.base, load_pref_qids(a.prefqid), meta,
                     load_optional_csv(a.images), load_optional_csv(a.extlinks), load_optional_csv(a.terrain),
-                    load_optional_csv(a.addrlinks))
+                    load_optional_csv(a.addrlinks), load_rows(a.riverflow),
+                    load_rows(a.wdlabels))
     Path(a.out_ttl).parent.mkdir(parents=True, exist_ok=True)
     g.serialize(destination=a.out_ttl, format="turtle")
     Path(a.out_geojson).parent.mkdir(parents=True, exist_ok=True)

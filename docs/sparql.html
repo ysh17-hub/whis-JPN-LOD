@@ -59,6 +59,7 @@ PREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 `;
 
 const EXAMPLES = [
@@ -121,6 +122,12 @@ const EXAMPLES = [
   ?s schema:name ?施設 ; whis:pointMunicipality ?標準地域コード ; whis:pointAddressArea ?住所LOD .
   FILTER(LANG(?施設) = "ja")
 } ORDER BY ?標準地域コード`],
+  ["同じ海・湖へ注ぐ水系の遺産（Wikidata の「河口・流出先」を写したデータで、手元だけで計算）", `SELECT ?注ぐ先 (COUNT(DISTINCT ?s) AS ?遺産の数) (GROUP_CONCAT(DISTINCT ?施設; separator="、") AS ?遺産) WHERE {
+  ?s whis:waterSource ?川 ; schema:name ?施設 . FILTER(LANG(?施設) = "ja")
+  ?川 wdt:P403* ?終点 .
+  FILTER NOT EXISTS { ?終点 wdt:P403 ?x }
+  ?終点 rdfs:label ?注ぐ先 .
+} GROUP BY ?注ぐ先 ORDER BY DESC(?遺産の数)`],
   ["座標の一覧（緯度・経度）", `SELECT ?id ?施設 ?緯度 ?経度 WHERE {
   ?s dcterms:identifier ?id ; schema:name ?施設 ; wgs84:lat ?緯度 ; wgs84:long ?経度 .
   FILTER(LANG(?施設) = "ja")

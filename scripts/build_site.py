@@ -228,7 +228,7 @@ def resource_page(r, base, creator, imgs=None, exts=None, terrain=None, addr=Non
 <script type="application/ld+json">
 {ld}
 </script></head><body>
-<nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../quality.html">検証</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a><a href="../en.html">English</a></nav>
+<nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../watersystems.html">水系</a><a href="../quality.html">検証</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a><a href="../en.html">English</a></nav>
 <h1>{e(r['name_ja'])}</h1>
 <p><small>URI: <code>{e(base + 'resource/' + r['id'])}</code>　この施設のデータ：<a href="{e(r['id'])}.ttl">Turtle</a>／<a href="{e(r['id'])}.jsonld">JSON-LD</a></small></p>
 <table>{rows}<tr><th>Wikidata</th><td>{wd}</td></tr></table>
@@ -316,6 +316,7 @@ def void_ttl(g, base):
         "loa": ("住所LOD（Linked Open Addresses Japan）", "https://uedayou.net/loa/", "https://uedayou.net/loa/"),
         "estat": ("統計LOD（標準地域コード）", "https://data.e-stat.go.jp/lodw/", "http://data.e-stat.go.jp/lod/sac/"),
     }
+    # 都道府県（schema:containedInPlace）も数える
     for key, (title, home, prefix) in targets.items():
         t = URIRef(base + "void.ttl#" + key)
         v.add((t, RDF.type, VOID.Dataset)); v.add((t, DCTERMS.title, Literal(title))); v.add((t, VOID.uriSpace, Literal(prefix)))
@@ -323,6 +324,7 @@ def void_ttl(g, base):
     for pred, name in [(OWL.sameAs, "sameAs"), (SCHEMA.hasPart, "hasPart"), (WHIS.waterSource, "waterSource"),
                        (RDFS.seeAlso, "seeAlso"), (SCHEMA.image, "image"),
                        (WHIS.pointAddressArea, "pointAddressArea"), (WHIS.pointMunicipality, "pointMunicipality"),
+                       (SCHEMA.containedInPlace, "containedInPlace"),
                        (SKOS.exactMatch, "exactMatch"), (SKOS.closeMatch, "closeMatch"), (SKOS.broadMatch, "broadMatch")]:
         counts = {}
         for o in g.objects(None, pred):
@@ -428,6 +430,18 @@ def quality_page(rows, base, terrain, addr, imgs, g, today):
         ("写真", f"{n_img} 枚（{len(imgs)} 施設）すべてに撮影者とライセンス", "撮影者かライセンスが欠けるとSHACLで止まる"),
         ("全体", f"{len(g)} トリプル", "VoID（void.ttl）にほかのデータとのつながりの数"),
     ]
+    lr = ROOT / "docs" / "link_report.csv"
+    if lr.exists():
+        rep = conv.load_rows(str(lr))
+        okn = sum(1 for x in rep if x.get("ok") == "1")
+        bad = [x for x in rep if x.get("ok") != "1"]
+        when = max((x.get("checked", "") for x in rep), default="")
+        checks.append(("リンクの健康診断", f"{len(rep)} 件中 {okn} 件が開けた（{when}）" +
+                       ("" if not bad else "。開けなかったもの：" + "、".join(f"{x['id']}（{x['status']}）" for x in bad[:10])),
+                       "出典URL・外部リンク・写真・住所LODを毎月自動で確かめる（scripts/check_links.py）"))
+    else:
+        checks.append(("リンクの健康診断", "まだ実行していません",
+                       "出典URL・外部リンク・写真・住所LODを毎月自動で確かめる（scripts/check_links.py）"))
     rows_html = "".join(f"<tr><th>{e(a)}</th><td>{e(b)}</td><td><small>{e(c)}</small></td></tr>" for a, b, c in checks)
     cols = [(k, lbl) for k, lbl in FIELD_LABELS if k not in ("note",)]
     prof = "".join(
@@ -435,13 +449,65 @@ def quality_page(rows, base, terrain, addr, imgs, g, today):
     return f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>検証レポート｜世界かんがい施設遺産（日本）LOD</title><style>{PAGE_CSS}</style></head><body>
-<nav><a href="index.html">地図</a><a href="sparql.html">SPARQL</a><a href="ontology.html">語彙</a><a href="en.html">English</a></nav>
+<nav><a href="index.html">地図</a><a href="sparql.html">SPARQL</a><a href="watersystems.html">水系</a><a href="ontology.html">語彙</a><a href="en.html">English</a></nav>
 <h1>検証レポート</h1>
 <p>このデータに対して行っているチェックと、その結果です（{e(today)} に作成）。サイトを作り直すたびに自動で作り直されます。</p>
 <table><tr><th>項目</th><td><b>結果</b></td><td><b>確かめ方</b></td></tr>{rows_html}</table>
 <h2>項目ごとの値がある施設の数</h2>
 <p><small>出典に書かれていない値や、資料で値が違う値は空欄にしています（空欄＝不明。0ではありません）。</small></p>
 <table>{prof}</table>
+</body></html>
+"""
+
+
+def watersystem_page(rows, flow):
+    """水系のページ：遺産の水源の川が、どの本流を通ってどの海（湖）へ注ぐかで遺産をまとめる。"""
+    e = html.escape
+    nxt = {f["from_qid"]: f["to_qid"] for f in flow}
+    label = {}
+    lab_csv = ROOT / "data" / "wikidata_labels.csv"
+    if lab_csv.exists():
+        for x in conv.load_rows(str(lab_csv)):
+            label[x["qid"]] = x["label_ja"]
+    for f in flow:
+        label[f["from_qid"]] = f["from_label"]
+        label[f["to_qid"]] = f["to_label"]
+    groups, no_qid = {}, []
+    for r in rows:
+        qs = conv.split_qids(r.get("water_source_river_qid"))
+        if not qs:
+            no_qid.append(r)
+            continue
+        names = [n.strip() for n in (r.get("water_source_river") or "").replace("、", ";").split(";")]
+        for i, q in enumerate(qs):
+            chain, seen = [q], {q}
+            while chain[-1] in nxt and nxt[chain[-1]] not in seen:
+                seen.add(nxt[chain[-1]])
+                chain.append(nxt[chain[-1]])
+            term = chain[-1]
+            lab = lambda x: label.get(x) or (names[i] if x == q and i < len(names) else x)
+            path = " → ".join(e(lab(x)) for x in chain[:-1]) if len(chain) > 1 else ""
+            groups.setdefault(term, []).append((path, r, lab(term)))
+    sec = []
+    for term, items in sorted(groups.items(), key=lambda kv: (-len({x[1]["id"] for x in kv[1]}), kv[1][0][2])):
+        n = len({x[1]["id"] for x in items})
+        tl = items[0][2]
+        lis = "".join(
+            f'<li><a href="resource/{e(r["id"])}.html">{e(r["name_ja"])}</a>'
+            f'{"（" + path + " → " + e(tl) + "）" if path else "（" + e(tl) + "から直接）"}</li>'
+            for path, r, _ in sorted(items, key=lambda x: x[0]))
+        sec.append(f'<h2>{e(tl)}（{n}施設）</h2><ul>{lis}</ul>')
+    rest = "、".join(f'<a href="resource/{e(r["id"])}.html">{e(r["name_ja"])}</a>' for r in no_qid)
+    return f"""<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水系でみる｜世界かんがい施設遺産（日本）LOD</title><style>{PAGE_CSS}</style></head><body>
+<nav><a href="index.html">地図</a><a href="sparql.html">SPARQL</a><a href="quality.html">検証</a><a href="ontology.html">語彙</a><a href="en.html">English</a></nav>
+<h1>水系でみる世界かんがい施設遺産</h1>
+<p>遺産が水を引く川・湖を Wikidata の項目につなぎ、Wikidata の「河口・流出先」（P403）をたどって、どの本流を通ってどの海・湖へ注ぐかでまとめました。
+同じ海・本流にまとまる遺産は、同じ水系の水を分け合っています。<small>（川の流れのつながりは Wikidata（CC0）から {e(flow[0]["retrieved"]) if flow else ""} に写したもの。data/river_flow.csv。）</small></p>
+{"".join(sec)}
+<h2>水源の川・湖が Wikidata の項目につながっていない施設（{len(no_qid)}施設）</h2>
+<p><small>湧水・地下水、小さな川など、Wikidata に項目が見つからなかったもの。</small><br>{rest}</p>
 </body></html>
 """
 
@@ -457,6 +523,7 @@ def main(argv=None):
     ap.add_argument("--extlinks", default=str(ROOT / "data" / "external_links.csv"))
     ap.add_argument("--terrain", default=str(ROOT / "data" / "point_terrain.csv"))
     ap.add_argument("--addrlinks", default=str(ROOT / "data" / "address_links.csv"))
+    ap.add_argument("--riverflow", default=str(ROOT / "data" / "river_flow.csv"))
     a = ap.parse_args(argv)
     base = a.base.rstrip("/") + "/"
     docs = Path(a.docs)
@@ -465,16 +532,19 @@ def main(argv=None):
     rc = conv.main(["--csv", a.csv, "--base", base, "--prefqid", a.prefqid,
                     "--out-ttl", str(docs / "whis_japan.ttl"), "--out-geojson", str(docs / "whis_japan.geojson"),
                     "--creator", a.creator, "--modified", a.modified,
-                    "--images", a.images, "--extlinks", a.extlinks, "--terrain", a.terrain, "--addrlinks", a.addrlinks])
+                    "--images", a.images, "--extlinks", a.extlinks, "--terrain", a.terrain, "--addrlinks", a.addrlinks,
+                    "--riverflow", a.riverflow, "--wdlabels", str(ROOT / "data" / "wikidata_labels.csv")])
     from rdflib import Graph, URIRef
     g = Graph().parse(docs / "whis_japan.ttl", format="turtle")
     (docs / "whis_japan.jsonld").write_text(g.serialize(format="json-ld", indent=1), encoding="utf-8")
+    (docs / "whis_japan.nt").write_text(g.serialize(format="nt"), encoding="utf-8")   # 1行1トリプル（大量処理・差分比較向け）
     shutil.copyfile(a.csv, docs / "whis_japan.csv")
     images = conv.load_optional_csv(a.images)
     exts = conv.load_optional_csv(a.extlinks)
     terrain = conv.load_optional_csv(a.terrain)
     addr = conv.load_optional_csv(a.addrlinks)
-    for src in [a.images, a.extlinks, a.terrain, a.addrlinks]:
+    flow = conv.load_rows(a.riverflow)
+    for src in [a.images, a.extlinks, a.terrain, a.addrlinks, a.riverflow, str(ROOT / "data" / "wikidata_labels.csv")]:
         if Path(src).exists():
             shutil.copyfile(src, docs / Path(src).name)
     # 地図の部品（背景の切り替え・昔の航空写真の重ね合わせ）
@@ -507,6 +577,7 @@ def main(argv=None):
         (docs / "resource" / f"{r['id']}.jsonld").write_text(sub.serialize(format="json-ld", indent=1), encoding="utf-8")
     (docs / "ontology.html").write_text(ontology_page(base), encoding="utf-8")
     (docs / "en.html").write_text(english_page(rows, base, terrain, images), encoding="utf-8")
+    (docs / "watersystems.html").write_text(watersystem_page(rows, flow), encoding="utf-8")
     (docs / "quality.html").write_text(quality_page(rows, base, terrain, addr, images, g, a.modified), encoding="utf-8")
     print(f"施設ページ {len(rows)} 件（HTML・Turtle・JSON-LD）、ontology.html、JSON-LD、CSV を {docs} に出力しました")
     return rc

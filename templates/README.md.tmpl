@@ -5,8 +5,9 @@
 日本にある「世界かんがい施設遺産」%%N_ROWS%%施設（2014〜2026年に認定・登録）の基本情報を、出典付きで、コンピュータが読み取って他のデータとつなげられる形（Linked Open Data）にまとめたデータセットと地図です。
 
 - 地図：%%BASE%%（背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
+- 水系でみる：%%BASE%%watersystems.html ／ 検証レポート：%%BASE%%quality.html ／ English：%%BASE%%en.html
 - SPARQL（ブラウザの中で問い合わせ）：%%BASE%%sparql.html
-- データ：[Turtle](docs/whis_japan.ttl)／[JSON-LD](docs/whis_japan.jsonld)／[GeoJSON](docs/whis_japan.geojson)／[CSV](data/whis_japan.csv)
+- データ：[Turtle](docs/whis_japan.ttl)／[JSON-LD](docs/whis_japan.jsonld)／[N-Triples](docs/whis_japan.nt)／[GeoJSON](docs/whis_japan.geojson)／[CSV](data/whis_japan.csv)
 - ライセンス：データは CC BY 4.0、プログラムは MIT（[LICENSE](LICENSE)）
 
 ---
@@ -130,6 +131,17 @@ for row in g.query("""PREFIX schema: <https://schema.org/> PREFIX whis: <%%BASE%
 10. 施設の種類と AGROVOC・Wikidata の対応は、AGROVOC の検索API と Wikidata の項目（ラベル・説明・上位クラス）を見て作成者が決めました。意味の範囲が完全には同じと言えないものは `skos:closeMatch`、相手のほうが広いもの（ため池 → AGROVOC の water reservoirs）は `skos:broadMatch` にしています。
 11. 住所LODの IRI は、代表地点の住所（大字・町丁目）から住所LODの階層（都道府県→市区町村→大字・町丁目）をたどって見つけ、IRI が実際に開けることを確かめました（郡の名前・「大字」の有無・丁目の数字の書き方の違いを合わせた）。統計LODの標準地域コードは、住所LODの住所コードの上5桁（市区町村コード）から、統計LODの SPARQL で発行日がいちばん新しい項目を選びました（2026-11-23）。
 
+## 続けて公開・更新するための計画
+
+| いつ | 何をするか | どうやって |
+|---|---|---|
+| 毎年、新しい認定が発表されたとき（2026年は8月21日に農林水産省が発表） | 新しい施設を追加する | 下の「更新手順」。座標・標高・空中写真の確認・ページ作成・チェックは自動 |
+| 毎月1日 | 出典URL・外部リンク・写真・住所LODが開けるかを確かめる | GitHub Actions（`.github/workflows/linkcheck.yml`）が `scripts/check_links.py` を実行し、結果を検証レポート（%%BASE%%quality.html）に出す |
+| データを直すたび | データの形のチェック（SHACL）と、座標を直した施設の標高の計算し直し | GitHub Actions が自動で行い、誤りがあれば公開しない |
+| 少なくとも2027年3月31日まで | このURLで公開し続ける（リポジトリ名を変えない・非公開にしない） | — |
+
+引用するときは [`CITATION.cff`](CITATION.cff) の書き方を使ってください（GitHub の「Cite this repository」からも出せます）。
+
 ## 新しい施設が認定されたときの更新手順
 
 1. `data/whis_japan.csv` に1行追加する（IDは続きの番号。出典URLを必ず入れる）
@@ -147,6 +159,8 @@ data/images.csv            写真の一覧（Wikimedia Commons のファイル�
 data/external_links.csv    ほかのデータベース・百科事典へのリンク（Wikidata から。取得日つき）
 data/point_terrain.csv     代表地点の標高と、昔の空中写真があるか（地理院タイルから。取得日つき）
 data/address_links.csv     代表地点の住所LOD・統計LOD（標準地域コード）の IRI（取得日つき）
+data/river_flow.csv        水源の川がどこへ流れるか（Wikidata の P403 を写したもの。取得日つき）
+data/wikidata_labels.csv   水源の川・湖の Wikidata の日本語名（取得日つき）
 docs/                      GitHub Pages で公開するもの（build_site.py が作る）
   index.html               地図（登録年のスライダー、再生、水源・名前での絞り込み、現在地から近い順、写真を押すと拡大、背景の切り替え、昔の空中写真の重ね合わせ）
   gsi_layers.js            地図の背景（地理院タイル）と昔の空中写真の切り替え（templates/ から写す）
@@ -159,6 +173,7 @@ docs/                      GitHub Pages で公開するもの（build_site.py �
   shapes.ttl / shacl_report.txt   データの形の決まり（SHACL）と、チェックの結果
 scripts/
   csv_to_rdf.py            CSV から RDF・GeoJSON を作る（チェック付き）
+  check_links.py           出典URL・外部リンクなどが開けるかを確かめる（毎月 GitHub Actions で実行）
   terrain.py               代表地点の標高と昔の空中写真があるかを地理院タイルから求める（標準ライブラリだけで動く）
   build_site.py            docs/ を一式作る
   fetch_wikidata.py        都道府県の Wikidata 項目と、施設の Wikidata 候補を集める
@@ -181,7 +196,7 @@ templates/                 README・LICENSE のひな形（lod.py build が READ
 - 地図の背景・航空写真・空中写真・色別標高図・陰影起伏図・標高：地理院タイル（国土地理院、https://maps.gsi.go.jp/development/ichiran.html ）。地理院タイルをリアルタイムで読み込んで表示するウェブサイトは、出典を示せば申請なしで利用できます（国土地理院「承認申請Q&A」Q1-12、https://www.gsi.go.jp/LAW/2930-qa.html ）。色別標高図は「海域部は海上保安庁海洋情報部の資料を使用して作成」、全国最新写真は「GRUS画像（© Axelspace）」を含むことを、地図の出典表示に書いています（地理院タイル一覧の求めによる）。
 - 住所LOD（https://uedayou.net/loa/ ）と統計LOD（https://data.e-stat.go.jp/lodw/ 、CC BY 4.0）は、IRI を参照しているだけで、内容は写していません。
 - 施設の種類の対応先：AGROVOC（国連食糧農業機関 FAO、https://agrovoc.fao.org/ ）の概念のURIを参照しているだけで、AGROVOC の内容は写していません。
-- Wikidata のデータは CC0 です。SPARQL のページでは、Wikidata の公開 SPARQL サービス（https://query.wikidata.org/ ）に問い合わせます。
+- Wikidata のデータは CC0 です。水源の川の流れのつながり（P403）と川・湖の日本語名は Wikidata から写し、`data/river_flow.csv`・`data/wikidata_labels.csv` に取得日と一緒に保存しています。SPARQL のページでは、Wikidata の公開 SPARQL サービス（https://query.wikidata.org/ ）に問い合わせます。
 - SPARQL のページで使っている Oxigraph（https://github.com/oxigraph/oxigraph ）は MIT または Apache-2.0 ライセンスです。
 
 ## 作成者
