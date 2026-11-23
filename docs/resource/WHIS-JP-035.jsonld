@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-035/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(130.736887 32.812628)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-035",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -102,6 +90,11 @@
     "@value": "白川流域かんがい用水群"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-irrigation-system"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -112,6 +105,17 @@
    {
     "@language": "ja",
     "@value": "熊本県熊本市中央区黒髪六丁目"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "18.6"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -140,6 +144,18 @@
    {
     "@language": "ja",
     "@value": "白川"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-035/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(130.736887 32.812628)"
    }
   ]
  }

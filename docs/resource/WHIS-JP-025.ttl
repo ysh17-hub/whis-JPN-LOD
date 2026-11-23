@@ -27,8 +27,11 @@ res:WHIS-JP-025 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q127264 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg> ;
     schema:name "常盤湖"@ja ;
+    whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:pointAddress "山口県宇部市大字沖宇部"@ja ;
+    whis:pointElevation 25.1 ;
+    whis:pointElevationSource "DEM10B" ;
     whis:prefectureCode "JP-35" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "常盤湖（ときわ公園）"@ja .

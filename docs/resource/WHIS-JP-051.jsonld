@@ -95,6 +95,11 @@
     "@value": "建部井堰"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-weir"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -105,6 +110,17 @@
    {
     "@language": "ja",
     "@value": "岡山県岡山市北区建部町品田"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "61.4"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM5A"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [

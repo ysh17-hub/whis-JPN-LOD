@@ -111,6 +111,11 @@
     "@value": "開削（1180年頃）"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -127,6 +132,17 @@
    {
     "@language": "ja",
     "@value": "岩手県一関市厳美町"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "90.0"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [

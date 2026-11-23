@@ -92,6 +92,11 @@
     "@value": "常盤湖"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-tameike"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -102,6 +107,17 @@
    {
     "@language": "ja",
     "@value": "山口県宇部市大字沖宇部"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "25.1"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [

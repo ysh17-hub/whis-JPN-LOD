@@ -27,10 +27,13 @@ res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     schema:name "内川"@ja ;
     whis:builtYear "1591"^^xsd:gYear ;
     whis:builtYearBasis "開削"@ja ;
+    whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 3300.0 ;
     whis:managedBy "大崎土地改良区"@ja ;
     whis:pointAddress "宮城県大崎市岩出山下一栗"@ja ;
+    whis:pointElevation 65.2 ;
+    whis:pointElevationSource "DEM1A" ;
     whis:prefectureCode "JP-04" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "大堰頭首工"@ja .

@@ -30,9 +30,12 @@ res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
     schema:name "Tsujunyousui Irrigation System"@en,
         "通潤用水"@ja ;
     whis:builtYear "1855"^^xsd:gYear ;
-    whis:builtYearBasis "建設（農水省aff記載）"@ja ;
+    whis:builtYearBasis "建設（農林水産省の資料に記載）"@ja ;
+    whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "熊本県山都町城原"@ja ;
+    whis:pointElevation 438.0 ;
+    whis:pointElevationSource "DEM10B" ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "通潤橋"@ja .

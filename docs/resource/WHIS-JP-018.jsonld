@@ -1,5 +1,17 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-018/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(138.419575 35.911329)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-018",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -74,6 +86,11 @@
     "@value": "村山六ヶ村堰疏水"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -92,6 +109,17 @@
     "@value": "山梨県北杜市大泉町西井出"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "1165.3"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
    {
     "@value": "JP-19"
@@ -107,18 +135,6 @@
    {
     "@language": "ja",
     "@value": "東沢頭首工（東沢取水口）"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-018/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(138.419575 35.911329)"
    }
   ]
  }

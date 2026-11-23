@@ -1,48 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.055806 34.790278)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11488870"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Shijimi-river_siphon-bridge.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Bakkai"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Shijimi-river siphon-bridge.jpg"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -145,6 +102,11 @@
     "@value": "淡河川疏水完成"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -161,6 +123,17 @@
    {
     "@language": "ja",
     "@value": "兵庫県三木市志染町御坂"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "66.4"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM5A"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -189,6 +162,49 @@
    {
     "@language": "ja",
     "@value": "淡河川、志染川（山田川）"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11488870"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Shijimi-river_siphon-bridge.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Bakkai"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Shijimi-river siphon-bridge.jpg"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.055806 34.790278)"
    }
   ]
  }

@@ -22,9 +22,12 @@ res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "山梨県"@ja ;
     schema:containedInPlace wd:Q132720 ;
     schema:name "村山六ヶ村堰疏水"@ja ;
+    whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "村山六ヶ村堰土地改良区"@ja ;
     whis:pointAddress "山梨県北杜市大泉町西井出"@ja ;
+    whis:pointElevation 1165.3 ;
+    whis:pointElevationSource "DEM10B" ;
     whis:prefectureCode "JP-19" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "東沢頭首工（東沢取水口）"@ja .

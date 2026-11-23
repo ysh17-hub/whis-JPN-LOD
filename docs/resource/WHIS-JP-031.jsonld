@@ -1,5 +1,17 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-031/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.448278 34.283105)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-031",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -89,6 +101,11 @@
     "@value": "開削（宝永4年）"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -111,6 +128,17 @@
    {
     "@language": "ja",
     "@value": "和歌山県かつらぎ町大字高田"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "51.2"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM1A"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -139,18 +167,6 @@
    {
     "@language": "ja",
     "@value": "紀の川"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-031/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.448278 34.283105)"
    }
   ]
  }

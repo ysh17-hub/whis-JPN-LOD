@@ -22,8 +22,11 @@ res:WHIS-JP-002 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "群馬県"@ja ;
     schema:containedInPlace wd:Q129499 ;
     schema:name "雄川堰"@ja ;
+    whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "群馬県甘楽町大字小幡"@ja ;
+    whis:pointElevation 182.2 ;
+    whis:pointElevationSource "DEM1A" ;
     whis:prefectureCode "JP-10" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "吹上の石樋"@ja .

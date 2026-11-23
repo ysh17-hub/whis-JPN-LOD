@@ -12,6 +12,37 @@
   ]
  },
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11571743"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Sayamaike01.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Kansai explorer at Japanese Wikipedia"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Sayamaike01.JPG"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -110,6 +141,11 @@
     "@value": "狭山池"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-tameike"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -120,6 +156,17 @@
    {
     "@language": "ja",
     "@value": "大阪府大阪狭山市大字岩室"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "84.4"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -137,37 +184,6 @@
    {
     "@language": "ja",
     "@value": "狭山池"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11571743"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Sayamaike01.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Kansai explorer at Japanese Wikipedia"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Sayamaike01.JPG"
    }
   ]
  }

@@ -26,9 +26,12 @@ res:WHIS-JP-048 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q125863 ;
     schema:name "Yamagata-goseki Irrigation System"@en,
         "山形五堰"@ja ;
+    whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 2400.0 ;
     whis:pointAddress "山形県山形市大字釈迦堂"@ja ;
+    whis:pointElevation 223.7 ;
+    whis:pointElevationSource "DEM1A" ;
     whis:prefectureCode "JP-06" ;
     whis:registeredYear "2023"^^xsd:gYear ;
     whis:representativePoint "馬見ヶ崎川合口頭首工（山形五堰へ水を取り込むための起点取水施設）"@ja ;

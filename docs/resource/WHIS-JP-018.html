@@ -45,8 +45,25 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 <nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a></nav>
 <h1>村山六ヶ村堰疏水</h1>
 <p><small>URI: <code>https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-018</code>　この施設のデータ：<a href="WHIS-JP-018.ttl">Turtle</a>／<a href="WHIS-JP-018.jsonld">JSON-LD</a></small></p>
-<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>山梨県</td></tr><tr><th>市町村</th><td>北杜市</td></tr><tr><th>登録年</th><td>2016</td></tr><tr><th>建設年</th><td>—</td></tr><tr><th>建設年の根拠</th><td>—</td></tr><tr><th>種類</th><td>水路</td></tr><tr><th>水源</th><td>—</td></tr><tr><th>管理者</th><td>村山六ヶ村堰土地改良区</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>東沢頭首工（東沢取水口）</td></tr><tr><th>代表地点の住所（座標から）</th><td>山梨県北杜市大泉町西井出</td></tr><tr><th>緯度</th><td>35.911329</td></tr><tr><th>経度</th><td>138.419575</td></tr><tr><th>注記</th><td>関東農政局資料に約1,000年前とある</td></tr><tr><th>Wikidata</th><td>—</td></tr></table>
+<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>山梨県</td></tr><tr><th>市町村</th><td>北杜市</td></tr><tr><th>登録年</th><td>2016</td></tr><tr><th>建設年</th><td>—</td></tr><tr><th>建設年の根拠</th><td>—</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-canal">水路</a></td></tr><tr><th>水源</th><td>—</td></tr><tr><th>管理者</th><td>村山六ヶ村堰土地改良区</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>東沢頭首工（東沢取水口）</td></tr><tr><th>代表地点の住所（座標から）</th><td>山梨県北杜市大泉町西井出（標高 約1165.3m・DEM10B）</td></tr><tr><th>緯度</th><td>35.911329</td></tr><tr><th>経度</th><td>138.419575</td></tr><tr><th>注記</th><td>関東農政局資料に約1,000年前とある</td></tr><tr><th>Wikidata</th><td>—</td></tr></table>
 
+<h2>航空写真・地形で見る</h2>
+<p><small>代表地点（東沢頭首工（東沢取水口））のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
+この地点で見つかった昔の空中写真：1974〜1978年。「昔の航空写真を重ねる」で選び、「濃さ」を動かすと今と比べられます。
+（出典：国土地理院 地理院タイル）　<a href="https://maps.gsi.go.jp/#17/35.911329/138.419575/&amp;base=std&amp;ls=std%7Cseamlessphoto&amp;disp=01">地理院地図で開く</a></small></p>
+<div id="amap" style="height:380px;border-radius:6px"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../gsi_layers.js"></script>
+<script>
+(function(){
+  if (!window.L || !window.WHIS_GSI) { document.getElementById('amap').textContent = '地図を読み込めませんでした。'; return; }
+  const m = L.map('amap', { scrollWheelZoom: false }).setView([35.911329, 138.419575], 16);
+  WHIS_GSI.setup(m, { base: '航空写真（最新）', available: ["p1974"], collapsed: true });
+  L.circleMarker([35.911329, 138.419575], { radius: 8, weight: 2, color: '#fff', fillColor: '#e53e3e', fillOpacity: 1 })
+    .bindTooltip("東沢頭首工（東沢取水口）").addTo(m);
+})();
+</script>
 
 <h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf">https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf</a></li></ul>
 <p><small>データ: CC BY 4.0（作成: abe）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>

@@ -31,18 +31,6 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(138.984754 35.230123)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -147,6 +135,11 @@
     "@value": "資料記載年"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -163,6 +156,17 @@
    {
     "@language": "ja",
     "@value": "神奈川県箱根町元箱根"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "724.5"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -191,6 +195,18 @@
    {
     "@language": "ja",
     "@value": "芦ノ湖"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(138.984754 35.230123)"
    }
   ]
  }

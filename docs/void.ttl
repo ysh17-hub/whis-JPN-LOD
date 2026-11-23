@@ -1,0 +1,166 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#bunka> a void:Dataset ;
+    dcterms:title "文化遺産オンライン" ;
+    void:uriSpace "https://bunka.nii.ac.jp/" ;
+    rdfs:seeAlso <https://bunka.nii.ac.jp/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#broadMatch-agrovoc> a void:Linkset ;
+    void:linkPredicate skos:broadMatch ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#agrovoc> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 1 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#closeMatch-agrovoc> a void:Linkset ;
+    void:linkPredicate skos:closeMatch ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#agrovoc> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 4 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#closeMatch-wikidata> a void:Linkset ;
+    void:linkPredicate skos:closeMatch ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#wikidata> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 2 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#commons> a void:Dataset ;
+    dcterms:title "Wikimedia Commons" ;
+    void:uriSpace "https://commons.wikimedia.org/" ;
+    rdfs:seeAlso <https://commons.wikimedia.org/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#exactMatch-wikidata> a void:Linkset ;
+    void:linkPredicate skos:exactMatch ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#wikidata> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 3 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#geonames> a void:Dataset ;
+    dcterms:title "GeoNames" ;
+    void:uriSpace "https://sws.geonames.org/" ;
+    rdfs:seeAlso <https://www.geonames.org/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#hasPart-wikidata> a void:Linkset ;
+    void:linkPredicate schema:hasPart ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#wikidata> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 15 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#image-commons> a void:Linkset ;
+    void:linkPredicate schema:image ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#commons> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 22 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#jawiki> a void:Dataset ;
+    dcterms:title "ウィキペディア日本語版" ;
+    void:uriSpace "https://ja.wikipedia.org/" ;
+    rdfs:seeAlso <https://ja.wikipedia.org/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#kunishitei> a void:Dataset ;
+    dcterms:title "国指定文化財等データベース" ;
+    void:uriSpace "https://kunishitei.bunka.go.jp/" ;
+    rdfs:seeAlso <https://kunishitei.bunka.go.jp/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#ndl> a void:Dataset ;
+    dcterms:title "国立国会図書館典拠" ;
+    void:uriSpace "https://id.ndl.go.jp/" ;
+    rdfs:seeAlso <https://id.ndl.go.jp/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#osm> a void:Dataset ;
+    dcterms:title "OpenStreetMap" ;
+    void:uriSpace "https://www.openstreetmap.org/" ;
+    rdfs:seeAlso <https://www.openstreetmap.org/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#sameAs-wikidata> a void:Linkset ;
+    void:linkPredicate owl:sameAs ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#wikidata> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 28 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-geonames> a void:Linkset ;
+    void:linkPredicate rdfs:seeAlso ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#geonames> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 5 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-jawiki> a void:Linkset ;
+    void:linkPredicate rdfs:seeAlso ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#jawiki> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 27 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-kunishitei> a void:Linkset ;
+    void:linkPredicate rdfs:seeAlso ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#kunishitei> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 1 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-ndl> a void:Linkset ;
+    void:linkPredicate rdfs:seeAlso ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#ndl> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 2 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-osm> a void:Linkset ;
+    void:linkPredicate rdfs:seeAlso ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#osm> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 10 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#waterSource-wikidata> a void:Linkset ;
+    void:linkPredicate <https://ysh17-hub.github.io/whis-lod/ontology#waterSource> ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#wikidata> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 41 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#agrovoc> a void:Dataset ;
+    dcterms:title "AGROVOC" ;
+    void:uriSpace "http://aims.fao.org/aos/agrovoc/" ;
+    rdfs:seeAlso <https://agrovoc.fao.org/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#wikidata> a void:Dataset ;
+    dcterms:title "Wikidata" ;
+    void:uriSpace "http://www.wikidata.org/entity/" ;
+    rdfs:seeAlso <https://www.wikidata.org/> .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> a void:Dataset ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:subject <http://www.wikidata.org/entity/Q22127466> ;
+    dcterms:title "World Heritage Irrigation Structures in Japan as Linked Open Data"@en,
+        "世界かんがい施設遺産（日本）Linked Open Data"@ja ;
+    void:dataDump <https://ysh17-hub.github.io/whis-lod/whis_japan.ttl> ;
+    void:entities 60 ;
+    void:exampleResource <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026> ;
+    void:subset <https://ysh17-hub.github.io/whis-lod/void.ttl#broadMatch-agrovoc>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#closeMatch-agrovoc>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#closeMatch-wikidata>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#exactMatch-wikidata>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#hasPart-wikidata>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#image-commons>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#sameAs-wikidata>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-geonames>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-jawiki>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-kunishitei>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-ndl>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-osm>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#waterSource-wikidata> ;
+    void:triples 2176 ;
+    void:uriSpace "https://ysh17-hub.github.io/whis-lod/resource/" ;
+    void:vocabulary dcterms:,
+        geo:,
+        owl:,
+        <http://www.w3.org/2003/01/geo/wgs84_pos#>,
+        skos:,
+        dcat:,
+        schema:,
+        <https://ysh17-hub.github.io/whis-lod/ontology#> ;
+    rdfs:seeAlso <https://ysh17-hub.github.io/whis-lod/dataset> .
+

@@ -50,8 +50,25 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 <nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a></nav>
 <h1>菊池のかんがい用水群</h1>
 <p><small>URI: <code>https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-039</code>　この施設のデータ：<a href="WHIS-JP-039.ttl">Turtle</a>／<a href="WHIS-JP-039.jsonld">JSON-LD</a></small></p>
-<table><tr><th>英語名</th><td>Kikuchi Irrigation Systems</td></tr><tr><th>都道府県</th><td>熊本県</td></tr><tr><th>市町村</th><td>菊池市</td></tr><tr><th>登録年</th><td>2019</td></tr><tr><th>建設年</th><td>1615</td></tr><tr><th>建設年の根拠</th><td>築地井手の建造開始</td></tr><tr><th>種類</th><td>用水群</td></tr><tr><th>水源</th><td>菊池川（Wikidata：<a href="https://www.wikidata.org/wiki/Q6406392">Q6406392</a>）</td></tr><tr><th>管理者</th><td>菊池市土地改良区</td></tr><tr><th>かんがい面積（ha）</th><td>615</td></tr><tr><th>代表地点</th><td>築地井手の取水口</td></tr><tr><th>代表地点の住所（座標から）</th><td>熊本県菊池市亘</td></tr><tr><th>緯度</th><td>32.988269</td></tr><tr><th>経度</th><td>130.828323</td></tr><tr><th>注記</th><td>—</td></tr><tr><th>Wikidata</th><td>—</td></tr></table>
+<table><tr><th>英語名</th><td>Kikuchi Irrigation Systems</td></tr><tr><th>都道府県</th><td>熊本県</td></tr><tr><th>市町村</th><td>菊池市</td></tr><tr><th>登録年</th><td>2019</td></tr><tr><th>建設年</th><td>1615</td></tr><tr><th>建設年の根拠</th><td>築地井手の建造開始</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-irrigation-system">用水群</a></td></tr><tr><th>水源</th><td>菊池川（Wikidata：<a href="https://www.wikidata.org/wiki/Q6406392">Q6406392</a>）</td></tr><tr><th>管理者</th><td>菊池市土地改良区</td></tr><tr><th>かんがい面積（ha）</th><td>615</td></tr><tr><th>代表地点</th><td>築地井手の取水口</td></tr><tr><th>代表地点の住所（座標から）</th><td>熊本県菊池市亘（標高 約69.8m・DEM10B）</td></tr><tr><th>緯度</th><td>32.988269</td></tr><tr><th>経度</th><td>130.828323</td></tr><tr><th>注記</th><td>—</td></tr><tr><th>Wikidata</th><td>—</td></tr></table>
 
+<h2>航空写真・地形で見る</h2>
+<p><small>代表地点（築地井手の取水口）のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
+この地点で見つかった昔の空中写真：1961〜1969年・1974〜1978年。「昔の航空写真を重ねる」で選び、「濃さ」を動かすと今と比べられます。
+（出典：国土地理院 地理院タイル）　<a href="https://maps.gsi.go.jp/#17/32.988269/130.828323/&amp;base=std&amp;ls=std%7Cseamlessphoto&amp;disp=01">地理院地図で開く</a></small></p>
+<div id="amap" style="height:380px;border-radius:6px"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../gsi_layers.js"></script>
+<script>
+(function(){
+  if (!window.L || !window.WHIS_GSI) { document.getElementById('amap').textContent = '地図を読み込めませんでした。'; return; }
+  const m = L.map('amap', { scrollWheelZoom: false }).setView([32.988269, 130.828323], 16);
+  WHIS_GSI.setup(m, { base: '航空写真（最新）', available: ["p1974", "p1961"], collapsed: true });
+  L.circleMarker([32.988269, 130.828323], { radius: 8, weight: 2, color: '#fff', fillColor: '#e53e3e', fillOpacity: 1 })
+    .bindTooltip("築地井手の取水口").addTo(m);
+})();
+</script>
 
 <h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-13.pdf">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-13.pdf</a></li><li><a href="https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf">https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf</a></li></ul>
 <p><small>データ: CC BY 4.0（作成: abe）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>

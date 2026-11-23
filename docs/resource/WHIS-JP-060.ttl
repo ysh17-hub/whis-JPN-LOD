@@ -22,8 +22,11 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "奈良県"@ja ;
     schema:containedInPlace wd:Q131287 ;
     schema:name "崇神天皇陵堀"@ja ;
+    whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:pointAddress "奈良県天理市柳本町"@ja ;
+    whis:pointElevation 97.0 ;
+    whis:pointElevationSource "DEM10B" ;
     whis:prefectureCode "JP-29" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "崇神天皇陵"@ja .

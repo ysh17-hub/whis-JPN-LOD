@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-056/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(131.31897 33.00096)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-056",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -88,6 +76,11 @@
     "@value": "竹田のかんがい用水群"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-irrigation-system"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -98,6 +91,17 @@
    {
     "@language": "ja",
     "@value": "大分県竹田市大字福原"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "412.0"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM5A"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -115,6 +119,18 @@
    {
     "@language": "ja",
     "@value": "城原井路の神田頭首工"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-056/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(131.31897 33.00096)"
    }
   ]
  }

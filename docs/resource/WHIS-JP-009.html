@@ -67,8 +67,25 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 <nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a></nav>
 <h1>通潤用水</h1>
 <p><small>URI: <code>https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009</code>　この施設のデータ：<a href="WHIS-JP-009.ttl">Turtle</a>／<a href="WHIS-JP-009.jsonld">JSON-LD</a></small></p>
-<table><tr><th>英語名</th><td>Tsujunyousui Irrigation System</td></tr><tr><th>都道府県</th><td>熊本県</td></tr><tr><th>市町村</th><td>山都町</td></tr><tr><th>登録年</th><td>2014</td></tr><tr><th>建設年</th><td>1855</td></tr><tr><th>建設年の根拠</th><td>建設（農水省aff記載）</td></tr><tr><th>種類</th><td>水路</td></tr><tr><th>水源</th><td>—</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>通潤橋</td></tr><tr><th>代表地点の住所（座標から）</th><td>熊本県山都町城原</td></tr><tr><th>緯度</th><td>32.681667</td></tr><tr><th>経度</th><td>130.993611</td></tr><tr><th>注記</th><td>日本最大の石造アーチ水路橋『通潤橋』を含む</td></tr><tr><th>Wikidata</th><td><a href="https://www.wikidata.org/wiki/Q17238532">Q17238532</a>（確認済み）<br>構成施設：<a href="https://www.wikidata.org/wiki/Q3077059">Q3077059</a></td></tr></table>
+<table><tr><th>英語名</th><td>Tsujunyousui Irrigation System</td></tr><tr><th>都道府県</th><td>熊本県</td></tr><tr><th>市町村</th><td>山都町</td></tr><tr><th>登録年</th><td>2014</td></tr><tr><th>建設年</th><td>1855</td></tr><tr><th>建設年の根拠</th><td>建設（農林水産省の資料に記載）</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-canal">水路</a></td></tr><tr><th>水源</th><td>—</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>通潤橋</td></tr><tr><th>代表地点の住所（座標から）</th><td>熊本県山都町城原（標高 約438.0m・DEM10B）</td></tr><tr><th>緯度</th><td>32.681667</td></tr><tr><th>経度</th><td>130.993611</td></tr><tr><th>注記</th><td>日本最大の石造アーチ水路橋『通潤橋』を含む</td></tr><tr><th>Wikidata</th><td><a href="https://www.wikidata.org/wiki/Q17238532">Q17238532</a>（確認済み）<br>構成施設：<a href="https://www.wikidata.org/wiki/Q3077059">Q3077059</a></td></tr></table>
 <h2>写真</h2><p><small>Wikidata の項目に登録されている Wikimedia Commons の写真です。押すと大きく表示されます。このデータセットのライセンス（CC BY 4.0）ではなく、各写真のライセンスに従います。</small></p><div class="gallery"><figure><a href="https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg" onclick="return openImg(this)" data-big="https://commons.wikimedia.org/wiki/Special:FilePath/Tsujyunkyo.jpg?width=1280" data-alt="通潤用水" data-cap="撮影：masamic／&lt;a href=&quot;http://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;／&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg&quot;&gt;Wikimedia Commons&lt;/a&gt;"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tsujyunkyo.jpg?width=500" alt="通潤用水の写真" loading="lazy"></a><figcaption>撮影：masamic／<a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>／<a href="https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg">Wikimedia Commons</a></figcaption></figure></div>
+<h2>航空写真・地形で見る</h2>
+<p><small>代表地点（通潤橋）のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
+この地点で見つかった昔の空中写真：1974〜1978年。「昔の航空写真を重ねる」で選び、「濃さ」を動かすと今と比べられます。
+（出典：国土地理院 地理院タイル）　<a href="https://maps.gsi.go.jp/#17/32.681667/130.993611/&amp;base=std&amp;ls=std%7Cseamlessphoto&amp;disp=01">地理院地図で開く</a></small></p>
+<div id="amap" style="height:380px;border-radius:6px"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../gsi_layers.js"></script>
+<script>
+(function(){
+  if (!window.L || !window.WHIS_GSI) { document.getElementById('amap').textContent = '地図を読み込めませんでした。'; return; }
+  const m = L.map('amap', { scrollWheelZoom: false }).setView([32.681667, 130.993611], 16);
+  WHIS_GSI.setup(m, { base: '航空写真（最新）', available: ["p1974"], collapsed: true });
+  L.circleMarker([32.681667, 130.993611], { radius: 8, weight: 2, color: '#fff', fillColor: '#e53e3e', fillOpacity: 1 })
+    .bindTooltip("通潤橋").addTo(m);
+})();
+</script>
 <h2>ほかのデータベース・百科事典</h2><p><small>つながっている Wikidata の項目に登録されている外部ID・記事です（2026-11-23 時点）。</small></p><ul><li>ウィキペディア日本語版：<a href="https://ja.wikipedia.org/wiki/%E9%80%9A%E6%BD%A4%E7%94%A8%E6%B0%B4">通潤用水</a></li><li>ウィキペディア日本語版（構成施設「通潤橋」）：<a href="https://ja.wikipedia.org/wiki/%E9%80%9A%E6%BD%A4%E6%A9%8B">通潤橋</a></li><li>国指定文化財等データベース（構成施設「通潤橋」）：<a href="https://kunishitei.bunka.go.jp/heritage/detail/102/3578">102/3578</a></li><li>文化遺産オンライン（構成施設「通潤橋」）：<a href="https://bunka.nii.ac.jp/heritages/detail/158115">158115</a></li><li>国立国会図書館典拠（構成施設「通潤橋」）：<a href="https://id.ndl.go.jp/auth/ndlna/031474760">031474760</a></li><li>GeoNames（構成施設「通潤橋」）：<a href="https://sws.geonames.org/11242191/">11242191</a></li></ul>
 <h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html">https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html</a></li></ul>
 <p><small>データ: CC BY 4.0（作成: abe）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>

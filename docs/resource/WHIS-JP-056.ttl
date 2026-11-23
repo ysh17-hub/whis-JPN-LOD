@@ -23,8 +23,11 @@ res:WHIS-JP-056 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q133924 ;
     schema:name "Taketa Irrigation System"@en,
         "竹田のかんがい用水群"@ja ;
+    whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:pointAddress "大分県竹田市大字福原"@ja ;
+    whis:pointElevation 412.0 ;
+    whis:pointElevationSource "DEM5A" ;
     whis:prefectureCode "JP-44" ;
     whis:registeredYear "2025"^^xsd:gYear ;
     whis:representativePoint "城原井路の神田頭首工"@ja .

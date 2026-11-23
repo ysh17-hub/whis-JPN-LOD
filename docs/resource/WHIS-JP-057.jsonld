@@ -1,5 +1,17 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-057/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(139.804845 35.918702)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-057",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -94,6 +106,11 @@
     "@value": "供用開始（水路体系完成）"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-irrigation-system"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -116,6 +133,17 @@
    {
     "@language": "ja",
     "@value": "埼玉県越谷市大字大吉"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "5.8"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -144,18 +172,6 @@
    {
     "@language": "ja",
     "@value": "利根川"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-057/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(139.804845 35.918702)"
    }
   ]
  }

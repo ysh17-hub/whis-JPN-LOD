@@ -59,8 +59,25 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 <nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a></nav>
 <h1>常盤湖</h1>
 <p><small>URI: <code>https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-025</code>　この施設のデータ：<a href="WHIS-JP-025.ttl">Turtle</a>／<a href="WHIS-JP-025.jsonld">JSON-LD</a></small></p>
-<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>山口県</td></tr><tr><th>市町村</th><td>宇部市</td></tr><tr><th>登録年</th><td>2016</td></tr><tr><th>建設年</th><td>—</td></tr><tr><th>建設年の根拠</th><td>—</td></tr><tr><th>種類</th><td>ため池</td></tr><tr><th>水源</th><td>—</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>常盤湖（ときわ公園）</td></tr><tr><th>代表地点の住所（座標から）</th><td>山口県宇部市大字沖宇部</td></tr><tr><th>緯度</th><td>33.950000</td></tr><tr><th>経度</th><td>131.283333</td></tr><tr><th>注記</th><td>築造年は公的資料で未確認のため空欄</td></tr><tr><th>Wikidata</th><td><a href="https://www.wikidata.org/wiki/Q11481531">Q11481531</a>（確認済み）</td></tr></table>
+<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>山口県</td></tr><tr><th>市町村</th><td>宇部市</td></tr><tr><th>登録年</th><td>2016</td></tr><tr><th>建設年</th><td>—</td></tr><tr><th>建設年の根拠</th><td>—</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-tameike">ため池</a></td></tr><tr><th>水源</th><td>—</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>常盤湖（ときわ公園）</td></tr><tr><th>代表地点の住所（座標から）</th><td>山口県宇部市大字沖宇部（標高 約25.1m・DEM10B）</td></tr><tr><th>緯度</th><td>33.950000</td></tr><tr><th>経度</th><td>131.283333</td></tr><tr><th>注記</th><td>築造年は公的資料で未確認のため空欄</td></tr><tr><th>Wikidata</th><td><a href="https://www.wikidata.org/wiki/Q11481531">Q11481531</a>（確認済み）</td></tr></table>
 <h2>写真</h2><p><small>Wikidata の項目に登録されている Wikimedia Commons の写真です。押すと大きく表示されます。このデータセットのライセンス（CC BY 4.0）ではなく、各写真のライセンスに従います。</small></p><div class="gallery"><figure><a href="https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg" onclick="return openImg(this)" data-big="https://commons.wikimedia.org/wiki/Special:FilePath/Tokiwa_park.jpg?width=1280" data-alt="常盤池" data-cap="撮影：Original uploader was Historian at en.wikipedia／&lt;a href=&quot;https://creativecommons.org/licenses/by/2.5&quot;&gt;CC BY 2.5&lt;/a&gt;／&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg&quot;&gt;Wikimedia Commons&lt;/a&gt;"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tokiwa_park.jpg?width=500" alt="常盤池の写真" loading="lazy"></a><figcaption>撮影：Original uploader was Historian at en.wikipedia／<a href="https://creativecommons.org/licenses/by/2.5">CC BY 2.5</a>／<a href="https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg">Wikimedia Commons</a></figcaption></figure></div>
+<h2>航空写真・地形で見る</h2>
+<p><small>代表地点（常盤湖（ときわ公園））のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
+この地点で見つかった昔の空中写真：1961〜1969年・1974〜1978年。「昔の航空写真を重ねる」で選び、「濃さ」を動かすと今と比べられます。
+（出典：国土地理院 地理院タイル）　<a href="https://maps.gsi.go.jp/#17/33.950000/131.283333/&amp;base=std&amp;ls=std%7Cseamlessphoto&amp;disp=01">地理院地図で開く</a></small></p>
+<div id="amap" style="height:380px;border-radius:6px"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../gsi_layers.js"></script>
+<script>
+(function(){
+  if (!window.L || !window.WHIS_GSI) { document.getElementById('amap').textContent = '地図を読み込めませんでした。'; return; }
+  const m = L.map('amap', { scrollWheelZoom: false }).setView([33.95, 131.283333], 16);
+  WHIS_GSI.setup(m, { base: '航空写真（最新）', available: ["p1974", "p1961"], collapsed: true });
+  L.circleMarker([33.95, 131.283333], { radius: 8, weight: 2, color: '#fff', fillColor: '#e53e3e', fillOpacity: 1 })
+    .bindTooltip("常盤湖（ときわ公園）").addTo(m);
+})();
+</script>
 <h2>ほかのデータベース・百科事典</h2><p><small>つながっている Wikidata の項目に登録されている外部ID・記事です（2026-11-23 時点）。</small></p><ul><li>ウィキペディア日本語版：<a href="https://ja.wikipedia.org/wiki/%E5%B8%B8%E7%9B%A4%E6%B1%A0">常盤池</a></li><li>GeoNames：<a href="https://sws.geonames.org/1850191/">1850191</a></li></ul>
 <h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.maff.go.jp/chushi/nouson/kangai.html">https://www.maff.go.jp/chushi/nouson/kangai.html</a></li></ul>
 <p><small>データ: CC BY 4.0（作成: abe）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>

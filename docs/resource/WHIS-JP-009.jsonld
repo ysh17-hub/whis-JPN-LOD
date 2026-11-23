@@ -111,7 +111,12 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
    {
     "@language": "ja",
-    "@value": "建設（農水省aff記載）"
+    "@value": "建設（農林水産省の資料に記載）"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
@@ -124,6 +129,17 @@
    {
     "@language": "ja",
     "@value": "熊本県山都町城原"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "438.0"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -141,18 +157,6 @@
    {
     "@language": "ja",
     "@value": "通潤橋"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(130.993611 32.681667)"
    }
   ]
  },
@@ -184,6 +188,18 @@
   "https://schema.org/name": [
    {
     "@value": "Tsujyunkyo.jpg"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(130.993611 32.681667)"
    }
   ]
  }

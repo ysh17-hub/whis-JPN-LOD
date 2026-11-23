@@ -26,8 +26,11 @@ res:WHIS-JP-035 a whis:HeritageIrrigationStructure ;
     schema:hasPart wd:Q11667897 ;
     schema:name "Shirakawa basin Irrigation System"@en,
         "白川流域かんがい用水群"@ja ;
+    whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:pointAddress "熊本県熊本市中央区黒髪六丁目"@ja ;
+    whis:pointElevation 18.6 ;
+    whis:pointElevationSource "DEM10B" ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2018"^^xsd:gYear ;
     whis:representativePoint "白川の堰"@ja ;

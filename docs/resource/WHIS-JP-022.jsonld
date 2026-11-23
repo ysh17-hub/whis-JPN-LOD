@@ -1,5 +1,17 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(136.296509 36.020263)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -84,6 +96,11 @@
     "@value": "足羽川用水"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-irrigation-system"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -106,6 +123,17 @@
    {
     "@language": "ja",
     "@value": "福井県福井市前波町"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "21.8"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -134,18 +162,6 @@
    {
     "@language": "ja",
     "@value": "足羽川"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(136.296509 36.020263)"
    }
   ]
  }

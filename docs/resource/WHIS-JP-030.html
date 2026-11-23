@@ -50,8 +50,25 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 <nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a></nav>
 <h1>松原用水・牟呂用水</h1>
 <p><small>URI: <code>https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-030</code>　この施設のデータ：<a href="WHIS-JP-030.ttl">Turtle</a>／<a href="WHIS-JP-030.jsonld">JSON-LD</a></small></p>
-<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>愛知県</td></tr><tr><th>市町村</th><td>豊橋市他</td></tr><tr><th>登録年</th><td>2017</td></tr><tr><th>建設年</th><td>1567</td></tr><tr><th>建設年の根拠</th><td>松原用水の取水堰（牟呂用水は1888）</td></tr><tr><th>種類</th><td>用水群</td></tr><tr><th>水源</th><td>豊川（Wikidata：<a href="https://www.wikidata.org/wiki/Q11633588">Q11633588</a>）</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>1612</td></tr><tr><th>代表地点</th><td>牟呂松原頭首工</td></tr><tr><th>代表地点の住所（座標から）</th><td>愛知県新城市豊島</td></tr><tr><th>緯度</th><td>34.875146</td></tr><tr><th>経度</th><td>137.474429</td></tr><tr><th>注記</th><td>受益面積：松原用水642ha＋牟呂用水970ha（愛知県）の合計</td></tr><tr><th>Wikidata</th><td><br>構成施設：<a href="https://www.wikidata.org/wiki/Q11570262">Q11570262</a></td></tr></table>
+<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>愛知県</td></tr><tr><th>市町村</th><td>豊橋市他</td></tr><tr><th>登録年</th><td>2017</td></tr><tr><th>建設年</th><td>1567</td></tr><tr><th>建設年の根拠</th><td>松原用水の取水堰（牟呂用水は1888）</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-irrigation-system">用水群</a></td></tr><tr><th>水源</th><td>豊川（Wikidata：<a href="https://www.wikidata.org/wiki/Q11633588">Q11633588</a>）</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>1612</td></tr><tr><th>代表地点</th><td>牟呂松原頭首工</td></tr><tr><th>代表地点の住所（座標から）</th><td>愛知県新城市豊島（標高 約18.8m・DEM10B）</td></tr><tr><th>緯度</th><td>34.875146</td></tr><tr><th>経度</th><td>137.474429</td></tr><tr><th>注記</th><td>受益面積：松原用水642ha＋牟呂用水970ha（愛知県）の合計</td></tr><tr><th>Wikidata</th><td><br>構成施設：<a href="https://www.wikidata.org/wiki/Q11570262">Q11570262</a></td></tr></table>
 
+<h2>航空写真・地形で見る</h2>
+<p><small>代表地点（牟呂松原頭首工）のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
+この地点で見つかった昔の空中写真：1961〜1969年・1974〜1978年。「昔の航空写真を重ねる」で選び、「濃さ」を動かすと今と比べられます。
+（出典：国土地理院 地理院タイル）　<a href="https://maps.gsi.go.jp/#17/34.875146/137.474429/&amp;base=std&amp;ls=std%7Cseamlessphoto&amp;disp=01">地理院地図で開く</a></small></p>
+<div id="amap" style="height:380px;border-radius:6px"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../gsi_layers.js"></script>
+<script>
+(function(){
+  if (!window.L || !window.WHIS_GSI) { document.getElementById('amap').textContent = '地図を読み込めませんでした。'; return; }
+  const m = L.map('amap', { scrollWheelZoom: false }).setView([34.875146, 137.474429], 16);
+  WHIS_GSI.setup(m, { base: '航空写真（最新）', available: ["p1974", "p1961"], collapsed: true });
+  L.circleMarker([34.875146, 137.474429], { radius: 8, weight: 2, color: '#fff', fillColor: '#e53e3e', fillOpacity: 1 })
+    .bindTooltip("牟呂松原頭首工").addTo(m);
+})();
+</script>
 <h2>ほかのデータベース・百科事典</h2><p><small>つながっている Wikidata の項目に登録されている外部ID・記事です（2026-11-23 時点）。</small></p><ul><li>ウィキペディア日本語版（構成施設「牟呂用水」）：<a href="https://ja.wikipedia.org/wiki/%E7%89%9F%E5%91%82%E7%94%A8%E6%B0%B4">牟呂用水</a></li><li>OpenStreetMap（構成施設「牟呂用水」）：<a href="https://www.openstreetmap.org/relation/19096195">19096195</a></li></ul>
 <h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.pref.aichi.jp/soshiki/nochi-keikaku/muromatubara-sekaikangaisisetuisan.html">https://www.pref.aichi.jp/soshiki/nochi-keikaku/muromatubara-sekaikangaisisetuisan.html</a></li></ul>
 <p><small>データ: CC BY 4.0（作成: abe）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>

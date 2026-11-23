@@ -4,6 +4,7 @@
 # https://ysh17-hub.github.io/whis-lod は build のときに公開URL（site_config.json から作る）に置き換わります。
 
 @prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
@@ -58,7 +59,13 @@ whisx:StructureShape
         [ sh:path schema:image ; sh:nodeKind sh:IRI ; sh:node whisx:ImageShape ;
           sh:message "写真は Wikimedia Commons のファイルページ（作者・ライセンスつき）"@ja ] ,
         [ sh:path rdfs:seeAlso ; sh:nodeKind sh:IRI ;
-          sh:message "外部データベースへのつながりはURL"@ja ] .
+          sh:message "外部データベースへのつながりはURL"@ja ] ,
+        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory> ; sh:minCount 1 ; sh:maxCount 1 ;
+          sh:class skos:Concept ;
+          sh:message "施設の種類は、語彙で定めた SKOS の概念のどれか1つ"@ja ] ,
+        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#pointElevation> ; sh:maxCount 1 ; sh:datatype xsd:decimal ;
+          sh:minInclusive -10 ; sh:maxInclusive 3800 ;
+          sh:message "標高は1つの数値（m）で、日本の陸地としてありうる範囲"@ja ] .
 
 whisx:ImageShape
     a sh:NodeShape ;

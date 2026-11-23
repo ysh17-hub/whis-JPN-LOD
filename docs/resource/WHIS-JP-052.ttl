@@ -24,8 +24,11 @@ res:WHIS-JP-052 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q47896 ;
     schema:name "Minamihara-Anazeki Irrigation Canal"@en,
         "南原穴堰"@ja ;
+    whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "宮城県大崎市鳴子温泉"@ja ;
+    whis:pointElevation 289.5 ;
+    whis:pointElevationSource "DEM1A" ;
     whis:prefectureCode "JP-04" ;
     whis:registeredYear "2024"^^xsd:gYear ;
     whis:representativePoint "取水堰・取入口"@ja .

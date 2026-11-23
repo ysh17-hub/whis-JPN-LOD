@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-058/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(137.983018 34.674363)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-058",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -101,6 +89,11 @@
     "@value": "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-irrigation-system"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -125,6 +118,17 @@
     "@value": "静岡県掛川市西大渕"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "5.9"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM1A"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
    {
     "@value": "JP-22"
@@ -140,6 +144,18 @@
    {
     "@language": "ja",
     "@value": "十内圦"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-058/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(137.983018 34.674363)"
    }
   ]
  }

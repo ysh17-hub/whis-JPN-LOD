@@ -1,48 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(140.020452 38.778738)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q28688082"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Kitadate_Ozeki.png"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "国土地理院"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Kitadate Ozeki.png"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -147,6 +104,11 @@
     "@value": "開削"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -163,6 +125,17 @@
    {
     "@language": "ja",
     "@value": "山形県庄内町清川"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "29.5"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -191,6 +164,49 @@
    {
     "@language": "ja",
     "@value": "立谷沢川"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(140.020452 38.778738)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q28688082"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Kitadate_Ozeki.png"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "国土地理院"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Kitadate Ozeki.png"
    }
   ]
  }

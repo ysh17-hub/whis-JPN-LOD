@@ -101,6 +101,11 @@
     "@value": "幸野溝の年（百太郎溝は1710）"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -111,6 +116,17 @@
    {
     "@language": "ja",
     "@value": "熊本県水上村大字岩野"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "205.2"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM1A"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -143,6 +159,18 @@
   ]
  },
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(131.002562 32.306545)"
+   }
+  ]
+ },
+ {
   "@id": "https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg",
   "@type": [
    "https://schema.org/ImageObject"
@@ -170,18 +198,6 @@
   "https://schema.org/name": [
    {
     "@value": "百太郎溝 Hyakutarou Waterway - panoramio.jpg"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(131.002562 32.306545)"
    }
   ]
  }

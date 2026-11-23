@@ -28,8 +28,11 @@ res:WHIS-JP-051 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q132936 ;
     schema:name "Takebe Weir"@en,
         "建部井堰"@ja ;
+    whis:facilityCategory whis:type-weir ;
     whis:facilityType "堰"@ja ;
     whis:pointAddress "岡山県岡山市北区建部町品田"@ja ;
+    whis:pointElevation 61.4 ;
+    whis:pointElevationSource "DEM5A" ;
     whis:prefectureCode "JP-33" ;
     whis:registeredYear "2023"^^xsd:gYear ;
     whis:representativePoint "建部井堰"@ja ;

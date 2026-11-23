@@ -24,8 +24,11 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q130308 ;
     schema:name "Yunokuchi Tameike Irrigation System"@en,
         "湯の口ため池・井出"@ja ;
+    whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:pointAddress "熊本県山鹿市蒲生"@ja ;
+    whis:pointElevation 65.1 ;
+    whis:pointElevationSource "DEM1A" ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2025"^^xsd:gYear ;
     whis:representativePoint "蒲生池"@ja .

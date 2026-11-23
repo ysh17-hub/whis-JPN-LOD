@@ -26,8 +26,11 @@ res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     schema:image <https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg>,
         <https://commons.wikimedia.org/wiki/File:Gorob%C4%93_Y%C5%8Dsui_01.jpg> ;
     schema:name "五郎兵衛用水"@ja ;
+    whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "長野県佐久市春日"@ja ;
+    whis:pointElevation 739.4 ;
+    whis:pointElevationSource "DEM10B" ;
     whis:prefectureCode "JP-20" ;
     whis:registeredYear "2018"^^xsd:gYear ;
     whis:representativePoint "浅科頭首工"@ja .

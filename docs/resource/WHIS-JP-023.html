@@ -50,8 +50,25 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 <nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a></nav>
 <h1>明治用水</h1>
 <p><small>URI: <code>https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023</code>　この施設のデータ：<a href="WHIS-JP-023.ttl">Turtle</a>／<a href="WHIS-JP-023.jsonld">JSON-LD</a></small></p>
-<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>愛知県</td></tr><tr><th>市町村</th><td>安城市他</td></tr><tr><th>登録年</th><td>2016</td></tr><tr><th>建設年</th><td>1880</td></tr><tr><th>建設年の根拠</th><td>完成</td></tr><tr><th>種類</th><td>水路</td></tr><tr><th>水源</th><td>矢作川（Wikidata：<a href="https://www.wikidata.org/wiki/Q1132256">Q1132256</a>）</td></tr><tr><th>管理者</th><td>明治用水土地改良区</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>明治用水頭首工</td></tr><tr><th>代表地点の住所（座標から）</th><td>愛知県豊田市水源町六丁目</td></tr><tr><th>緯度</th><td>35.045993</td></tr><tr><th>経度</th><td>137.178210</td></tr><tr><th>注記</th><td>都築弥厚の計画。現頭首工は1958年完成</td></tr><tr><th>Wikidata</th><td><a href="https://www.wikidata.org/wiki/Q11512382">Q11512382</a>（確認済み）</td></tr></table>
+<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>愛知県</td></tr><tr><th>市町村</th><td>安城市他</td></tr><tr><th>登録年</th><td>2016</td></tr><tr><th>建設年</th><td>1880</td></tr><tr><th>建設年の根拠</th><td>完成</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-canal">水路</a></td></tr><tr><th>水源</th><td>矢作川（Wikidata：<a href="https://www.wikidata.org/wiki/Q1132256">Q1132256</a>）</td></tr><tr><th>管理者</th><td>明治用水土地改良区</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>明治用水頭首工</td></tr><tr><th>代表地点の住所（座標から）</th><td>愛知県豊田市水源町六丁目（標高 約27.4m・DEM1A）</td></tr><tr><th>緯度</th><td>35.045993</td></tr><tr><th>経度</th><td>137.178210</td></tr><tr><th>注記</th><td>都築弥厚の計画。現頭首工は1958年完成</td></tr><tr><th>Wikidata</th><td><a href="https://www.wikidata.org/wiki/Q11512382">Q11512382</a>（確認済み）</td></tr></table>
 
+<h2>航空写真・地形で見る</h2>
+<p><small>代表地点（明治用水頭首工）のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
+この地点で見つかった昔の空中写真：1961〜1969年・1974〜1978年。「昔の航空写真を重ねる」で選び、「濃さ」を動かすと今と比べられます。
+（出典：国土地理院 地理院タイル）　<a href="https://maps.gsi.go.jp/#17/35.045993/137.178210/&amp;base=std&amp;ls=std%7Cseamlessphoto&amp;disp=01">地理院地図で開く</a></small></p>
+<div id="amap" style="height:380px;border-radius:6px"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../gsi_layers.js"></script>
+<script>
+(function(){
+  if (!window.L || !window.WHIS_GSI) { document.getElementById('amap').textContent = '地図を読み込めませんでした。'; return; }
+  const m = L.map('amap', { scrollWheelZoom: false }).setView([35.045993, 137.17821], 16);
+  WHIS_GSI.setup(m, { base: '航空写真（最新）', available: ["p1974", "p1961"], collapsed: true });
+  L.circleMarker([35.045993, 137.17821], { radius: 8, weight: 2, color: '#fff', fillColor: '#e53e3e', fillOpacity: 1 })
+    .bindTooltip("明治用水頭首工").addTo(m);
+})();
+</script>
 <h2>ほかのデータベース・百科事典</h2><p><small>つながっている Wikidata の項目に登録されている外部ID・記事です（2026-11-23 時点）。</small></p><ul><li>ウィキペディア日本語版：<a href="https://ja.wikipedia.org/wiki/%E6%98%8E%E6%B2%BB%E7%94%A8%E6%B0%B4">明治用水</a></li></ul>
 <h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf">https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf</a></li><li><a href="https://www.pref.aichi.jp/uploaded/attachment/489986.pdf">https://www.pref.aichi.jp/uploaded/attachment/489986.pdf</a></li></ul>
 <p><small>データ: CC BY 4.0（作成: abe）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>

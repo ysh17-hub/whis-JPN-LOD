@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(134.095709 34.718043)"
-   }
-  ]
- },
- {
   "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG",
   "@type": [
    "https://schema.org/ImageObject"
@@ -39,37 +27,6 @@
   "https://schema.org/name": [
    {
     "@value": "Hyakken River 11.JPG"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11580873"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_10.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "by Reggaeman"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Hyakken River 10.JPG"
    }
   ]
  },
@@ -176,6 +133,11 @@
     "@value": "倉安川完成（百間川は1686築造開始）"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-irrigation-system"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -186,6 +148,17 @@
    {
     "@language": "ja",
     "@value": "岡山県岡山市東区吉井"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "7.3"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -214,6 +187,49 @@
    {
     "@language": "ja",
     "@value": "吉井川"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(134.095709 34.718043)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11580873"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_10.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "by Reggaeman"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Hyakken River 10.JPG"
    }
   ]
  }

@@ -24,8 +24,11 @@ res:WHIS-JP-047 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q122723 ;
     schema:name "Yukawa Irrigation Canal"@en,
         "井川用水"@ja ;
+    whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "大阪府泉佐野市日根野"@ja ;
+    whis:pointElevation 54.3 ;
+    whis:pointElevationSource "DEM1A" ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2022"^^xsd:gYear ;
     whis:representativePoint "慈眼院境内の水路"@ja ;

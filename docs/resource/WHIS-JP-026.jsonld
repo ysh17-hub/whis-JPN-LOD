@@ -1,5 +1,67 @@
 [
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q6750928"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Σ64"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Mano Dam 02.jpg"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Mannolake1.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q20983084"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mannolake1.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "miea.system"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Mannolake1.JPG"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
@@ -127,6 +189,11 @@
     "@value": "築造（大宝年間701〜704）"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-tameike"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
@@ -143,6 +210,17 @@
    {
     "@language": "ja",
     "@value": "香川県まんのう町神野"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "145.0"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+   {
+    "@value": "DEM10B"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
@@ -171,68 +249,6 @@
    {
     "@language": "ja",
     "@value": "金倉川"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Mannolake1.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q20983084"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mannolake1.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "miea.system"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Mannolake1.JPG"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q6750928"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Σ64"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Mano Dam 02.jpg"
    }
   ]
  }

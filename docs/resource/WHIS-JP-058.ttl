@@ -25,10 +25,13 @@ res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
     schema:name "小笠地域かんがい用水群"@ja ;
     whis:builtYear "1594"^^xsd:gYear ;
     whis:builtYearBasis "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）"@ja ;
+    whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 979.0 ;
     whis:managedBy "大井川右岸土地改良区（申請者）"@ja ;
     whis:pointAddress "静岡県掛川市西大渕"@ja ;
+    whis:pointElevation 5.9 ;
+    whis:pointElevationSource "DEM1A" ;
     whis:prefectureCode "JP-22" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "十内圦"@ja .

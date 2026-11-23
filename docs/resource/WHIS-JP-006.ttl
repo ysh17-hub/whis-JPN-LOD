@@ -29,8 +29,11 @@ res:WHIS-JP-006 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q122723 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG> ;
     schema:name "狭山池"@ja ;
+    whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:pointAddress "大阪府大阪狭山市大字岩室"@ja ;
+    whis:pointElevation 84.4 ;
+    whis:pointElevationSource "DEM10B" ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "狭山池"@ja .

@@ -23,8 +23,11 @@ res:WHIS-JP-059 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "大阪府"@ja ;
     schema:containedInPlace wd:Q122723 ;
     schema:name "日根荘大木のかんがい用水群"@ja ;
+    whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:pointAddress "大阪府泉佐野市大木"@ja ;
+    whis:pointElevation 153.0 ;
+    whis:pointElevationSource "DEM10B" ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "東ノ池"@ja .
