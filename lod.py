@@ -1,0 +1,221 @@
+#!/usr/bin/env python3
+"""
+世界かんがい施設遺産LOD の作業用コマンド（Windows / Mac 共通）
+
+  python lod.py setup      … 最初に1回。GitHubのユーザー名・作成者名などを聞いて site_config.json に保存
+  python lod.py wikidata   … Wikidata から都道府県のIDと、施設の候補を集める（5〜15分）
+  python lod.py import     … 座標入力ツールで保存したCSV（ダウンロードフォルダ）を取り込む
+  python lod.py build      … 検証して、docs/（公開用サイト）と README.md・LICENSE を作る
+  python lod.py status     … 進み具合（座標・Wikidataの確認が何件終わったか）を表示
+
+※ Windows では「python」の代わりに「py」と打ってください（例：py lod.py setup）。
+"""
+import csv
+import datetime as dt
+import json
+import shutil
+import sys
+from pathlib import Path
+
+sys.dont_write_bytecode = True          # __pycache__ を作らない（GitHubに上げるときに邪魔になるため）
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT / "scripts"))
+DATA = ROOT / "data" / "whis_japan.csv"
+CONFIG = ROOT / "site_config.json"
+BACKUP_DIR = ROOT.parent / (ROOT.name + "_backup")   # リポジトリの外に置く（GitHubに上げないため）
+
+
+# ---------- 共通 ----------
+def ask(prompt, default=""):
+    shown = f"{prompt}" + (f"［そのままEnterで {default}］" if default else "") + "：\n> "
+    v = input(shown).strip()
+    return v or default
+
+
+def load_config(required=True):
+    if CONFIG.exists():
+        return json.loads(CONFIG.read_text(encoding="utf-8"))
+    if required:
+        print("先に「setup」を実行してください（Windows: py lod.py setup ／ Mac: python3 lod.py setup）")
+        sys.exit(1)
+    return {}
+
+
+def base_url(cfg):
+    return f"https://{cfg['github_user'].lower()}.github.io/{cfg['repo']}/"
+
+
+def repo_url(cfg):
+    return f"https://github.com/{cfg['github_user']}/{cfg['repo']}"
+
+
+def read_rows(path=DATA):
+    with open(path, encoding="utf-8-sig", newline="") as f:
+        r = csv.DictReader(f)
+        return r.fieldnames, list(r)
+
+
+def counts(rows):
+    filled = lambda k: sum(1 for r in rows if (r.get(k) or "").strip())
+    c = {
+        "N_ROWS": len(rows),
+        "N_COORDS": sum(1 for r in rows if r.get("lat") and r.get("lon")),
+        "N_VERIFIED": sum(1 for r in rows if r.get("verified") == "1" and r.get("wikidata_qid")),
+        "N_CHECKED": sum(1 for r in rows if r.get("wikidata_checked") == "1" or r.get("verified") == "1"),
+    }
+    c["N_NO_WD"] = sum(1 for r in rows if r.get("wikidata_checked") == "1" and r.get("verified") != "1")
+    for k in ["facility_type", "water_source_river", "representative_point", "built_year",
+              "managing_org", "name_en", "irrigated_area_ha"]:
+        c["N_" + k] = filled(k)
+    c["N_SOURCES"] = len({u.strip() for r in rows for u in (r.get("source_url") or "").split("|") if u.strip()})
+    return c
+
+
+# ---------- setup ----------
+def cmd_setup():
+    cfg = load_config(required=False)
+    print("=== 最初の設定（あとで「setup」をもう一度実行すれば変えられます）===\n")
+    print("GitHub のユーザー名を入れてください（github.com/○○○ の ○○○ の部分。公開URLになります）")
+    cfg["github_user"] = ask("GitHubのユーザー名", cfg.get("github_user", ""))
+    while not cfg["github_user"] or any(ch in cfg["github_user"] for ch in " /\\@"):
+        print("※ 空白・/・@ は使えません。GitHub に表示されているユーザー名をそのまま入れてください")
+        cfg["github_user"] = ask("GitHubのユーザー名")
+    cfg["repo"] = ask("リポジトリの名前", cfg.get("repo", "whis-lod"))
+    print("\n作成者として公開する名前（本名でもハンドルネームでもよい。README・データ・LICENSEに載ります）")
+    cfg["creator"] = ask("作成者名", cfg.get("creator", ""))
+    while not cfg["creator"]:
+        cfg["creator"] = ask("作成者名（空にはできません）")
+    print("\n所属（READMEに載せる場合だけ。載せないならそのままEnter）")
+    cfg["affiliation"] = ask("所属", cfg.get("affiliation", ""))
+    print("\nREADMEに「生成AIを補助として使った」という一文を入れますか？（y=入れる / n=入れない）")
+    cfg["ai_note"] = ask("y / n", "y" if cfg.get("ai_note", True) else "n").lower().startswith("y")
+    CONFIG.write_text(json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\n保存しました → {CONFIG.name}")
+    print(f"公開URL（予定）：{base_url(cfg)}")
+    print(f"リポジトリURL（予定）：{repo_url(cfg)}")
+
+
+# ---------- wikidata ----------
+def cmd_wikidata():
+    cfg = load_config()
+    try:
+        import fetch_wikidata
+    except ImportError:
+        print("requests が入っていません。次を実行してから、もう一度どうぞ：")
+        print("  Windows: py -m pip install requests rdflib\n  Mac:     python3 -m pip install requests rdflib")
+        sys.exit(1)
+    print("Wikidata に問い合わせます（相手のサーバーに負担をかけないよう間隔をあけるので、5〜15分かかります）\n")
+    fetch_wikidata.main(["--csv", str(DATA), "--outdir", str(ROOT / "data"), "--contact", repo_url(cfg)])
+    print("\nできたファイル：data/prefecture_qid.csv、data/wikidata_candidates.csv")
+    print("次は tools/pick_coords.html をブラウザで開いて、座標と Wikidata の確認をします。")
+
+
+# ---------- import ----------
+def cmd_import():
+    downloads = Path.home() / "Downloads"
+    cands = sorted(downloads.glob("whis_japan*.csv"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if not cands:
+        print(f"{downloads} に whis_japan で始まるCSVが見つかりません。")
+        print("座標入力ツールで「CSVを保存」を押したか、保存先がダウンロードフォルダか確認してください。")
+        sys.exit(1)
+    new = cands[0]
+    h_new, r_new = read_rows(new)
+    h_old, r_old = read_rows()
+    print(f"取り込むファイル：{new}（{dt.datetime.fromtimestamp(new.stat().st_mtime):%Y-%m-%d %H:%M} 保存）")
+    ids_old = [r["id"] for r in r_old]
+    ids_new = [r["id"] for r in r_new]
+    if ids_new != ids_old:
+        print("※ 施設のIDの並びが今のデータと違います。別のファイルの可能性があるので取り込みを中止しました。")
+        sys.exit(1)
+    missing = [h for h in h_old if h not in h_new]
+    if missing:
+        print(f"※ 列が足りません：{missing}。取り込みを中止しました。")
+        sys.exit(1)
+    c_old, c_new = counts(r_old), counts(r_new)
+    changed = sum(1 for a, b in zip(r_old, r_new) if any(a.get(k, "") != b.get(k, "") for k in h_new))
+    print(f"変更のある行：{changed} 行")
+    print(f"座標あり：{c_old['N_COORDS']} → {c_new['N_COORDS']} ／ Wikidata確認済み：{c_old['N_CHECKED']} → {c_new['N_CHECKED']}")
+    if ask("取り込みますか？（y / n）", "y").lower() != "y":
+        print("中止しました")
+        return
+    BACKUP_DIR.mkdir(exist_ok=True)
+    bk = BACKUP_DIR / f"whis_japan_{dt.datetime.now():%Y%m%d_%H%M%S}.csv"
+    shutil.copyfile(DATA, bk)
+    shutil.copyfile(new, DATA)
+    print(f"取り込みました。前のデータは {bk} に保存しました。")
+    print("次は「build」でサイトを作り直します。")
+
+
+# ---------- build ----------
+def fill(template, values):
+    s = template
+    for k, v in values.items():
+        s = s.replace(f"%%{k}%%", str(v))
+    return s
+
+
+def cmd_build():
+    cfg = load_config()
+    try:
+        import rdflib  # noqa: F401
+    except ImportError:
+        print("rdflib が入っていません。次を実行してから、もう一度どうぞ：")
+        print("  Windows: py -m pip install rdflib requests\n  Mac:     python3 -m pip install rdflib requests")
+        sys.exit(1)
+    import build_site
+    import csv_to_rdf
+    _, rows = read_rows()
+    problems = csv_to_rdf.validate(rows)
+    if problems:
+        print("データに問題があります（直してから、もう一度 build してください）：")
+        for p in problems:
+            print("  -", p)
+        sys.exit(1)
+    today = dt.date.today().isoformat()
+    build_site.main(["--base", base_url(cfg), "--creator", cfg["creator"], "--modified", today,
+                     "--csv", str(DATA), "--prefqid", str(ROOT / "data" / "prefecture_qid.csv"),
+                     "--docs", str(ROOT / "docs")])
+    c = counts(rows)
+    values = dict(c, BASE=base_url(cfg), REPO_URL=repo_url(cfg), CREATOR=cfg["creator"], TODAY=today,
+                  YEAR=dt.date.today().year,
+                  CREATOR_LINE=cfg["creator"] + (f"（{cfg['affiliation']}）" if cfg.get("affiliation") else ""),
+                  AI_NOTE=("\n作成にあたり、資料の探索とプログラムの作成に生成AIを補助として使いました。"
+                           "データの数値は、出典の資料で確認しています。\n") if cfg.get("ai_note") else "")
+    for name in ["README.md", "LICENSE"]:
+        t = (ROOT / "templates" / f"{name}.tmpl").read_text(encoding="utf-8")
+        (ROOT / name).write_text(fill(t, values), encoding="utf-8")
+    print(f"\nREADME.md と LICENSE を作りました（作成者：{cfg['creator']}）")
+    print(f"座標あり {c['N_COORDS']}/{c['N_ROWS']}、Wikidata 確認 {c['N_CHECKED']}/{c['N_ROWS']}"
+          f"（対応あり {c['N_VERIFIED']}、なし {c['N_NO_WD']}）")
+    print("\n公開後に開いて確認するURL：")
+    b = base_url(cfg)
+    for u in [b, b + "resource/WHIS-JP-026", b + "whis_japan.ttl", b + "ontology.html", repo_url(cfg)]:
+        print("  ", u)
+
+
+# ---------- status ----------
+def cmd_status():
+    _, rows = read_rows()
+    c = counts(rows)
+    print(f"座標あり：{c['N_COORDS']}/{c['N_ROWS']}　Wikidata確認：{c['N_CHECKED']}/{c['N_ROWS']}"
+          f"（対応あり {c['N_VERIFIED']}、対応なし {c['N_NO_WD']}）")
+    todo = [r for r in rows if not (r.get("lat") and r.get("lon"))]
+    if todo:
+        print("\n座標がまだの施設：")
+        for r in todo:
+            print(f"  {r['id']} {r['name_ja']}（{r['prefecture']}{r['municipality']}）代表地点：{r.get('representative_point') or '未設定'}")
+    unchecked = [r for r in rows if r.get("wikidata_checked") != "1" and r.get("verified") != "1"]
+    if unchecked:
+        print(f"\nWikidata の確認がまだ：{len(unchecked)} 件")
+
+
+def main():
+    cmds = {"setup": cmd_setup, "wikidata": cmd_wikidata, "import": cmd_import, "build": cmd_build, "status": cmd_status}
+    if len(sys.argv) != 2 or sys.argv[1] not in cmds:
+        print(__doc__)
+        sys.exit(1)
+    cmds[sys.argv[1]]()
+
+
+if __name__ == "__main__":
+    main()

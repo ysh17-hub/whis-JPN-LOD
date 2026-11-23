@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>世界かんがい施設遺産（日本）Linked Open Data マップ</title>
+<meta name="description" content="日本の世界かんがい施設遺産（2014〜2026年登録・60施設）を、出典付きの Linked Open Data（RDF / JSON-LD / GeoJSON / CSV）として公開した地図です。">
+<link rel="alternate" type="text/turtle" href="whis_japan.ttl">
+<link rel="alternate" type="application/ld+json" href="whis_japan.jsonld">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  html, body { margin: 0; height: 100%; font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  #app { display: grid; grid-template-rows: auto 1fr auto; height: 100%; }
+  header { padding: 10px 14px; border-bottom: 1px solid #ddd; }
+  header h1 { font-size: 17px; margin: 0 0 6px; }
+  #controls { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; font-size: 14px; }
+  #main { display: grid; grid-template-columns: 1fr 420px; min-height: 0; }
+  #map { min-height: 320px; }
+  #side { overflow: auto; border-left: 1px solid #ddd; font-size: 13px; }
+  #bars { display: flex; align-items: flex-end; gap: 3px; height: 60px; padding: 8px 10px 0; }
+  .bar { flex: 1; background: #c9d6e8; position: relative; min-height: 2px; }
+  .bar.on { background: #2b6cb0; }
+  .bar span { position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%); font-size: 10px; color: #555; }
+  table { width: 100%; border-collapse: collapse; margin-top: 22px; }
+  td, th { padding: 4px 6px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+  th { cursor: pointer; background: #fafafa; position: sticky; top: 0; }
+  .muted { color: #666; }
+  #msg { color: #b00; font-size: 13px; }
+  .legend { background: #fff; padding: 6px 8px; font-size: 12px; line-height: 1.5; border-radius: 4px; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  footer { font-size: 12px; padding: 6px 14px; border-top: 1px solid #ddd; color: #444; }
+  footer a { margin-right: 10px; }
+  @media (max-width: 800px) { #main { grid-template-columns: 1fr; grid-template-rows: 55vh auto; } #side { border-left: 0; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>世界かんがい施設遺産（日本）— Linked Open Data マップ</h1>
+    <div id="controls">
+      <label>登録年 <input id="year" type="range" min="2014" max="2026" value="2026" step="1"> <b id="yearLabel">2026</b> 年まで</label>
+      <label><input id="play" type="checkbox"> 2014年から順に再生</label>
+      <label>水源 <select id="river"><option value="">すべて</option></select></label>
+      <span id="count" class="muted"></span>
+      <span id="msg"></span>
+    </div>
+  </header>
+  <div id="main">
+    <div id="map"></div>
+    <div id="side">
+      <div id="bars" title="登録年ごとの件数"></div>
+      <table>
+        <thead><tr><th data-k="id">ID</th><th data-k="name_ja">名称</th><th data-k="prefecture">所在地</th><th data-k="registered_year">登録</th><th data-k="built_year">建設</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+  <footer>
+    データ: <a href="whis_japan.ttl">Turtle</a><a href="whis_japan.jsonld">JSON-LD</a><a href="whis_japan.geojson">GeoJSON</a><a href="whis_japan.csv">CSV</a><a href="ontology.html">語彙</a>
+    ｜ライセンス <a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a>
+    ｜地図: <a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>
+    ｜建設年・面積は出典に書かれた範囲のみ（不明・資料で異なるものは空欄）
+  </footer>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const COLORS = { "水路": "#2b6cb0", "用水群": "#2f855a", "ため池": "#c05621", "堰": "#6b46c1", "揚水機場": "#b83280" };
+  const map = L.map('map').setView([36.2, 137.5], 5);
+  L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+    attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>', maxZoom: 18
+  }).addTo(map);
+  const legend = L.control({ position: 'bottomleft' });
+  legend.onAdd = () => {
+    const d = L.DomUtil.create('div', 'legend');
+    d.innerHTML = Object.entries(COLORS).map(([k, c]) => `<span class="dot" style="background:${c}"></span>${k}`).join('<br>');
+    return d;
+  };
+  legend.addTo(map);
+  const layer = L.layerGroup().addTo(map);
+
+  let ROWS = [], sortKey = 'registered_year', sortAsc = true, timer = null;
+
+  function escapeHtml(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function parseCSV(text) {
+    const rows = []; let row = [], f = '', q = false;
+    text = text.replace(/^﻿/, '');
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (q) { if (c === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+      else if (c === '"') q = true;
+      else if (c === ',') { row.push(f); f = ''; }
+      else if (c === '\n') { row.push(f); rows.push(row); row = []; f = ''; }
+      else if (c !== '\r') f += c;
+    }
+    if (f !== '' || row.length) { row.push(f); rows.push(row); }
+    const head = rows.shift();
+    return rows.filter(r => r.length > 1).map(r => Object.fromEntries(head.map((h, i) => [h, r[i] ?? ''])));
+  }
+
+  function popup(p) {
+    const wd = p.verified === '1' && p.wikidata_qid
+      ? `<a href="https://www.wikidata.org/wiki/${escapeHtml(p.wikidata_qid)}" target="_blank" rel="noopener">${escapeHtml(p.wikidata_qid)}</a>` : '—';
+    return `<b>${escapeHtml(p.name_ja)}</b>${p.name_en ? '<br><i>' + escapeHtml(p.name_en) + '</i>' : ''}<br>` +
+      `${escapeHtml(p.prefecture)} ${escapeHtml(p.municipality)}<br>登録: ${escapeHtml(p.registered_year)}年` +
+      (p.built_year ? `<br>建設: ${escapeHtml(p.built_year)}年（${escapeHtml(p.built_year_basis)}）` : '') +
+      (p.facility_type ? `<br>種類: ${escapeHtml(p.facility_type)}` : '') +
+      (p.water_source_river ? `<br>水源: ${escapeHtml(p.water_source_river)}` : '') +
+      (p.managing_org ? `<br>管理: ${escapeHtml(p.managing_org)}` : '') +
+      (p.irrigated_area_ha ? `<br>かんがい面積: 約${escapeHtml(p.irrigated_area_ha)}ha` : '') +
+      `<br>Wikidata: ${wd}<br><a href="resource/${escapeHtml(p.id)}.html">詳しく（出典つき）</a>`;
+  }
+
+  function render() {
+    const y = Number(document.getElementById('year').value);
+    const river = document.getElementById('river').value;
+    document.getElementById('yearLabel').textContent = y;
+    layer.clearLayers();
+    const shown = ROWS.filter(r => Number(r.registered_year) <= y && (!river || r.water_source_river === river));
+    let onMap = 0;
+    for (const p of shown) {
+      if (!p.lat || !p.lon) continue;
+      onMap++;
+      L.circleMarker([+p.lat, +p.lon], { radius: 7, weight: 1, color: '#222', fillColor: COLORS[p.facility_type] || '#718096', fillOpacity: 0.9 })
+        .bindPopup(popup(p)).bindTooltip(p.name_ja).addTo(layer);
+    }
+    const sorted = [...shown].sort((a, b) => {
+      const va = a[sortKey] || '', vb = b[sortKey] || '';
+      if (!va !== !vb) return va ? -1 : 1;   // 空欄（不明）はいつも最後
+      const na = Number(va), nb = Number(vb);
+      const c = (va && vb && !isNaN(na) && !isNaN(nb)) ? na - nb : String(va).localeCompare(String(vb), 'ja');
+      return sortAsc ? c : -c;
+    });
+    document.getElementById('rows').innerHTML = sorted.map(p =>
+      `<tr><td>${escapeHtml(p.id.replace('WHIS-JP-', ''))}</td><td><a href="resource/${escapeHtml(p.id)}.html">${escapeHtml(p.name_ja)}</a>${p.lat ? '' : ' <span class="muted">（座標なし）</span>'}</td>` +
+      `<td>${escapeHtml(p.prefecture)}</td><td>${escapeHtml(p.registered_year)}</td><td>${escapeHtml(p.built_year || '—')}</td></tr>`).join('');
+    document.getElementById('count').textContent = `${shown.length} 施設（地図上 ${onMap}）`;
+    document.querySelectorAll('.bar').forEach(b => b.classList.toggle('on', Number(b.dataset.y) <= y));
+  }
+
+  function setup() {
+    const counts = {};
+    ROWS.forEach(r => counts[r.registered_year] = (counts[r.registered_year] || 0) + 1);
+    const max = Math.max(...Object.values(counts));
+    let html = '';
+    for (let y = 2014; y <= 2026; y++) {
+      const n = counts[y] || 0;
+      html += `<div class="bar" data-y="${y}" style="height:${(n / max) * 100}%" title="${y}年: ${n}件"><span>${String(y).slice(2)}</span></div>`;
+    }
+    document.getElementById('bars').innerHTML = html;
+    const rivers = {};
+    ROWS.forEach(r => { if (r.water_source_river) rivers[r.water_source_river] = (rivers[r.water_source_river] || 0) + 1; });
+    document.getElementById('river').innerHTML += Object.entries(rivers).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ja'))
+      .map(([k, n]) => `<option value="${escapeHtml(k)}">${escapeHtml(k)}（${n}）</option>`).join('');
+    document.querySelectorAll('th[data-k]').forEach(th => th.onclick = () => {
+      if (sortKey === th.dataset.k) sortAsc = !sortAsc; else { sortKey = th.dataset.k; sortAsc = true; }
+      render();
+    });
+    render();
+  }
+
+  document.getElementById('year').addEventListener('input', render);
+  document.getElementById('river').addEventListener('change', render);
+  document.getElementById('play').addEventListener('change', e => {
+    clearInterval(timer);
+    if (!e.target.checked) return;
+    const s = document.getElementById('year'); s.value = 2014; render();
+    timer = setInterval(() => {
+      if (Number(s.value) >= 2026) { clearInterval(timer); e.target.checked = false; return; }
+      s.value = Number(s.value) + 1; render();
+    }, 900);
+  });
+
+  fetch('whis_japan.csv')
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(t => { ROWS = parseCSV(t); setup(); })
+    .catch(() => {
+      document.getElementById('msg').textContent =
+        'データを読み込めませんでした。GitHub Pages などのWebサーバーに置いて開いてください（ファイルを直接開くと読み込めません）。';
+    });
+  window.__viewer = { get ROWS() { return ROWS; }, render };
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>座標の確認・入力ツール（世界かんがい施設遺産LOD）</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  body { margin: 0; font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; display: grid; grid-template-columns: 400px 1fr; height: 100vh; }
+  #side { overflow-y: auto; padding: 10px; border-right: 1px solid #ccc; font-size: 14px; }
+  #map { height: 100vh; cursor: crosshair; }
+  h1 { font-size: 16px; margin: 0 0 6px; }
+  .box { background: #f7f7f7; padding: 8px; margin: 8px 0; border-radius: 6px; }
+  .row { padding: 4px 6px; border-bottom: 1px solid #eee; cursor: pointer; }
+  .row.sel { background: #e6f0ff; }
+  .ok { color: #0a7a2f; } .ng { color: #b00; } .muted { color: #666; font-size: 12px; }
+  button { margin: 2px 2px 2px 0; padding: 3px 8px; }
+  button.main { font-weight: bold; }
+  input[type=text] { width: 95%; padding: 3px; }
+  .cand { border-top: 1px dashed #ccc; padding-top: 4px; margin-top: 4px; }
+  #unsaved { color: #b00; font-weight: bold; }
+</style>
+</head>
+<body>
+<div id="side">
+  <h1>座標の確認・入力ツール</h1>
+  <div class="box">
+    <b>① 読み込む</b><br>
+    whis_japan.csv（必須）：<input type="file" id="fMain" accept=".csv"><br>
+    wikidata_candidates.csv（あれば）：<input type="file" id="fCand" accept=".csv"><br>
+    <span id="restoreArea"></span>
+  </div>
+  <div class="box">
+    <b>③ 保存する</b>（こまめに。保存先はダウンロードフォルダ）<br>
+    <button id="save" class="main" disabled>CSVを保存（whis_japan.csv）</button>
+    <span id="unsaved"></span><br>
+    <span id="stat" class="muted"></span>
+  </div>
+  <div class="box" id="detail">② 下の一覧から施設を選んでください</div>
+  <div id="list"></div>
+</div>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ---------- CSV（RFC 4180 の範囲で読む・書く） ----------
+function parseCSV(text) {
+  const rows = []; let row = [], f = "", q = false;
+  text = text.replace(/^﻿/, "");
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else q = false; }
+      else f += c;
+    } else if (c === '"') q = true;
+    else if (c === ",") { row.push(f); f = ""; }
+    else if (c === "\n") { row.push(f); rows.push(row); row = []; f = ""; }
+    else if (c !== "\r") f += c;
+  }
+  if (f !== "" || row.length) { row.push(f); rows.push(row); }
+  const head = rows.shift();
+  return { head, data: rows.filter(r => r.length > 1).map(r => Object.fromEntries(head.map((h, i) => [h, r[i] ?? ""]))) };
+}
+function toCSV(head, data) {
+  const esc = v => /[",\n\r]/.test(v) ? '"' + String(v).replace(/"/g, '""') + '"' : String(v);
+  return [head.join(","), ...data.map(r => head.map(h => esc(r[h] ?? "")).join(","))].join("\n") + "\n";
+}
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+// ---------- 地図（国土地理院タイル） ----------
+const map = L.map("map").setView([36.5, 137.5], 5);
+const photo = L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
+  { maxZoom: 18, attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル（写真）</a>' });
+const std = L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png",
+  { maxZoom: 18, attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>' });
+photo.addTo(map);
+L.control.layers({ "航空写真": photo, "標準地図（地名が見える）": std }).addTo(map);
+const layer = L.layerGroup().addTo(map);
+
+let HEAD = [], DATA = [], CANDS = [], cur = null, unsaved = 0;
+const SAVE_KEY = "whis_pick_autosave_v2";
+
+function autosave() {
+  try { localStorage.setItem(SAVE_KEY, JSON.stringify({ HEAD, DATA, at: new Date().toLocaleString("ja-JP") })); } catch (e) { /* 保存できない環境では何もしない */ }
+}
+function showRestore() {
+  let s = null;
+  try { s = JSON.parse(localStorage.getItem(SAVE_KEY) || "null"); } catch (e) { s = null; }
+  const el = document.getElementById("restoreArea");
+  if (s && s.DATA && s.DATA.length) {
+    el.innerHTML = `<button id="restore">自動保存から再開（${escapeHtml(s.at)}）</button><br><span class="muted">ブラウザを閉じてしまったときに使います</span>`;
+    document.getElementById("restore").onclick = () => { HEAD = s.HEAD; DATA = s.DATA; ready(); };
+  }
+}
+function ensureCols() {
+  ["lat", "lon", "wikidata_qid", "verified", "wikidata_checked", "representative_point"].forEach(h => { if (!HEAD.includes(h)) HEAD.push(h); });
+}
+function ready() {
+  ensureCols(); document.getElementById("save").disabled = false; cur = null; unsaved = 0; renderList(); updUnsaved();
+}
+function updUnsaved() {
+  document.getElementById("unsaved").textContent = unsaved ? `未保存の変更 ${unsaved} 件` : "";
+}
+
+function renderList() {
+  const done = DATA.filter(r => r.lat && r.lon).length;
+  const chk = DATA.filter(r => r.wikidata_checked === "1" || r.verified === "1").length;
+  document.getElementById("stat").textContent = `座標あり ${done}/${DATA.length}　Wikidata確認 ${chk}/${DATA.length}`;
+  document.getElementById("list").innerHTML = DATA.map((r, i) =>
+    `<div class="row ${i === cur ? "sel" : ""}" data-i="${i}">
+       <span class="${r.lat ? "ok" : "ng"}" title="座標">${r.lat ? "●" : "○"}</span><span class="${(r.wikidata_checked === "1" || r.verified === "1") ? "ok" : "ng"}" title="Wikidata確認">${(r.wikidata_checked === "1" || r.verified === "1") ? "W" : "w"}</span>
+       ${escapeHtml(r.id.replace("WHIS-JP-", ""))} ${escapeHtml(r.name_ja)} <span class="muted">${escapeHtml(r.prefecture)}${escapeHtml(r.municipality)}</span>
+     </div>`).join("");
+  document.querySelectorAll(".row").forEach(el => el.onclick = () => select(+el.dataset.i));
+}
+
+function select(i) {
+  cur = i; const r = DATA[i]; layer.clearLayers();
+  const cs = CANDS.filter(c => c.id === r.id);
+  const srcs = (r.source_url || "").split("|").map(u => u.trim()).filter(Boolean);
+  const wdState = r.verified === "1" ? `<span class="ok">対応あり：${escapeHtml(r.wikidata_qid)}</span>`
+    : r.wikidata_checked === "1" ? `<span class="ok">確認済み：Wikidataに該当なし</span>` : `<span class="ng">未確認</span>`;
+  let html = `<b>${escapeHtml(r.name_ja)}</b>　<span class="muted">${escapeHtml(r.id)}</span><br>
+    <span class="muted">${escapeHtml(r.prefecture)} ${escapeHtml(r.municipality)}</span><br>
+    代表地点：<input type="text" id="rp" value="${escapeHtml(r.representative_point)}" placeholder="例：○○頭首工、○○池（取水口・堰・池など）"><br>
+    座標：<b>${r.lat ? escapeHtml(r.lat + ", " + r.lon) : "なし"}</b>
+    <button id="clr">座標を消す</button><br>
+    <span class="muted">航空写真で場所を確かめて、地図をクリックすると記録されます。</span><br>
+    緯度経度／地理院地図URLを貼り付け：<input type="text" id="paste" placeholder="38.5772,140.9553 か 地理院地図のURL" style="width:60%"><button id="pasteBtn">設定</button><br>
+    地名で移動：<input type="text" id="q" value="${escapeHtml((r.prefecture + r.municipality.split(/[、・]/)[0]).replace(/他$/, ""))}" style="width:60%"><button id="qBtn">移動</button>
+    <span id="qMsg" class="muted"></span><br>
+    <a href="#" id="gsiLink" target="_blank" rel="noopener">いまの場所を地理院地図で開く</a><br>
+    <div class="cand"><b>出典</b>（施設の位置図が載っていることがあります）<br>${srcs.map(u => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener">${escapeHtml(u.replace(/^https?:\/\//, "").slice(0, 60))}</a>`).join("<br>")}</div>
+    <div class="cand"><b>Wikidata</b>：${wdState}<br>`;
+  if (cs.length) {
+    html += cs.map((c, k) =>
+      `<div>・<a href="${escapeHtml(c.url)}" target="_blank" rel="noopener">${escapeHtml(c.qid)}</a>
+        ${escapeHtml(c.label)} <span class="muted">${escapeHtml(c.description)}（検索語：${escapeHtml(c.search_term)}）${c.lat ? "" : "座標なし"}</span><br>
+        ${c.lat ? `<button data-k="${k}" class="useC">この座標へ移動</button>` : ""}
+        <button data-k="${k}" class="verC">同じ施設と確認</button></div>`).join("");
+  } else {
+    html += `<span class="muted">候補ファイルを読み込んでいないか、候補がありません。</span><br>`;
+  }
+  html += `<button id="noWd">Wikidataに該当なし（確認済み）</button> <button id="resetWd">Wikidataの確認を取り消す</button></div>
+    <button id="next" class="main">次の未入力の施設へ ▶</button>`;
+  document.getElementById("detail").innerHTML = html;
+
+  document.getElementById("rp").onchange = e => { r.representative_point = e.target.value.trim(); changed(false); };
+  document.getElementById("clr").onclick = () => { r.lat = r.lon = ""; changed(); };
+  document.getElementById("pasteBtn").onclick = () => {
+    const v = document.getElementById("paste").value.trim();
+    const u = v.match(/#\d+\/(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)/);   // 地理院地図のURL（#ズーム/緯度/経度/）
+    const m = u || v.match(/(-?\d+(?:\.\d+)?)\s*[,，\s]\s*(-?\d+(?:\.\d+)?)/);
+    if (!m) { alert("「38.5772,140.9553」（緯度,経度の順）か、地理院地図のURLを貼り付けてください"); return; }
+    setLL(+m[1], +m[2]);
+  };
+  document.getElementById("qBtn").onclick = () => searchPlace(document.getElementById("q").value);
+  const gl = document.getElementById("gsiLink");
+  gl.onclick = () => { const c = map.getCenter(); gl.href = `https://maps.gsi.go.jp/#${map.getZoom()}/${c.lat.toFixed(6)}/${c.lng.toFixed(6)}/`; };
+  document.querySelectorAll(".useC").forEach(b => b.onclick = () => { const c = cs[+b.dataset.k]; map.setView([+c.lat, +c.lon], 16); });
+  document.querySelectorAll(".verC").forEach(b => b.onclick = () => {
+    const c = cs[+b.dataset.k];
+    if (confirm(`${c.qid}（${c.label}）を「${r.name_ja}」と同じものとして記録しますか？\nWikidataのページを開いて、名前・場所・説明が合っているか確かめてから押してください。`)) {
+      r.wikidata_qid = c.qid; r.verified = "1"; r.wikidata_checked = "1"; changed();
+    }
+  });
+  document.getElementById("noWd").onclick = () => {
+    if (confirm(`「${r.name_ja}」はWikidataに該当する項目がない、と記録しますか？`)) {
+      r.wikidata_qid = ""; r.verified = "0"; r.wikidata_checked = "1"; changed();
+    }
+  };
+  document.getElementById("resetWd").onclick = () => { r.wikidata_qid = ""; r.verified = "0"; r.wikidata_checked = ""; changed(); };
+  document.getElementById("next").onclick = () => {
+    const n = DATA.findIndex((x, j) => j > cur && (!x.lat || (x.wikidata_checked !== "1" && x.verified !== "1")));
+    const m = n >= 0 ? n : DATA.findIndex(x => !x.lat || (x.wikidata_checked !== "1" && x.verified !== "1"));
+    if (m >= 0) select(m); else alert("すべての施設で、座標とWikidataの確認が終わっています。CSVを保存してください。");
+  };
+
+  cs.filter(c => c.lat).forEach(c => L.circleMarker([+c.lat, +c.lon], { radius: 8, color: "#ff6600", weight: 3 })
+    .bindTooltip(`候補 ${c.qid} ${c.label}`).addTo(layer));
+  if (r.lat) { L.marker([+r.lat, +r.lon]).bindTooltip("いまの座標").addTo(layer); map.setView([+r.lat, +r.lon], 16); }
+  else if (cs.some(c => c.lat)) { const c = cs.find(c => c.lat); map.setView([+c.lat, +c.lon], 14); }
+  renderList();
+}
+
+async function searchPlace(q) {
+  const msg = document.getElementById("qMsg"); msg.textContent = "検索中…";
+  try {
+    const res = await fetch("https://msearch.gsi.go.jp/address-search/AddressSearch?q=" + encodeURIComponent(q));
+    const js = await res.json();
+    if (!js.length) { msg.textContent = "見つかりませんでした"; return; }
+    const [lon, lat] = js[0].geometry.coordinates;
+    map.setView([lat, lon], 14); msg.textContent = js[0].properties.title || "";
+  } catch (e) {
+    msg.textContent = "検索できませんでした。地図を手で動かすか、地理院地図で探して緯度経度を貼り付けてください";
+  }
+}
+function setLL(lat, lon) {
+  if (cur === null) return;
+  if (lat < 20 || lat > 46 || lon < 122 || lon > 154) { alert("日本の範囲外の座標です。緯度,経度の順になっているか確かめてください"); return; }
+  DATA[cur].lat = lat.toFixed(6); DATA[cur].lon = lon.toFixed(6); changed();
+}
+function changed(redraw = true) { unsaved++; updUnsaved(); autosave(); if (redraw) select(cur); else renderList(); }
+map.on("click", e => setLL(e.latlng.lat, e.latlng.lng));
+
+document.getElementById("fMain").onchange = async e => {
+  const p = parseCSV(await e.target.files[0].text()); HEAD = p.head; DATA = p.data; ready();
+};
+document.getElementById("fCand").onchange = async e => { CANDS = parseCSV(await e.target.files[0].text()).data; if (cur !== null) select(cur); };
+document.getElementById("save").onclick = () => {
+  const blob = new Blob([toCSV(HEAD, DATA)], { type: "text/csv" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "whis_japan.csv"; a.click();
+  unsaved = 0; updUnsaved();
+};
+window.addEventListener("beforeunload", e => { if (unsaved) { e.preventDefault(); e.returnValue = ""; } });
+showRestore();
+// 自動テスト用
+window.__pick = { parseCSV, toCSV, get DATA() { return DATA; }, get HEAD() { return HEAD; }, setLL, select };
+</script>
+</body>
+</html>

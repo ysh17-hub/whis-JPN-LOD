@@ -1,0 +1,51 @@
+# 世界かんがい施設遺産（日本）LOD のサンプル SPARQL
+# ローカルでは run_queries.py（rdflib）で動作確認済み。
+# Q4 は Wikidata の SPARQL エンドポイント（https://query.wikidata.org/）で実行する「つなげ方」の例。
+
+PREFIX whis:   <https://YOUR_GITHUB_NAME.github.io/whis-lod/ontology#>
+PREFIX schema: <https://schema.org/>
+PREFIX geo:    <http://www.opengis.net/ont/geosparql#>
+PREFIX wgs:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:    <http://www.w3.org/2002/07/owl#>
+
+# --- Q1: 都道府県ごとの登録数（多い順） ---
+SELECT ?pref (COUNT(?s) AS ?n) WHERE {
+  ?s a whis:HeritageIrrigationStructure ;
+     schema:addressRegion ?pref .
+} GROUP BY ?pref ORDER BY DESC(?n)
+
+# --- Q2: 登録年ごとの件数（年表のもと） ---
+# SELECT ?year (COUNT(?s) AS ?n) WHERE {
+#   ?s a whis:HeritageIrrigationStructure ; whis:registeredYear ?year .
+# } GROUP BY ?year ORDER BY ?year
+
+# --- Q3: 座標と Wikidata のつながりがまだ無い施設（作業の残りを見る） ---
+# SELECT ?id ?name WHERE {
+#   ?s a whis:HeritageIrrigationStructure ; <http://purl.org/dc/terms/identifier> ?id ; schema:name ?name .
+#   FILTER(LANG(?name) = "ja")
+#   FILTER NOT EXISTS { ?s geo:hasGeometry ?g }
+#   FILTER NOT EXISTS { ?s owl:sameAs ?wd }
+# } ORDER BY ?id
+
+# --- Q5: 同じ川から水を引く遺産（川でつながる施設） ---
+# SELECT ?river (COUNT(?s) AS ?n) (GROUP_CONCAT(?name; separator="、") AS ?names) WHERE {
+#   ?s a whis:HeritageIrrigationStructure ; whis:waterSource ?river ; schema:name ?name .
+#   FILTER(LANG(?name) = "ja")
+# } GROUP BY ?river HAVING (COUNT(?s) >= 2) ORDER BY DESC(?n)
+
+# --- Q6: 建設年が古い順（根拠つき。建設年が空欄の施設は含まれない点に注意） ---
+# SELECT ?by ?name ?basis WHERE {
+#   ?s a whis:HeritageIrrigationStructure ; whis:builtYear ?by ; schema:name ?name .
+#   OPTIONAL { ?s whis:builtYearBasis ?basis }
+#   FILTER(LANG(?name) = "ja")
+# } ORDER BY ?by LIMIT 10
+
+# --- Q4（Wikidata 側で実行）: 自分のデータで sameAs を付けた施設の、Wikidata 上の情報を引く ---
+# 自分のデータの QID を VALUES に並べて使う。
+# SELECT ?item ?itemLabel ?inception ?coord WHERE {
+#   VALUES ?item { wd:Q00000 wd:Q00001 }   # ← whis_japan.csv の wikidata_qid を入れる
+#   OPTIONAL { ?item wdt:P571 ?inception . }   # P571 = 設立・創設の時期
+#   OPTIONAL { ?item wdt:P625 ?coord . }        # P625 = 座標
+#   SERVICE wikibase:label { bd:serviceParam wikibase:language "ja,en". }
+# }
