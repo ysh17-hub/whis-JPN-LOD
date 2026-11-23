@@ -24,7 +24,8 @@ res:WHIS-JP-029 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.986289 ;
     schema:addressLocality "那須塩原市"@ja ;
     schema:addressRegion "栃木県"@ja ;
-    schema:containedInPlace wd:Q44843 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C09000-19700401>,
+        wd:Q44843 ;
     schema:name "Nasu-sosui"@en,
         "那須疏水"@ja ;
     whis:builtYear "1885"^^xsd:gYear ;

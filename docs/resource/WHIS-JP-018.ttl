@@ -20,7 +20,8 @@ res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.419575 ;
     schema:addressLocality "北杜市"@ja ;
     schema:addressRegion "山梨県"@ja ;
-    schema:containedInPlace wd:Q132720 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C19000-19700401>,
+        wd:Q132720 ;
     schema:name "村山六ヶ村堰疏水"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;

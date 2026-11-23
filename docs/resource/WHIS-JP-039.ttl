@@ -21,7 +21,8 @@ res:WHIS-JP-039 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.828323 ;
     schema:addressLocality "菊池市"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:name "Kikuchi Irrigation Systems"@en,
         "菊池のかんがい用水群"@ja ;
     whis:builtYear "1615"^^xsd:gYear ;

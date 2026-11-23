@@ -23,7 +23,8 @@ res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.46079 ;
     schema:addressLocality "弘前市他"@ja ;
     schema:addressRegion "青森県"@ja ;
-    schema:containedInPlace wd:Q71699 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C02000-19700401>,
+        wd:Q71699 ;
     schema:name "土淵堰"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;

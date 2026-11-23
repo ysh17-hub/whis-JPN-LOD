@@ -21,7 +21,8 @@ res:WHIS-JP-007 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.055806 ;
     schema:addressLocality "神戸市他"@ja ;
     schema:addressRegion "兵庫県"@ja ;
-    schema:containedInPlace wd:Q130290 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C28000-19700401>,
+        wd:Q130290 ;
     schema:hasPart wd:Q11488870,
         wd:Q11559782 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg> ;

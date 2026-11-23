@@ -24,7 +24,8 @@ res:WHIS-JP-032 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.020452 ;
     schema:addressLocality "庄内町"@ja ;
     schema:addressRegion "山形県"@ja ;
-    schema:containedInPlace wd:Q125863 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C06000-19700401>,
+        wd:Q125863 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png> ;
     schema:name "北楯大堰"@ja ;
     whis:builtYear "1612"^^xsd:gYear ;

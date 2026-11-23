@@ -24,7 +24,8 @@ res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.036337 ;
     schema:addressLocality "前橋市他"@ja ;
     schema:addressRegion "群馬県"@ja ;
-    schema:containedInPlace wd:Q129499 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C10000-19700401>,
+        wd:Q129499 ;
     schema:name "天狗岩用水"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;

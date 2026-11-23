@@ -26,7 +26,8 @@ res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
     wgs84:long 141.097605 ;
     schema:addressLocality "十和田市他"@ja ;
     schema:addressRegion "青森県"@ja ;
-    schema:containedInPlace wd:Q71699 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C02000-19700401>,
+        wd:Q71699 ;
     schema:name "稲生川"@ja ;
     whis:builtYear "1855"^^xsd:gYear ;
     whis:builtYearBasis "着工"@ja ;

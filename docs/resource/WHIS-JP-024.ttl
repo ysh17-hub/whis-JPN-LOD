@@ -20,7 +20,8 @@ res:WHIS-JP-024 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.318668 ;
     schema:addressLocality "津市"@ja ;
     schema:addressRegion "三重県"@ja ;
-    schema:containedInPlace wd:Q128196 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C24000-19700401>,
+        wd:Q128196 ;
     schema:name "南家城川口井水"@ja ;
     whis:builtYear "1190"^^xsd:gYear ;
     whis:builtYearBasis "開設"@ja ;

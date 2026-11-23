@@ -25,7 +25,8 @@ res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.181583 ;
     schema:addressLocality "本庄市他"@ja ;
     schema:addressRegion "埼玉県"@ja ;
-    schema:containedInPlace wd:Q128186 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C11000-19700401>,
+        wd:Q128186 ;
     schema:name "備前渠用水路"@ja ;
     whis:builtYear "1604"^^xsd:gYear ;
     whis:builtYearBasis "開削（慶長9年）"@ja ;

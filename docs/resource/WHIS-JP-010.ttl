@@ -25,7 +25,8 @@ res:WHIS-JP-010 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.274596 ;
     schema:addressLocality "上越市他"@ja ;
     schema:addressRegion "新潟県"@ja ;
-    schema:containedInPlace wd:Q132705 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C15000-19700401>,
+        wd:Q132705 ;
     schema:name "上江用水路"@ja ;
     whis:builtYear "1648"^^xsd:gYear ;
     whis:builtYearBasis "供用開始（新潟県資料）"@ja ;

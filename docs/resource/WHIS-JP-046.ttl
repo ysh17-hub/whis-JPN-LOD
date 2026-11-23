@@ -20,7 +20,8 @@ res:WHIS-JP-046 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.835546 ;
     schema:addressLocality "磐田市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "Teradani Irrigation System (Canal)"@en,
         "寺谷用水"@ja ;
     whis:builtYear "1590"^^xsd:gYear ;

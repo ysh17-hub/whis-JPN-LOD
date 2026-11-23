@@ -20,7 +20,8 @@ res:WHIS-JP-020 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.271034 ;
     schema:addressLocality "茅野市"@ja ;
     schema:addressRegion "長野県"@ja ;
-    schema:containedInPlace wd:Q127877 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C20000-19700401>,
+        wd:Q127877 ;
     schema:name "滝之湯堰・大河原堰"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;

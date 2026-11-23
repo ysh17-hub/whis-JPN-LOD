@@ -1,13 +1,63 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry",
+  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG",
   "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
+   "https://schema.org/ImageObject"
   ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
+  "https://schema.org/about": [
    {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(134.095709 34.718043)"
+    "@id": "http://www.wikidata.org/entity/Q11580873"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_11.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "by Reggaeman"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Hyakken River 11.JPG"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11580873"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_10.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "by Reggaeman"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Hyakken River 10.JPG"
    }
   ]
  },
@@ -79,6 +129,9 @@
    }
   ],
   "https://schema.org/containedInPlace": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C33000-19700401"
+   },
    {
     "@id": "http://www.wikidata.org/entity/Q132936"
    }
@@ -182,64 +235,14 @@
   ]
  },
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG",
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry",
   "@type": [
-   "https://schema.org/ImageObject"
+   "http://www.opengis.net/ont/geosparql#Geometry"
   ],
-  "https://schema.org/about": [
+  "http://www.opengis.net/ont/geosparql#asWKT": [
    {
-    "@id": "http://www.wikidata.org/entity/Q11580873"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_11.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "by Reggaeman"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Hyakken River 11.JPG"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11580873"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_10.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "by Reggaeman"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Hyakken River 10.JPG"
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(134.095709 34.718043)"
    }
   ]
  }

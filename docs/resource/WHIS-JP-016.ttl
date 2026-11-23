@@ -26,7 +26,8 @@ res:WHIS-JP-016 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.024396 ;
     schema:addressLocality "郡山市他"@ja ;
     schema:addressRegion "福島県"@ja ;
-    schema:containedInPlace wd:Q71707 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C07000-19700401>,
+        wd:Q71707 ;
     schema:hasPart wd:Q6322355 ;
     schema:image <https://commons.wikimedia.org/wiki/File:AsakaSosuiKansenSuiroB.JPG>,
         <https://commons.wikimedia.org/wiki/File:Jyurokkyou-s-r1.jpg> ;

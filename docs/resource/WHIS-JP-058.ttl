@@ -21,7 +21,8 @@ res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.983018 ;
     schema:addressLocality "掛川市、菊川市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "小笠地域かんがい用水群"@ja ;
     whis:builtYear "1594"^^xsd:gYear ;
     whis:builtYearBasis "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）"@ja ;

@@ -87,6 +87,9 @@
   ],
   "https://schema.org/containedInPlace": [
    {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C04000-19700401"
+   },
+   {
     "@id": "http://www.wikidata.org/entity/Q47896"
    }
   ],

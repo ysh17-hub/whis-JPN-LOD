@@ -25,7 +25,8 @@ res:WHIS-JP-011 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.9305 ;
     schema:addressLocality "関市他"@ja ;
     schema:addressRegion "岐阜県"@ja ;
-    schema:containedInPlace wd:Q131277 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C21000-19700401>,
+        wd:Q131277 ;
     schema:name "曽代用水"@ja ;
     whis:builtYear "1663"^^xsd:gYear ;
     whis:builtYearBasis "計画・着手（寛文3年）"@ja ;

@@ -22,7 +22,8 @@ res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.358437 ;
     schema:addressLocality "佐久市"@ja ;
     schema:addressRegion "長野県"@ja ;
-    schema:containedInPlace wd:Q127877 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C20000-19700401>,
+        wd:Q127877 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg>,
         <https://commons.wikimedia.org/wiki/File:Gorob%C4%93_Y%C5%8Dsui_01.jpg> ;
     schema:name "五郎兵衛用水"@ja ;

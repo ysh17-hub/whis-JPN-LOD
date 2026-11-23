@@ -21,7 +21,8 @@ res:WHIS-JP-047 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.343587 ;
     schema:addressLocality "泉佐野市"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:name "Yukawa Irrigation Canal"@en,
         "井川用水"@ja ;
     whis:facilityCategory whis:type-canal ;

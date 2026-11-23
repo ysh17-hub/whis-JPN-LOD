@@ -21,7 +21,8 @@ res:WHIS-JP-031 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.448278 ;
     schema:addressLocality "橋本市他"@ja ;
     schema:addressRegion "和歌山県"@ja ;
-    schema:containedInPlace wd:Q131314 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C30000-19700401>,
+        wd:Q131314 ;
     schema:name "小田井用水路"@ja ;
     whis:builtYear "1707"^^xsd:gYear ;
     whis:builtYearBasis "開削（宝永4年）"@ja ;

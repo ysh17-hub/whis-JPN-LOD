@@ -24,7 +24,8 @@ res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.993611 ;
     schema:addressLocality "山都町"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:hasPart wd:Q3077059 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg> ;
     schema:name "Tsujunyousui Irrigation System"@en,

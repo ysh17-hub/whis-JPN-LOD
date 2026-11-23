@@ -1,13 +1,32 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry",
+  "@id": "https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg",
   "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
+   "https://schema.org/ImageObject"
   ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
+  "https://schema.org/about": [
    {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.055806 34.790278)"
+    "@id": "http://www.wikidata.org/entity/Q11488870"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Shijimi-river_siphon-bridge.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Bakkai"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Shijimi-river siphon-bridge.jpg"
    }
   ]
  },
@@ -79,6 +98,9 @@
    }
   ],
   "https://schema.org/containedInPlace": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C28000-19700401"
+   },
    {
     "@id": "http://www.wikidata.org/entity/Q130290"
    }
@@ -188,33 +210,14 @@
   ]
  },
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg",
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry",
   "@type": [
-   "https://schema.org/ImageObject"
+   "http://www.opengis.net/ont/geosparql#Geometry"
   ],
-  "https://schema.org/about": [
+  "http://www.opengis.net/ont/geosparql#asWKT": [
    {
-    "@id": "http://www.wikidata.org/entity/Q11488870"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Shijimi-river_siphon-bridge.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Bakkai"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Shijimi-river siphon-bridge.jpg"
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.055806 34.790278)"
    }
   ]
  }

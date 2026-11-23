@@ -21,7 +21,8 @@ res:WHIS-JP-057 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.804845 ;
     schema:addressLocality "羽生市他"@ja ;
     schema:addressRegion "埼玉県"@ja ;
-    schema:containedInPlace wd:Q128186 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C11000-19700401>,
+        wd:Q128186 ;
     schema:hasPart wd:Q22124737 ;
     schema:name "葛西用水"@ja ;
     whis:builtYear "1660"^^xsd:gYear ;

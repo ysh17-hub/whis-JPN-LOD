@@ -20,7 +20,8 @@ res:WHIS-JP-030 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.474429 ;
     schema:addressLocality "豊橋市他"@ja ;
     schema:addressRegion "愛知県"@ja ;
-    schema:containedInPlace wd:Q80434 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C23000-19700401>,
+        wd:Q80434 ;
     schema:hasPart wd:Q11570262 ;
     schema:name "松原用水・牟呂用水"@ja ;
     whis:builtYear "1567"^^xsd:gYear ;

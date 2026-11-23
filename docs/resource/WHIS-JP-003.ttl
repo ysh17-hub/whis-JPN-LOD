@@ -24,7 +24,8 @@ res:WHIS-JP-003 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.984754 ;
     schema:addressLocality "裾野市他"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:image <https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG> ;
     schema:name "深良用水"@ja ;
     whis:builtYear "1666"^^xsd:gYear ;

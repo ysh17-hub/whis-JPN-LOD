@@ -21,7 +21,8 @@ res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.398788 ;
     schema:addressLocality "多気町他"@ja ;
     schema:addressRegion "三重県"@ja ;
-    schema:containedInPlace wd:Q128196 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C24000-19700401>,
+        wd:Q128196 ;
     schema:name "立梅用水"@ja ;
     whis:builtYear "1823"^^xsd:gYear ;
     whis:builtYearBasis "開削（文政6年）"@ja ;

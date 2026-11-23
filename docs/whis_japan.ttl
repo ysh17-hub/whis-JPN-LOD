@@ -9,6 +9,7 @@
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -106,7 +107,8 @@ res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
     wgs84:long 141.097605 ;
     schema:addressLocality "十和田市他"@ja ;
     schema:addressRegion "青森県"@ja ;
-    schema:containedInPlace wd:Q71699 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C02000-19700401>,
+        wd:Q71699 ;
     schema:name "稲生川"@ja ;
     whis:builtYear "1855"^^xsd:gYear ;
     whis:builtYearBasis "着工"@ja ;
@@ -137,7 +139,8 @@ res:WHIS-JP-002 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.919235 ;
     schema:addressLocality "甘楽町"@ja ;
     schema:addressRegion "群馬県"@ja ;
-    schema:containedInPlace wd:Q129499 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C10000-19700401>,
+        wd:Q129499 ;
     schema:name "雄川堰"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
@@ -165,7 +168,8 @@ res:WHIS-JP-003 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.984754 ;
     schema:addressLocality "裾野市他"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:image <https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG> ;
     schema:name "深良用水"@ja ;
     whis:builtYear "1666"^^xsd:gYear ;
@@ -197,7 +201,8 @@ res:WHIS-JP-004 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.632419 ;
     schema:addressLocality "白山市他"@ja ;
     schema:addressRegion "石川県"@ja ;
-    schema:containedInPlace wd:Q131281 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C17000-19700401>,
+        wd:Q131281 ;
     schema:name "七ヶ用水"@ja ;
     whis:builtYear "1903"^^xsd:gYear ;
     whis:builtYearBasis "合口事業完成（七つの用水の取水口統合）"@ja ;
@@ -228,7 +233,8 @@ res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.398788 ;
     schema:addressLocality "多気町他"@ja ;
     schema:addressRegion "三重県"@ja ;
-    schema:containedInPlace wd:Q128196 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C24000-19700401>,
+        wd:Q128196 ;
     schema:name "立梅用水"@ja ;
     whis:builtYear "1823"^^xsd:gYear ;
     whis:builtYearBasis "開削（文政6年）"@ja ;
@@ -264,7 +270,8 @@ res:WHIS-JP-006 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.549722 ;
     schema:addressLocality "大阪狭山市"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG> ;
     schema:name "狭山池"@ja ;
     whis:facilityCategory whis:type-tameike ;
@@ -291,7 +298,8 @@ res:WHIS-JP-007 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.055806 ;
     schema:addressLocality "神戸市他"@ja ;
     schema:addressRegion "兵庫県"@ja ;
-    schema:containedInPlace wd:Q130290 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C28000-19700401>,
+        wd:Q130290 ;
     schema:hasPart wd:Q11488870,
         wd:Q11559782 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg> ;
@@ -325,7 +333,8 @@ res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.759267 ;
     schema:addressLocality "朝倉市"@ja ;
     schema:addressRegion "福岡県"@ja ;
-    schema:containedInPlace wd:Q123258 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C40000-19700401>,
+        wd:Q123258 ;
     schema:hasPart wd:Q42567025 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg> ;
     schema:name "山田堰、堀川用水、水車群"@ja ;
@@ -360,7 +369,8 @@ res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.993611 ;
     schema:addressLocality "山都町"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:hasPart wd:Q3077059 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg> ;
     schema:name "Tsujunyousui Irrigation System"@en,
@@ -394,7 +404,8 @@ res:WHIS-JP-010 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.274596 ;
     schema:addressLocality "上越市他"@ja ;
     schema:addressRegion "新潟県"@ja ;
-    schema:containedInPlace wd:Q132705 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C15000-19700401>,
+        wd:Q132705 ;
     schema:name "上江用水路"@ja ;
     whis:builtYear "1648"^^xsd:gYear ;
     whis:builtYearBasis "供用開始（新潟県資料）"@ja ;
@@ -429,7 +440,8 @@ res:WHIS-JP-011 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.9305 ;
     schema:addressLocality "関市他"@ja ;
     schema:addressRegion "岐阜県"@ja ;
-    schema:containedInPlace wd:Q131277 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C21000-19700401>,
+        wd:Q131277 ;
     schema:name "曽代用水"@ja ;
     whis:builtYear "1663"^^xsd:gYear ;
     whis:builtYearBasis "計画・着手（寛文3年）"@ja ;
@@ -462,7 +474,8 @@ res:WHIS-JP-012 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.99904 ;
     schema:addressLocality "犬山市"@ja ;
     schema:addressRegion "愛知県"@ja ;
-    schema:containedInPlace wd:Q80434 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C23000-19700401>,
+        wd:Q80434 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Irukaike_pond_1.JPG> ;
     schema:name "入鹿池"@ja ;
     whis:builtYear "1633"^^xsd:gYear ;
@@ -496,7 +509,8 @@ res:WHIS-JP-013 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.415956 ;
     schema:addressLocality "岸和田市"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Kurumeji15.jpg> ;
     schema:name "久米田池"@ja ;
     whis:builtYear "0738"^^xsd:gYear ;
@@ -531,7 +545,8 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
     wgs84:long 141.020709 ;
     schema:addressLocality "一関市他"@ja ;
     schema:addressRegion "岩手県"@ja ;
-    schema:containedInPlace wd:Q48326 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C03000-19700401>,
+        wd:Q48326 ;
     schema:name "照井堰用水"@ja ;
     whis:builtYear "1180"^^xsd:gYear ;
     whis:builtYearBasis "開削（1180年頃）"@ja ;
@@ -563,7 +578,8 @@ res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.847135 ;
     schema:addressLocality "大崎市"@ja ;
     schema:addressRegion "宮城県"@ja ;
-    schema:containedInPlace wd:Q47896 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C04000-19700401>,
+        wd:Q47896 ;
     schema:name "内川"@ja ;
     whis:builtYear "1591"^^xsd:gYear ;
     whis:builtYearBasis "開削"@ja ;
@@ -597,7 +613,8 @@ res:WHIS-JP-016 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.024396 ;
     schema:addressLocality "郡山市他"@ja ;
     schema:addressRegion "福島県"@ja ;
-    schema:containedInPlace wd:Q71707 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C07000-19700401>,
+        wd:Q71707 ;
     schema:hasPart wd:Q6322355 ;
     schema:image <https://commons.wikimedia.org/wiki/File:AsakaSosuiKansenSuiroB.JPG>,
         <https://commons.wikimedia.org/wiki/File:Jyurokkyou-s-r1.jpg> ;
@@ -634,7 +651,8 @@ res:WHIS-JP-017 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.02098 ;
     schema:addressLocality "高崎市"@ja ;
     schema:addressRegion "群馬県"@ja ;
-    schema:containedInPlace wd:Q129499 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C10000-19700401>,
+        wd:Q129499 ;
     schema:name "長野堰用水"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
@@ -662,7 +680,8 @@ res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.419575 ;
     schema:addressLocality "北杜市"@ja ;
     schema:addressRegion "山梨県"@ja ;
-    schema:containedInPlace wd:Q132720 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C19000-19700401>,
+        wd:Q132720 ;
     schema:name "村山六ヶ村堰疏水"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
@@ -690,7 +709,8 @@ res:WHIS-JP-019 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.950056 ;
     schema:addressLocality "安曇野市他"@ja ;
     schema:addressRegion "長野県"@ja ;
-    schema:containedInPlace wd:Q127877 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C20000-19700401>,
+        wd:Q127877 ;
     schema:name "拾ヶ堰"@ja ;
     whis:builtYear "1816"^^xsd:gYear ;
     whis:builtYearBasis "開削"@ja ;
@@ -721,7 +741,8 @@ res:WHIS-JP-020 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.271034 ;
     schema:addressLocality "茅野市"@ja ;
     schema:addressRegion "長野県"@ja ;
-    schema:containedInPlace wd:Q127877 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C20000-19700401>,
+        wd:Q127877 ;
     schema:name "滝之湯堰・大河原堰"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
@@ -746,7 +767,8 @@ res:WHIS-JP-021 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.912103 ;
     schema:addressLocality "三島市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "源兵衛川"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
@@ -775,7 +797,8 @@ res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.296509 ;
     schema:addressLocality "福井市"@ja ;
     schema:addressRegion "福井県"@ja ;
-    schema:containedInPlace wd:Q133879 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C18000-19700401>,
+        wd:Q133879 ;
     schema:name "足羽川用水"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
@@ -807,7 +830,8 @@ res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.17821 ;
     schema:addressLocality "安城市他"@ja ;
     schema:addressRegion "愛知県"@ja ;
-    schema:containedInPlace wd:Q80434 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C23000-19700401>,
+        wd:Q80434 ;
     schema:name "明治用水"@ja ;
     whis:builtYear "1880"^^xsd:gYear ;
     whis:builtYearBasis "完成"@ja ;
@@ -837,7 +861,8 @@ res:WHIS-JP-024 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.318668 ;
     schema:addressLocality "津市"@ja ;
     schema:addressRegion "三重県"@ja ;
-    schema:containedInPlace wd:Q128196 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C24000-19700401>,
+        wd:Q128196 ;
     schema:name "南家城川口井水"@ja ;
     whis:builtYear "1190"^^xsd:gYear ;
     whis:builtYearBasis "開設"@ja ;
@@ -869,7 +894,8 @@ res:WHIS-JP-025 a whis:HeritageIrrigationStructure ;
     wgs84:long 131.283333 ;
     schema:addressLocality "宇部市"@ja ;
     schema:addressRegion "山口県"@ja ;
-    schema:containedInPlace wd:Q127264 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C35000-19700401>,
+        wd:Q127264 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg> ;
     schema:name "常盤湖"@ja ;
     whis:facilityCategory whis:type-tameike ;
@@ -899,7 +925,8 @@ res:WHIS-JP-026 a whis:HeritageIrrigationStructure ;
     wgs84:long 133.871392 ;
     schema:addressLocality "まんのう町"@ja ;
     schema:addressRegion "香川県"@ja ;
-    schema:containedInPlace wd:Q161454 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C37000-19700401>,
+        wd:Q161454 ;
     schema:hasPart wd:Q6750928 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Mannolake1.JPG>,
         <https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg> ;
@@ -932,7 +959,8 @@ res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     wgs84:long 131.002562 ;
     schema:addressLocality "湯前町他"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:hasPart wd:Q11484089,
         wd:Q17225723 ;
     schema:image <https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg> ;
@@ -967,7 +995,8 @@ res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.46079 ;
     schema:addressLocality "弘前市他"@ja ;
     schema:addressRegion "青森県"@ja ;
-    schema:containedInPlace wd:Q71699 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C02000-19700401>,
+        wd:Q71699 ;
     schema:name "土淵堰"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
@@ -999,7 +1028,8 @@ res:WHIS-JP-029 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.986289 ;
     schema:addressLocality "那須塩原市"@ja ;
     schema:addressRegion "栃木県"@ja ;
-    schema:containedInPlace wd:Q44843 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C09000-19700401>,
+        wd:Q44843 ;
     schema:name "Nasu-sosui"@en,
         "那須疏水"@ja ;
     whis:builtYear "1885"^^xsd:gYear ;
@@ -1030,7 +1060,8 @@ res:WHIS-JP-030 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.474429 ;
     schema:addressLocality "豊橋市他"@ja ;
     schema:addressRegion "愛知県"@ja ;
-    schema:containedInPlace wd:Q80434 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C23000-19700401>,
+        wd:Q80434 ;
     schema:hasPart wd:Q11570262 ;
     schema:name "松原用水・牟呂用水"@ja ;
     whis:builtYear "1567"^^xsd:gYear ;
@@ -1062,7 +1093,8 @@ res:WHIS-JP-031 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.448278 ;
     schema:addressLocality "橋本市他"@ja ;
     schema:addressRegion "和歌山県"@ja ;
-    schema:containedInPlace wd:Q131314 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C30000-19700401>,
+        wd:Q131314 ;
     schema:name "小田井用水路"@ja ;
     whis:builtYear "1707"^^xsd:gYear ;
     whis:builtYearBasis "開削（宝永4年）"@ja ;
@@ -1096,7 +1128,8 @@ res:WHIS-JP-032 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.020452 ;
     schema:addressLocality "庄内町"@ja ;
     schema:addressRegion "山形県"@ja ;
-    schema:containedInPlace wd:Q125863 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C06000-19700401>,
+        wd:Q125863 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png> ;
     schema:name "北楯大堰"@ja ;
     whis:builtYear "1612"^^xsd:gYear ;
@@ -1128,7 +1161,8 @@ res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.358437 ;
     schema:addressLocality "佐久市"@ja ;
     schema:addressRegion "長野県"@ja ;
-    schema:containedInPlace wd:Q127877 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C20000-19700401>,
+        wd:Q127877 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg>,
         <https://commons.wikimedia.org/wiki/File:Gorob%C4%93_Y%C5%8Dsui_01.jpg> ;
     schema:name "五郎兵衛用水"@ja ;
@@ -1156,7 +1190,8 @@ res:WHIS-JP-034 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.6276 ;
     schema:addressLocality "柏原市他"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:hasPart wd:Q11572360,
         wd:Q11653384 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG>,
@@ -1192,7 +1227,8 @@ res:WHIS-JP-035 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.736887 ;
     schema:addressLocality "熊本市他"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:hasPart wd:Q11667897 ;
     schema:name "Shirakawa basin Irrigation System"@en,
         "白川流域かんがい用水群"@ja ;
@@ -1221,7 +1257,8 @@ res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.688412 ;
     schema:addressLocality "北茨城市"@ja ;
     schema:addressRegion "茨城県"@ja ;
-    schema:containedInPlace wd:Q83273 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C08000-19700401>,
+        wd:Q83273 ;
     schema:name "十石堀"@ja ;
     whis:builtYear "1669"^^xsd:gYear ;
     whis:builtYearBasis "資料記載年"@ja ;
@@ -1252,7 +1289,8 @@ res:WHIS-JP-037 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.472632 ;
     schema:addressLocality "行田市他"@ja ;
     schema:addressRegion "埼玉県"@ja ;
-    schema:containedInPlace wd:Q128186 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C11000-19700401>,
+        wd:Q128186 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG> ;
     schema:name "見沼代用水"@ja ;
     whis:builtYear "1728"^^xsd:gYear ;
@@ -1284,7 +1322,8 @@ res:WHIS-JP-038 a whis:HeritageIrrigationStructure ;
     wgs84:long 134.095709 ;
     schema:addressLocality "岡山市"@ja ;
     schema:addressRegion "岡山県"@ja ;
-    schema:containedInPlace wd:Q132936 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C33000-19700401>,
+        wd:Q132936 ;
     schema:hasPart wd:Q11580873 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG>,
         <https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG> ;
@@ -1317,7 +1356,8 @@ res:WHIS-JP-039 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.828323 ;
     schema:addressLocality "菊池市"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:name "Kikuchi Irrigation Systems"@en,
         "菊池のかんがい用水群"@ja ;
     whis:builtYear "1615"^^xsd:gYear ;
@@ -1352,7 +1392,8 @@ res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.036337 ;
     schema:addressLocality "前橋市他"@ja ;
     schema:addressRegion "群馬県"@ja ;
-    schema:containedInPlace wd:Q129499 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C10000-19700401>,
+        wd:Q129499 ;
     schema:name "天狗岩用水"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
@@ -1384,7 +1425,8 @@ res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.181583 ;
     schema:addressLocality "本庄市他"@ja ;
     schema:addressRegion "埼玉県"@ja ;
-    schema:containedInPlace wd:Q128186 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C11000-19700401>,
+        wd:Q128186 ;
     schema:name "備前渠用水路"@ja ;
     whis:builtYear "1604"^^xsd:gYear ;
     whis:builtYearBasis "開削（慶長9年）"@ja ;
@@ -1417,7 +1459,8 @@ res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.255608 ;
     schema:addressLocality "富山市"@ja ;
     schema:addressRegion "富山県"@ja ;
-    schema:containedInPlace wd:Q132929 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C16000-19700401>,
+        wd:Q132929 ;
     schema:name "常西合口用水"@ja ;
     whis:builtYear "1893"^^xsd:gYear ;
     whis:builtYearBasis "完成"@ja ;
@@ -1448,7 +1491,8 @@ res:WHIS-JP-043 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.558333 ;
     schema:addressLocality "河内長野市"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:hasPart wd:Q1018718 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Teragaike_04.jpg> ;
     schema:name "Teragaike Pond and Teragaike Waterway"@en,
@@ -1482,7 +1526,8 @@ res:WHIS-JP-044 a whis:HeritageIrrigationStructure ;
     wgs84:long 131.336822 ;
     schema:addressLocality "宇佐市"@ja ;
     schema:addressRegion "大分県"@ja ;
-    schema:containedInPlace wd:Q133924 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C44000-19700401>,
+        wd:Q133924 ;
     schema:name "Usa Irrigation System"@en,
         "宇佐のかんがい用水群"@ja ;
     whis:builtYear "1156"^^xsd:gYear ;
@@ -1514,7 +1559,8 @@ res:WHIS-JP-045 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.883284 ;
     schema:addressLocality "沼津市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "Kanuki Irrigation Canal"@en,
         "香貫用水"@ja ;
     whis:facilityCategory whis:type-canal ;
@@ -1543,7 +1589,8 @@ res:WHIS-JP-046 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.835546 ;
     schema:addressLocality "磐田市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "Teradani Irrigation System (Canal)"@en,
         "寺谷用水"@ja ;
     whis:builtYear "1590"^^xsd:gYear ;
@@ -1576,7 +1623,8 @@ res:WHIS-JP-047 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.343587 ;
     schema:addressLocality "泉佐野市"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:name "Yukawa Irrigation Canal"@en,
         "井川用水"@ja ;
     whis:facilityCategory whis:type-canal ;
@@ -1606,7 +1654,8 @@ res:WHIS-JP-048 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.3795 ;
     schema:addressLocality "山形市"@ja ;
     schema:addressRegion "山形県"@ja ;
-    schema:containedInPlace wd:Q125863 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C06000-19700401>,
+        wd:Q125863 ;
     schema:name "Yamagata-goseki Irrigation System"@en,
         "山形五堰"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
@@ -1635,7 +1684,8 @@ res:WHIS-JP-049 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.892117 ;
     schema:addressLocality "長泉町"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "Honjukuyousui Irrigation Canal"@en,
         "本宿用水"@ja ;
     whis:builtYear "1603"^^xsd:gYear ;
@@ -1669,7 +1719,8 @@ res:WHIS-JP-050 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.605576 ;
     schema:addressLocality "富士宮市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "Kitayama Irrigation System (Canal)"@en,
         "北山用水"@ja ;
     whis:builtYear "1582"^^xsd:gYear ;
@@ -1705,7 +1756,8 @@ res:WHIS-JP-051 a whis:HeritageIrrigationStructure ;
     wgs84:long 133.891593 ;
     schema:addressLocality "岡山市"@ja ;
     schema:addressRegion "岡山県"@ja ;
-    schema:containedInPlace wd:Q132936 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C33000-19700401>,
+        wd:Q132936 ;
     schema:name "Takebe Weir"@en,
         "建部井堰"@ja ;
     whis:facilityCategory whis:type-weir ;
@@ -1734,7 +1786,8 @@ res:WHIS-JP-052 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.637317 ;
     schema:addressLocality "大崎市"@ja ;
     schema:addressRegion "宮城県"@ja ;
-    schema:containedInPlace wd:Q47896 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C04000-19700401>,
+        wd:Q47896 ;
     schema:name "Minamihara-Anazeki Irrigation Canal"@en,
         "南原穴堰"@ja ;
     whis:facilityCategory whis:type-canal ;
@@ -1760,7 +1813,8 @@ res:WHIS-JP-053 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.237933 ;
     schema:addressLocality "豊郷町"@ja ;
     schema:addressRegion "滋賀県"@ja ;
-    schema:containedInPlace wd:Q131358 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C25000-19700401>,
+        wd:Q131358 ;
     schema:name "Tatsugaike Irrigation Pumping Station"@en,
         "龍ケ池揚水機場"@ja ;
     whis:builtYear "1913"^^xsd:gYear ;
@@ -1790,7 +1844,8 @@ res:WHIS-JP-054 a whis:HeritageIrrigationStructure ;
     wgs84:long 134.794702 ;
     schema:addressLocality "姫路市他"@ja ;
     schema:addressRegion "兵庫県"@ja ;
-    schema:containedInPlace wd:Q130290 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C28000-19700401>,
+        wd:Q130290 ;
     schema:name "Saikojinososuiro Irrigation System"@en,
         "西光寺野疏水路"@ja ;
     whis:builtYear "1915"^^xsd:gYear ;
@@ -1822,7 +1877,8 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.746136 ;
     schema:addressLocality "山鹿市"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:name "Yunokuchi Tameike Irrigation System"@en,
         "湯の口ため池・井出"@ja ;
     whis:facilityCategory whis:type-tameike ;
@@ -1848,7 +1904,8 @@ res:WHIS-JP-056 a whis:HeritageIrrigationStructure ;
     wgs84:long 131.31897 ;
     schema:addressLocality "竹田市"@ja ;
     schema:addressRegion "大分県"@ja ;
-    schema:containedInPlace wd:Q133924 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C44000-19700401>,
+        wd:Q133924 ;
     schema:name "Taketa Irrigation System"@en,
         "竹田のかんがい用水群"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
@@ -1875,7 +1932,8 @@ res:WHIS-JP-057 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.804845 ;
     schema:addressLocality "羽生市他"@ja ;
     schema:addressRegion "埼玉県"@ja ;
-    schema:containedInPlace wd:Q128186 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C11000-19700401>,
+        wd:Q128186 ;
     schema:hasPart wd:Q22124737 ;
     schema:name "葛西用水"@ja ;
     whis:builtYear "1660"^^xsd:gYear ;
@@ -1908,7 +1966,8 @@ res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.983018 ;
     schema:addressLocality "掛川市、菊川市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "小笠地域かんがい用水群"@ja ;
     whis:builtYear "1594"^^xsd:gYear ;
     whis:builtYearBasis "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）"@ja ;
@@ -1938,7 +1997,8 @@ res:WHIS-JP-059 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.37791 ;
     schema:addressLocality "泉佐野市"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:name "日根荘大木のかんがい用水群"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
@@ -1963,7 +2023,8 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.847645 ;
     schema:addressLocality "天理市"@ja ;
     schema:addressRegion "奈良県"@ja ;
-    schema:containedInPlace wd:Q131287 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C29000-19700401>,
+        wd:Q131287 ;
     schema:name "崇神天皇陵堀"@ja ;
     whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
@@ -1975,6 +2036,164 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     whis:prefectureCode "JP-29" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "崇神天皇陵"@ja .
+
+wd:Q1042624 rdfs:label "紀の川"@ja ;
+    wdt:P403 wd:Q1069095 .
+
+wd:Q1069095 rdfs:label "紀伊水道"@ja .
+
+wd:Q1076983 rdfs:label "那珂川"@ja ;
+    wdt:P403 wd:Q98 .
+
+wd:Q1132256 rdfs:label "矢作川"@ja ;
+    wdt:P403 wd:Q30930036 .
+
+wd:Q11387383 rdfs:label "備讃瀬戸"@ja .
+
+wd:Q11398501 rdfs:label "加古川"@ja ;
+    wdt:P403 wd:Q2975200 .
+
+wd:Q1140672 rdfs:label "猪苗代湖"@ja .
+
+wd:Q11412583 rdfs:label "吉井川"@ja ;
+    wdt:P403 wd:Q11388666 .
+
+wd:Q11416963 rdfs:label "周防灘"@ja .
+
+wd:Q11444998 rdfs:label "奈良井川"@ja ;
+    wdt:P403 wd:Q11571106 .
+
+wd:Q11491046 rdfs:label "志染川"@ja ;
+    wdt:P403 wd:Q11608886 .
+
+wd:Q11496932 rdfs:label "手取川"@ja ;
+    wdt:P403 wd:Q27092 .
+
+wd:Q11510583 rdfs:label "日野川"@ja ;
+    wdt:P403 wd:Q6449325 .
+
+wd:Q1154346 rdfs:label "三河湾"@ja .
+
+wd:Q1156064 rdfs:label "奥入瀬川"@ja ;
+    wdt:P403 wd:Q98 .
+
+wd:Q11571106 rdfs:label "犀川"@ja ;
+    wdt:P403 wd:Q734455 .
+
+wd:Q11579688 rdfs:label "白川"@ja ;
+    wdt:P403 wd:Q49557 .
+
+wd:Q11585622 rdfs:label "石川"@ja ;
+    wdt:P403 wd:Q9001527 .
+
+wd:Q11587850 rdfs:label "磐井川"@ja ;
+    wdt:P403 wd:Q1348297 .
+
+wd:Q11598238 rdfs:label "立谷沢川"@ja ;
+    wdt:P403 wd:Q596120 .
+
+wd:Q11608886 rdfs:label "美嚢川"@ja ;
+    wdt:P403 wd:Q11398501 .
+
+wd:Q11614654 rdfs:label "芝川"@ja ;
+    wdt:P403 wd:Q596110 .
+
+wd:Q11633588 rdfs:label "豊川"@ja ;
+    wdt:P403 wd:Q1154346 .
+
+wd:Q11639278 rdfs:label "追波湾"@ja .
+
+wd:Q11642093 rdfs:label "遠州灘"@ja .
+
+wd:Q11646415 rdfs:label "金倉川"@ja ;
+    wdt:P403 wd:Q11387383 .
+
+wd:Q11655745 rdfs:label "関川"@ja ;
+    wdt:P403 wd:Q27092 .
+
+wd:Q11660011 rdfs:label "雲出川"@ja ;
+    wdt:P403 wd:Q1368308 .
+
+wd:Q11664559 rdfs:label "須川"@ja ;
+    wdt:P403 wd:Q596120 .
+
+wd:Q11668059 rdfs:label "馬見ヶ崎川"@ja ;
+    wdt:P403 wd:Q11664559 .
+
+wd:Q11668226 rdfs:label "駅館川"@ja ;
+    wdt:P403 wd:Q11416963 .
+
+wd:Q11677147 rdfs:label "鹿島灘"@ja .
+
+wd:Q11677792 rdfs:label "黄瀬川"@ja ;
+    wdt:P403 wd:Q6364188 .
+
+wd:Q1194094 rdfs:label "長良川"@ja ;
+    wdt:P403 wd:Q1368308 .
+
+wd:Q1196132 rdfs:label "十和田湖"@ja .
+
+wd:Q1348297 rdfs:label "北上川"@ja ;
+    wdt:P403 wd:Q11639278 .
+
+wd:Q1358183 rdfs:label "球磨川"@ja ;
+    wdt:P403 wd:Q49560 .
+
+wd:Q13667 rdfs:label "天竜川"@ja ;
+    wdt:P403 wd:Q11642093 .
+
+wd:Q187053 rdfs:label "芦ノ湖"@ja .
+
+wd:Q2747208 rdfs:label "五条川"@ja ;
+    wdt:P403 wd:Q7497209 .
+
+wd:Q2866291 rdfs:label "旭川"@ja ;
+    wdt:P403 wd:Q11388666 .
+
+wd:Q2879713 rdfs:label "島原湾"@ja .
+
+wd:Q2975200 rdfs:label "播磨灘"@ja .
+
+wd:Q30930036 rdfs:label "知多湾"@ja .
+
+wd:Q3307289 rdfs:label "足羽川"@ja ;
+    wdt:P403 wd:Q11510583 .
+
+wd:Q3915532 rdfs:label "烏川"@ja ;
+    wdt:P403 wd:Q177452 .
+
+wd:Q489472 rdfs:label "富山湾"@ja .
+
+wd:Q49560 rdfs:label "八代海"@ja .
+
+wd:Q5359180 rdfs:label "岩木川"@ja ;
+    wdt:P403 wd:Q27092 .
+
+wd:Q596110 rdfs:label "富士川"@ja ;
+    wdt:P403 wd:Q1201023 .
+
+wd:Q6406392 rdfs:label "菊池川"@ja ;
+    wdt:P403 wd:Q2879713 .
+
+wd:Q6447936 rdfs:label "櫛田川"@ja ;
+    wdt:P403 wd:Q1368308 .
+
+wd:Q6449325 rdfs:label "九頭竜川"@ja ;
+    wdt:P403 wd:Q27092 .
+
+wd:Q734455 rdfs:label "信濃川"@ja ;
+    wdt:P403 wd:Q27092 .
+
+wd:Q7497209 rdfs:label "新川"@ja ;
+    wdt:P403 wd:Q1368308 .
+
+wd:Q954320 rdfs:label "筑後川"@ja ;
+    wdt:P403 wd:Q49557 .
+
+wd:Q994562 rdfs:label "常願寺川"@ja ;
+    wdt:P403 wd:Q489472 .
+
+wd:Q999162 rdfs:label "大阪湾"@ja .
 
 <https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG> a schema:ImageObject ;
     schema:about wd:Q11560257 ;
@@ -2334,6 +2553,23 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     dcat:downloadURL <https://ysh17-hub.github.io/whis-lod/whis_japan.ttl> ;
     dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> .
 
+wd:Q11388666 rdfs:label "児島湾"@ja .
+
+wd:Q1201023 rdfs:label "駿河湾"@ja .
+
+wd:Q49557 rdfs:label "有明海"@ja .
+
+wd:Q596120 rdfs:label "最上川"@ja ;
+    wdt:P403 wd:Q27092 .
+
+wd:Q6364188 rdfs:label "狩野川"@ja ;
+    wdt:P403 wd:Q1201023 .
+
+wd:Q9001527 rdfs:label "大和川"@ja ;
+    wdt:P403 wd:Q999162 .
+
+wd:Q98 rdfs:label "太平洋"@ja .
+
 whis:type-pumping-station a skos:Concept ;
     skos:closeMatch agrovoc:c_535a6d71,
         wd:Q446013 ;
@@ -2351,6 +2587,13 @@ whis:type-weir a skos:Concept ;
     skos:prefLabel "weir"@en,
         "堰"@ja ;
     skos:topConceptOf whis:facilityTypeScheme .
+
+wd:Q1368308 rdfs:label "伊勢湾"@ja .
+
+wd:Q177452 rdfs:label "利根川"@ja ;
+    wdt:P403 wd:Q11677147 .
+
+wd:Q27092 rdfs:label "日本海"@ja .
 
 whis:type-tameike a skos:Concept ;
     skos:broadMatch agrovoc:c_8324 ;

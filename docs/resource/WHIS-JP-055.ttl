@@ -21,7 +21,8 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.746136 ;
     schema:addressLocality "山鹿市"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:name "Yunokuchi Tameike Irrigation System"@en,
         "湯の口ため池・井出"@ja ;
     whis:facilityCategory whis:type-tameike ;

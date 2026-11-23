@@ -31,6 +31,49 @@
   ]
  },
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q6750928"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Σ64"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Mano Dam 02.jpg"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(133.871392 34.162667)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -111,6 +154,9 @@
    }
   ],
   "https://schema.org/containedInPlace": [
+   {
+    "@id": "http://data.e-stat.go.jp/lod/sac/C37000-19700401"
+   },
    {
     "@id": "http://www.wikidata.org/entity/Q161454"
    }
@@ -216,49 +262,6 @@
    {
     "@language": "ja",
     "@value": "金倉川"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(133.871392 34.162667)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q6750928"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Σ64"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Mano Dam 02.jpg"
    }
   ]
  }

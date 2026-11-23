@@ -23,7 +23,8 @@ res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.296509 ;
     schema:addressLocality "福井市"@ja ;
     schema:addressRegion "福井県"@ja ;
-    schema:containedInPlace wd:Q133879 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C18000-19700401>,
+        wd:Q133879 ;
     schema:name "足羽川用水"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;

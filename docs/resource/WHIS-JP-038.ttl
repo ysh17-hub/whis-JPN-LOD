@@ -21,7 +21,8 @@ res:WHIS-JP-038 a whis:HeritageIrrigationStructure ;
     wgs84:long 134.095709 ;
     schema:addressLocality "岡山市"@ja ;
     schema:addressRegion "岡山県"@ja ;
-    schema:containedInPlace wd:Q132936 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C33000-19700401>,
+        wd:Q132936 ;
     schema:hasPart wd:Q11580873 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG>,
         <https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG> ;

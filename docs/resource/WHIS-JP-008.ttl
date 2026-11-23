@@ -21,7 +21,8 @@ res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.759267 ;
     schema:addressLocality "朝倉市"@ja ;
     schema:addressRegion "福岡県"@ja ;
-    schema:containedInPlace wd:Q123258 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C40000-19700401>,
+        wd:Q123258 ;
     schema:hasPart wd:Q42567025 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg> ;
     schema:name "山田堰、堀川用水、水車群"@ja ;

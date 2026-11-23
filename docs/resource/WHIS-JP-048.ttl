@@ -23,7 +23,8 @@ res:WHIS-JP-048 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.3795 ;
     schema:addressLocality "山形市"@ja ;
     schema:addressRegion "山形県"@ja ;
-    schema:containedInPlace wd:Q125863 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C06000-19700401>,
+        wd:Q125863 ;
     schema:name "Yamagata-goseki Irrigation System"@en,
         "山形五堰"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;

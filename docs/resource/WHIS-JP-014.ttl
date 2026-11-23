@@ -24,7 +24,8 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
     wgs84:long 141.020709 ;
     schema:addressLocality "一関市他"@ja ;
     schema:addressRegion "岩手県"@ja ;
-    schema:containedInPlace wd:Q48326 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C03000-19700401>,
+        wd:Q48326 ;
     schema:name "照井堰用水"@ja ;
     whis:builtYear "1180"^^xsd:gYear ;
     whis:builtYearBasis "開削（1180年頃）"@ja ;

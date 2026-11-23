@@ -21,7 +21,8 @@ res:WHIS-JP-045 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.883284 ;
     schema:addressLocality "沼津市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "Kanuki Irrigation Canal"@en,
         "香貫用水"@ja ;
     whis:facilityCategory whis:type-canal ;

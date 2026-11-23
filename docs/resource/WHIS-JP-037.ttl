@@ -24,7 +24,8 @@ res:WHIS-JP-037 a whis:HeritageIrrigationStructure ;
     wgs84:long 139.472632 ;
     schema:addressLocality "行田市他"@ja ;
     schema:addressRegion "埼玉県"@ja ;
-    schema:containedInPlace wd:Q128186 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C11000-19700401>,
+        wd:Q128186 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG> ;
     schema:name "見沼代用水"@ja ;
     whis:builtYear "1728"^^xsd:gYear ;

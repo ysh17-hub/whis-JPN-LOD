@@ -20,7 +20,8 @@ res:WHIS-JP-002 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.919235 ;
     schema:addressLocality "甘楽町"@ja ;
     schema:addressRegion "群馬県"@ja ;
-    schema:containedInPlace wd:Q129499 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C10000-19700401>,
+        wd:Q129499 ;
     schema:name "雄川堰"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;

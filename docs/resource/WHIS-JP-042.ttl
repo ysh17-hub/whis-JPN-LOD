@@ -24,7 +24,8 @@ res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.255608 ;
     schema:addressLocality "富山市"@ja ;
     schema:addressRegion "富山県"@ja ;
-    schema:containedInPlace wd:Q132929 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C16000-19700401>,
+        wd:Q132929 ;
     schema:name "常西合口用水"@ja ;
     whis:builtYear "1893"^^xsd:gYear ;
     whis:builtYearBasis "完成"@ja ;

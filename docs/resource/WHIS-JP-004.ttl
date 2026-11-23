@@ -21,7 +21,8 @@ res:WHIS-JP-004 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.632419 ;
     schema:addressLocality "白山市他"@ja ;
     schema:addressRegion "石川県"@ja ;
-    schema:containedInPlace wd:Q131281 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C17000-19700401>,
+        wd:Q131281 ;
     schema:name "七ヶ用水"@ja ;
     whis:builtYear "1903"^^xsd:gYear ;
     whis:builtYearBasis "合口事業完成（七つの用水の取水口統合）"@ja ;

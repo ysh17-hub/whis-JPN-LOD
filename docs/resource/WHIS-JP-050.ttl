@@ -24,7 +24,8 @@ res:WHIS-JP-050 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.605576 ;
     schema:addressLocality "富士宮市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "Kitayama Irrigation System (Canal)"@en,
         "北山用水"@ja ;
     whis:builtYear "1582"^^xsd:gYear ;

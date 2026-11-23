@@ -25,7 +25,8 @@ res:WHIS-JP-026 a whis:HeritageIrrigationStructure ;
     wgs84:long 133.871392 ;
     schema:addressLocality "まんのう町"@ja ;
     schema:addressRegion "香川県"@ja ;
-    schema:containedInPlace wd:Q161454 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C37000-19700401>,
+        wd:Q161454 ;
     schema:hasPart wd:Q6750928 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Mannolake1.JPG>,
         <https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg> ;

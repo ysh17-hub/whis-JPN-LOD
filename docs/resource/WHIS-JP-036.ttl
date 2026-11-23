@@ -20,7 +20,8 @@ res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.688412 ;
     schema:addressLocality "北茨城市"@ja ;
     schema:addressRegion "茨城県"@ja ;
-    schema:containedInPlace wd:Q83273 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C08000-19700401>,
+        wd:Q83273 ;
     schema:name "十石堀"@ja ;
     whis:builtYear "1669"^^xsd:gYear ;
     whis:builtYearBasis "資料記載年"@ja ;

@@ -25,7 +25,8 @@ res:WHIS-JP-051 a whis:HeritageIrrigationStructure ;
     wgs84:long 133.891593 ;
     schema:addressLocality "岡山市"@ja ;
     schema:addressRegion "岡山県"@ja ;
-    schema:containedInPlace wd:Q132936 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C33000-19700401>,
+        wd:Q132936 ;
     schema:name "Takebe Weir"@en,
         "建部井堰"@ja ;
     whis:facilityCategory whis:type-weir ;

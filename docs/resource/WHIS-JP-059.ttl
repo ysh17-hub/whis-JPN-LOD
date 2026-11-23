@@ -21,7 +21,8 @@ res:WHIS-JP-059 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.37791 ;
     schema:addressLocality "泉佐野市"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:name "日根荘大木のかんがい用水群"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;

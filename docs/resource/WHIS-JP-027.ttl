@@ -20,7 +20,8 @@ res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     wgs84:long 131.002562 ;
     schema:addressLocality "湯前町他"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:hasPart wd:Q11484089,
         wd:Q17225723 ;
     schema:image <https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg> ;

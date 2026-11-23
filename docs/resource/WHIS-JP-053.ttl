@@ -20,7 +20,8 @@ res:WHIS-JP-053 a whis:HeritageIrrigationStructure ;
     wgs84:long 136.237933 ;
     schema:addressLocality "豊郷町"@ja ;
     schema:addressRegion "滋賀県"@ja ;
-    schema:containedInPlace wd:Q131358 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C25000-19700401>,
+        wd:Q131358 ;
     schema:name "Tatsugaike Irrigation Pumping Station"@en,
         "龍ケ池揚水機場"@ja ;
     whis:builtYear "1913"^^xsd:gYear ;

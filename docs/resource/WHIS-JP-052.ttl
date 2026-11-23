@@ -21,7 +21,8 @@ res:WHIS-JP-052 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.637317 ;
     schema:addressLocality "大崎市"@ja ;
     schema:addressRegion "宮城県"@ja ;
-    schema:containedInPlace wd:Q47896 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C04000-19700401>,
+        wd:Q47896 ;
     schema:name "Minamihara-Anazeki Irrigation Canal"@en,
         "南原穴堰"@ja ;
     whis:facilityCategory whis:type-canal ;

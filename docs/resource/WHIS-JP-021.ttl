@@ -20,7 +20,8 @@ res:WHIS-JP-021 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.912103 ;
     schema:addressLocality "三島市"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "源兵衛川"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;

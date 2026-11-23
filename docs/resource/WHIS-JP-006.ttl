@@ -26,7 +26,8 @@ res:WHIS-JP-006 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.549722 ;
     schema:addressLocality "大阪狭山市"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG> ;
     schema:name "狭山池"@ja ;
     whis:facilityCategory whis:type-tameike ;

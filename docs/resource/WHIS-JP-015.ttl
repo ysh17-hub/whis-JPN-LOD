@@ -23,7 +23,8 @@ res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     wgs84:long 140.847135 ;
     schema:addressLocality "大崎市"@ja ;
     schema:addressRegion "宮城県"@ja ;
-    schema:containedInPlace wd:Q47896 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C04000-19700401>,
+        wd:Q47896 ;
     schema:name "内川"@ja ;
     whis:builtYear "1591"^^xsd:gYear ;
     whis:builtYearBasis "開削"@ja ;

@@ -21,7 +21,8 @@ res:WHIS-JP-034 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.6276 ;
     schema:addressLocality "柏原市他"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:hasPart wd:Q11572360,
         wd:Q11653384 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG>,

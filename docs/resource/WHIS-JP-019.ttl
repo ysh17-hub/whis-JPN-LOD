@@ -23,7 +23,8 @@ res:WHIS-JP-019 a whis:HeritageIrrigationStructure ;
     wgs84:long 137.950056 ;
     schema:addressLocality "安曇野市他"@ja ;
     schema:addressRegion "長野県"@ja ;
-    schema:containedInPlace wd:Q127877 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C20000-19700401>,
+        wd:Q127877 ;
     schema:name "拾ヶ堰"@ja ;
     whis:builtYear "1816"^^xsd:gYear ;
     whis:builtYearBasis "開削"@ja ;

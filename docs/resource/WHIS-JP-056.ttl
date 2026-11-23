@@ -20,7 +20,8 @@ res:WHIS-JP-056 a whis:HeritageIrrigationStructure ;
     wgs84:long 131.31897 ;
     schema:addressLocality "竹田市"@ja ;
     schema:addressRegion "大分県"@ja ;
-    schema:containedInPlace wd:Q133924 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C44000-19700401>,
+        wd:Q133924 ;
     schema:name "Taketa Irrigation System"@en,
         "竹田のかんがい用水群"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;

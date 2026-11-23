@@ -22,7 +22,8 @@ res:WHIS-JP-035 a whis:HeritageIrrigationStructure ;
     wgs84:long 130.736887 ;
     schema:addressLocality "熊本市他"@ja ;
     schema:addressRegion "熊本県"@ja ;
-    schema:containedInPlace wd:Q130308 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C43000-19700401>,
+        wd:Q130308 ;
     schema:hasPart wd:Q11667897 ;
     schema:name "Shirakawa basin Irrigation System"@en,
         "白川流域かんがい用水群"@ja ;

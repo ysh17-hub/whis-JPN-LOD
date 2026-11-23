@@ -20,7 +20,8 @@ res:WHIS-JP-054 a whis:HeritageIrrigationStructure ;
     wgs84:long 134.794702 ;
     schema:addressLocality "姫路市他"@ja ;
     schema:addressRegion "兵庫県"@ja ;
-    schema:containedInPlace wd:Q130290 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C28000-19700401>,
+        wd:Q130290 ;
     schema:name "Saikojinososuiro Irrigation System"@en,
         "西光寺野疏水路"@ja ;
     whis:builtYear "1915"^^xsd:gYear ;

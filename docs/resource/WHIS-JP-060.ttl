@@ -20,7 +20,8 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.847645 ;
     schema:addressLocality "天理市"@ja ;
     schema:addressRegion "奈良県"@ja ;
-    schema:containedInPlace wd:Q131287 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C29000-19700401>,
+        wd:Q131287 ;
     schema:name "崇神天皇陵堀"@ja ;
     whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;

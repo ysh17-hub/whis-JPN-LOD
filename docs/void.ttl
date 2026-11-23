@@ -36,10 +36,17 @@
     void:uriSpace "https://commons.wikimedia.org/" ;
     rdfs:seeAlso <https://commons.wikimedia.org/> .
 
-<https://ysh17-hub.github.io/whis-lod/void.ttl#estat> a void:Dataset ;
-    dcterms:title "統計LOD（標準地域コード）" ;
-    void:uriSpace "http://data.e-stat.go.jp/lod/sac/" ;
-    rdfs:seeAlso <https://data.e-stat.go.jp/lodw/> .
+<https://ysh17-hub.github.io/whis-lod/void.ttl#containedInPlace-estat> a void:Linkset ;
+    void:linkPredicate schema:containedInPlace ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#estat> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 60 .
+
+<https://ysh17-hub.github.io/whis-lod/void.ttl#containedInPlace-wikidata> a void:Linkset ;
+    void:linkPredicate schema:containedInPlace ;
+    void:objectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#wikidata> ;
+    void:subjectsTarget <https://ysh17-hub.github.io/whis-lod/void.ttl#dataset> ;
+    void:triples 60 .
 
 <https://ysh17-hub.github.io/whis-lod/void.ttl#exactMatch-wikidata> a void:Linkset ;
     void:linkPredicate skos:exactMatch ;
@@ -148,6 +155,11 @@
     void:uriSpace "http://aims.fao.org/aos/agrovoc/" ;
     rdfs:seeAlso <https://agrovoc.fao.org/> .
 
+<https://ysh17-hub.github.io/whis-lod/void.ttl#estat> a void:Dataset ;
+    dcterms:title "統計LOD（標準地域コード）" ;
+    void:uriSpace "http://data.e-stat.go.jp/lod/sac/" ;
+    rdfs:seeAlso <https://data.e-stat.go.jp/lodw/> .
+
 <https://ysh17-hub.github.io/whis-lod/void.ttl#wikidata> a void:Dataset ;
     dcterms:title "Wikidata" ;
     void:uriSpace "http://www.wikidata.org/entity/" ;
@@ -164,6 +176,8 @@
     void:subset <https://ysh17-hub.github.io/whis-lod/void.ttl#broadMatch-agrovoc>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#closeMatch-agrovoc>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#closeMatch-wikidata>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#containedInPlace-estat>,
+        <https://ysh17-hub.github.io/whis-lod/void.ttl#containedInPlace-wikidata>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#exactMatch-wikidata>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#hasPart-wikidata>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#image-commons>,
@@ -176,7 +190,7 @@
         <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-ndl>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-osm>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#waterSource-wikidata> ;
-    void:triples 2302 ;
+    void:triples 2476 ;
     void:uriSpace "https://ysh17-hub.github.io/whis-lod/resource/" ;
     void:vocabulary dcterms:,
         geo:,

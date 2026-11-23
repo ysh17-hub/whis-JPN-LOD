@@ -24,7 +24,8 @@ res:WHIS-JP-013 a whis:HeritageIrrigationStructure ;
     wgs84:long 135.415956 ;
     schema:addressLocality "岸和田市"@ja ;
     schema:addressRegion "大阪府"@ja ;
-    schema:containedInPlace wd:Q122723 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
+        wd:Q122723 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Kurumeji15.jpg> ;
     schema:name "久米田池"@ja ;
     whis:builtYear "0738"^^xsd:gYear ;

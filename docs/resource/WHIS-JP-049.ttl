@@ -20,7 +20,8 @@ res:WHIS-JP-049 a whis:HeritageIrrigationStructure ;
     wgs84:long 138.892117 ;
     schema:addressLocality "長泉町"@ja ;
     schema:addressRegion "静岡県"@ja ;
-    schema:containedInPlace wd:Q131320 ;
+    schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
+        wd:Q131320 ;
     schema:name "Honjukuyousui Irrigation Canal"@en,
         "本宿用水"@ja ;
     whis:builtYear "1603"^^xsd:gYear ;
