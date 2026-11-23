@@ -1,0 +1,40 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "scripts/**"
+      - "templates/**"
+      - "shapes/**"
+      - "lod.py"
+      - "site_config.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: install
+        run: pip install rdflib pyshacl
+      - name: build
+        run: python lod.py build
+      - name: save
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs README.md LICENSE
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "auto build"
+            git push
+          fi
