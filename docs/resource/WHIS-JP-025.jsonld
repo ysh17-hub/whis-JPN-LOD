@@ -1,5 +1,36 @@
 [
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11481531"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tokiwa_park.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Original uploader was Historian at en.wikipedia"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/2.5"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Tokiwa park.jpg"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-025",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -145,37 +176,6 @@
    {
     "@language": "ja",
     "@value": "常盤湖（ときわ公園）"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11481531"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tokiwa_park.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Original uploader was Historian at en.wikipedia"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/2.5"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Tokiwa park.jpg"
    }
   ]
  },

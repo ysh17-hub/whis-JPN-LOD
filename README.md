@@ -4,8 +4,7 @@
 
 日本にある「世界かんがい施設遺産」60施設（2014〜2026年に認定・登録）の基本情報を、出典付きで、コンピュータが読み取って他のデータとつなげられる形（Linked Open Data）にまとめたデータセットと地図です。
 
-- 地図：https://ysh17-hub.github.io/whis-lod/
-- （背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
+- 地図：https://ysh17-hub.github.io/whis-lod/（背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
 - SPARQL（ブラウザの中で問い合わせ）：https://ysh17-hub.github.io/whis-lod/sparql.html
 - データ：[Turtle](docs/whis_japan.ttl)／[JSON-LD](docs/whis_japan.jsonld)／[GeoJSON](docs/whis_japan.geojson)／[CSV](data/whis_japan.csv)
 - ライセンス：データは CC BY 4.0、プログラムは MIT（[LICENSE](LICENSE)）
