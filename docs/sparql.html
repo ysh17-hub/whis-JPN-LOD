@@ -58,6 +58,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 `;
 
 const EXAMPLES = [
@@ -105,6 +106,17 @@ const EXAMPLES = [
   ?s a whis:HeritageIrrigationStructure ; rdfs:seeAlso ?url .
   BIND(STRBEFORE(STRAFTER(STR(?url), "://"), "/") AS ?つながり先)
 } GROUP BY ?つながり先 ORDER BY DESC(?件数)`],
+  ["代表地点の標高が高い順（地理院タイルの標高タイルから）", `SELECT ?施設 ?代表地点 ?標高_m ?標高モデル WHERE {
+  ?s schema:name ?施設 ; whis:pointElevation ?標高_m ; whis:pointElevationSource ?標高モデル .
+  OPTIONAL { ?s whis:representativePoint ?代表地点 }
+  FILTER(LANG(?施設) = "ja")
+} ORDER BY DESC(?標高_m)`],
+  ["施設の種類と、国際的な語彙（AGROVOC・Wikidata）とのつながり", `SELECT ?種類 (COUNT(DISTINCT ?s) AS ?件数) ?関係 ?つながり先 WHERE {
+  ?s whis:facilityCategory ?c .
+  ?c skos:prefLabel ?種類 . FILTER(LANG(?種類) = "ja")
+  ?c ?p ?つながり先 . VALUES ?p { skos:exactMatch skos:closeMatch skos:broadMatch }
+  BIND(STRAFTER(STR(?p), "#") AS ?関係)
+} GROUP BY ?種類 ?関係 ?つながり先 ORDER BY DESC(?件数) ?種類`],
   ["座標の一覧（緯度・経度）", `SELECT ?id ?施設 ?緯度 ?経度 WHERE {
   ?s dcterms:identifier ?id ; schema:name ?施設 ; wgs84:lat ?緯度 ; wgs84:long ?経度 .
   FILTER(LANG(?施設) = "ja")
@@ -112,6 +124,19 @@ const EXAMPLES = [
 ];
 
 const WD_EXAMPLES = [
+  {
+    title: "水源の川はどこへ流れていくか（Wikidata の「河口」P403 を4段までたどる）",
+    desc: "このデータで水源につないだ川・湖について、Wikidata の「河口・流出先」（P403）を順にたどり、どの本流・海へ注ぐかを見ます。同じ水系の遺産がわかります。",
+    local: `SELECT DISTINCT ?q WHERE { ?s whis:waterSource ?q . FILTER(isIRI(?q)) }`,
+    wd: (values) => `SELECT ?川 ?川Label ?流れ込む先1Label ?流れ込む先2Label ?流れ込む先3Label ?流れ込む先4Label WHERE {
+  VALUES ?川 { ${values} }
+  OPTIONAL { ?川 wdt:P403 ?流れ込む先1 .
+    OPTIONAL { ?流れ込む先1 wdt:P403 ?流れ込む先2 .
+      OPTIONAL { ?流れ込む先2 wdt:P403 ?流れ込む先3 .
+        OPTIONAL { ?流れ込む先3 wdt:P403 ?流れ込む先4 } } } }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "ja,en". }
+} ORDER BY ?流れ込む先1Label`
+  },
   {
     title: "水源の川の長さと流域面積（Wikidata）",
     desc: "このデータで水源につないだ川・湖の項目について、Wikidata にある長さ（P2043）と流域面積（P2053）を取り出します。",

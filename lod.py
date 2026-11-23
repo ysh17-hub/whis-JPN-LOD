@@ -83,6 +83,26 @@ def counts(rows):
     c["N_EXT_FAC"] = len({r["id"] for r in exts})
     c["N_SEEALSO_FAC"] = len({r["id"] for r in exts if r.get("relation") == "same"})
     c["N_EXT_SOURCES"] = len({r["source"] for r in exts})
+    # 代表地点の標高・昔の空中写真（data/point_terrain.csv）
+    ter = []
+    if (ROOT / "data" / "point_terrain.csv").exists():
+        _, ter = read_rows(ROOT / "data" / "point_terrain.csv")
+    c["N_ELEV"] = sum(1 for r in ter if r.get("elevation_m"))
+    for k, col in [("N_AIR1945", "aerial_1945_1950"), ("N_AIR1961", "aerial_1961_1969"), ("N_AIR1974", "aerial_1974_1978")]:
+        c[k] = sum(1 for r in ter if r.get(col) == "1")
+    # 標高を、地理院地図の標高表示（標高API）と照合した結果。API は 1m・5m メッシュを 0.1m、10m メッシュを 1m 単位で返すので、同じ単位に丸めて比べる
+    from decimal import Decimal, ROUND_HALF_UP
+    mesh = {"DEM1A": "1m", "DEM5A": "5m", "DEM5B": "5m", "DEM5C": "5m", "DEM10B": "10m"}
+    checked = [r for r in ter if r.get("gsi_elevation_api_m")]
+    same = 0
+    for r in checked:
+        m = mesh.get(r.get("elevation_dem"), "")
+        q = Decimal("1") if m == "10m" else Decimal("0.1")
+        v = Decimal(r["elevation_m"]).quantize(q, rounding=ROUND_HALF_UP)
+        same += (v == Decimal(r["gsi_elevation_api_m"]).quantize(q, rounding=ROUND_HALF_UP) and r.get("gsi_elevation_api_mesh") == m)
+    retrieved = max((r.get("retrieved", "") for r in checked), default="")
+    c["ELEV_CHECK"] = (f"{len(checked)}地点中{same}地点で、使われた標高モデルの種類と値（APIの単位に丸めた値）が一致。{retrieved}照合"
+                       if checked else "未照合")
     return c
 
 
@@ -223,6 +243,14 @@ def cmd_build():
             print("  -", p)
         sys.exit(1)
     today = dt.date.today().isoformat()
+    # 代表地点の標高・昔の空中写真：まだ値のない施設と、座標を直した施設だけ地理院タイルから計算する
+    import terrain
+    try:
+        n = terrain.update(str(DATA), str(ROOT / "data" / "point_terrain.csv"), log=print)
+        if n:
+            print(f"標高・空中写真：{n} 施設を新しく計算しました（data/point_terrain.csv）")
+    except Exception as e:  # ネットにつながらないときなど。前の値のまま進める
+        print(f"（標高・空中写真の計算はできませんでした：{e}。前の値を使います）")
     build_site.main(["--base", base_url(cfg), "--creator", cfg["creator"], "--modified", today,
                      "--csv", str(DATA), "--prefqid", str(ROOT / "data" / "prefecture_qid.csv"),
                      "--docs", str(ROOT / "docs")])

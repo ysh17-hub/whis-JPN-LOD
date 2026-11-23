@@ -39,6 +39,9 @@ ONTOLOGY_TERMS = [
     ("irrigatedArea", "xsd:decimal", "かんがい面積（ha）。資料によって値が異なるものは空欄にし、comment に両方を書いた。"),
     ("managedBy", "文字列", "管理者（土地改良区など）。"),
     ("representativePoint", "文字列", "座標を取った代表地点の名前（取水口・堰・池など）。"),
+    ("facilityCategory", "SKOS の概念", "施設の種類を、下の「施設の種類（SKOS）」の概念で表したもの。国連食糧農業機関（FAO）の多言語シソーラス AGROVOC と Wikidata のクラスにつながる。"),
+    ("pointElevation", "数値（m）", "代表地点の標高（東京湾平均海面からの高さ）。国土地理院の標高タイル（地理院タイル）で、細かいものから順に 1mメッシュ（DEM1A）→5mメッシュ（DEM5A→DEM5B→DEM5C）→10mメッシュ（DEM10B）の値を使った（地理院地図の標高表示と同じ順）。池や川の上の点は水面の高さになる。目安の値。"),
+    ("pointElevationSource", "文字列", "標高を求めた数値標高モデルの種類（DEM1A＝航空レーザ測量の1mメッシュ、DEM5A＝5mメッシュ、DEM10B＝10mメッシュ など）。"),
     ("pointAddress", "文字列", "代表地点の座標がある場所の住所（市区町村・大字）。国土地理院の逆ジオコーダで座標から求めた。川の上の堰などは、隣の市町村になることがある。"),
 ]
 
@@ -141,8 +144,50 @@ def ext_html(exts):
             f'（{e(exts[0].get("retrieved", ""))} 時点）。</small></p><ul>{"".join(items)}</ul>')
 
 
-def resource_page(r, base, creator, imgs=None, exts=None):
+def current_terrain(r, terrain):
+    """今の座標で求めた標高・空中写真の記録だけを返す（座標を直したあとの古い値は使わない）。"""
+    t = (terrain or [{}])[0]
+    try:
+        if abs(float(t["lat"]) - float(r["lat"])) < 1e-7 and abs(float(t["lon"]) - float(r["lon"])) < 1e-7:
+            return t
+    except (KeyError, ValueError, TypeError):
+        pass
+    return {}
+
+
+def aerial_html(r, terrain):
+    """代表地点の航空写真（最新・昔）と地形を、その場で切り替えて見る小さな地図。"""
+    if not (r.get("lat") and r.get("lon")):
+        return ""
     e = html.escape
+    t = current_terrain(r, terrain)
+    avail = [k for k, col in [("p1974", "aerial_1974_1978"), ("p1961", "aerial_1961_1969"), ("p1945", "aerial_1945_1950")]
+             if t.get(col) == "1"]
+    years = "・".join(lbl for k, lbl in [("p1945", "1945〜1950年"), ("p1961", "1961〜1969年"), ("p1974", "1974〜1978年")] if k in avail)
+    lat, lon = float(r["lat"]), float(r["lon"])
+    gsi = f"https://maps.gsi.go.jp/#17/{lat:.6f}/{lon:.6f}/&base=std&ls=std%7Cseamlessphoto&disp=01"
+    return f"""<h2>航空写真・地形で見る</h2>
+<p><small>代表地点（{e(r.get('representative_point') or '—')}）のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
+この地点で見つかった昔の空中写真：{e(years or 'なし')}。「昔の航空写真を重ねる」で選び、「濃さ」を動かすと今と比べられます。
+（出典：国土地理院 地理院タイル）　<a href="{e(gsi)}">地理院地図で開く</a></small></p>
+<div id="amap" style="height:380px;border-radius:6px"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../gsi_layers.js"></script>
+<script>
+(function(){{
+  if (!window.L || !window.WHIS_GSI) {{ document.getElementById('amap').textContent = '地図を読み込めませんでした。'; return; }}
+  const m = L.map('amap', {{ scrollWheelZoom: false }}).setView([{lat}, {lon}], 16);
+  WHIS_GSI.setup(m, {{ base: '航空写真（最新）', available: {json.dumps(avail)}, collapsed: true }});
+  L.circleMarker([{lat}, {lon}], {{ radius: 8, weight: 2, color: '#fff', fillColor: '#e53e3e', fillOpacity: 1 }})
+    .bindTooltip({json.dumps(r.get('representative_point') or r['name_ja'], ensure_ascii=False)}).addTo(m);
+}})();
+</script>"""
+
+
+def resource_page(r, base, creator, imgs=None, exts=None, terrain=None):
+    e = html.escape
+    t = current_terrain(r, terrain)
 
     def cell(k):
         v = e(r.get(k, "") or "—")
@@ -150,6 +195,11 @@ def resource_page(r, base, creator, imgs=None, exts=None):
             qs = conv.split_qids(r.get("water_source_river_qid"))
             if qs:
                 v += "（Wikidata：" + "、".join(f'<a href="https://www.wikidata.org/wiki/{e(q)}">{e(q)}</a>' for q in qs) + "）"
+        if k == "facility_type" and r.get(k) in conv.FACILITY_TYPE_CONCEPTS:
+            slug = conv.FACILITY_TYPE_CONCEPTS[r[k]][0]
+            v = f'<a href="../ontology.html#type-{e(slug)}">{v}</a>'
+        if k == "point_address" and t.get("elevation_m"):
+            v += f"（標高 約{e(t['elevation_m'])}m・{e(t.get('elevation_dem', ''))}）"
         return v
     rows = "".join(f"<tr><th>{e(lbl)}</th><td>{cell(k)}</td></tr>" for k, lbl in FIELD_LABELS)
     wd = (f'<a href="https://www.wikidata.org/wiki/{e(r["wikidata_qid"])}">{e(r["wikidata_qid"])}</a>（確認済み）'
@@ -173,6 +223,7 @@ def resource_page(r, base, creator, imgs=None, exts=None):
 <p><small>URI: <code>{e(base + 'resource/' + r['id'])}</code>　この施設のデータ：<a href="{e(r['id'])}.ttl">Turtle</a>／<a href="{e(r['id'])}.jsonld">JSON-LD</a></small></p>
 <table>{rows}<tr><th>Wikidata</th><td>{wd}</td></tr></table>
 {gallery_html(imgs or [])}
+{aerial_html(r, terrain)}
 {ext_html(exts or [])}
 <h2>出典</h2><ul>{srcs}</ul>
 <p><small>データ: CC BY 4.0（作成: {e(creator)}）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>
@@ -185,6 +236,20 @@ def ontology_page(base):
     e = html.escape
     rows = "".join(f'<tr id="{e(t)}"><th><code>whis:{e(t)}</code></th><td>{e(k)}</td><td>{e(d)}</td></tr>'
                    for t, k, d in ONTOLOGY_TERMS)
+
+    def target(u):
+        u = str(u)
+        if u.startswith("http://aims.fao.org/aos/agrovoc/"):
+            cid = u.rsplit("/", 1)[1]
+            return f'<a href="https://agrovoc.fao.org/browse/agrovoc/en/page/{e(cid)}">AGROVOC {e(cid)}</a>'
+        if u.startswith("http://www.wikidata.org/entity/"):
+            q = u.rsplit("/", 1)[1]
+            return f'<a href="https://www.wikidata.org/wiki/{e(q)}">Wikidata {e(q)}</a>'
+        return e(u)
+    concepts = "".join(
+        f'<tr id="type-{e(slug)}"><th><code>whis:type-{e(slug)}</code><br>{e(ja)}／{e(en)}</th><td>{e(d)}</td>'
+        f'<td>{"<br>".join(f"<code>skos:{e(rel)}</code> {target(u)}" for rel, u in m)}</td></tr>'
+        for ja, (slug, en, d, m) in conv.FACILITY_TYPE_CONCEPTS.items())
     return f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>語彙 whis:｜世界かんがい施設遺産（日本）LOD</title><style>{PAGE_CSS}</style></head><body>
@@ -193,8 +258,76 @@ def ontology_page(base):
 <p>名前空間: <code>{e(base)}ontology#</code><br>
 既存の語彙（schema.org、GeoSPARQL、W3C Basic Geo、DCMI Terms、DCAT、OWL）で表せない項目だけを定義しています。</p>
 <table><tr><th>用語</th><td><b>値</b></td><td><b>説明</b></td></tr>{rows}</table>
+<h2 id="facilityTypeScheme">施設の種類（SKOS）</h2>
+<p>農林水産省が示す世界かんがい施設遺産の対象施設の例（ダム、ため池などの貯水施設、堰・分水施設、水路など）を参考に作成者が分類し、
+国連食糧農業機関（FAO）の多言語シソーラス <a href="https://agrovoc.fao.org/">AGROVOC</a> と Wikidata のクラスに結びました（2026-11-23 確認）。
+意味の範囲が完全に同じとは言えないものは <code>skos:closeMatch</code>、相手のほうが広いものは <code>skos:broadMatch</code> です。</p>
+<table><tr><th>概念</th><td><b>説明</b></td><td><b>AGROVOC・Wikidata</b></td></tr>{concepts}</table>
 </body></html>
 """
+
+
+def void_ttl(g, base):
+    """VoID（データセットの説明）。ほかのデータとのつながり（リンクセット）の数を数えて書く。"""
+    from rdflib import Graph, Literal, Namespace, URIRef, RDF
+    from rdflib.namespace import DCTERMS, OWL, RDFS, SKOS, XSD
+    VOID = Namespace("http://rdfs.org/ns/void#")
+    SCHEMA = Namespace("https://schema.org/")
+    WHIS = Namespace(base + "ontology#")
+    v = Graph()
+    v.bind("void", VOID); v.bind("dcterms", DCTERMS)
+    ds = URIRef(base + "void.ttl#dataset")
+    v.add((ds, RDF.type, VOID.Dataset))
+    v.add((ds, DCTERMS.title, Literal("世界かんがい施設遺産（日本）Linked Open Data", lang="ja")))
+    v.add((ds, DCTERMS.title, Literal("World Heritage Irrigation Structures in Japan as Linked Open Data", lang="en")))
+    v.add((ds, DCTERMS.license, URIRef("https://creativecommons.org/licenses/by/4.0/")))
+    v.add((ds, VOID.dataDump, URIRef(base + "whis_japan.ttl")))
+    v.add((ds, VOID.uriSpace, Literal(base + "resource/")))
+    v.add((ds, VOID.exampleResource, URIRef(base + "resource/WHIS-JP-026")))
+    v.add((ds, VOID.triples, Literal(len(g), datatype=XSD.integer)))
+    ents = set(g.subjects(RDF.type, WHIS.HeritageIrrigationStructure))
+    v.add((ds, VOID.entities, Literal(len(ents), datatype=XSD.integer)))
+    v.add((ds, DCTERMS.subject, URIRef("http://www.wikidata.org/entity/Q22127466")))
+    v.add((ds, RDFS.seeAlso, URIRef(base + "dataset")))
+    for ns in ["https://schema.org/", "http://www.opengis.net/ont/geosparql#", "http://www.w3.org/2003/01/geo/wgs84_pos#",
+               "http://purl.org/dc/terms/", "http://www.w3.org/ns/dcat#", "http://www.w3.org/2004/02/skos/core#",
+               "http://www.w3.org/2002/07/owl#", base + "ontology#"]:
+        v.add((ds, VOID.vocabulary, URIRef(ns)))
+    targets = {
+        "wikidata": ("Wikidata", "https://www.wikidata.org/", "http://www.wikidata.org/entity/"),
+        "agrovoc": ("AGROVOC", "https://agrovoc.fao.org/", "http://aims.fao.org/aos/agrovoc/"),
+        "commons": ("Wikimedia Commons", "https://commons.wikimedia.org/", "https://commons.wikimedia.org/"),
+        "jawiki": ("ウィキペディア日本語版", "https://ja.wikipedia.org/", "https://ja.wikipedia.org/"),
+        "osm": ("OpenStreetMap", "https://www.openstreetmap.org/", "https://www.openstreetmap.org/"),
+        "geonames": ("GeoNames", "https://www.geonames.org/", "https://sws.geonames.org/"),
+        "ndl": ("国立国会図書館典拠", "https://id.ndl.go.jp/", "https://id.ndl.go.jp/"),
+        "kunishitei": ("国指定文化財等データベース", "https://kunishitei.bunka.go.jp/", "https://kunishitei.bunka.go.jp/"),
+        "bunka": ("文化遺産オンライン", "https://bunka.nii.ac.jp/", "https://bunka.nii.ac.jp/"),
+    }
+    for key, (title, home, prefix) in targets.items():
+        t = URIRef(base + "void.ttl#" + key)
+        v.add((t, RDF.type, VOID.Dataset)); v.add((t, DCTERMS.title, Literal(title))); v.add((t, VOID.uriSpace, Literal(prefix)))
+        v.add((t, RDFS.seeAlso, URIRef(home)))
+    for pred, name in [(OWL.sameAs, "sameAs"), (SCHEMA.hasPart, "hasPart"), (WHIS.waterSource, "waterSource"),
+                       (RDFS.seeAlso, "seeAlso"), (SCHEMA.image, "image"),
+                       (SKOS.exactMatch, "exactMatch"), (SKOS.closeMatch, "closeMatch"), (SKOS.broadMatch, "broadMatch")]:
+        counts = {}
+        for o in g.objects(None, pred):
+            if not isinstance(o, URIRef):
+                continue
+            for key, (_, _, prefix) in targets.items():
+                if str(o).startswith(prefix):
+                    counts[key] = counts.get(key, 0) + 1
+                    break
+        for key, n in counts.items():
+            ls = URIRef(base + f"void.ttl#{name}-{key}")
+            v.add((ds, VOID.subset, ls))
+            v.add((ls, RDF.type, VOID.Linkset))
+            v.add((ls, VOID.linkPredicate, pred))
+            v.add((ls, VOID.subjectsTarget, ds))
+            v.add((ls, VOID.objectsTarget, URIRef(base + "void.ttl#" + key)))
+            v.add((ls, VOID.triples, Literal(n, datatype=XSD.integer)))
+    return v.serialize(format="turtle")
 
 
 def main(argv=None):
@@ -207,6 +340,7 @@ def main(argv=None):
     ap.add_argument("--docs", default=str(ROOT / "docs"))
     ap.add_argument("--images", default=str(ROOT / "data" / "images.csv"))
     ap.add_argument("--extlinks", default=str(ROOT / "data" / "external_links.csv"))
+    ap.add_argument("--terrain", default=str(ROOT / "data" / "point_terrain.csv"))
     a = ap.parse_args(argv)
     base = a.base.rstrip("/") + "/"
     docs = Path(a.docs)
@@ -215,16 +349,20 @@ def main(argv=None):
     rc = conv.main(["--csv", a.csv, "--base", base, "--prefqid", a.prefqid,
                     "--out-ttl", str(docs / "whis_japan.ttl"), "--out-geojson", str(docs / "whis_japan.geojson"),
                     "--creator", a.creator, "--modified", a.modified,
-                    "--images", a.images, "--extlinks", a.extlinks])
+                    "--images", a.images, "--extlinks", a.extlinks, "--terrain", a.terrain])
     from rdflib import Graph, URIRef
     g = Graph().parse(docs / "whis_japan.ttl", format="turtle")
     (docs / "whis_japan.jsonld").write_text(g.serialize(format="json-ld", indent=1), encoding="utf-8")
     shutil.copyfile(a.csv, docs / "whis_japan.csv")
     images = conv.load_optional_csv(a.images)
     exts = conv.load_optional_csv(a.extlinks)
-    for src in [a.images, a.extlinks]:
+    terrain = conv.load_optional_csv(a.terrain)
+    for src in [a.images, a.extlinks, a.terrain]:
         if Path(src).exists():
             shutil.copyfile(src, docs / Path(src).name)
+    # 地図の部品（背景の切り替え・昔の航空写真の重ね合わせ）
+    shutil.copyfile(ROOT / "templates" / "gsi_layers.js", docs / "gsi_layers.js")
+    (docs / "void.ttl").write_text(void_ttl(g, base), encoding="utf-8")
     shapes = ROOT / "shapes" / "whis_shapes.ttl"
     if shapes.exists():
         (docs / "shapes.ttl").write_text(
@@ -234,7 +372,7 @@ def main(argv=None):
         rows = list(csv.DictReader(f))
     for r in rows:
         (docs / "resource" / f"{r['id']}.html").write_text(
-            resource_page(r, base, a.creator, images.get(r["id"]), exts.get(r["id"])), encoding="utf-8")
+            resource_page(r, base, a.creator, images.get(r["id"]), exts.get(r["id"]), terrain.get(r["id"])), encoding="utf-8")
         # 施設ごとの機械可読ファイル（その施設を主語とする三つ組と、座標のノード）
         s = URIRef(base + "resource/" + r["id"])
         sub = Graph()

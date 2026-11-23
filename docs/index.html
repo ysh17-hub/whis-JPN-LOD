@@ -8,6 +8,69 @@
 <link rel="alternate" type="text/turtle" href="whis_japan.ttl">
 <link rel="alternate" type="application/ld+json" href="whis_japan.jsonld">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org/",
+ "@type": "Dataset",
+ "name": "世界かんがい施設遺産（日本）Linked Open Data",
+ "alternateName": "World Heritage Irrigation Structures in Japan as Linked Open Data",
+ "description": "国際かんがい排水委員会（ICID）が2014〜2026年に登録した日本の世界かんがい施設遺産60施設を、すべての行に出典URLをつけた Linked Open Data（RDF/Turtle・JSON-LD・GeoJSON・CSV）として公開したデータセットです。代表地点の座標と標高、Wikidata・AGROVOC とのつながり、写真（Wikimedia Commons）を含みます。",
+ "url": "https://ysh17-hub.github.io/whis-lod/",
+ "sameAs": "https://github.com/ysh17-hub/whis-lod",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "isAccessibleForFree": true,
+ "creator": {
+  "@type": "Person",
+  "name": "abe"
+ },
+ "inLanguage": [
+  "ja",
+  "en"
+ ],
+ "keywords": [
+  "世界かんがい施設遺産",
+  "World Heritage Irrigation Structures",
+  "ICID",
+  "かんがい",
+  "農業水利",
+  "Linked Open Data",
+  "Wikidata",
+  "AGROVOC"
+ ],
+ "spatialCoverage": {
+  "@type": "Place",
+  "name": "日本",
+  "geo": {
+   "@type": "GeoShape",
+   "box": "32.3 130.7 40.7 141.2"
+  }
+ },
+ "temporalCoverage": "2014/2026",
+ "isBasedOn": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html",
+ "distribution": [
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "text/turtle",
+   "contentUrl": "https://ysh17-hub.github.io/whis-lod/whis_japan.ttl"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/ld+json",
+   "contentUrl": "https://ysh17-hub.github.io/whis-lod/whis_japan.jsonld"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/geo+json",
+   "contentUrl": "https://ysh17-hub.github.io/whis-lod/whis_japan.geojson"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "text/csv",
+   "contentUrl": "https://ysh17-hub.github.io/whis-lod/whis_japan.csv"
+  }
+ ]
+}
+</script>
 <style>
   html, body { margin: 0; height: 100%; font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; }
   #app { display: grid; grid-template-rows: auto 1fr auto; height: 100%; }
@@ -30,6 +93,8 @@
   .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
   #about { font-size: 13px; color: #333; margin: 0 0 6px; }
   #about a { margin-left: 6px; }
+  .pbtn { font-size: 12px; margin: 4px 4px 0 0; }
+  .dist { font-size: 11px; color: #2f855a; margin-left: 4px; }
   .pimg { display: block; width: 240px; height: 150px; object-fit: cover; border-radius: 4px; margin: 4px 0 2px; cursor: zoom-in; }
   .pcap { font-size: 11px; color: #555; }
   .cam { font-size: 11px; color: #2b6cb0; margin-left: 4px; }
@@ -54,6 +119,8 @@
       <label>登録年 <input id="year" type="range" min="2014" max="2026" value="2026" step="1"> <b id="yearLabel">2026</b> 年まで</label>
       <label><input id="play" type="checkbox"> 2014年から順に再生</label>
       <label>水源 <select id="river"><option value="">すべて</option></select></label>
+      <label>さがす <input id="q" type="search" placeholder="名前・市町村・川" style="width:9em"></label>
+      <button id="near" type="button" title="位置情報はこのブラウザの中だけで使い、どこにも送りません">現在地から近い順</button>
       <span id="count" class="muted"></span>
       <span id="msg"></span>
     </div>
@@ -69,20 +136,23 @@
     </div>
   </div>
   <footer>
-    データ: <a href="whis_japan.ttl">Turtle</a><a href="whis_japan.jsonld">JSON-LD</a><a href="whis_japan.geojson">GeoJSON</a><a href="whis_japan.csv">CSV</a><a href="ontology.html">語彙</a><a href="sparql.html">SPARQLで調べる</a><a href="shapes.ttl">SHACL</a>
+    データ: <a href="whis_japan.ttl">Turtle</a><a href="whis_japan.jsonld">JSON-LD</a><a href="whis_japan.geojson">GeoJSON</a><a href="whis_japan.csv">CSV</a><a href="ontology.html">語彙</a><a href="sparql.html">SPARQLで調べる</a><a href="shapes.ttl">SHACL</a><a href="void.ttl">VoID</a>
     ｜ライセンス <a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a>
-    ｜地図: <a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>
+    ｜地図・航空写真・標高: <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院（地理院タイル）</a>
     ｜建設年・面積は出典に書かれた範囲のみ（不明・資料で異なるものは空欄）
   </footer>
 </div>
 <div id="lb" onclick="if(event.target===this)this.style.display='none'"><div><img id="lbimg" alt=""><p id="lbcap"></p><button onclick="document.getElementById('lb').style.display='none'">閉じる</button></div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="gsi_layers.js"></script>
 <script>
   const COLORS = { "水路": "#2b6cb0", "用水群": "#2f855a", "ため池": "#c05621", "堰": "#6b46c1", "揚水機場": "#b83280" };
   const map = L.map('map').setView([36.2, 137.5], 5);
-  L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
-    attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>', maxZoom: 18
-  }).addTo(map);
+  // 背景（淡色・標準・航空写真・色別標高図）の切り替えと、昔の航空写真の重ね合わせ（gsi_layers.js）
+  const GSI = window.WHIS_GSI ? WHIS_GSI.setup(map, { base: '淡色地図', collapsed: window.innerWidth < 800 })
+    : (L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+        attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>', maxZoom: 18 }).addTo(map), null);
+  window.whisPhoto = (lat, lon) => { if (GSI) { map.closePopup(); GSI.showPhoto([lat, lon], 17); } return false; };
   const legend = L.control({ position: 'bottomleft' });
   legend.onAdd = () => {
     const d = L.DomUtil.create('div', 'legend');
@@ -95,6 +165,12 @@
   map.on('popupclose', () => { legend.getContainer().style.display = ''; });
   const layer = L.layerGroup().addTo(map);
 
+  let HERE = null, hereMarker = null;
+  function km(a, b) {   // 2点間の距離（km、球面上の大円距離）
+    const R = 6371, r = Math.PI / 180, dLat = (b[0] - a[0]) * r, dLon = (b[1] - a[1]) * r;
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.sin(dLon / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
   let ROWS = [], IMGS = {}, sortKey = 'registered_year', sortAsc = true, timer = null;
 
   function escapeHtml(s) {
@@ -148,7 +224,9 @@
       (p.water_source_river ? `<br>水源: ${escapeHtml(p.water_source_river)}` : '') +
       (p.managing_org ? `<br>管理: ${escapeHtml(p.managing_org)}` : '') +
       (p.irrigated_area_ha ? `<br>かんがい面積: 約${escapeHtml(p.irrigated_area_ha)}ha` : '') +
-      `<br>Wikidata: ${wd}` + (parts ? `<br>構成施設: ${parts}` : '') + `<br><a href="resource/${escapeHtml(p.id)}.html">詳しく（出典つき）</a>`;
+      `<br>Wikidata: ${wd}` + (parts ? `<br>構成施設: ${parts}` : '') + `<br><a href="resource/${escapeHtml(p.id)}.html">詳しく（出典つき）</a>` +
+      (p.lat ? `<br><button class="pbtn" onclick="return whisPhoto(${+p.lat}, ${+p.lon})">航空写真で見る</button>` +
+        `<a class="pbtn" href="${window.WHIS_GSI ? WHIS_GSI.gsiMapsUrl(p.lat, p.lon, 17) : '#'}" target="_blank" rel="noopener">地理院地図で開く</a>` : '');
   }
 
   function render() {
@@ -156,7 +234,11 @@
     const river = document.getElementById('river').value;
     document.getElementById('yearLabel').textContent = y;
     layer.clearLayers();
-    const shown = ROWS.filter(r => Number(r.registered_year) <= y && (!river || r.water_source_river === river));
+    const q = document.getElementById('q').value.trim().toLowerCase();
+    const hit = r => !q || [r.name_ja, r.name_en, r.prefecture, r.municipality, r.point_address, r.water_source_river, r.representative_point]
+      .some(v => (v || '').toLowerCase().includes(q));
+    ROWS.forEach(r => { r._dist = (HERE && r.lat) ? km(HERE, [+r.lat, +r.lon]).toFixed(1) : ''; });
+    const shown = ROWS.filter(r => Number(r.registered_year) <= y && (!river || r.water_source_river === river) && hit(r));
     let onMap = 0;
     for (const p of shown) {
       if (!p.lat || !p.lon) continue;
@@ -172,7 +254,7 @@
       return sortAsc ? c : -c;
     });
     document.getElementById('rows').innerHTML = sorted.map(p =>
-      `<tr><td>${escapeHtml(p.id.replace('WHIS-JP-', ''))}</td><td><a href="resource/${escapeHtml(p.id)}.html">${escapeHtml(p.name_ja)}</a>${IMGS[p.id] ? '<span class="cam" title="写真あり">写真</span>' : ''}${p.lat ? '' : ' <span class="muted">（座標なし）</span>'}</td>` +
+      `<tr><td>${escapeHtml(p.id.replace('WHIS-JP-', ''))}</td><td><a href="resource/${escapeHtml(p.id)}.html">${escapeHtml(p.name_ja)}</a>${IMGS[p.id] ? '<span class="cam" title="写真あり">写真</span>' : ''}${p._dist ? `<span class="dist">約${escapeHtml(p._dist)}km</span>` : ''}${p.lat ? '' : ' <span class="muted">（座標なし）</span>'}</td>` +
       `<td>${escapeHtml(p.prefecture)}</td><td>${escapeHtml(p.registered_year)}</td><td>${escapeHtml(p.built_year || '—')}</td></tr>`).join('');
     document.getElementById('count').textContent = `${shown.length} 施設（地図上 ${onMap}）`;
     document.querySelectorAll('.bar').forEach(b => b.classList.toggle('on', Number(b.dataset.y) <= y));
@@ -205,6 +287,24 @@
 
   document.getElementById('year').addEventListener('input', render);
   document.getElementById('river').addEventListener('change', render);
+  document.getElementById('q').addEventListener('input', render);
+  // 現在地から近い順（位置情報はこのブラウザの中だけで使い、どこにも送らない）
+  document.getElementById('near').addEventListener('click', () => {
+    const msg = document.getElementById('msg');
+    if (!navigator.geolocation) { msg.textContent = 'このブラウザでは現在地を使えません。'; return; }
+    navigator.geolocation.getCurrentPosition(pos => {
+      HERE = [pos.coords.latitude, pos.coords.longitude];
+      msg.textContent = '';
+      if (hereMarker) map.removeLayer(hereMarker);
+      hereMarker = L.circleMarker(HERE, { radius: 6, color: '#fff', weight: 2, fillColor: '#3182ce', fillOpacity: 1 })
+        .bindTooltip('現在地').addTo(map);
+      sortKey = '_dist'; sortAsc = true;
+      render();
+      const near = ROWS.filter(r => r._dist).sort((a, b) => a._dist - b._dist).slice(0, 3);
+      map.fitBounds(L.latLngBounds([HERE, ...near.map(r => [+r.lat, +r.lon])]).pad(0.2));
+    }, () => { msg.textContent = '現在地を取得できませんでした（位置情報の許可を確認してください）。'; },
+    { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
+  });
   document.getElementById('play').addEventListener('change', e => {
     clearInterval(timer);
     if (!e.target.checked) return;

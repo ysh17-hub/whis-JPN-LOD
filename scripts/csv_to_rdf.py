@@ -29,12 +29,46 @@ import sys
 from pathlib import Path
 
 from rdflib import Graph, Literal, Namespace, URIRef, BNode
-from rdflib.namespace import RDF, RDFS, OWL, XSD, DCTERMS, DCAT
+from rdflib.namespace import RDF, RDFS, OWL, XSD, DCTERMS, DCAT, SKOS
 
 SCHEMA = Namespace("https://schema.org/")
 GEO = Namespace("http://www.opengis.net/ont/geosparql#")
 WGS = Namespace("http://www.w3.org/2003/01/geo/wgs84_pos#")
 WD = Namespace("http://www.wikidata.org/entity/")
+AGROVOC = Namespace("http://aims.fao.org/aos/agrovoc/")
+
+# 施設の種類（SKOS の概念）。国際的な語彙とのつながり：
+#  - AGROVOC（国連食糧農業機関 FAO の多言語シソーラス）
+#  - Wikidata のクラス
+# どの概念に当たるかは 2026-11-23 に AGROVOC の検索API・Wikidata の項目（ラベル・説明・上位クラス）を見て作成者が判断した。
+# 意味の範囲が完全には同じと言えないものは closeMatch、相手の方が広いものは broadMatch にしている。
+FACILITY_TYPE_CONCEPTS = {
+    # 種類: (IRIの末尾, 英語名, 説明, [(関係, 相手のIRI), ...])
+    "水路": ("canal", "irrigation canal",
+             "水源から田畑へ水を運ぶ水路（トンネル・水路橋などを含む）。",
+             [("closeMatch", AGROVOC["c_25340"]), ("exactMatch", WD["Q2935978"])]),
+    "用水群": ("irrigation-system", "irrigation system",
+               "取水施設・水路・ため池などがまとまって一つの用水の仕組みになっているもの。",
+               [("closeMatch", AGROVOC["c_25332"]), ("closeMatch", WD["Q6129871"])]),
+    "ため池": ("tameike", "irrigation reservoir (tameike)",
+               "主に農業用水のために水をためる人工の池。",
+               [("broadMatch", AGROVOC["c_8324"]), ("exactMatch", WD["Q112083751"])]),
+    "堰": ("weir", "weir",
+           "川をせき止めて水位を上げ、用水路へ水を取り入れる施設。",
+           [("closeMatch", AGROVOC["c_8352"]), ("exactMatch", WD["Q1066997"])]),
+    "揚水機場": ("pumping-station", "pumping station",
+                 "ポンプで水をくみ上げて用水路へ送る施設。",
+                 [("closeMatch", AGROVOC["c_535a6d71"]), ("closeMatch", WD["Q446013"])]),
+}
+
+# 標高を求めた標高タイル（地理院タイル）
+DEM_TILES = {
+    "DEM1A": "https://cyberjapandata.gsi.go.jp/xyz/dem1a_png/{z}/{x}/{y}.png",
+    "DEM5A": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/{z}/{x}/{y}.png",
+    "DEM5B": "https://cyberjapandata.gsi.go.jp/xyz/dem5b_png/{z}/{x}/{y}.png",
+    "DEM5C": "https://cyberjapandata.gsi.go.jp/xyz/dem5c_png/{z}/{x}/{y}.png",
+    "DEM10B": "https://cyberjapandata.gsi.go.jp/xyz/dem_png/{z}/{x}/{y}.png",
+}
 
 # JIS X 0401 都道府県コード（ISO 3166-2:JP の数字部分と同じ）
 PREF_CODE = {
@@ -135,16 +169,18 @@ def load_optional_csv(path):
     return out
 
 
-def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None):
+def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None, terrain=None):
     images = images or {}
     extlinks = extlinks or {}
+    terrain = terrain or {}
     base = base.rstrip("/") + "/"
     RES = Namespace(base + "resource/")
     WHIS = Namespace(base + "ontology#")
 
     g = Graph()
     for p, ns in [("schema", SCHEMA), ("geo", GEO), ("wgs84", WGS), ("wd", WD), ("whis", WHIS),
-                  ("res", RES), ("dcterms", DCTERMS), ("dcat", DCAT), ("owl", OWL)]:
+                  ("res", RES), ("dcterms", DCTERMS), ("dcat", DCAT), ("owl", OWL), ("skos", SKOS),
+                  ("agrovoc", AGROVOC)]:
         g.bind(p, ns)
 
     # --- 最小限の独自語彙 ---
@@ -165,12 +201,36 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None)
         (WHIS.representativePoint, "代表地点（座標を取る場所の名前）", "representative point name", XSD.string),
         (WHIS.pointAddress, "代表地点の住所（国土地理院の逆ジオコーダで座標から求めた市区町村・大字）",
          "address of the representative point (reverse-geocoded by GSI)", XSD.string),
+        (WHIS.facilityCategory, "施設の種類（SKOS の概念。AGROVOC・Wikidata とつながる）",
+         "facility category (SKOS concept linked to AGROVOC and Wikidata)", SKOS.Concept),
+        (WHIS.pointElevation, "代表地点の標高（m。東京湾平均海面からの高さ。地理院タイルの標高タイルから求めた目安）",
+         "elevation of the representative point in metres above mean sea level (from GSI DEM tiles)", XSD.decimal),
+        (WHIS.pointElevationSource, "標高を求めた数値標高モデル（DEM1A＝1mメッシュ・航空レーザ測量、DEM5A＝5mメッシュ など）",
+         "digital elevation model used for the elevation", XSD.string),
     ]:
         g.add((prop, RDF.type, RDF.Property))
         g.add((prop, RDFS.label, Literal(ja, lang="ja")))
         g.add((prop, RDFS.label, Literal(en, lang="en")))
         if rng is not None:
             g.add((prop, RDFS.range, rng))
+
+    # --- 施設の種類（SKOS） ---
+    scheme = WHIS["facilityTypeScheme"]
+    g.add((scheme, RDF.type, SKOS.ConceptScheme))
+    g.add((scheme, SKOS.prefLabel, Literal("世界かんがい施設遺産の施設の種類", lang="ja")))
+    g.add((scheme, SKOS.prefLabel, Literal("Facility types of World Heritage Irrigation Structures", lang="en")))
+    g.add((scheme, DCTERMS.source, URIRef("https://www.maff.go.jp/j/press/nousin/kaigai/attach/pdf/251201-1.pdf")))
+    for ja, (slug, en, definition, matches) in FACILITY_TYPE_CONCEPTS.items():
+        c = WHIS["type-" + slug]
+        g.add((c, RDF.type, SKOS.Concept))
+        g.add((c, SKOS.inScheme, scheme))
+        g.add((c, SKOS.topConceptOf, scheme))
+        g.add((scheme, SKOS.hasTopConcept, c))
+        g.add((c, SKOS.prefLabel, Literal(ja, lang="ja")))
+        g.add((c, SKOS.prefLabel, Literal(en, lang="en")))
+        g.add((c, SKOS.definition, Literal(definition, lang="ja")))
+        for rel, target in matches:
+            g.add((c, getattr(SKOS, rel), target))
 
     # --- データセットのメタデータ（LODチャレンジの審査観点「開放性」「持続可能性」向け） ---
     ds = URIRef(base + "dataset")
@@ -235,6 +295,20 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None)
         # 種類・水源・管理者・面積
         if r.get("facility_type"):
             g.add((s, WHIS.facilityType, Literal(r["facility_type"], lang="ja")))
+            if r["facility_type"] in FACILITY_TYPE_CONCEPTS:
+                g.add((s, WHIS.facilityCategory, WHIS["type-" + FACILITY_TYPE_CONCEPTS[r["facility_type"]][0]]))
+        # 代表地点の標高（data/point_terrain.csv。地理院タイルの標高タイルから求めた値）
+        # 座標を直したのに標高が古いままにならないよう、求めたときの座標が今の座標と同じときだけ使う
+        for t in terrain.get(r["id"], [])[:1]:
+            same_point = (t.get("lat") and parse_float(r.get("lat")) is not None
+                          and abs(float(t["lat"]) - float(r["lat"])) < 1e-7 and abs(float(t["lon"]) - float(r["lon"])) < 1e-7)
+            if not same_point:
+                print(f"警告: {r['id']} の標高は前の座標で求めたものなので使いません（python scripts/terrain.py で計算し直せます）",
+                      file=sys.stderr)
+                continue
+            if t.get("elevation_m"):
+                g.add((s, WHIS.pointElevation, Literal(t["elevation_m"], datatype=XSD.decimal)))
+                g.add((s, WHIS.pointElevationSource, Literal(t.get("elevation_dem", ""))))
         river_qids = split_qids(r.get("water_source_river_qid"))
         for q in river_qids:
             g.add((s, WHIS.waterSource, WD[q]))
@@ -317,6 +391,7 @@ def main(argv=None):
     ap.add_argument("--modified", default="2026-12-31")
     ap.add_argument("--images", default=None)
     ap.add_argument("--extlinks", default=None)
+    ap.add_argument("--terrain", default=None)
     a = ap.parse_args(argv)
 
     with open(a.csv, encoding="utf-8-sig") as f:
@@ -338,7 +413,7 @@ def main(argv=None):
         "sources": sorted({u for r in rows for u in split_urls(r.get("source_url"))}),
     }
     g = build_graph(rows, a.base, load_pref_qids(a.prefqid), meta,
-                    load_optional_csv(a.images), load_optional_csv(a.extlinks))
+                    load_optional_csv(a.images), load_optional_csv(a.extlinks), load_optional_csv(a.terrain))
     Path(a.out_ttl).parent.mkdir(parents=True, exist_ok=True)
     g.serialize(destination=a.out_ttl, format="turtle")
     Path(a.out_geojson).parent.mkdir(parents=True, exist_ok=True)
