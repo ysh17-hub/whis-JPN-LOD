@@ -262,6 +262,10 @@ def cmd_build():
                      "--csv", str(DATA), "--prefqid", str(ROOT / "data" / "prefecture_qid.csv"),
                      "--docs", str(ROOT / "docs")])
     conforms = run_shacl(ROOT / "docs", today)
+    q = ROOT / "docs" / "quality.html"
+    if q.exists():
+        q.write_text(q.read_text(encoding="utf-8").replace(
+            "%%SHACL_RESULT%%", {True: "合格（形の誤りなし）", False: "不合格", None: "未実施（pyshacl なし）"}[conforms]), encoding="utf-8")
     if conforms is False:
         print("SHACL のチェックで誤りが見つかりました。直してから、もう一度 build してください。")
         sys.exit(1)

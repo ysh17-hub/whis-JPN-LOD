@@ -228,7 +228,7 @@ def resource_page(r, base, creator, imgs=None, exts=None, terrain=None, addr=Non
 <script type="application/ld+json">
 {ld}
 </script></head><body>
-<nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a></nav>
+<nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../quality.html">検証</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a><a href="../en.html">English</a></nav>
 <h1>{e(r['name_ja'])}</h1>
 <p><small>URI: <code>{e(base + 'resource/' + r['id'])}</code>　この施設のデータ：<a href="{e(r['id'])}.ttl">Turtle</a>／<a href="{e(r['id'])}.jsonld">JSON-LD</a></small></p>
 <table>{rows}<tr><th>Wikidata</th><td>{wd}</td></tr></table>
@@ -263,7 +263,7 @@ def ontology_page(base):
     return f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>語彙 whis:｜世界かんがい施設遺産（日本）LOD</title><style>{PAGE_CSS}</style></head><body>
-<nav><a href="index.html">地図</a><a href="sparql.html">SPARQL</a><a href="whis_japan.ttl">Turtle</a><a href="shapes.ttl">SHACL</a></nav>
+<nav><a href="index.html">地図</a><a href="sparql.html">SPARQL</a><a href="quality.html">検証</a><a href="whis_japan.ttl">Turtle</a><a href="shapes.ttl">SHACL</a><a href="en.html">English</a></nav>
 <h1>独自語彙 whis:</h1>
 <p>名前空間: <code>{e(base)}ontology#</code><br>
 既存の語彙（schema.org、GeoSPARQL、W3C Basic Geo、DCMI Terms、DCAT、OWL）で表せない項目だけを定義しています。</p>
@@ -343,6 +343,108 @@ def void_ttl(g, base):
     return v.serialize(format="turtle")
 
 
+PREF_EN = {
+    "北海道": "Hokkaido", "青森県": "Aomori", "岩手県": "Iwate", "宮城県": "Miyagi", "秋田県": "Akita", "山形県": "Yamagata",
+    "福島県": "Fukushima", "茨城県": "Ibaraki", "栃木県": "Tochigi", "群馬県": "Gunma", "埼玉県": "Saitama", "千葉県": "Chiba",
+    "東京都": "Tokyo", "神奈川県": "Kanagawa", "新潟県": "Niigata", "富山県": "Toyama", "石川県": "Ishikawa", "福井県": "Fukui",
+    "山梨県": "Yamanashi", "長野県": "Nagano", "岐阜県": "Gifu", "静岡県": "Shizuoka", "愛知県": "Aichi", "三重県": "Mie",
+    "滋賀県": "Shiga", "京都府": "Kyoto", "大阪府": "Osaka", "兵庫県": "Hyogo", "奈良県": "Nara", "和歌山県": "Wakayama",
+    "鳥取県": "Tottori", "島根県": "Shimane", "岡山県": "Okayama", "広島県": "Hiroshima", "山口県": "Yamaguchi", "徳島県": "Tokushima",
+    "香川県": "Kagawa", "愛媛県": "Ehime", "高知県": "Kochi", "福岡県": "Fukuoka", "佐賀県": "Saga", "長崎県": "Nagasaki",
+    "熊本県": "Kumamoto", "大分県": "Oita", "宮崎県": "Miyazaki", "鹿児島県": "Kagoshima", "沖縄県": "Okinawa",
+}
+
+
+def english_page(rows, base, terrain, imgs):
+    """英語の入口ページ（海外の人・研究者向け）。施設ページは日本語なので、一覧と使い方を英語で示す。"""
+    e = html.escape
+    trs = []
+    for r in rows:
+        t = current_terrain(r, terrain.get(r["id"]))
+        ft = conv.FACILITY_TYPE_CONCEPTS.get(r.get("facility_type", ""), ("", "", "", []))[1]
+        wd = (f'<a href="https://www.wikidata.org/wiki/{e(r["wikidata_qid"])}">{e(r["wikidata_qid"])}</a>'
+              if r.get("verified") == "1" and r.get("wikidata_qid") else "")
+        name = e(r.get("name_en") or "") or f'<span lang="ja">{e(r["name_ja"])}</span>'
+        trs.append(f'<tr><td>{e(r["id"].replace("WHIS-JP-", ""))}</td><td><a href="resource/{e(r["id"])}.html">{name}</a>'
+                   f'{"" if not r.get("name_en") else "<br><small lang=ja>" + e(r["name_ja"]) + "</small>"}</td>'
+                   f'<td>{e(PREF_EN.get(r["prefecture"], r["prefecture"]))}</td><td>{e(ft)}</td><td>{e(r["registered_year"])}</td>'
+                   f'<td>{e(r.get("built_year") or "")}</td><td>{e(t.get("elevation_m", ""))}</td><td>{wd}</td>'
+                   f'<td>{"✓" if imgs.get(r["id"]) else ""}</td></tr>')
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Heritage Irrigation Structures in Japan as Linked Open Data</title>
+<link rel="alternate" hreflang="ja" href="index.html"><style>{PAGE_CSS}table{{font-size:13px}}</style></head><body>
+<nav><a href="index.html">Map (Japanese)</a><a href="sparql.html">SPARQL</a><a href="ontology.html">Vocabulary</a><a href="quality.html">Quality report</a><a href="https://github.com/ysh17-hub/whis-lod">GitHub</a></nav>
+<h1>World Heritage Irrigation Structures in Japan as Linked Open Data</h1>
+<p>This dataset describes all {len(rows)} World Heritage Irrigation Structures (WHIS) in Japan recognized by the International Commission on Irrigation and Drainage (ICID) from 2014 to 2026. Every record cites its sources (official documents of the Ministry of Agriculture, Forestry and Fisheries, prefectures, municipalities and land improvement districts). Values that differ between sources are left blank and both values are recorded in a note.</p>
+<ul>
+<li><b>Data</b>: <a href="whis_japan.ttl">Turtle</a> · <a href="whis_japan.jsonld">JSON-LD</a> · <a href="whis_japan.geojson">GeoJSON</a> · <a href="whis_japan.csv">CSV</a> · <a href="void.ttl">VoID</a> · <a href="shapes.ttl">SHACL shapes</a> — licence <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> (photos keep their own licences)</li>
+<li><b>URIs</b>: one URI per structure, e.g. <code>{e(base)}resource/WHIS-JP-026</code> (Manno-ike), with HTML, Turtle and JSON-LD.</li>
+<li><b>Links</b>: Wikidata (same structure / components / water-source rivers), Linked Open Addresses Japan, e-Stat statistical LOD (standard area codes), FAO AGROVOC (facility types), OpenStreetMap, GeoNames and others.</li>
+<li><b>Elevation</b> of each representative point from GSI DEM tiles (1 m mesh first), cross-checked against the GSI elevation service.</li>
+<li><b>Map</b>: switch to aerial imagery or a colour relief map and overlay historical aerial photographs (1945–1950, 1961–1969, 1974–1978) from the Geospatial Information Authority of Japan.</li>
+</ul>
+<h2>All structures</h2>
+<p><small>Names are shown in English where an official English name was found in the sources; otherwise in Japanese. Elevation is that of the representative point (m above mean sea level).</small></p>
+<div style="overflow-x:auto"><table><tr><th>ID</th><th>Name</th><th>Prefecture</th><th>Type</th><th>Recognized</th><th>Built</th><th>Elevation (m)</th><th>Wikidata</th><th>Photo</th></tr>{"".join(trs)}</table></div>
+<p><small>Map tiles, aerial photographs and elevation: <a href="https://maps.gsi.go.jp/development/ichiran.html">GSI Tiles (Geospatial Information Authority of Japan)</a>.</small></p>
+</body></html>
+"""
+
+
+def quality_page(rows, base, terrain, addr, imgs, g, today):
+    """検証レポート：どんなチェックをして、何件が合格したかを1ページで見せる。"""
+    e = html.escape
+    n = len(rows)
+    t_ok = [current_terrain(r, terrain.get(r["id"])) for r in rows]
+    elev = sum(1 for t in t_ok if t.get("elevation_m"))
+    from decimal import Decimal, ROUND_HALF_UP
+    mesh = {"DEM1A": "1m", "DEM5A": "5m", "DEM5B": "5m", "DEM5C": "5m", "DEM10B": "10m"}
+    checked = same = 0
+    for t in t_ok:
+        if t.get("gsi_elevation_api_m"):
+            checked += 1
+            m = mesh.get(t.get("elevation_dem"), "")
+            q = Decimal("1") if m == "10m" else Decimal("0.1")
+            same += (Decimal(t["elevation_m"]).quantize(q, ROUND_HALF_UP) == Decimal(t["gsi_elevation_api_m"]).quantize(q, ROUND_HALF_UP)
+                     and t.get("gsi_elevation_api_mesh") == m)
+    loa = sum(1 for r in rows if (addr.get(r["id"]) or [{}])[0].get("loa_uri"))
+    sac = sum(1 for r in rows if (addr.get(r["id"]) or [{}])[0].get("sac_uri"))
+    srcs = len({u for r in rows for u in conv.split_urls(r.get("source_url"))})
+    same_wd = sum(1 for r in rows if r.get("verified") == "1" and r.get("wikidata_qid"))
+    checked_wd = sum(1 for r in rows if r.get("wikidata_checked") == "1")
+    n_img = sum(len(v) for v in imgs.values())
+    checks = [
+        ("出典", f"{n}/{n} 施設に出典URL（重複を除いて {srcs} 件の資料）", "出典URLのない行があると、SHACL のチェックで止まって公開されない"),
+        ("データの形（SHACL）", "%%SHACL_RESULT%%",
+         "IDの形・登録年の型・座標の範囲・出典の有無・写真のライセンス・リンク先の形など。更新のたびに自動でチェック（shacl_report.txt）"),
+        ("座標", f"{sum(1 for r in rows if r.get('lat'))}/{n} 施設", "代表地点を航空写真で確かめて1点ずつ入力"),
+        ("標高", f"{elev}/{n} 地点。国土地理院の標高表示と照合：{checked} 地点中 {same} 地点で一致",
+         "地理院タイルの標高タイル（1m→5m→10mメッシュ）。座標を直すと自動で計算し直し、古い値は使わない"),
+        ("住所LOD", f"{loa}/{n} 地点の IRI が開けることを確認", "住所LODの階層をたどって照合（郡・大字・丁目の書き方の違いを合わせた）"),
+        ("統計LOD（標準地域コード）", f"{sac}/{n} 地点", "統計LODの SPARQL で、市区町村コードの最新の項目を選んだ"),
+        ("Wikidata", f"同じ施設 {same_wd} 件（{checked_wd} 施設を確認）、構成施設 {len({(r['id'], q) for r in rows for q in conv.split_qids(r.get('wikidata_related'))})} 件",
+         "候補を1件ずつ開いて名前・場所・説明を確かめたものだけをつなぐ。同じ施設と構成施設に同じ項目を入れるとSHACLで止まる"),
+        ("写真", f"{n_img} 枚（{len(imgs)} 施設）すべてに撮影者とライセンス", "撮影者かライセンスが欠けるとSHACLで止まる"),
+        ("全体", f"{len(g)} トリプル", "VoID（void.ttl）にほかのデータとのつながりの数"),
+    ]
+    rows_html = "".join(f"<tr><th>{e(a)}</th><td>{e(b)}</td><td><small>{e(c)}</small></td></tr>" for a, b, c in checks)
+    cols = [(k, lbl) for k, lbl in FIELD_LABELS if k not in ("note",)]
+    prof = "".join(
+        f"<tr><th>{e(lbl)}</th><td>{sum(1 for r in rows if (r.get(k) or '').strip())}/{n}</td></tr>" for k, lbl in cols)
+    return f"""<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>検証レポート｜世界かんがい施設遺産（日本）LOD</title><style>{PAGE_CSS}</style></head><body>
+<nav><a href="index.html">地図</a><a href="sparql.html">SPARQL</a><a href="ontology.html">語彙</a><a href="en.html">English</a></nav>
+<h1>検証レポート</h1>
+<p>このデータに対して行っているチェックと、その結果です（{e(today)} に作成）。サイトを作り直すたびに自動で作り直されます。</p>
+<table><tr><th>項目</th><td><b>結果</b></td><td><b>確かめ方</b></td></tr>{rows_html}</table>
+<h2>項目ごとの値がある施設の数</h2>
+<p><small>出典に書かれていない値や、資料で値が違う値は空欄にしています（空欄＝不明。0ではありません）。</small></p>
+<table>{prof}</table>
+</body></html>
+"""
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", required=True)
@@ -404,6 +506,8 @@ def main(argv=None):
         (docs / "resource" / f"{r['id']}.ttl").write_text(sub.serialize(format="turtle"), encoding="utf-8")
         (docs / "resource" / f"{r['id']}.jsonld").write_text(sub.serialize(format="json-ld", indent=1), encoding="utf-8")
     (docs / "ontology.html").write_text(ontology_page(base), encoding="utf-8")
+    (docs / "en.html").write_text(english_page(rows, base, terrain, images), encoding="utf-8")
+    (docs / "quality.html").write_text(quality_page(rows, base, terrain, addr, images, g, a.modified), encoding="utf-8")
     print(f"施設ページ {len(rows)} 件（HTML・Turtle・JSON-LD）、ontology.html、JSON-LD、CSV を {docs} に出力しました")
     return rc
 
