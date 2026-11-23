@@ -1,0 +1,47 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-006 a whis:HeritageIrrigationStructure ;
+    rdfs:label "狭山池"@ja ;
+    dcterms:identifier "WHIS-JP-006" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006/geometry> ;
+    rdfs:comment "農水省概要に約1,400年前とある。年は未確定のため空欄"@ja ;
+    rdfs:seeAlso <https://id.ndl.go.jp/auth/ndlna/001219190>,
+        <https://ja.wikipedia.org/wiki/%E7%8B%AD%E5%B1%B1%E6%B1%A0_%28%E5%A4%A7%E9%98%AA%E5%BA%9C%29>,
+        <https://kunishitei.bunka.go.jp/heritage/detail/401/00003898>,
+        <https://sws.geonames.org/9072610/> ;
+    owl:sameAs wd:Q11571743 ;
+    wgs84:lat 34.503333 ;
+    wgs84:long 135.549722 ;
+    schema:addressLocality "大阪狭山市"@ja ;
+    schema:addressRegion "大阪府"@ja ;
+    schema:containedInPlace wd:Q122723 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG> ;
+    schema:name "狭山池"@ja ;
+    whis:facilityType "ため池"@ja ;
+    whis:pointAddress "大阪府大阪狭山市大字岩室"@ja ;
+    whis:prefectureCode "JP-27" ;
+    whis:registeredYear "2014"^^xsd:gYear ;
+    whis:representativePoint "狭山池"@ja .
+
+<https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG> a schema:ImageObject ;
+    schema:about wd:Q11571743 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Sayamaike01.JPG> ;
+    schema:creditText "Kansai explorer at Japanese Wikipedia" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Sayamaike01.JPG" .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(135.549722 34.503333)"^^geo:wktLiteral .
+

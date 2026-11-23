@@ -1,0 +1,60 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-026 a whis:HeritageIrrigationStructure ;
+    rdfs:label "満濃池"@ja ;
+    dcterms:identifier "WHIS-JP-026" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/46_manno/index.html>,
+        <https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/mannouike.html> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry> ;
+    rdfs:comment "821年に空海が修築。貯水量1,540万m3"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E6%BA%80%E6%BF%83%E6%B1%A0>,
+        <https://www.openstreetmap.org/relation/2304882> ;
+    owl:sameAs wd:Q20983084 ;
+    wgs84:lat 34.162667 ;
+    wgs84:long 133.871392 ;
+    schema:addressLocality "まんのう町"@ja ;
+    schema:addressRegion "香川県"@ja ;
+    schema:containedInPlace wd:Q161454 ;
+    schema:hasPart wd:Q6750928 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Mannolake1.JPG>,
+        <https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg> ;
+    schema:name "満濃池"@ja ;
+    whis:builtYear "0701"^^xsd:gYear ;
+    whis:builtYearBasis "築造（大宝年間701〜704）"@ja ;
+    whis:facilityType "ため池"@ja ;
+    whis:irrigatedArea 3239.0 ;
+    whis:pointAddress "香川県まんのう町神野"@ja ;
+    whis:prefectureCode "JP-37" ;
+    whis:registeredYear "2016"^^xsd:gYear ;
+    whis:representativePoint "満濃池"@ja ;
+    whis:waterSource wd:Q11646415 ;
+    whis:waterSourceName "金倉川"@ja .
+
+<https://commons.wikimedia.org/wiki/File:Mannolake1.JPG> a schema:ImageObject ;
+    schema:about wd:Q20983084 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Mannolake1.JPG> ;
+    schema:creditText "miea.system" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/4.0> ;
+    schema:name "Mannolake1.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg> a schema:ImageObject ;
+    schema:about wd:Q6750928 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg> ;
+    schema:creditText "Σ64" ;
+    schema:license <https://creativecommons.org/licenses/by/4.0> ;
+    schema:name "Mano Dam 02.jpg" .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(133.871392 34.162667)"^^geo:wktLiteral .
+

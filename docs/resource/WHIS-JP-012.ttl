@@ -1,0 +1,51 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-012 a whis:HeritageIrrigationStructure ;
+    rdfs:label "入鹿池"@ja ;
+    dcterms:identifier "WHIS-JP-012" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/26_iruka/index.html>,
+        <https://www.mlit.go.jp/common/001140232.pdf>,
+        <https://www.pref.aichi.jp/uploaded/attachment/275757.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-012/geometry> ;
+    rdfs:comment "かんがい面積は資料で異なる（国交省資料：水田約600ha／農水省ため池百選：1,300ha）ため空欄。貯水量15,187,000m3（愛知県）"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%85%A5%E9%B9%BF%E6%B1%A0> ;
+    owl:sameAs wd:Q927013 ;
+    wgs84:lat 35.342505 ;
+    wgs84:long 136.99904 ;
+    schema:addressLocality "犬山市"@ja ;
+    schema:addressRegion "愛知県"@ja ;
+    schema:containedInPlace wd:Q80434 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Irukaike_pond_1.JPG> ;
+    schema:name "入鹿池"@ja ;
+    whis:builtYear "1633"^^xsd:gYear ;
+    whis:builtYearBasis "完成"@ja ;
+    whis:facilityType "ため池"@ja ;
+    whis:managedBy "入鹿用水土地改良区"@ja ;
+    whis:pointAddress "愛知県犬山市字池底"@ja ;
+    whis:prefectureCode "JP-23" ;
+    whis:registeredYear "2015"^^xsd:gYear ;
+    whis:representativePoint "入鹿池"@ja ;
+    whis:waterSource wd:Q2747208 ;
+    whis:waterSourceName "五条川（上流を堰き止め）"@ja .
+
+<https://commons.wikimedia.org/wiki/File:Irukaike_pond_1.JPG> a schema:ImageObject ;
+    schema:about wd:Q927013 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Irukaike_pond_1.JPG> ;
+    schema:creditText "Junichi" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Irukaike pond 1.JPG" .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-012/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(136.99904 35.342505)"^^geo:wktLiteral .
+

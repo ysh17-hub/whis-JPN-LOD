@@ -1,0 +1,170 @@
+[
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001",
+  "@type": [
+   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+  ],
+  "http://purl.org/dc/terms/identifier": [
+   {
+    "@value": "WHIS-JP-001"
+   }
+  ],
+  "http://purl.org/dc/terms/isPartOf": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+   }
+  ],
+  "http://purl.org/dc/terms/source": [
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/aomori/index.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/suido/attach/pdf/170425-2.pdf"
+   },
+   {
+    "@id": "https://www.pref.aomori.lg.jp/soshiki/nourin/ka-nosui/files/inaoigawawalk2024.pdf"
+   }
+  ],
+  "http://www.opengis.net/ont/geosparql#hasGeometry": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#comment": [
+   {
+    "@language": "ja",
+    "@value": "1859年完成。かんがい面積は資料で異なる（農水省『先人』ページ：約5,900haの水田／農水省『水土を守る人々』2017：改良区受益地約5,200ha）ため空欄"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "ja",
+    "@value": "稲生川"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+   {
+    "@id": "https://ja.wikipedia.org/wiki/%E7%A8%B2%E7%94%9F%E5%B7%9D"
+   },
+   {
+    "@id": "https://www.openstreetmap.org/relation/18667788"
+   }
+  ],
+  "http://www.w3.org/2002/07/owl#sameAs": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11596736"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#lat": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "40.592154"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#long": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "141.097605"
+   }
+  ],
+  "https://schema.org/addressLocality": [
+   {
+    "@language": "ja",
+    "@value": "十和田市他"
+   }
+  ],
+  "https://schema.org/addressRegion": [
+   {
+    "@language": "ja",
+    "@value": "青森県"
+   }
+  ],
+  "https://schema.org/containedInPlace": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q71699"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@language": "ja",
+    "@value": "稲生川"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtYear": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+    "@value": "1855"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
+   {
+    "@language": "ja",
+    "@value": "着工"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+   {
+    "@language": "ja",
+    "@value": "水路"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
+   {
+    "@language": "ja",
+    "@value": "稲生川土地改良区"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+   {
+    "@language": "ja",
+    "@value": "青森県十和田市大字法量"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+   {
+    "@value": "JP-02"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+    "@value": "2014"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+   {
+    "@language": "ja",
+    "@value": "稲生川頭首工"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#waterSource": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q1156064"
+   },
+   {
+    "@id": "http://www.wikidata.org/entity/Q1196132"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#waterSourceName": [
+   {
+    "@language": "ja",
+    "@value": "奥入瀬川（十和田湖）"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(141.097605 40.592154)"
+   }
+  ]
+ }
+]

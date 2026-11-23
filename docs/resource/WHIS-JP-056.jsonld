@@ -1,0 +1,121 @@
+[
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-056/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(131.31897 33.00096)"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-056",
+  "@type": [
+   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+  ],
+  "http://purl.org/dc/terms/identifier": [
+   {
+    "@value": "WHIS-JP-056"
+   }
+  ],
+  "http://purl.org/dc/terms/isPartOf": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+   }
+  ],
+  "http://purl.org/dc/terms/source": [
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-23.pdf"
+   }
+  ],
+  "http://www.opengis.net/ont/geosparql#hasGeometry": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-056/geometry"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Taketa Irrigation System"
+   },
+   {
+    "@language": "ja",
+    "@value": "竹田のかんがい用水群"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#lat": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "33.00096"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#long": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "131.31897"
+   }
+  ],
+  "https://schema.org/addressLocality": [
+   {
+    "@language": "ja",
+    "@value": "竹田市"
+   }
+  ],
+  "https://schema.org/addressRegion": [
+   {
+    "@language": "ja",
+    "@value": "大分県"
+   }
+  ],
+  "https://schema.org/containedInPlace": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q133924"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Taketa Irrigation System"
+   },
+   {
+    "@language": "ja",
+    "@value": "竹田のかんがい用水群"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+   {
+    "@language": "ja",
+    "@value": "用水群"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+   {
+    "@language": "ja",
+    "@value": "大分県竹田市大字福原"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+   {
+    "@value": "JP-44"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+    "@value": "2025"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+   {
+    "@language": "ja",
+    "@value": "城原井路の神田頭首工"
+   }
+  ]
+ }
+]

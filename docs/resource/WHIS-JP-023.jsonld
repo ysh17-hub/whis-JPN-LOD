@@ -1,0 +1,161 @@
+[
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(137.17821 35.045993)"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023",
+  "@type": [
+   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+  ],
+  "http://purl.org/dc/terms/identifier": [
+   {
+    "@value": "WHIS-JP-023"
+   }
+  ],
+  "http://purl.org/dc/terms/isPartOf": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+   }
+  ],
+  "http://purl.org/dc/terms/source": [
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf"
+   },
+   {
+    "@id": "https://www.pref.aichi.jp/uploaded/attachment/489986.pdf"
+   }
+  ],
+  "http://www.opengis.net/ont/geosparql#hasGeometry": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023/geometry"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#comment": [
+   {
+    "@language": "ja",
+    "@value": "都築弥厚の計画。現頭首工は1958年完成"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "ja",
+    "@value": "明治用水"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+   {
+    "@id": "https://ja.wikipedia.org/wiki/%E6%98%8E%E6%B2%BB%E7%94%A8%E6%B0%B4"
+   }
+  ],
+  "http://www.w3.org/2002/07/owl#sameAs": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11512382"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#lat": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "35.045993"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#long": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "137.17821"
+   }
+  ],
+  "https://schema.org/addressLocality": [
+   {
+    "@language": "ja",
+    "@value": "安城市他"
+   }
+  ],
+  "https://schema.org/addressRegion": [
+   {
+    "@language": "ja",
+    "@value": "愛知県"
+   }
+  ],
+  "https://schema.org/containedInPlace": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q80434"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@language": "ja",
+    "@value": "明治用水"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtYear": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+    "@value": "1880"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
+   {
+    "@language": "ja",
+    "@value": "完成"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+   {
+    "@language": "ja",
+    "@value": "水路"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
+   {
+    "@language": "ja",
+    "@value": "明治用水土地改良区"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+   {
+    "@language": "ja",
+    "@value": "愛知県豊田市水源町六丁目"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+   {
+    "@value": "JP-23"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+    "@value": "2016"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+   {
+    "@language": "ja",
+    "@value": "明治用水頭首工"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#waterSource": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q1132256"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#waterSourceName": [
+   {
+    "@language": "ja",
+    "@value": "矢作川"
+   }
+  ]
+ }
+]

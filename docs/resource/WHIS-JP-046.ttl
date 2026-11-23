@@ -1,0 +1,40 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-046 a whis:HeritageIrrigationStructure ;
+    rdfs:label "Teradani Irrigation System (Canal)"@en,
+        "寺谷用水"@ja ;
+    dcterms:identifier "WHIS-JP-046" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-7.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-046/geometry> ;
+    wgs84:lat 34.777834 ;
+    wgs84:long 137.835546 ;
+    schema:addressLocality "磐田市"@ja ;
+    schema:addressRegion "静岡県"@ja ;
+    schema:containedInPlace wd:Q131320 ;
+    schema:name "Teradani Irrigation System (Canal)"@en,
+        "寺谷用水"@ja ;
+    whis:builtYear "1590"^^xsd:gYear ;
+    whis:builtYearBasis "完成"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:irrigatedArea 2000.0 ;
+    whis:managedBy "寺谷用水土地改良区"@ja ;
+    whis:pointAddress "静岡県磐田市寺谷"@ja ;
+    whis:prefectureCode "JP-22" ;
+    whis:registeredYear "2022"^^xsd:gYear ;
+    whis:representativePoint "大圦樋跡（寺谷用水取水口碑）"@ja ;
+    whis:waterSource wd:Q13667 ;
+    whis:waterSourceName "天竜川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-046/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(137.835546 34.777834)"^^geo:wktLiteral .
+

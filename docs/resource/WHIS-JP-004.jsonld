@@ -1,0 +1,151 @@
+[
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-004/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(136.632419 36.437184)"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-004",
+  "@type": [
+   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+  ],
+  "http://purl.org/dc/terms/identifier": [
+   {
+    "@value": "WHIS-JP-004"
+   }
+  ],
+  "http://purl.org/dc/terms/isPartOf": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+   }
+  ],
+  "http://purl.org/dc/terms/source": [
+   {
+    "@id": "https://www.maff.go.jp/j/meiji150/toti/20.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.pref.ishikawa.lg.jp/kisya/r5kyoui/documents/zyubunnositei.pdf"
+   }
+  ],
+  "http://www.opengis.net/ont/geosparql#hasGeometry": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-004/geometry"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#comment": [
+   {
+    "@language": "ja",
+    "@value": "構成する七用水は近世以来（石川県資料）。built_yearは合口完成年"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "ja",
+    "@value": "七ヶ用水"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#lat": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "36.437184"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#long": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "136.632419"
+   }
+  ],
+  "https://schema.org/addressLocality": [
+   {
+    "@language": "ja",
+    "@value": "白山市他"
+   }
+  ],
+  "https://schema.org/addressRegion": [
+   {
+    "@language": "ja",
+    "@value": "石川県"
+   }
+  ],
+  "https://schema.org/containedInPlace": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q131281"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@language": "ja",
+    "@value": "七ヶ用水"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtYear": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+    "@value": "1903"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
+   {
+    "@language": "ja",
+    "@value": "合口事業完成（七つの用水の取水口統合）"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+   {
+    "@language": "ja",
+    "@value": "用水群"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
+   {
+    "@language": "ja",
+    "@value": "手取川七ヶ用水土地改良区"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+   {
+    "@language": "ja",
+    "@value": "石川県白山市白山町"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+   {
+    "@value": "JP-17"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+    "@value": "2014"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+   {
+    "@language": "ja",
+    "@value": "大水門"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#waterSource": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11496932"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#waterSourceName": [
+   {
+    "@language": "ja",
+    "@value": "手取川"
+   }
+  ]
+ }
+]

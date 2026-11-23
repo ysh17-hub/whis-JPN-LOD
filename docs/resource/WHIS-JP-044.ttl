@@ -1,0 +1,41 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-044 a whis:HeritageIrrigationStructure ;
+    rdfs:label "Usa Irrigation System"@en,
+        "宇佐のかんがい用水群"@ja ;
+    dcterms:identifier "WHIS-JP-044" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-4.pdf>,
+        <https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-044/geometry> ;
+    rdfs:comment "広瀬井路は1751〜1870"@ja ;
+    wgs84:lat 33.512209 ;
+    wgs84:long 131.336822 ;
+    schema:addressLocality "宇佐市"@ja ;
+    schema:addressRegion "大分県"@ja ;
+    schema:containedInPlace wd:Q133924 ;
+    schema:name "Usa Irrigation System"@en,
+        "宇佐のかんがい用水群"@ja ;
+    whis:builtYear "1156"^^xsd:gYear ;
+    whis:builtYearBasis "平田井路の年"@ja ;
+    whis:facilityType "用水群"@ja ;
+    whis:irrigatedArea 240.0 ;
+    whis:pointAddress "大分県宇佐市大字中原"@ja ;
+    whis:prefectureCode "JP-44" ;
+    whis:registeredYear "2021"^^xsd:gYear ;
+    whis:representativePoint "平田頭首工"@ja ;
+    whis:waterSource wd:Q11668226 ;
+    whis:waterSourceName "駅館川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-044/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(131.336822 33.512209)"^^geo:wktLiteral .
+

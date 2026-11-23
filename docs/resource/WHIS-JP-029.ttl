@@ -1,0 +1,43 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-029 a whis:HeritageIrrigationStructure ;
+    rdfs:label "Nasu-sosui"@en,
+        "那須疏水"@ja ;
+    dcterms:identifier "WHIS-JP-029" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-5.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029/geometry> ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E9%82%A3%E9%A0%88%E7%96%8F%E6%B0%B4>,
+        <https://www.openstreetmap.org/relation/18949446> ;
+    owl:sameAs wd:Q11642949 ;
+    wgs84:lat 37.038616 ;
+    wgs84:long 139.986289 ;
+    schema:addressLocality "那須塩原市"@ja ;
+    schema:addressRegion "栃木県"@ja ;
+    schema:containedInPlace wd:Q44843 ;
+    schema:name "Nasu-sosui"@en,
+        "那須疏水"@ja ;
+    whis:builtYear "1885"^^xsd:gYear ;
+    whis:builtYearBasis "完成"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:managedBy "那須野ヶ原土地改良区連合"@ja ;
+    whis:pointAddress "栃木県那須町大字高久乙"@ja ;
+    whis:prefectureCode "JP-09" ;
+    whis:registeredYear "2017"^^xsd:gYear ;
+    whis:representativePoint "西岩崎頭首工"@ja ;
+    whis:waterSource wd:Q1076983 ;
+    whis:waterSourceName "那珂川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(139.986289 37.038616)"^^geo:wktLiteral .
+

@@ -1,0 +1,49 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-007 a whis:HeritageIrrigationStructure ;
+    rdfs:label "淡山疏水"@ja ;
+    dcterms:identifier "WHIS-JP-007" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.city.kobe.lg.jp/a83166/kanko/bunka/bunkazai/history/isan/ougososui.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/hyogo/index.html> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry> ;
+    rdfs:comment "山田川疏水は1911年着工・1915年完成（農水省）。81か所のため池も活用"@ja ;
+    wgs84:lat 34.790278 ;
+    wgs84:long 135.055806 ;
+    schema:addressLocality "神戸市他"@ja ;
+    schema:addressRegion "兵庫県"@ja ;
+    schema:containedInPlace wd:Q130290 ;
+    schema:hasPart wd:Q11488870,
+        wd:Q11559782 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg> ;
+    schema:name "淡山疏水"@ja ;
+    whis:builtYear "1891"^^xsd:gYear ;
+    whis:builtYearBasis "淡河川疏水完成"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:managedBy "兵庫県淡河川山田川土地改良区"@ja ;
+    whis:pointAddress "兵庫県三木市志染町御坂"@ja ;
+    whis:prefectureCode "JP-28" ;
+    whis:registeredYear "2014"^^xsd:gYear ;
+    whis:representativePoint "御坂サイフォン橋"@ja ;
+    whis:waterSource wd:Q11491046 ;
+    whis:waterSourceName "淡河川、志染川（山田川）"@ja .
+
+<https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg> a schema:ImageObject ;
+    schema:about wd:Q11488870 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Shijimi-river_siphon-bridge.jpg> ;
+    schema:creditText "Bakkai" ;
+    schema:license <https://creativecommons.org/licenses/by/3.0> ;
+    schema:name "Shijimi-river siphon-bridge.jpg" .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(135.055806 34.790278)"^^geo:wktLiteral .
+

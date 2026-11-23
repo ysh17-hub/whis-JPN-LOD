@@ -1,0 +1,43 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
+    rdfs:label "備前渠用水路"@ja ;
+    dcterms:identifier "WHIS-JP-041" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.pref.saitama.lg.jp/documents/10406/51249.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-041/geometry> ;
+    rdfs:comment "当初の水源は烏川。1930年に利根川堤外導水路で現在の取水位置へ（埼玉県）"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%82%99%E5%89%8D%E6%B8%A0%E7%94%A8%E6%B0%B4>,
+        <https://sws.geonames.org/1864699/>,
+        <https://www.openstreetmap.org/relation/19306150> ;
+    owl:sameAs wd:Q11387336 ;
+    wgs84:lat 36.265623 ;
+    wgs84:long 139.181583 ;
+    schema:addressLocality "本庄市他"@ja ;
+    schema:addressRegion "埼玉県"@ja ;
+    schema:containedInPlace wd:Q128186 ;
+    schema:name "備前渠用水路"@ja ;
+    whis:builtYear "1604"^^xsd:gYear ;
+    whis:builtYearBasis "開削（慶長9年）"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:managedBy "備前渠用水路土地改良区"@ja ;
+    whis:pointAddress "埼玉県本庄市山王堂"@ja ;
+    whis:prefectureCode "JP-11" ;
+    whis:registeredYear "2020"^^xsd:gYear ;
+    whis:representativePoint "備前渠第一樋管頭首工"@ja ;
+    whis:waterSource wd:Q177452 ;
+    whis:waterSourceName "利根川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-041/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(139.181583 36.265623)"^^geo:wktLiteral .
+

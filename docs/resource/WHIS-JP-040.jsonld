@@ -1,0 +1,149 @@
+[
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-040",
+  "@type": [
+   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+  ],
+  "http://purl.org/dc/terms/identifier": [
+   {
+    "@value": "WHIS-JP-040"
+   }
+  ],
+  "http://purl.org/dc/terms/isPartOf": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+   }
+  ],
+  "http://purl.org/dc/terms/source": [
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf"
+   },
+   {
+    "@id": "https://www.pref.gunma.jp/site/nougyou/9892.html"
+   }
+  ],
+  "http://www.opengis.net/ont/geosparql#hasGeometry": [
+   {
+    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-040/geometry"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#comment": [
+   {
+    "@language": "ja",
+    "@value": "総社藩主秋元長朝が開削（群馬県）。年は公的資料で未確認のため空欄"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "ja",
+    "@value": "天狗岩用水"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+   {
+    "@id": "https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%8B%97%E5%B2%A9%E7%94%A8%E6%B0%B4"
+   }
+  ],
+  "http://www.w3.org/2002/07/owl#sameAs": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q123201481"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#lat": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "36.464045"
+   }
+  ],
+  "http://www.w3.org/2003/01/geo/wgs84_pos#long": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "139.036337"
+   }
+  ],
+  "https://schema.org/addressLocality": [
+   {
+    "@language": "ja",
+    "@value": "前橋市他"
+   }
+  ],
+  "https://schema.org/addressRegion": [
+   {
+    "@language": "ja",
+    "@value": "群馬県"
+   }
+  ],
+  "https://schema.org/containedInPlace": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q129499"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@language": "ja",
+    "@value": "天狗岩用水"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+   {
+    "@language": "ja",
+    "@value": "水路"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
+   {
+    "@language": "ja",
+    "@value": "天狗岩堰土地改良区"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+   {
+    "@language": "ja",
+    "@value": "群馬県渋川市半田"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+   {
+    "@value": "JP-10"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+    "@value": "2020"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+   {
+    "@language": "ja",
+    "@value": "坂東大堰"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#waterSource": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q177452"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#waterSourceName": [
+   {
+    "@language": "ja",
+    "@value": "利根川"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-040/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(139.036337 36.464045)"
+   }
+  ]
+ }
+]

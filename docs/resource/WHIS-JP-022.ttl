@@ -1,0 +1,40 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
+    rdfs:label "足羽川用水"@ja ;
+    dcterms:identifier "WHIS-JP-022" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-92.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry> ;
+    rdfs:comment "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積は約2,000ha"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E8%B6%B3%E7%BE%BD%E5%B7%9D%E7%94%A8%E6%B0%B4> ;
+    owl:sameAs wd:Q48752727 ;
+    wgs84:lat 36.020263 ;
+    wgs84:long 136.296509 ;
+    schema:addressLocality "福井市"@ja ;
+    schema:addressRegion "福井県"@ja ;
+    schema:containedInPlace wd:Q133879 ;
+    schema:name "足羽川用水"@ja ;
+    whis:facilityType "用水群"@ja ;
+    whis:irrigatedArea 2000.0 ;
+    whis:managedBy "足羽川堰堤土地改良区連合"@ja ;
+    whis:pointAddress "福井県福井市前波町"@ja ;
+    whis:prefectureCode "JP-18" ;
+    whis:registeredYear "2016"^^xsd:gYear ;
+    whis:representativePoint "足羽川頭首工"@ja ;
+    whis:waterSource wd:Q3307289 ;
+    whis:waterSourceName "足羽川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(136.296509 36.020263)"^^geo:wktLiteral .
+

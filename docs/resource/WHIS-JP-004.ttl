@@ -1,0 +1,39 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-004 a whis:HeritageIrrigationStructure ;
+    rdfs:label "七ヶ用水"@ja ;
+    dcterms:identifier "WHIS-JP-004" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/meiji150/toti/20.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.pref.ishikawa.lg.jp/kisya/r5kyoui/documents/zyubunnositei.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-004/geometry> ;
+    rdfs:comment "構成する七用水は近世以来（石川県資料）。built_yearは合口完成年"@ja ;
+    wgs84:lat 36.437184 ;
+    wgs84:long 136.632419 ;
+    schema:addressLocality "白山市他"@ja ;
+    schema:addressRegion "石川県"@ja ;
+    schema:containedInPlace wd:Q131281 ;
+    schema:name "七ヶ用水"@ja ;
+    whis:builtYear "1903"^^xsd:gYear ;
+    whis:builtYearBasis "合口事業完成（七つの用水の取水口統合）"@ja ;
+    whis:facilityType "用水群"@ja ;
+    whis:managedBy "手取川七ヶ用水土地改良区"@ja ;
+    whis:pointAddress "石川県白山市白山町"@ja ;
+    whis:prefectureCode "JP-17" ;
+    whis:registeredYear "2014"^^xsd:gYear ;
+    whis:representativePoint "大水門"@ja ;
+    whis:waterSource wd:Q11496932 ;
+    whis:waterSourceName "手取川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-004/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(136.632419 36.437184)"^^geo:wktLiteral .
+

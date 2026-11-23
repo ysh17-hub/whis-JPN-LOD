@@ -1,0 +1,48 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
+    rdfs:label "Kounomizo-Hyakutaroumizo Irrigation System"@en,
+        "幸野溝・百太郎溝水路群"@ja ;
+    dcterms:identifier "WHIS-JP-027" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027/geometry> ;
+    wgs84:lat 32.306545 ;
+    wgs84:long 131.002562 ;
+    schema:addressLocality "湯前町他"@ja ;
+    schema:addressRegion "熊本県"@ja ;
+    schema:containedInPlace wd:Q130308 ;
+    schema:hasPart wd:Q11484089,
+        wd:Q17225723 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg> ;
+    schema:name "Kounomizo-Hyakutaroumizo Irrigation System"@en,
+        "幸野溝・百太郎溝水路群"@ja ;
+    whis:builtYear "1705"^^xsd:gYear ;
+    whis:builtYearBasis "幸野溝の年（百太郎溝は1710）"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:pointAddress "熊本県水上村大字岩野"@ja ;
+    whis:prefectureCode "JP-43" ;
+    whis:registeredYear "2016"^^xsd:gYear ;
+    whis:representativePoint "幸野ダム（幸野溝の取水口）"@ja ;
+    whis:waterSource wd:Q1358183 ;
+    whis:waterSourceName "球磨川"@ja .
+
+<https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg> a schema:ImageObject ;
+    schema:about wd:Q17225723 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg> ;
+    schema:creditText "shunsaku hara (r265)" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/3.0> ;
+    schema:name "百太郎溝 Hyakutarou Waterway - panoramio.jpg" .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(131.002562 32.306545)"^^geo:wktLiteral .
+

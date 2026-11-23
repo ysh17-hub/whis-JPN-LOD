@@ -1,0 +1,57 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-034 a whis:HeritageIrrigationStructure ;
+    rdfs:label "大和川分水築留掛かり"@ja ;
+    dcterms:identifier "WHIS-JP-034" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/keityo/kikaku/k_panf2002/pdf/15.pdf>,
+        <https://www.pref.osaka.lg.jp/chubunm/chubu_nm/tukidome.html> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry> ;
+    rdfs:comment "長瀬川・玉串川。2002年の農水省資料では約320ha"@ja ;
+    wgs84:lat 34.580387 ;
+    wgs84:long 135.6276 ;
+    schema:addressLocality "柏原市他"@ja ;
+    schema:addressRegion "大阪府"@ja ;
+    schema:containedInPlace wd:Q122723 ;
+    schema:hasPart wd:Q11572360,
+        wd:Q11653384 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG>,
+        <https://commons.wikimedia.org/wiki/File:Tamakushi-river_2008_spring01.JPG> ;
+    schema:name "大和川分水築留掛かり"@ja ;
+    whis:builtYear "1705"^^xsd:gYear ;
+    whis:builtYearBasis "供用開始（宝永2年）"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:managedBy "築留土地改良区"@ja ;
+    whis:pointAddress "大阪府柏原市上市三丁目"@ja ;
+    whis:prefectureCode "JP-27" ;
+    whis:registeredYear "2018"^^xsd:gYear ;
+    whis:representativePoint "築留二番樋"@ja ;
+    whis:waterSource wd:Q9001527 ;
+    whis:waterSourceName "大和川"@ja .
+
+<https://commons.wikimedia.org/wiki/File:Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG> a schema:ImageObject ;
+    schema:about wd:Q11653384 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG> ;
+    schema:creditText "Kansai explorer" ;
+    schema:license <https://creativecommons.org/licenses/by/3.0> ;
+    schema:name "Nagase river, Higashiosaka, Osaka01.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Tamakushi-river_2008_spring01.JPG> a schema:ImageObject ;
+    schema:about wd:Q11572360 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Tamakushi-river_2008_spring01.JPG> ;
+    schema:creditText "Kansai explorer" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Tamakushi-river 2008 spring01.JPG" .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(135.6276 34.580387)"^^geo:wktLiteral .
+

@@ -1,0 +1,45 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
+    rdfs:label "稲生川"@ja ;
+    dcterms:identifier "WHIS-JP-001" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/aomori/index.html>,
+        <https://www.maff.go.jp/j/nousin/sekkei/museum/suido/attach/pdf/170425-2.pdf>,
+        <https://www.pref.aomori.lg.jp/soshiki/nourin/ka-nosui/files/inaoigawawalk2024.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry> ;
+    rdfs:comment "1859年完成。かんがい面積は資料で異なる（農水省『先人』ページ：約5,900haの水田／農水省『水土を守る人々』2017：改良区受益地約5,200ha）ため空欄"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E7%A8%B2%E7%94%9F%E5%B7%9D>,
+        <https://www.openstreetmap.org/relation/18667788> ;
+    owl:sameAs wd:Q11596736 ;
+    wgs84:lat 40.592154 ;
+    wgs84:long 141.097605 ;
+    schema:addressLocality "十和田市他"@ja ;
+    schema:addressRegion "青森県"@ja ;
+    schema:containedInPlace wd:Q71699 ;
+    schema:name "稲生川"@ja ;
+    whis:builtYear "1855"^^xsd:gYear ;
+    whis:builtYearBasis "着工"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:managedBy "稲生川土地改良区"@ja ;
+    whis:pointAddress "青森県十和田市大字法量"@ja ;
+    whis:prefectureCode "JP-02" ;
+    whis:registeredYear "2014"^^xsd:gYear ;
+    whis:representativePoint "稲生川頭首工"@ja ;
+    whis:waterSource wd:Q1156064,
+        wd:Q1196132 ;
+    whis:waterSourceName "奥入瀬川（十和田湖）"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(141.097605 40.592154)"^^geo:wktLiteral .
+

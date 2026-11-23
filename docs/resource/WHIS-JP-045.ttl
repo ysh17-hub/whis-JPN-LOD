@@ -1,0 +1,38 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-045 a whis:HeritageIrrigationStructure ;
+    rdfs:label "Kanuki Irrigation Canal"@en,
+        "香貫用水"@ja ;
+    dcterms:identifier "WHIS-JP-045" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-9.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-045/geometry> ;
+    rdfs:comment "1620年代完成（農水省概要）"@ja ;
+    wgs84:lat 35.100044 ;
+    wgs84:long 138.883284 ;
+    schema:addressLocality "沼津市"@ja ;
+    schema:addressRegion "静岡県"@ja ;
+    schema:containedInPlace wd:Q131320 ;
+    schema:name "Kanuki Irrigation Canal"@en,
+        "香貫用水"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:managedBy "沼津市・香貫用水委員会"@ja ;
+    whis:pointAddress "静岡県沼津市中瀬町"@ja ;
+    whis:prefectureCode "JP-22" ;
+    whis:registeredYear "2022"^^xsd:gYear ;
+    whis:representativePoint "三日月型石堰（内膳堀跡碑）"@ja ;
+    whis:waterSource wd:Q6364188 ;
+    whis:waterSourceName "狩野川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-045/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(138.883284 35.100044)"^^geo:wktLiteral .
+

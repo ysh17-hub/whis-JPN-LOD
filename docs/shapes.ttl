@@ -1,0 +1,94 @@
+# 世界かんがい施設遺産（日本）LOD のデータの形（SHACL）
+# python lod.py build を実行すると、pyshacl が入っていればこの形に合っているかを自動で確かめます。
+# GitHub Actions でも、データを更新するたびに同じチェックをします。
+# https://ysh17-hub.github.io/whis-lod は build のときに公開URL（site_config.json から作る）に置き換わります。
+
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix schema:  <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix geo:     <http://www.opengis.net/ont/geosparql#> .
+@prefix wgs84:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whisx:   <urn:whis-lod:shapes#> .
+
+whisx:StructureShape
+    a sh:NodeShape ;
+    rdfs:label "世界かんがい施設遺産1件の形"@ja ;
+    sh:targetClass <https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure> ;
+    sh:property
+        [ sh:path dcterms:identifier ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^WHIS-JP-[0-9]{3}$" ;
+          sh:message "ID は WHIS-JP-000 の形で1つだけ"@ja ] ,
+        [ sh:path schema:name ; sh:minCount 1 ; sh:languageIn ( "ja" "en" ) ; sh:uniqueLang true ;
+          sh:message "名称は日本語（と英語）で、言語ごとに1つ"@ja ] ,
+        [ sh:path schema:addressRegion ; sh:minCount 1 ; sh:maxCount 1 ;
+          sh:message "都道府県は1つ"@ja ] ,
+        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode> ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^JP-[0-9]{2}$" ;
+          sh:message "都道府県コードは JP-00 の形で1つ"@ja ] ,
+        [ sh:path schema:containedInPlace ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+          sh:pattern "^http://www\\.wikidata\\.org/entity/Q[0-9]+$" ;
+          sh:message "都道府県の Wikidata 項目は1つ"@ja ] ,
+        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#registeredYear> ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:gYear ;
+          sh:message "登録年は xsd:gYear で1つ"@ja ] ,
+        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#builtYear> ; sh:maxCount 1 ; sh:datatype xsd:gYear ;
+          sh:message "建設年は xsd:gYear で最大1つ"@ja ] ,
+        [ sh:path wgs84:lat ; sh:maxCount 1 ; sh:datatype xsd:decimal ; sh:minInclusive 20 ; sh:maxInclusive 46 ;
+          sh:message "緯度は日本の範囲で最大1つ"@ja ] ,
+        [ sh:path wgs84:long ; sh:maxCount 1 ; sh:datatype xsd:decimal ; sh:minInclusive 122 ; sh:maxInclusive 154 ;
+          sh:message "経度は日本の範囲で最大1つ"@ja ] ,
+        [ sh:path geo:hasGeometry ; sh:maxCount 1 ; sh:node whisx:GeometryShape ] ,
+        [ sh:path owl:sameAs ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+          sh:pattern "^http://www\\.wikidata\\.org/entity/Q[0-9]+$" ; sh:disjoint schema:hasPart ;
+          sh:message "同じ施設（owl:sameAs）は Wikidata の項目1つまで。構成施設（schema:hasPart）と同じ項目にはしない"@ja ] ,
+        [ sh:path schema:hasPart ; sh:nodeKind sh:IRI ; sh:pattern "^http://www\\.wikidata\\.org/entity/Q[0-9]+$" ;
+          sh:message "構成施設は Wikidata の項目"@ja ] ,
+        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#waterSource> ;
+          sh:or ( [ sh:nodeKind sh:IRI ; sh:pattern "^http://www\\.wikidata\\.org/entity/Q[0-9]+$" ]
+                  [ sh:datatype rdf:langString ] ) ;
+          sh:message "水源は Wikidata の項目か、日本語の名前"@ja ] ,
+        [ sh:path dcterms:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+          sh:message "出典のURLが1つ以上必要"@ja ] ,
+        [ sh:path dcterms:isPartOf ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dcat:Dataset ;
+          sh:message "データセットに属する"@ja ] ,
+        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#pointAddress> ; sh:maxCount 1 ; sh:datatype rdf:langString ;
+          sh:message "代表地点の住所は1つの日本語の文字列"@ja ] ,
+        [ sh:path schema:image ; sh:nodeKind sh:IRI ; sh:node whisx:ImageShape ;
+          sh:message "写真は Wikimedia Commons のファイルページ（作者・ライセンスつき）"@ja ] ,
+        [ sh:path rdfs:seeAlso ; sh:nodeKind sh:IRI ;
+          sh:message "外部データベースへのつながりはURL"@ja ] .
+
+whisx:ImageShape
+    a sh:NodeShape ;
+    rdfs:label "写真1枚の形（ライセンス表示に必要な情報がそろっているか）"@ja ;
+    sh:property
+        [ sh:path schema:contentUrl ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+          sh:pattern "^https://commons\\.wikimedia\\.org/" ] ,
+        [ sh:path schema:creditText ; sh:minCount 1 ;
+          sh:message "撮影者（クレジット）が必要"@ja ] ,
+        [ sh:path schema:license ; sh:minCount 1 ;
+          sh:message "ライセンスが必要"@ja ] .
+
+whisx:GeometryShape
+    a sh:NodeShape ;
+    sh:property [ sh:path geo:asWKT ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype geo:wktLiteral ;
+                  sh:pattern "^POINT\\([0-9.]+ [0-9.]+\\)$" ] .
+
+whisx:DatasetShape
+    a sh:NodeShape ;
+    rdfs:label "データセット全体の説明の形"@ja ;
+    sh:targetClass dcat:Dataset ;
+    sh:property
+        [ sh:path dcterms:title ; sh:minCount 1 ] ,
+        [ sh:path dcterms:license ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ,
+        [ sh:path dcterms:creator ; sh:minCount 1 ] ,
+        [ sh:path dcterms:modified ; sh:minCount 1 ; sh:datatype xsd:date ] ,
+        [ sh:path dcat:distribution ; sh:minCount 1 ; sh:node whisx:DistributionShape ] .
+
+whisx:DistributionShape
+    a sh:NodeShape ;
+    sh:property
+        [ sh:path dcat:downloadURL ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ,
+        [ sh:path dcat:mediaType ; sh:minCount 1 ] .

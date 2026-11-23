@@ -1,0 +1,34 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-059 a whis:HeritageIrrigationStructure ;
+    rdfs:label "日根荘大木のかんがい用水群"@ja ;
+    dcterms:identifier "WHIS-JP-059" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/press/nousin/sekkei/260821.html>,
+        <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-7.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-059/geometry> ;
+    rdfs:comment "認定名は「日根荘大木のかんがい用水群」（2026年4月の申請時名称は「日根荘のかんがい用水群」）。水路11本・ため池10か所・井堰6か所。日根荘成立は1234年"@ja ;
+    wgs84:lat 34.352746 ;
+    wgs84:long 135.37791 ;
+    schema:addressLocality "泉佐野市"@ja ;
+    schema:addressRegion "大阪府"@ja ;
+    schema:containedInPlace wd:Q122723 ;
+    schema:name "日根荘大木のかんがい用水群"@ja ;
+    whis:facilityType "用水群"@ja ;
+    whis:pointAddress "大阪府泉佐野市大木"@ja ;
+    whis:prefectureCode "JP-27" ;
+    whis:registeredYear "2026"^^xsd:gYear ;
+    whis:representativePoint "東ノ池"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-059/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(135.37791 34.352746)"^^geo:wktLiteral .
+

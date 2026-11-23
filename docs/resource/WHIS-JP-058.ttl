@@ -1,0 +1,38 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
+    rdfs:label "小笠地域かんがい用水群"@ja ;
+    dcterms:identifier "WHIS-JP-058" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-5.pdf>,
+        <https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/085/031/09_0821nouchiseibi.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-058/geometry> ;
+    rdfs:comment "構成10施設（用水路3、ため池7）"@ja ;
+    wgs84:lat 34.674363 ;
+    wgs84:long 137.983018 ;
+    schema:addressLocality "掛川市、菊川市"@ja ;
+    schema:addressRegion "静岡県"@ja ;
+    schema:containedInPlace wd:Q131320 ;
+    schema:name "小笠地域かんがい用水群"@ja ;
+    whis:builtYear "1594"^^xsd:gYear ;
+    whis:builtYearBasis "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）"@ja ;
+    whis:facilityType "用水群"@ja ;
+    whis:irrigatedArea 979.0 ;
+    whis:managedBy "大井川右岸土地改良区（申請者）"@ja ;
+    whis:pointAddress "静岡県掛川市西大渕"@ja ;
+    whis:prefectureCode "JP-22" ;
+    whis:registeredYear "2026"^^xsd:gYear ;
+    whis:representativePoint "十内圦"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-058/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(137.983018 34.674363)"^^geo:wktLiteral .
+

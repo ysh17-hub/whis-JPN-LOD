@@ -1,0 +1,39 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-054 a whis:HeritageIrrigationStructure ;
+    rdfs:label "Saikojinososuiro Irrigation System"@en,
+        "西光寺野疏水路"@ja ;
+    dcterms:identifier "WHIS-JP-054" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-21.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-054/geometry> ;
+    wgs84:lat 34.985529 ;
+    wgs84:long 134.794702 ;
+    schema:addressLocality "姫路市他"@ja ;
+    schema:addressRegion "兵庫県"@ja ;
+    schema:containedInPlace wd:Q130290 ;
+    schema:name "Saikojinososuiro Irrigation System"@en,
+        "西光寺野疏水路"@ja ;
+    whis:builtYear "1915"^^xsd:gYear ;
+    whis:builtYearBasis "完成（1912着工）"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:managedBy "西光寺野土地改良区"@ja ;
+    whis:pointAddress "兵庫県市川町下瀬加"@ja ;
+    whis:prefectureCode "JP-28" ;
+    whis:registeredYear "2024"^^xsd:gYear ;
+    whis:representativePoint "瓜生田取水口（瓜生田井堰）"@ja ;
+    whis:waterSource "岡部川"@ja ;
+    whis:waterSourceName "岡部川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-054/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(134.794702 34.985529)"^^geo:wktLiteral .
+

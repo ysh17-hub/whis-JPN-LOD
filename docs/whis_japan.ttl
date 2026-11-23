@@ -13,7 +13,7 @@
 
 whis:builtYear a rdf:Property ;
     rdfs:label "year built"@en,
-        "建設年（着工・完成のどちらかは note に記載）"@ja ;
+        "建設年（何の年かは builtYearBasis に記載）"@ja ;
     rdfs:range xsd:gYear .
 
 whis:builtYearBasis a rdf:Property ;
@@ -36,6 +36,11 @@ whis:managedBy a rdf:Property ;
         "管理者"@ja ;
     rdfs:range xsd:string .
 
+whis:pointAddress a rdf:Property ;
+    rdfs:label "address of the representative point (reverse-geocoded by GSI)"@en,
+        "代表地点の住所（国土地理院の逆ジオコーダで座標から求めた市区町村・大字）"@ja ;
+    rdfs:range xsd:string .
+
 whis:prefectureCode a rdf:Property ;
     rdfs:label "prefecture code"@en,
         "都道府県コード（ISO 3166-2:JP）"@ja ;
@@ -52,8 +57,12 @@ whis:representativePoint a rdf:Property ;
     rdfs:range xsd:string .
 
 whis:waterSource a rdf:Property ;
-    rdfs:label "water source (river)"@en,
-        "水源の川"@ja .
+    rdfs:label "water source (river, lake, etc.)"@en,
+        "水源（川・湖など。Wikidataにあれば IRI）"@ja .
+
+whis:waterSourceName a rdf:Property ;
+    rdfs:label "name of the water source as written in the sources"@en,
+        "水源の名前（資料の表記）"@ja .
 
 res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
     rdfs:label "稲生川"@ja ;
@@ -65,6 +74,9 @@ res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
         <https://www.pref.aomori.lg.jp/soshiki/nourin/ka-nosui/files/inaoigawawalk2024.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry> ;
     rdfs:comment "1859年完成。かんがい面積は資料で異なる（農水省『先人』ページ：約5,900haの水田／農水省『水土を守る人々』2017：改良区受益地約5,200ha）ため空欄"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E7%A8%B2%E7%94%9F%E5%B7%9D>,
+        <https://www.openstreetmap.org/relation/18667788> ;
+    owl:sameAs wd:Q11596736 ;
     wgs84:lat 40.592154 ;
     wgs84:long 141.097605 ;
     schema:addressLocality "十和田市他"@ja ;
@@ -75,10 +87,13 @@ res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "着工"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "稲生川土地改良区"@ja ;
+    whis:pointAddress "青森県十和田市大字法量"@ja ;
     whis:prefectureCode "JP-02" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "稲生川頭首工"@ja ;
-    whis:waterSource "奥入瀬川（十和田湖）"@ja .
+    whis:waterSource wd:Q1156064,
+        wd:Q1196132 ;
+    whis:waterSourceName "奥入瀬川（十和田湖）"@ja .
 
 res:WHIS-JP-002 a whis:HeritageIrrigationStructure ;
     rdfs:label "雄川堰"@ja ;
@@ -95,6 +110,7 @@ res:WHIS-JP-002 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q129499 ;
     schema:name "雄川堰"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "群馬県甘楽町大字小幡"@ja ;
     whis:prefectureCode "JP-10" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "吹上の石樋"@ja .
@@ -106,20 +122,27 @@ res:WHIS-JP-003 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003/geometry> ;
+    rdfs:comment "代表地点の座標は国土地理院の地名検索で「深良水門」とされる地点（航空写真で確認）。"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B4>,
+        <https://sws.geonames.org/1863353/> ;
+    owl:sameAs wd:Q11560257 ;
     wgs84:lat 35.230123 ;
     wgs84:long 138.984754 ;
     schema:addressLocality "裾野市他"@ja ;
     schema:addressRegion "静岡県"@ja ;
     schema:containedInPlace wd:Q131320 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG> ;
     schema:name "深良用水"@ja ;
     whis:builtYear "1666"^^xsd:gYear ;
     whis:builtYearBasis "資料記載年"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "静岡県芦湖水利組合"@ja ;
+    whis:pointAddress "神奈川県箱根町元箱根"@ja ;
     whis:prefectureCode "JP-22" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "深良水門"@ja ;
-    whis:waterSource "芦ノ湖"@ja .
+    whis:waterSource wd:Q187053 ;
+    whis:waterSourceName "芦ノ湖"@ja .
 
 res:WHIS-JP-004 a whis:HeritageIrrigationStructure ;
     rdfs:label "七ヶ用水"@ja ;
@@ -140,10 +163,12 @@ res:WHIS-JP-004 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "合口事業完成（七つの用水の取水口統合）"@ja ;
     whis:facilityType "用水群"@ja ;
     whis:managedBy "手取川七ヶ用水土地改良区"@ja ;
+    whis:pointAddress "石川県白山市白山町"@ja ;
     whis:prefectureCode "JP-17" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "大水門"@ja ;
-    whis:waterSource "手取川"@ja .
+    whis:waterSource wd:Q11496932 ;
+    whis:waterSourceName "手取川"@ja .
 
 res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
     rdfs:label "立梅用水"@ja ;
@@ -165,10 +190,12 @@ res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 420.0 ;
     whis:managedBy "立梅用水土地改良区"@ja ;
+    whis:pointAddress "三重県松阪市飯南町粥見"@ja ;
     whis:prefectureCode "JP-24" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "立梅井堰"@ja ;
-    whis:waterSource "櫛田川"@ja .
+    whis:waterSource wd:Q6447936 ;
+    whis:waterSourceName "櫛田川"@ja .
 
 res:WHIS-JP-006 a whis:HeritageIrrigationStructure ;
     rdfs:label "狭山池"@ja ;
@@ -178,13 +205,20 @@ res:WHIS-JP-006 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006/geometry> ;
     rdfs:comment "農水省概要に約1,400年前とある。年は未確定のため空欄"@ja ;
+    rdfs:seeAlso <https://id.ndl.go.jp/auth/ndlna/001219190>,
+        <https://ja.wikipedia.org/wiki/%E7%8B%AD%E5%B1%B1%E6%B1%A0_%28%E5%A4%A7%E9%98%AA%E5%BA%9C%29>,
+        <https://kunishitei.bunka.go.jp/heritage/detail/401/00003898>,
+        <https://sws.geonames.org/9072610/> ;
+    owl:sameAs wd:Q11571743 ;
     wgs84:lat 34.503333 ;
     wgs84:long 135.549722 ;
     schema:addressLocality "大阪狭山市"@ja ;
     schema:addressRegion "大阪府"@ja ;
     schema:containedInPlace wd:Q122723 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG> ;
     schema:name "狭山池"@ja ;
     whis:facilityType "ため池"@ja ;
+    whis:pointAddress "大阪府大阪狭山市大字岩室"@ja ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "狭山池"@ja .
@@ -198,21 +232,25 @@ res:WHIS-JP-007 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/hyogo/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry> ;
     rdfs:comment "山田川疏水は1911年着工・1915年完成（農水省）。81か所のため池も活用"@ja ;
-    owl:sameAs wd:Q11488870 ;
     wgs84:lat 34.790278 ;
     wgs84:long 135.055806 ;
     schema:addressLocality "神戸市他"@ja ;
     schema:addressRegion "兵庫県"@ja ;
     schema:containedInPlace wd:Q130290 ;
+    schema:hasPart wd:Q11488870,
+        wd:Q11559782 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg> ;
     schema:name "淡山疏水"@ja ;
     whis:builtYear "1891"^^xsd:gYear ;
     whis:builtYearBasis "淡河川疏水完成"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "兵庫県淡河川山田川土地改良区"@ja ;
+    whis:pointAddress "兵庫県三木市志染町御坂"@ja ;
     whis:prefectureCode "JP-28" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "御坂サイフォン橋"@ja ;
-    whis:waterSource "淡河川、志染川（山田川）"@ja .
+    whis:waterSource wd:Q11491046 ;
+    whis:waterSourceName "淡河川、志染川（山田川）"@ja .
 
 res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
     rdfs:label "山田堰、堀川用水、水車群"@ja ;
@@ -223,21 +261,24 @@ res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry> ;
     rdfs:comment "山田堰（傾斜堰床式石張堰）は1790年古賀百工により完成。かんがい面積は約652ha（aff 2024年9月号）"@ja ;
-    owl:sameAs wd:Q42581647 ;
     wgs84:lat 33.365371 ;
     wgs84:long 130.759267 ;
     schema:addressLocality "朝倉市"@ja ;
     schema:addressRegion "福岡県"@ja ;
     schema:containedInPlace wd:Q123258 ;
+    schema:hasPart wd:Q42567025 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg> ;
     schema:name "山田堰、堀川用水、水車群"@ja ;
     whis:builtYear "1663"^^xsd:gYear ;
     whis:builtYearBasis "堀川用水開削"@ja ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 652.0 ;
+    whis:pointAddress "福岡県朝倉市山田"@ja ;
     whis:prefectureCode "JP-40" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "山田堰"@ja ;
-    whis:waterSource "筑後川"@ja .
+    whis:waterSource wd:Q954320 ;
+    whis:waterSourceName "筑後川"@ja .
 
 res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
     rdfs:label "Tsujunyousui Irrigation System"@en,
@@ -248,17 +289,21 @@ res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry> ;
     rdfs:comment "日本最大の石造アーチ水路橋『通潤橋』を含む"@ja ;
-    owl:sameAs wd:Q11641521 ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E9%80%9A%E6%BD%A4%E7%94%A8%E6%B0%B4> ;
+    owl:sameAs wd:Q17238532 ;
     wgs84:lat 32.681667 ;
     wgs84:long 130.993611 ;
     schema:addressLocality "山都町"@ja ;
     schema:addressRegion "熊本県"@ja ;
     schema:containedInPlace wd:Q130308 ;
+    schema:hasPart wd:Q3077059 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg> ;
     schema:name "Tsujunyousui Irrigation System"@en,
         "通潤用水"@ja ;
     whis:builtYear "1855"^^xsd:gYear ;
     whis:builtYearBasis "建設（農水省aff記載）"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "熊本県山都町城原"@ja ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "通潤橋"@ja .
@@ -272,6 +317,9 @@ res:WHIS-JP-010 a whis:HeritageIrrigationStructure ;
         <https://www.pref.niigata.lg.jp/uploaded/attachment/78585.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-010/geometry> ;
     rdfs:comment "1573年から工事開始。全長約26km"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E4%B8%8A%E6%B1%9F%E7%94%A8%E6%B0%B4>,
+        <https://www.openstreetmap.org/relation/17802756> ;
+    owl:sameAs wd:Q127038809 ;
     wgs84:lat 37.00569 ;
     wgs84:long 138.274596 ;
     schema:addressLocality "上越市他"@ja ;
@@ -283,10 +331,12 @@ res:WHIS-JP-010 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 2600.0 ;
     whis:managedBy "関川水系土地改良区"@ja ;
+    whis:pointAddress "新潟県妙高市大字川上"@ja ;
     whis:prefectureCode "JP-15" ;
     whis:registeredYear "2015"^^xsd:gYear ;
     whis:representativePoint "上江用水記念公園（旧取水口）"@ja ;
-    whis:waterSource "関川"@ja .
+    whis:waterSource wd:Q11655745 ;
+    whis:waterSourceName "関川"@ja .
 
 res:WHIS-JP-011 a whis:HeritageIrrigationStructure ;
     rdfs:label "曽代用水"@ja ;
@@ -297,6 +347,8 @@ res:WHIS-JP-011 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/tokai/noson/nn/isan/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-011/geometry> ;
     rdfs:comment "藩主導でなく関係農家の話し合いで建設（東海農政局）"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E6%9B%BD%E4%BB%A3%E7%94%A8%E6%B0%B4>,
+        <https://www.openstreetmap.org/relation/19206949> ;
     owl:sameAs wd:Q11515249 ;
     wgs84:lat 35.5712 ;
     wgs84:long 136.9305 ;
@@ -307,10 +359,12 @@ res:WHIS-JP-011 a whis:HeritageIrrigationStructure ;
     whis:builtYear "1663"^^xsd:gYear ;
     whis:builtYearBasis "計画・着手（寛文3年）"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "岐阜県美濃市保木脇"@ja ;
     whis:prefectureCode "JP-21" ;
     whis:registeredYear "2015"^^xsd:gYear ;
     whis:representativePoint "曽代用水の取水口"@ja ;
-    whis:waterSource "長良川"@ja .
+    whis:waterSource wd:Q1194094 ;
+    whis:waterSourceName "長良川"@ja .
 
 res:WHIS-JP-012 a whis:HeritageIrrigationStructure ;
     rdfs:label "入鹿池"@ja ;
@@ -322,21 +376,25 @@ res:WHIS-JP-012 a whis:HeritageIrrigationStructure ;
         <https://www.pref.aichi.jp/uploaded/attachment/275757.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-012/geometry> ;
     rdfs:comment "かんがい面積は資料で異なる（国交省資料：水田約600ha／農水省ため池百選：1,300ha）ため空欄。貯水量15,187,000m3（愛知県）"@ja ;
-    owl:sameAs wd:Q111935834 ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%85%A5%E9%B9%BF%E6%B1%A0> ;
+    owl:sameAs wd:Q927013 ;
     wgs84:lat 35.342505 ;
     wgs84:long 136.99904 ;
     schema:addressLocality "犬山市"@ja ;
     schema:addressRegion "愛知県"@ja ;
     schema:containedInPlace wd:Q80434 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Irukaike_pond_1.JPG> ;
     schema:name "入鹿池"@ja ;
     whis:builtYear "1633"^^xsd:gYear ;
     whis:builtYearBasis "完成"@ja ;
     whis:facilityType "ため池"@ja ;
     whis:managedBy "入鹿用水土地改良区"@ja ;
+    whis:pointAddress "愛知県犬山市字池底"@ja ;
     whis:prefectureCode "JP-23" ;
     whis:registeredYear "2015"^^xsd:gYear ;
     whis:representativePoint "入鹿池"@ja ;
-    whis:waterSource "五条川（上流を堰き止め）"@ja .
+    whis:waterSource wd:Q2747208 ;
+    whis:waterSourceName "五条川（上流を堰き止め）"@ja .
 
 res:WHIS-JP-013 a whis:HeritageIrrigationStructure ;
     rdfs:label "久米田池"@ja ;
@@ -347,22 +405,26 @@ res:WHIS-JP-013 a whis:HeritageIrrigationStructure ;
         <https://www.pref.osaka.lg.jp/senshunm/gyoumu/kumedaike.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-013/geometry> ;
     rdfs:comment "行基が関わる。敷葉工法。貯水量157万トン"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E4%B9%85%E7%B1%B3%E7%94%B0%E6%B1%A0> ;
     owl:sameAs wd:Q55528468 ;
     wgs84:lat 34.455614 ;
     wgs84:long 135.415956 ;
     schema:addressLocality "岸和田市"@ja ;
     schema:addressRegion "大阪府"@ja ;
     schema:containedInPlace wd:Q122723 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Kurumeji15.jpg> ;
     schema:name "久米田池"@ja ;
     whis:builtYear "0738"^^xsd:gYear ;
     whis:builtYearBasis "完成（725年着工・14年）"@ja ;
     whis:facilityType "ため池"@ja ;
     whis:irrigatedArea 80.0 ;
     whis:managedBy "久米田池土地改良区"@ja ;
+    whis:pointAddress "大阪府岸和田市岡山町"@ja ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2015"^^xsd:gYear ;
     whis:representativePoint "久米田池"@ja ;
-    whis:waterSource "牛滝川"@ja .
+    whis:waterSource "牛滝川"@ja ;
+    whis:waterSourceName "牛滝川"@ja .
 
 res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
     rdfs:label "照井堰用水"@ja ;
@@ -372,6 +434,8 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry> ;
     rdfs:comment "総延長64km。毛越寺浄土庭園への遣水"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E7%85%A7%E4%BA%95%E5%A0%B0%E7%94%A8%E6%B0%B4>,
+        <https://www.openstreetmap.org/relation/21058820> ;
     owl:sameAs wd:Q28690019 ;
     wgs84:lat 38.951358 ;
     wgs84:long 141.020709 ;
@@ -383,10 +447,12 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "開削（1180年頃）"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "照井土地改良区"@ja ;
+    whis:pointAddress "岩手県一関市厳美町"@ja ;
     whis:prefectureCode "JP-03" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "大〆切頭首工"@ja ;
-    whis:waterSource "磐井川"@ja .
+    whis:waterSource wd:Q11587850 ;
+    whis:waterSourceName "磐井川"@ja .
 
 res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     rdfs:label "内川"@ja ;
@@ -396,6 +462,7 @@ res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
         <https://www.pref.miyagi.jp/soshiki/nosonshin/uchikawa.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-015/geometry> ;
     rdfs:comment "伊達政宗が開削。かんがい面積は3,300ha超"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%86%85%E5%B7%9D_%28%E5%A4%A7%E5%B4%8E%E5%B8%82%29> ;
     owl:sameAs wd:Q24867232 ;
     wgs84:lat 38.684053 ;
     wgs84:long 140.847135 ;
@@ -408,6 +475,7 @@ res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 3300.0 ;
     whis:managedBy "大崎土地改良区"@ja ;
+    whis:pointAddress "宮城県大崎市岩出山下一栗"@ja ;
     whis:prefectureCode "JP-04" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "大堰頭首工"@ja .
@@ -422,22 +490,29 @@ res:WHIS-JP-016 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-6.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016/geometry> ;
     rdfs:comment "日本初の国直轄農業水利事業。水路約127km"@ja ;
-    owl:sameAs wd:Q6322355 ;
+    rdfs:seeAlso <https://id.ndl.go.jp/auth/ndlna/001267172>,
+        <https://ja.wikipedia.org/wiki/%E5%AE%89%E7%A9%8D%E7%96%8F%E6%B0%B4> ;
+    owl:sameAs wd:Q11451162 ;
     wgs84:lat 37.521342 ;
     wgs84:long 140.024396 ;
     schema:addressLocality "郡山市他"@ja ;
     schema:addressRegion "福島県"@ja ;
     schema:containedInPlace wd:Q71707 ;
+    schema:hasPart wd:Q6322355 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:AsakaSosuiKansenSuiroB.JPG>,
+        <https://commons.wikimedia.org/wiki/File:Jyurokkyou-s-r1.jpg> ;
     schema:name "Asakasosui Irrigation System"@en,
         "安積疏水"@ja ;
     whis:builtYear "1879"^^xsd:gYear ;
     whis:builtYearBasis "着工（3年で完成）"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "安積疏水土地改良区"@ja ;
+    whis:pointAddress "福島県猪苗代町大字翁沢"@ja ;
     whis:prefectureCode "JP-07" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "十六橋水門"@ja ;
-    whis:waterSource "猪苗代湖"@ja .
+    whis:waterSource wd:Q1140672 ;
+    whis:waterSourceName "猪苗代湖"@ja .
 
 res:WHIS-JP-017 a whis:HeritageIrrigationStructure ;
     rdfs:label "長野堰用水"@ja ;
@@ -447,6 +522,9 @@ res:WHIS-JP-017 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-017/geometry> ;
     rdfs:comment "1814年埋樋、1904年榛名湖隧道（関東農政局資料）。最盛期かんがい1,700ha"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E9%95%B7%E9%87%8E%E5%A0%B0>,
+        <https://www.openstreetmap.org/relation/7868204> ;
+    owl:sameAs wd:Q21653915 ;
     wgs84:lat 36.324989 ;
     wgs84:long 139.02098 ;
     schema:addressLocality "高崎市"@ja ;
@@ -455,10 +533,12 @@ res:WHIS-JP-017 a whis:HeritageIrrigationStructure ;
     schema:name "長野堰用水"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "長野堰土地改良区"@ja ;
+    whis:pointAddress "群馬県高崎市岩押町"@ja ;
     whis:prefectureCode "JP-10" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "長野堰用水円筒分水工"@ja ;
-    whis:waterSource "烏川"@ja .
+    whis:waterSource wd:Q3915532 ;
+    whis:waterSourceName "烏川"@ja .
 
 res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
     rdfs:label "村山六ヶ村堰疏水"@ja ;
@@ -476,6 +556,7 @@ res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
     schema:name "村山六ヶ村堰疏水"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "村山六ヶ村堰土地改良区"@ja ;
+    whis:pointAddress "山梨県北杜市大泉町西井出"@ja ;
     whis:prefectureCode "JP-19" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "東沢頭首工（東沢取水口）"@ja .
@@ -488,6 +569,7 @@ res:WHIS-JP-019 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-019/geometry> ;
     rdfs:comment "延長約15km。表記は資料により拾ヶ堰／拾ケ堰"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E6%8B%BE%E3%83%B6%E5%A0%B0> ;
     owl:sameAs wd:Q11497876 ;
     wgs84:lat 36.253986 ;
     wgs84:long 137.950056 ;
@@ -500,10 +582,12 @@ res:WHIS-JP-019 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 958.0 ;
     whis:managedBy "長野県拾ケ堰土地改良区"@ja ;
+    whis:pointAddress "長野県松本市大字島内"@ja ;
     whis:prefectureCode "JP-20" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "拾ヶ堰"@ja ;
-    whis:waterSource "奈良井川"@ja .
+    whis:waterSource wd:Q11444998 ;
+    whis:waterSourceName "奈良井川"@ja .
 
 res:WHIS-JP-020 a whis:HeritageIrrigationStructure ;
     rdfs:label "滝之湯堰・大河原堰"@ja ;
@@ -520,6 +604,7 @@ res:WHIS-JP-020 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q127877 ;
     schema:name "滝之湯堰・大河原堰"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "長野県茅野市北山"@ja ;
     whis:prefectureCode "JP-20" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "滝之湯堰・大河原堰"@ja .
@@ -539,10 +624,12 @@ res:WHIS-JP-021 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q131320 ;
     schema:name "源兵衛川"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "静岡県三島市一番町"@ja ;
     whis:prefectureCode "JP-22" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "小浜池"@ja ;
-    whis:waterSource "小浜池（湧水）"@ja .
+    whis:waterSource "小浜池（湧水）"@ja ;
+    whis:waterSourceName "小浜池（湧水）"@ja .
 
 res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
     rdfs:label "足羽川用水"@ja ;
@@ -552,6 +639,7 @@ res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry> ;
     rdfs:comment "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積は約2,000ha"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E8%B6%B3%E7%BE%BD%E5%B7%9D%E7%94%A8%E6%B0%B4> ;
     owl:sameAs wd:Q48752727 ;
     wgs84:lat 36.020263 ;
     wgs84:long 136.296509 ;
@@ -562,10 +650,12 @@ res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 2000.0 ;
     whis:managedBy "足羽川堰堤土地改良区連合"@ja ;
+    whis:pointAddress "福井県福井市前波町"@ja ;
     whis:prefectureCode "JP-18" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "足羽川頭首工"@ja ;
-    whis:waterSource "足羽川"@ja .
+    whis:waterSource wd:Q3307289 ;
+    whis:waterSourceName "足羽川"@ja .
 
 res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
     rdfs:label "明治用水"@ja ;
@@ -576,6 +666,8 @@ res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
         <https://www.pref.aichi.jp/uploaded/attachment/489986.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023/geometry> ;
     rdfs:comment "都築弥厚の計画。現頭首工は1958年完成"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E6%98%8E%E6%B2%BB%E7%94%A8%E6%B0%B4> ;
+    owl:sameAs wd:Q11512382 ;
     wgs84:lat 35.045993 ;
     wgs84:long 137.17821 ;
     schema:addressLocality "安城市他"@ja ;
@@ -586,10 +678,12 @@ res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "完成"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "明治用水土地改良区"@ja ;
+    whis:pointAddress "愛知県豊田市水源町六丁目"@ja ;
     whis:prefectureCode "JP-23" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "明治用水頭首工"@ja ;
-    whis:waterSource "矢作川"@ja .
+    whis:waterSource wd:Q1132256 ;
+    whis:waterSourceName "矢作川"@ja .
 
 res:WHIS-JP-024 a whis:HeritageIrrigationStructure ;
     rdfs:label "南家城川口井水"@ja ;
@@ -608,10 +702,12 @@ res:WHIS-JP-024 a whis:HeritageIrrigationStructure ;
     whis:builtYear "1190"^^xsd:gYear ;
     whis:builtYearBasis "開設"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "三重県津市白山町真見"@ja ;
     whis:prefectureCode "JP-24" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "雲出川の堰（津市白山町真見）"@ja ;
-    whis:waterSource "雲出川"@ja .
+    whis:waterSource wd:Q11660011 ;
+    whis:waterSourceName "雲出川"@ja .
 
 res:WHIS-JP-025 a whis:HeritageIrrigationStructure ;
     rdfs:label "常盤湖"@ja ;
@@ -621,14 +717,18 @@ res:WHIS-JP-025 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-025/geometry> ;
     rdfs:comment "築造年は公的資料で未確認のため空欄"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%B8%B8%E7%9B%A4%E6%B1%A0>,
+        <https://sws.geonames.org/1850191/> ;
     owl:sameAs wd:Q11481531 ;
     wgs84:lat 33.95 ;
     wgs84:long 131.283333 ;
     schema:addressLocality "宇部市"@ja ;
     schema:addressRegion "山口県"@ja ;
     schema:containedInPlace wd:Q127264 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg> ;
     schema:name "常盤湖"@ja ;
     whis:facilityType "ため池"@ja ;
+    whis:pointAddress "山口県宇部市大字沖宇部"@ja ;
     whis:prefectureCode "JP-35" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "常盤湖（ときわ公園）"@ja .
@@ -642,21 +742,28 @@ res:WHIS-JP-026 a whis:HeritageIrrigationStructure ;
         <https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/mannouike.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry> ;
     rdfs:comment "821年に空海が修築。貯水量1,540万m3"@ja ;
-    owl:sameAs wd:Q11563913 ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E6%BA%80%E6%BF%83%E6%B1%A0>,
+        <https://www.openstreetmap.org/relation/2304882> ;
+    owl:sameAs wd:Q20983084 ;
     wgs84:lat 34.162667 ;
     wgs84:long 133.871392 ;
     schema:addressLocality "まんのう町"@ja ;
     schema:addressRegion "香川県"@ja ;
     schema:containedInPlace wd:Q161454 ;
+    schema:hasPart wd:Q6750928 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Mannolake1.JPG>,
+        <https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg> ;
     schema:name "満濃池"@ja ;
     whis:builtYear "0701"^^xsd:gYear ;
     whis:builtYearBasis "築造（大宝年間701〜704）"@ja ;
     whis:facilityType "ため池"@ja ;
     whis:irrigatedArea 3239.0 ;
+    whis:pointAddress "香川県まんのう町神野"@ja ;
     whis:prefectureCode "JP-37" ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "満濃池"@ja ;
-    whis:waterSource "金倉川"@ja .
+    whis:waterSource wd:Q11646415 ;
+    whis:waterSourceName "金倉川"@ja .
 
 res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     rdfs:label "Kounomizo-Hyakutaroumizo Irrigation System"@en,
@@ -671,15 +778,20 @@ res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     schema:addressLocality "湯前町他"@ja ;
     schema:addressRegion "熊本県"@ja ;
     schema:containedInPlace wd:Q130308 ;
+    schema:hasPart wd:Q11484089,
+        wd:Q17225723 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg> ;
     schema:name "Kounomizo-Hyakutaroumizo Irrigation System"@en,
         "幸野溝・百太郎溝水路群"@ja ;
     whis:builtYear "1705"^^xsd:gYear ;
     whis:builtYearBasis "幸野溝の年（百太郎溝は1710）"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "熊本県水上村大字岩野"@ja ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2016"^^xsd:gYear ;
-    whis:representativePoint "球磨川の堰堤（水上村岩野）"@ja ;
-    whis:waterSource "球磨川"@ja .
+    whis:representativePoint "幸野ダム（幸野溝の取水口）"@ja ;
+    whis:waterSource wd:Q1358183 ;
+    whis:waterSourceName "球磨川"@ja .
 
 res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
     rdfs:label "土淵堰"@ja ;
@@ -689,6 +801,7 @@ res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
         <https://www.pref.aomori.lg.jp/soshiki/nourin/noson/files/k_tsushin36.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-028/geometry> ;
     rdfs:comment "江戸時代初期築造、延長16km（青森県）"@ja ;
+    rdfs:seeAlso <https://sws.geonames.org/8412802/> ;
     owl:sameAs wd:Q34962967 ;
     wgs84:lat 40.652053 ;
     wgs84:long 140.46079 ;
@@ -699,10 +812,12 @@ res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 8300.0 ;
     whis:managedBy "西津軽土地改良区"@ja ;
+    whis:pointAddress "青森県弘前市大字中崎"@ja ;
     whis:prefectureCode "JP-02" ;
     whis:registeredYear "2017"^^xsd:gYear ;
     whis:representativePoint "土淵堰"@ja ;
-    whis:waterSource "岩木川"@ja .
+    whis:waterSource wd:Q5359180 ;
+    whis:waterSourceName "岩木川"@ja .
 
 res:WHIS-JP-029 a whis:HeritageIrrigationStructure ;
     rdfs:label "Nasu-sosui"@en,
@@ -712,6 +827,8 @@ res:WHIS-JP-029 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-5.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029/geometry> ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E9%82%A3%E9%A0%88%E7%96%8F%E6%B0%B4>,
+        <https://www.openstreetmap.org/relation/18949446> ;
     owl:sameAs wd:Q11642949 ;
     wgs84:lat 37.038616 ;
     wgs84:long 139.986289 ;
@@ -724,10 +841,12 @@ res:WHIS-JP-029 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "完成"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "那須野ヶ原土地改良区連合"@ja ;
+    whis:pointAddress "栃木県那須町大字高久乙"@ja ;
     whis:prefectureCode "JP-09" ;
     whis:registeredYear "2017"^^xsd:gYear ;
     whis:representativePoint "西岩崎頭首工"@ja ;
-    whis:waterSource "那珂川"@ja .
+    whis:waterSource wd:Q1076983 ;
+    whis:waterSourceName "那珂川"@ja .
 
 res:WHIS-JP-030 a whis:HeritageIrrigationStructure ;
     rdfs:label "松原用水・牟呂用水"@ja ;
@@ -737,21 +856,23 @@ res:WHIS-JP-030 a whis:HeritageIrrigationStructure ;
         <https://www.pref.aichi.jp/soshiki/nochi-keikaku/muromatubara-sekaikangaisisetuisan.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-030/geometry> ;
     rdfs:comment "受益面積：松原用水642ha＋牟呂用水970ha（愛知県）の合計"@ja ;
-    owl:sameAs wd:Q11570262 ;
     wgs84:lat 34.875146 ;
     wgs84:long 137.474429 ;
     schema:addressLocality "豊橋市他"@ja ;
     schema:addressRegion "愛知県"@ja ;
     schema:containedInPlace wd:Q80434 ;
+    schema:hasPart wd:Q11570262 ;
     schema:name "松原用水・牟呂用水"@ja ;
     whis:builtYear "1567"^^xsd:gYear ;
     whis:builtYearBasis "松原用水の取水堰（牟呂用水は1888）"@ja ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 1612.0 ;
+    whis:pointAddress "愛知県新城市豊島"@ja ;
     whis:prefectureCode "JP-23" ;
     whis:registeredYear "2017"^^xsd:gYear ;
     whis:representativePoint "牟呂松原頭首工"@ja ;
-    whis:waterSource "豊川"@ja .
+    whis:waterSource wd:Q11633588 ;
+    whis:waterSourceName "豊川"@ja .
 
 res:WHIS-JP-031 a whis:HeritageIrrigationStructure ;
     rdfs:label "小田井用水路"@ja ;
@@ -773,10 +894,12 @@ res:WHIS-JP-031 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 610.0 ;
     whis:managedBy "小田井土地改良区"@ja ;
+    whis:pointAddress "和歌山県かつらぎ町大字高田"@ja ;
     whis:prefectureCode "JP-30" ;
     whis:registeredYear "2017"^^xsd:gYear ;
     whis:representativePoint "龍之渡井"@ja ;
-    whis:waterSource "紀の川"@ja .
+    whis:waterSource wd:Q1042624 ;
+    whis:waterSourceName "紀の川"@ja .
 
 res:WHIS-JP-032 a whis:HeritageIrrigationStructure ;
     rdfs:label "北楯大堰"@ja ;
@@ -787,21 +910,25 @@ res:WHIS-JP-032 a whis:HeritageIrrigationStructure ;
         <https://www.pref.yamagata.jp/documents/38328/07_01_kitadateoozeki.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry> ;
     rdfs:comment "開削で約5,000haの新田（東北農政局）。登録区間は北楯頭首工〜二俣分水工4.9km"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%8C%97%E6%A5%AF%E5%A4%A7%E5%A0%B0> ;
     owl:sameAs wd:Q28688082 ;
     wgs84:lat 38.778738 ;
     wgs84:long 140.020452 ;
     schema:addressLocality "庄内町"@ja ;
     schema:addressRegion "山形県"@ja ;
     schema:containedInPlace wd:Q125863 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png> ;
     schema:name "北楯大堰"@ja ;
     whis:builtYear "1612"^^xsd:gYear ;
     whis:builtYearBasis "開削"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "山形県（管理者）・最上川土地改良区（使用者）"@ja ;
+    whis:pointAddress "山形県庄内町清川"@ja ;
     whis:prefectureCode "JP-06" ;
     whis:registeredYear "2018"^^xsd:gYear ;
     whis:representativePoint "北楯頭首工"@ja ;
-    whis:waterSource "立谷沢川"@ja .
+    whis:waterSource wd:Q11598238 ;
+    whis:waterSourceName "立谷沢川"@ja .
 
 res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     rdfs:label "五郎兵衛用水"@ja ;
@@ -810,13 +937,18 @@ res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-033/geometry> ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E4%BA%94%E9%83%8E%E5%85%B5%E8%A1%9B%E7%94%A8%E6%B0%B4> ;
+    owl:sameAs wd:Q21653080 ;
     wgs84:lat 36.228835 ;
     wgs84:long 138.358437 ;
     schema:addressLocality "佐久市"@ja ;
     schema:addressRegion "長野県"@ja ;
     schema:containedInPlace wd:Q127877 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg>,
+        <https://commons.wikimedia.org/wiki/File:Gorob%C4%93_Y%C5%8Dsui_01.jpg> ;
     schema:name "五郎兵衛用水"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "長野県佐久市春日"@ja ;
     whis:prefectureCode "JP-20" ;
     whis:registeredYear "2018"^^xsd:gYear ;
     whis:representativePoint "浅科頭首工"@ja .
@@ -835,15 +967,21 @@ res:WHIS-JP-034 a whis:HeritageIrrigationStructure ;
     schema:addressLocality "柏原市他"@ja ;
     schema:addressRegion "大阪府"@ja ;
     schema:containedInPlace wd:Q122723 ;
+    schema:hasPart wd:Q11572360,
+        wd:Q11653384 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG>,
+        <https://commons.wikimedia.org/wiki/File:Tamakushi-river_2008_spring01.JPG> ;
     schema:name "大和川分水築留掛かり"@ja ;
     whis:builtYear "1705"^^xsd:gYear ;
     whis:builtYearBasis "供用開始（宝永2年）"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "築留土地改良区"@ja ;
+    whis:pointAddress "大阪府柏原市上市三丁目"@ja ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2018"^^xsd:gYear ;
     whis:representativePoint "築留二番樋"@ja ;
-    whis:waterSource "大和川"@ja .
+    whis:waterSource wd:Q9001527 ;
+    whis:waterSourceName "大和川"@ja .
 
 res:WHIS-JP-035 a whis:HeritageIrrigationStructure ;
     rdfs:label "Shirakawa basin Irrigation System"@en,
@@ -860,13 +998,16 @@ res:WHIS-JP-035 a whis:HeritageIrrigationStructure ;
     schema:addressLocality "熊本市他"@ja ;
     schema:addressRegion "熊本県"@ja ;
     schema:containedInPlace wd:Q130308 ;
+    schema:hasPart wd:Q11667897 ;
     schema:name "Shirakawa basin Irrigation System"@en,
         "白川流域かんがい用水群"@ja ;
     whis:facilityType "用水群"@ja ;
+    whis:pointAddress "熊本県熊本市中央区黒髪六丁目"@ja ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2018"^^xsd:gYear ;
     whis:representativePoint "白川の堰"@ja ;
-    whis:waterSource "白川"@ja .
+    whis:waterSource wd:Q11579688 ;
+    whis:waterSourceName "白川"@ja .
 
 res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
     rdfs:label "十石堀"@ja ;
@@ -886,6 +1027,7 @@ res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "資料記載年"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "十石堀維持管理協議会"@ja ;
+    whis:pointAddress "茨城県北茨城市中郷町松井"@ja ;
     whis:prefectureCode "JP-08" ;
     whis:registeredYear "2019"^^xsd:gYear ;
     whis:representativePoint "十石堀（十石堀親水公園）"@ja .
@@ -898,20 +1040,26 @@ res:WHIS-JP-037 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-037/geometry> ;
     rdfs:comment "約80km。関東農政局資料に15,000ha"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E8%A6%8B%E6%B2%BC%E4%BB%A3%E7%94%A8%E6%B0%B4>,
+        <https://www.openstreetmap.org/relation/18912091> ;
+    owl:sameAs wd:Q11630206 ;
     wgs84:lat 36.187309 ;
     wgs84:long 139.472632 ;
     schema:addressLocality "行田市他"@ja ;
     schema:addressRegion "埼玉県"@ja ;
     schema:containedInPlace wd:Q128186 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG> ;
     schema:name "見沼代用水"@ja ;
     whis:builtYear "1728"^^xsd:gYear ;
     whis:builtYearBasis "資料記載年"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "見沼代用水土地改良区"@ja ;
+    whis:pointAddress "埼玉県行田市大字須加"@ja ;
     whis:prefectureCode "JP-11" ;
     whis:registeredYear "2019"^^xsd:gYear ;
     whis:representativePoint "元圦"@ja ;
-    whis:waterSource "利根川"@ja .
+    whis:waterSource wd:Q177452 ;
+    whis:waterSourceName "利根川"@ja .
 
 res:WHIS-JP-038 a whis:HeritageIrrigationStructure ;
     rdfs:label "倉安川・百間川かんがい排水施設群"@ja ;
@@ -927,14 +1075,19 @@ res:WHIS-JP-038 a whis:HeritageIrrigationStructure ;
     schema:addressLocality "岡山市"@ja ;
     schema:addressRegion "岡山県"@ja ;
     schema:containedInPlace wd:Q132936 ;
+    schema:hasPart wd:Q11580873 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG>,
+        <https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG> ;
     schema:name "倉安川・百間川かんがい排水施設群"@ja ;
     whis:builtYear "1679"^^xsd:gYear ;
     whis:builtYearBasis "倉安川完成（百間川は1686築造開始）"@ja ;
     whis:facilityType "用水群"@ja ;
+    whis:pointAddress "岡山県岡山市東区吉井"@ja ;
     whis:prefectureCode "JP-33" ;
     whis:registeredYear "2019"^^xsd:gYear ;
     whis:representativePoint "倉安川吉井水門"@ja ;
-    whis:waterSource "吉井川"@ja .
+    whis:waterSource wd:Q11412583 ;
+    whis:waterSourceName "吉井川"@ja .
 
 res:WHIS-JP-039 a whis:HeritageIrrigationStructure ;
     rdfs:label "Kikuchi Irrigation Systems"@en,
@@ -957,10 +1110,12 @@ res:WHIS-JP-039 a whis:HeritageIrrigationStructure ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 615.0 ;
     whis:managedBy "菊池市土地改良区"@ja ;
+    whis:pointAddress "熊本県菊池市亘"@ja ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2019"^^xsd:gYear ;
     whis:representativePoint "築地井手の取水口"@ja ;
-    whis:waterSource "菊池川"@ja .
+    whis:waterSource wd:Q6406392 ;
+    whis:waterSourceName "菊池川"@ja .
 
 res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
     rdfs:label "天狗岩用水"@ja ;
@@ -971,6 +1126,8 @@ res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
         <https://www.pref.gunma.jp/site/nougyou/9892.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-040/geometry> ;
     rdfs:comment "総社藩主秋元長朝が開削（群馬県）。年は公的資料で未確認のため空欄"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%8B%97%E5%B2%A9%E7%94%A8%E6%B0%B4> ;
+    owl:sameAs wd:Q123201481 ;
     wgs84:lat 36.464045 ;
     wgs84:long 139.036337 ;
     schema:addressLocality "前橋市他"@ja ;
@@ -979,10 +1136,12 @@ res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
     schema:name "天狗岩用水"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "天狗岩堰土地改良区"@ja ;
+    whis:pointAddress "群馬県渋川市半田"@ja ;
     whis:prefectureCode "JP-10" ;
     whis:registeredYear "2020"^^xsd:gYear ;
     whis:representativePoint "坂東大堰"@ja ;
-    whis:waterSource "利根川"@ja .
+    whis:waterSource wd:Q177452 ;
+    whis:waterSourceName "利根川"@ja .
 
 res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
     rdfs:label "備前渠用水路"@ja ;
@@ -992,6 +1151,10 @@ res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
         <https://www.pref.saitama.lg.jp/documents/10406/51249.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-041/geometry> ;
     rdfs:comment "当初の水源は烏川。1930年に利根川堤外導水路で現在の取水位置へ（埼玉県）"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%82%99%E5%89%8D%E6%B8%A0%E7%94%A8%E6%B0%B4>,
+        <https://sws.geonames.org/1864699/>,
+        <https://www.openstreetmap.org/relation/19306150> ;
+    owl:sameAs wd:Q11387336 ;
     wgs84:lat 36.265623 ;
     wgs84:long 139.181583 ;
     schema:addressLocality "本庄市他"@ja ;
@@ -1002,10 +1165,12 @@ res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "開削（慶長9年）"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "備前渠用水路土地改良区"@ja ;
+    whis:pointAddress "埼玉県本庄市山王堂"@ja ;
     whis:prefectureCode "JP-11" ;
     whis:registeredYear "2020"^^xsd:gYear ;
     whis:representativePoint "備前渠第一樋管頭首工"@ja ;
-    whis:waterSource "利根川"@ja .
+    whis:waterSource wd:Q177452 ;
+    whis:waterSourceName "利根川"@ja .
 
 res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
     rdfs:label "常西合口用水"@ja ;
@@ -1015,6 +1180,9 @@ res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-042/geometry> ;
     rdfs:comment "デ・レーケ提唱の左岸12取水口の合口。かんがい面積約3,300ha"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%B8%B8%E8%A5%BF%E5%90%88%E5%8F%A3%E7%94%A8%E6%B0%B4>,
+        <https://www.openstreetmap.org/relation/18909583> ;
+    owl:sameAs wd:Q28687180 ;
     wgs84:lat 36.693632 ;
     wgs84:long 137.255608 ;
     schema:addressLocality "富山市"@ja ;
@@ -1026,10 +1194,12 @@ res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 3300.0 ;
     whis:managedBy "常西合口用水土地改良区"@ja ;
+    whis:pointAddress "富山県富山市荒川五丁目"@ja ;
     whis:prefectureCode "JP-16" ;
     whis:registeredYear "2020"^^xsd:gYear ;
     whis:representativePoint "新庄排砂水門"@ja ;
-    whis:waterSource "常願寺川"@ja .
+    whis:waterSource wd:Q994562 ;
+    whis:waterSourceName "常願寺川"@ja .
 
 res:WHIS-JP-043 a whis:HeritageIrrigationStructure ;
     rdfs:label "Teragaike Pond and Teragaike Waterway"@en,
@@ -1044,15 +1214,19 @@ res:WHIS-JP-043 a whis:HeritageIrrigationStructure ;
     schema:addressLocality "河内長野市"@ja ;
     schema:addressRegion "大阪府"@ja ;
     schema:containedInPlace wd:Q122723 ;
+    schema:hasPart wd:Q1018718 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Teragaike_04.jpg> ;
     schema:name "Teragaike Pond and Teragaike Waterway"@en,
         "寺ケ池・寺ケ池水路"@ja ;
     whis:builtYear "1649"^^xsd:gYear ;
     whis:builtYearBasis "完成（1633着工）"@ja ;
     whis:facilityType "ため池"@ja ;
+    whis:pointAddress "大阪府河内長野市木戸町"@ja ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2021"^^xsd:gYear ;
     whis:representativePoint "寺ケ池"@ja ;
-    whis:waterSource "石川"@ja .
+    whis:waterSource wd:Q11585622 ;
+    whis:waterSourceName "石川"@ja .
 
 res:WHIS-JP-044 a whis:HeritageIrrigationStructure ;
     rdfs:label "Usa Irrigation System"@en,
@@ -1075,10 +1249,12 @@ res:WHIS-JP-044 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "平田井路の年"@ja ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 240.0 ;
+    whis:pointAddress "大分県宇佐市大字中原"@ja ;
     whis:prefectureCode "JP-44" ;
     whis:registeredYear "2021"^^xsd:gYear ;
     whis:representativePoint "平田頭首工"@ja ;
-    whis:waterSource "駅館川"@ja .
+    whis:waterSource wd:Q11668226 ;
+    whis:waterSourceName "駅館川"@ja .
 
 res:WHIS-JP-045 a whis:HeritageIrrigationStructure ;
     rdfs:label "Kanuki Irrigation Canal"@en,
@@ -1098,10 +1274,12 @@ res:WHIS-JP-045 a whis:HeritageIrrigationStructure ;
         "香貫用水"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "沼津市・香貫用水委員会"@ja ;
+    whis:pointAddress "静岡県沼津市中瀬町"@ja ;
     whis:prefectureCode "JP-22" ;
     whis:registeredYear "2022"^^xsd:gYear ;
     whis:representativePoint "三日月型石堰（内膳堀跡碑）"@ja ;
-    whis:waterSource "狩野川"@ja .
+    whis:waterSource wd:Q6364188 ;
+    whis:waterSourceName "狩野川"@ja .
 
 res:WHIS-JP-046 a whis:HeritageIrrigationStructure ;
     rdfs:label "Teradani Irrigation System (Canal)"@en,
@@ -1123,10 +1301,12 @@ res:WHIS-JP-046 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 2000.0 ;
     whis:managedBy "寺谷用水土地改良区"@ja ;
+    whis:pointAddress "静岡県磐田市寺谷"@ja ;
     whis:prefectureCode "JP-22" ;
     whis:registeredYear "2022"^^xsd:gYear ;
     whis:representativePoint "大圦樋跡（寺谷用水取水口碑）"@ja ;
-    whis:waterSource "天竜川"@ja .
+    whis:waterSource wd:Q13667 ;
+    whis:waterSourceName "天竜川"@ja .
 
 res:WHIS-JP-047 a whis:HeritageIrrigationStructure ;
     rdfs:label "Yukawa Irrigation Canal"@en,
@@ -1145,10 +1325,12 @@ res:WHIS-JP-047 a whis:HeritageIrrigationStructure ;
     schema:name "Yukawa Irrigation Canal"@en,
         "井川用水"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "大阪府泉佐野市日根野"@ja ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2022"^^xsd:gYear ;
     whis:representativePoint "慈眼院境内の水路"@ja ;
-    whis:waterSource "樫井川"@ja .
+    whis:waterSource "樫井川"@ja ;
+    whis:waterSourceName "樫井川"@ja .
 
 res:WHIS-JP-048 a whis:HeritageIrrigationStructure ;
     rdfs:label "Yamagata-goseki Irrigation System"@en,
@@ -1158,6 +1340,7 @@ res:WHIS-JP-048 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-1.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-048/geometry> ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%BD%A2%E4%BA%94%E5%A0%B0> ;
     owl:sameAs wd:Q11468370 ;
     wgs84:lat 38.242763 ;
     wgs84:long 140.3795 ;
@@ -1168,10 +1351,12 @@ res:WHIS-JP-048 a whis:HeritageIrrigationStructure ;
         "山形五堰"@ja ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 2400.0 ;
+    whis:pointAddress "山形県山形市大字釈迦堂"@ja ;
     whis:prefectureCode "JP-06" ;
     whis:registeredYear "2023"^^xsd:gYear ;
     whis:representativePoint "馬見ヶ崎川合口頭首工（山形五堰へ水を取り込むための起点取水施設）"@ja ;
-    whis:waterSource "馬見ヶ崎川"@ja .
+    whis:waterSource wd:Q11668059 ;
+    whis:waterSourceName "馬見ヶ崎川"@ja .
 
 res:WHIS-JP-049 a whis:HeritageIrrigationStructure ;
     rdfs:label "Honjukuyousui Irrigation Canal"@en,
@@ -1192,10 +1377,12 @@ res:WHIS-JP-049 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "完成"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "本宿共有財産管理委員会・本宿部農会"@ja ;
+    whis:pointAddress "静岡県長泉町下土狩"@ja ;
     whis:prefectureCode "JP-22" ;
     whis:registeredYear "2023"^^xsd:gYear ;
     whis:representativePoint "新井堰"@ja ;
-    whis:waterSource "黄瀬川"@ja .
+    whis:waterSource wd:Q11677792 ;
+    whis:waterSourceName "黄瀬川"@ja .
 
 res:WHIS-JP-050 a whis:HeritageIrrigationStructure ;
     rdfs:label "Kitayama Irrigation System (Canal)"@en,
@@ -1206,6 +1393,8 @@ res:WHIS-JP-050 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-20.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-050/geometry> ;
     rdfs:comment "水路約10km"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%8C%97%E5%B1%B1%E7%94%A8%E6%B0%B4> ;
+    owl:sameAs wd:Q131911109 ;
     wgs84:lat 35.29095 ;
     wgs84:long 138.605576 ;
     schema:addressLocality "富士宮市"@ja ;
@@ -1218,10 +1407,12 @@ res:WHIS-JP-050 a whis:HeritageIrrigationStructure ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 110.0 ;
     whis:managedBy "富士宮市北山用水運営協力委員会"@ja ;
+    whis:pointAddress "静岡県富士宮市北山"@ja ;
     whis:prefectureCode "JP-22" ;
     whis:registeredYear "2023"^^xsd:gYear ;
     whis:representativePoint "大久保沢の掛樋"@ja ;
-    whis:waterSource "芝川"@ja .
+    whis:waterSource wd:Q11614654 ;
+    whis:waterSourceName "芝川"@ja .
 
 res:WHIS-JP-051 a whis:HeritageIrrigationStructure ;
     rdfs:label "Takebe Weir"@en,
@@ -1233,6 +1424,7 @@ res:WHIS-JP-051 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-12.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-051/geometry> ;
     rdfs:comment "1721年には存在（岡山市）。全長650m。かんがい面積100ha超"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%BB%BA%E9%83%A8%E4%BA%95%E5%A0%B0> ;
     owl:sameAs wd:Q28689899 ;
     wgs84:lat 34.883876 ;
     wgs84:long 133.891593 ;
@@ -1242,10 +1434,12 @@ res:WHIS-JP-051 a whis:HeritageIrrigationStructure ;
     schema:name "Takebe Weir"@en,
         "建部井堰"@ja ;
     whis:facilityType "堰"@ja ;
+    whis:pointAddress "岡山県岡山市北区建部町品田"@ja ;
     whis:prefectureCode "JP-33" ;
     whis:registeredYear "2023"^^xsd:gYear ;
     whis:representativePoint "建部井堰"@ja ;
-    whis:waterSource "旭川"@ja .
+    whis:waterSource wd:Q2866291 ;
+    whis:waterSourceName "旭川"@ja .
 
 res:WHIS-JP-052 a whis:HeritageIrrigationStructure ;
     rdfs:label "Minamihara-Anazeki Irrigation Canal"@en,
@@ -1264,6 +1458,7 @@ res:WHIS-JP-052 a whis:HeritageIrrigationStructure ;
     schema:name "Minamihara-Anazeki Irrigation Canal"@en,
         "南原穴堰"@ja ;
     whis:facilityType "水路"@ja ;
+    whis:pointAddress "宮城県大崎市鳴子温泉"@ja ;
     whis:prefectureCode "JP-04" ;
     whis:registeredYear "2024"^^xsd:gYear ;
     whis:representativePoint "取水堰・取入口"@ja .
@@ -1286,10 +1481,12 @@ res:WHIS-JP-053 a whis:HeritageIrrigationStructure ;
     whis:builtYear "1913"^^xsd:gYear ;
     whis:builtYearBasis "竣工"@ja ;
     whis:facilityType "揚水機場"@ja ;
+    whis:pointAddress "滋賀県豊郷町大字石畑"@ja ;
     whis:prefectureCode "JP-25" ;
     whis:registeredYear "2024"^^xsd:gYear ;
     whis:representativePoint "龍ケ池揚水機場"@ja ;
-    whis:waterSource "地下水"@ja .
+    whis:waterSource "地下水"@ja ;
+    whis:waterSourceName "地下水"@ja .
 
 res:WHIS-JP-054 a whis:HeritageIrrigationStructure ;
     rdfs:label "Saikojinososuiro Irrigation System"@en,
@@ -1310,10 +1507,12 @@ res:WHIS-JP-054 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "完成（1912着工）"@ja ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "西光寺野土地改良区"@ja ;
+    whis:pointAddress "兵庫県市川町下瀬加"@ja ;
     whis:prefectureCode "JP-28" ;
     whis:registeredYear "2024"^^xsd:gYear ;
     whis:representativePoint "瓜生田取水口（瓜生田井堰）"@ja ;
-    whis:waterSource "岡部川"@ja .
+    whis:waterSource "岡部川"@ja ;
+    whis:waterSourceName "岡部川"@ja .
 
 res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     rdfs:label "Yunokuchi Tameike Irrigation System"@en,
@@ -1332,6 +1531,7 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     schema:name "Yunokuchi Tameike Irrigation System"@en,
         "湯の口ため池・井出"@ja ;
     whis:facilityType "ため池"@ja ;
+    whis:pointAddress "熊本県山鹿市蒲生"@ja ;
     whis:prefectureCode "JP-43" ;
     whis:registeredYear "2025"^^xsd:gYear ;
     whis:representativePoint "蒲生池"@ja .
@@ -1352,6 +1552,7 @@ res:WHIS-JP-056 a whis:HeritageIrrigationStructure ;
     schema:name "Taketa Irrigation System"@en,
         "竹田のかんがい用水群"@ja ;
     whis:facilityType "用水群"@ja ;
+    whis:pointAddress "大分県竹田市大字福原"@ja ;
     whis:prefectureCode "JP-44" ;
     whis:registeredYear "2025"^^xsd:gYear ;
     whis:representativePoint "城原井路の神田頭首工"@ja .
@@ -1365,22 +1566,24 @@ res:WHIS-JP-057 a whis:HeritageIrrigationStructure ;
         <https://www.pref.saitama.lg.jp/a0906/news/page/news2026082103.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-057/geometry> ;
     rdfs:comment "事業開始1590年。19世紀最大14,000ha、現在6,800ha。幹線有効延長約80km"@ja ;
-    owl:sameAs wd:Q22124737 ;
     wgs84:lat 35.918702 ;
     wgs84:long 139.804845 ;
     schema:addressLocality "羽生市他"@ja ;
     schema:addressRegion "埼玉県"@ja ;
     schema:containedInPlace wd:Q128186 ;
+    schema:hasPart wd:Q22124737 ;
     schema:name "葛西用水"@ja ;
     whis:builtYear "1660"^^xsd:gYear ;
     whis:builtYearBasis "供用開始（水路体系完成）"@ja ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 6800.0 ;
     whis:managedBy "葛西用水路土地改良区"@ja ;
+    whis:pointAddress "埼玉県越谷市大字大吉"@ja ;
     whis:prefectureCode "JP-11" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "松伏溜井"@ja ;
-    whis:waterSource "利根川"@ja .
+    whis:waterSource wd:Q177452 ;
+    whis:waterSourceName "利根川"@ja .
 
 res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
     rdfs:label "小笠地域かんがい用水群"@ja ;
@@ -1402,6 +1605,7 @@ res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 979.0 ;
     whis:managedBy "大井川右岸土地改良区（申請者）"@ja ;
+    whis:pointAddress "静岡県掛川市西大渕"@ja ;
     whis:prefectureCode "JP-22" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "十内圦"@ja .
@@ -1422,6 +1626,7 @@ res:WHIS-JP-059 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q122723 ;
     schema:name "日根荘大木のかんがい用水群"@ja ;
     whis:facilityType "用水群"@ja ;
+    whis:pointAddress "大阪府泉佐野市大木"@ja ;
     whis:prefectureCode "JP-27" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "東ノ池"@ja .
@@ -1434,7 +1639,6 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-6.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-060/geometry> ;
     rdfs:comment "堀は4世紀前半に墳丘と共に築造と考えられる。1864〜1865年に柳本藩が改修"@ja ;
-    owl:sameAs wd:Q11626169 ;
     wgs84:lat 34.557805 ;
     wgs84:long 135.847645 ;
     schema:addressLocality "天理市"@ja ;
@@ -1442,9 +1646,164 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace wd:Q131287 ;
     schema:name "崇神天皇陵堀"@ja ;
     whis:facilityType "ため池"@ja ;
+    whis:pointAddress "奈良県天理市柳本町"@ja ;
     whis:prefectureCode "JP-29" ;
     whis:registeredYear "2026"^^xsd:gYear ;
     whis:representativePoint "崇神天皇陵"@ja .
+
+<https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG> a schema:ImageObject ;
+    schema:about wd:Q11560257 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG> ;
+    schema:creditText "Indiana jo" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/4.0> ;
+    schema:name "深良用水3.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg> a schema:ImageObject ;
+    schema:about wd:Q17225723 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg> ;
+    schema:creditText "shunsaku hara (r265)" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/3.0> ;
+    schema:name "百太郎溝 Hyakutarou Waterway - panoramio.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:AsakaSosuiKansenSuiroB.JPG> a schema:ImageObject ;
+    schema:about wd:Q11451162 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/AsakaSosuiKansenSuiroB.JPG> ;
+    schema:creditText "BehBeh at Japanese Wikipedia" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "AsakaSosuiKansenSuiroB.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg> a schema:ImageObject ;
+    schema:about wd:Q21653080 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg> ;
+    schema:creditText "Indiana jo" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/4.0> ;
+    schema:name "Former Gorobē Yōsui 02.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:Gorob%C4%93_Y%C5%8Dsui_01.jpg> a schema:ImageObject ;
+    schema:about wd:Q21653080 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Gorob%C4%93_Y%C5%8Dsui_01.jpg> ;
+    schema:creditText "Indiana jo" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/4.0> ;
+    schema:name "Gorobē Yōsui 01.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg> a schema:ImageObject ;
+    schema:about wd:Q42567025 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg> ;
+    schema:creditText "そらみみ" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/4.0> ;
+    schema:name "Horikawa Aqueduct from Kakureganomoribashi Bridge 2.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG> a schema:ImageObject ;
+    schema:about wd:Q11580873 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_10.JPG> ;
+    schema:creditText "by Reggaeman" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Hyakken River 10.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG> a schema:ImageObject ;
+    schema:about wd:Q11580873 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_11.JPG> ;
+    schema:creditText "by Reggaeman" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Hyakken River 11.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Irukaike_pond_1.JPG> a schema:ImageObject ;
+    schema:about wd:Q927013 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Irukaike_pond_1.JPG> ;
+    schema:creditText "Junichi" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Irukaike pond 1.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Jyurokkyou-s-r1.jpg> a schema:ImageObject ;
+    schema:about wd:Q6322355 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Jyurokkyou-s-r1.jpg> ;
+    schema:creditText "河川一等兵" ;
+    schema:license "Public domain" ;
+    schema:name "Jyurokkyou-s-r1.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png> a schema:ImageObject ;
+    schema:about wd:Q28688082 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Kitadate_Ozeki.png> ;
+    schema:creditText "国土地理院" ;
+    schema:license <https://creativecommons.org/licenses/by/4.0> ;
+    schema:name "Kitadate Ozeki.png" .
+
+<https://commons.wikimedia.org/wiki/File:Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG> a schema:ImageObject ;
+    schema:about wd:Q11630206 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG> ;
+    schema:creditText "京浜にけ" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/3.0> ;
+    schema:name "Konosu Ninuma Canal Or Hoshi River 1.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Kurumeji15.jpg> a schema:ImageObject ;
+    schema:about wd:Q55528468 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Kurumeji15.jpg> ;
+    schema:creditText "ブレイズマン" ;
+    schema:license "Public domain" ;
+    schema:name "Kurumeji15.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:Mannolake1.JPG> a schema:ImageObject ;
+    schema:about wd:Q20983084 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Mannolake1.JPG> ;
+    schema:creditText "miea.system" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/4.0> ;
+    schema:name "Mannolake1.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg> a schema:ImageObject ;
+    schema:about wd:Q6750928 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg> ;
+    schema:creditText "Σ64" ;
+    schema:license <https://creativecommons.org/licenses/by/4.0> ;
+    schema:name "Mano Dam 02.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG> a schema:ImageObject ;
+    schema:about wd:Q11653384 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG> ;
+    schema:creditText "Kansai explorer" ;
+    schema:license <https://creativecommons.org/licenses/by/3.0> ;
+    schema:name "Nagase river, Higashiosaka, Osaka01.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG> a schema:ImageObject ;
+    schema:about wd:Q11571743 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Sayamaike01.JPG> ;
+    schema:creditText "Kansai explorer at Japanese Wikipedia" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Sayamaike01.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg> a schema:ImageObject ;
+    schema:about wd:Q11488870 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Shijimi-river_siphon-bridge.jpg> ;
+    schema:creditText "Bakkai" ;
+    schema:license <https://creativecommons.org/licenses/by/3.0> ;
+    schema:name "Shijimi-river siphon-bridge.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:Tamakushi-river_2008_spring01.JPG> a schema:ImageObject ;
+    schema:about wd:Q11572360 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Tamakushi-river_2008_spring01.JPG> ;
+    schema:creditText "Kansai explorer" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Tamakushi-river 2008 spring01.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Teragaike_04.jpg> a schema:ImageObject ;
+    schema:about wd:Q1018718 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Teragaike_04.jpg> ;
+    schema:creditText "JEXP" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/3.0> ;
+    schema:name "Teragaike 04.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg> a schema:ImageObject ;
+    schema:about wd:Q11481531 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Tokiwa_park.jpg> ;
+    schema:creditText "Original uploader was Historian at en.wikipedia" ;
+    schema:license <https://creativecommons.org/licenses/by/2.5> ;
+    schema:name "Tokiwa park.jpg" .
+
+<https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg> a schema:ImageObject ;
+    schema:about wd:Q17238532 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Tsujyunkyo.jpg> ;
+    schema:creditText "masamic" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Tsujyunkyo.jpg" .
 
 <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry> a geo:Geometry ;
     geo:asWKT "POINT(141.097605 40.592154)"^^geo:wktLiteral .
@@ -1626,8 +1985,33 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
 <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-060/geometry> a geo:Geometry ;
     geo:asWKT "POINT(135.847645 34.557805)"^^geo:wktLiteral .
 
+<https://ysh17-hub.github.io/whis-lod/whis_japan.csv#distribution> a dcat:Distribution ;
+    dcterms:format "CSV" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcat:downloadURL <https://ysh17-hub.github.io/whis-lod/whis_japan.csv> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> .
+
+<https://ysh17-hub.github.io/whis-lod/whis_japan.geojson#distribution> a dcat:Distribution ;
+    dcterms:format "GeoJSON" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcat:downloadURL <https://ysh17-hub.github.io/whis-lod/whis_japan.geojson> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/geo+json> .
+
+<https://ysh17-hub.github.io/whis-lod/whis_japan.jsonld#distribution> a dcat:Distribution ;
+    dcterms:format "JSON-LD" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcat:downloadURL <https://ysh17-hub.github.io/whis-lod/whis_japan.jsonld> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/ld+json> .
+
+<https://ysh17-hub.github.io/whis-lod/whis_japan.ttl#distribution> a dcat:Distribution ;
+    dcterms:format "Turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcat:downloadURL <https://ysh17-hub.github.io/whis-lod/whis_japan.ttl> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> .
+
 <https://ysh17-hub.github.io/whis-lod/dataset> a dcat:Dataset ;
     dcterms:creator "abe" ;
+    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/ja> ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     dcterms:modified "2026-11-23"^^xsd:date ;
     dcterms:source <https://www.cgr.mlit.go.jp/okakawa/kouhou/hyakenkaitiku/history/pdf/tsuda_nagatada.pdf>,
@@ -1702,8 +2086,19 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
         <https://www.pref.saitama.lg.jp/documents/10406/51249.pdf>,
         <https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/085/031/09_0821nouchiseibi.pdf>,
         <https://www.pref.yamagata.jp/documents/38328/07_01_kitadateoozeki.pdf> ;
+    dcterms:spatial wd:Q17 ;
     dcterms:title "World Heritage Irrigation Structures in Japan as Linked Open Data"@en,
-        "世界かんがい施設遺産（日本）Linked Open Data"@ja .
+        "世界かんがい施設遺産（日本）Linked Open Data"@ja ;
+    dcat:distribution <https://ysh17-hub.github.io/whis-lod/whis_japan.csv#distribution>,
+        <https://ysh17-hub.github.io/whis-lod/whis_japan.geojson#distribution>,
+        <https://ysh17-hub.github.io/whis-lod/whis_japan.jsonld#distribution>,
+        <https://ysh17-hub.github.io/whis-lod/whis_japan.ttl#distribution> ;
+    dcat:keyword "ICID"@en,
+        "World Heritage Irrigation Structures"@en,
+        "かんがい"@ja,
+        "世界かんがい施設遺産"@ja,
+        "農業水利"@ja ;
+    dcat:landingPage <https://ysh17-hub.github.io/whis-lod/> .
 
 whis:HeritageIrrigationStructure a owl:Class ;
     rdfs:label "World Heritage Irrigation Structure"@en,

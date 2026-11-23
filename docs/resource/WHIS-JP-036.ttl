@@ -1,0 +1,36 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
+    rdfs:label "十石堀"@ja ;
+    dcterms:identifier "WHIS-JP-036" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-036/geometry> ;
+    rdfs:comment "約13km"@ja ;
+    wgs84:lat 36.773771 ;
+    wgs84:long 140.688412 ;
+    schema:addressLocality "北茨城市"@ja ;
+    schema:addressRegion "茨城県"@ja ;
+    schema:containedInPlace wd:Q83273 ;
+    schema:name "十石堀"@ja ;
+    whis:builtYear "1669"^^xsd:gYear ;
+    whis:builtYearBasis "資料記載年"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:managedBy "十石堀維持管理協議会"@ja ;
+    whis:pointAddress "茨城県北茨城市中郷町松井"@ja ;
+    whis:prefectureCode "JP-08" ;
+    whis:registeredYear "2019"^^xsd:gYear ;
+    whis:representativePoint "十石堀（十石堀親水公園）"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-036/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(140.688412 36.773771)"^^geo:wktLiteral .
+

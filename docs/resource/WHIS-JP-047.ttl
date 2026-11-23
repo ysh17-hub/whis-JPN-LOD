@@ -1,0 +1,37 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-047 a whis:HeritageIrrigationStructure ;
+    rdfs:label "Yukawa Irrigation Canal"@en,
+        "井川用水"@ja ;
+    dcterms:identifier "WHIS-JP-047" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-8.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-047/geometry> ;
+    rdfs:comment "1316年の絵図に描かれる（農水省概要）"@ja ;
+    wgs84:lat 34.374271 ;
+    wgs84:long 135.343587 ;
+    schema:addressLocality "泉佐野市"@ja ;
+    schema:addressRegion "大阪府"@ja ;
+    schema:containedInPlace wd:Q122723 ;
+    schema:name "Yukawa Irrigation Canal"@en,
+        "井川用水"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:pointAddress "大阪府泉佐野市日根野"@ja ;
+    whis:prefectureCode "JP-27" ;
+    whis:registeredYear "2022"^^xsd:gYear ;
+    whis:representativePoint "慈眼院境内の水路"@ja ;
+    whis:waterSource "樫井川"@ja ;
+    whis:waterSourceName "樫井川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-047/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(135.343587 34.374271)"^^geo:wktLiteral .
+

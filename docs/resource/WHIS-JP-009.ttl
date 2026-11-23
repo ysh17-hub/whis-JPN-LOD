@@ -1,0 +1,49 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
+    rdfs:label "Tsujunyousui Irrigation System"@en,
+        "通潤用水"@ja ;
+    dcterms:identifier "WHIS-JP-009" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry> ;
+    rdfs:comment "日本最大の石造アーチ水路橋『通潤橋』を含む"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E9%80%9A%E6%BD%A4%E7%94%A8%E6%B0%B4> ;
+    owl:sameAs wd:Q17238532 ;
+    wgs84:lat 32.681667 ;
+    wgs84:long 130.993611 ;
+    schema:addressLocality "山都町"@ja ;
+    schema:addressRegion "熊本県"@ja ;
+    schema:containedInPlace wd:Q130308 ;
+    schema:hasPart wd:Q3077059 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg> ;
+    schema:name "Tsujunyousui Irrigation System"@en,
+        "通潤用水"@ja ;
+    whis:builtYear "1855"^^xsd:gYear ;
+    whis:builtYearBasis "建設（農水省aff記載）"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:pointAddress "熊本県山都町城原"@ja ;
+    whis:prefectureCode "JP-43" ;
+    whis:registeredYear "2014"^^xsd:gYear ;
+    whis:representativePoint "通潤橋"@ja .
+
+<https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg> a schema:ImageObject ;
+    schema:about wd:Q17238532 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Tsujyunkyo.jpg> ;
+    schema:creditText "masamic" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Tsujyunkyo.jpg" .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(130.993611 32.681667)"^^geo:wktLiteral .
+

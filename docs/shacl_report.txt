@@ -1,0 +1,7 @@
+SHACL validation (2026-11-23)
+shapes: shapes.ttl
+data: whis_japan.ttl
+conforms: True
+
+Validation Report
+Conforms: True

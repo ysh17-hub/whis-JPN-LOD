@@ -1,0 +1,55 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-038 a whis:HeritageIrrigationStructure ;
+    rdfs:label "倉安川・百間川かんがい排水施設群"@ja ;
+    dcterms:identifier "WHIS-JP-038" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.cgr.mlit.go.jp/okakawa/kouhou/hyakenkaitiku/history/pdf/tsuda_nagatada.pdf>,
+        <https://www.city.okayama.jp/jigyosha/0000009053.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry> ;
+    rdfs:comment "倉田新田・沖新田の干拓2,200ha超。吉井水門は現存最古の閘門式水門"@ja ;
+    wgs84:lat 34.718043 ;
+    wgs84:long 134.095709 ;
+    schema:addressLocality "岡山市"@ja ;
+    schema:addressRegion "岡山県"@ja ;
+    schema:containedInPlace wd:Q132936 ;
+    schema:hasPart wd:Q11580873 ;
+    schema:image <https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG>,
+        <https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG> ;
+    schema:name "倉安川・百間川かんがい排水施設群"@ja ;
+    whis:builtYear "1679"^^xsd:gYear ;
+    whis:builtYearBasis "倉安川完成（百間川は1686築造開始）"@ja ;
+    whis:facilityType "用水群"@ja ;
+    whis:pointAddress "岡山県岡山市東区吉井"@ja ;
+    whis:prefectureCode "JP-33" ;
+    whis:registeredYear "2019"^^xsd:gYear ;
+    whis:representativePoint "倉安川吉井水門"@ja ;
+    whis:waterSource wd:Q11412583 ;
+    whis:waterSourceName "吉井川"@ja .
+
+<https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG> a schema:ImageObject ;
+    schema:about wd:Q11580873 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_10.JPG> ;
+    schema:creditText "by Reggaeman" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Hyakken River 10.JPG" .
+
+<https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG> a schema:ImageObject ;
+    schema:about wd:Q11580873 ;
+    schema:contentUrl <https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_11.JPG> ;
+    schema:creditText "by Reggaeman" ;
+    schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+    schema:name "Hyakken River 11.JPG" .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(134.095709 34.718043)"^^geo:wktLiteral .
+

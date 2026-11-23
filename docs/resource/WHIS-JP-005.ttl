@@ -1,0 +1,40 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
+    rdfs:label "立梅用水"@ja ;
+    dcterms:identifier "WHIS-JP-005" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/34_tatiba/index.html>,
+        <https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/pdf/07_04.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-005/geometry> ;
+    rdfs:comment "延長約30km"@ja ;
+    wgs84:lat 34.459446 ;
+    wgs84:long 136.398788 ;
+    schema:addressLocality "多気町他"@ja ;
+    schema:addressRegion "三重県"@ja ;
+    schema:containedInPlace wd:Q128196 ;
+    schema:name "立梅用水"@ja ;
+    whis:builtYear "1823"^^xsd:gYear ;
+    whis:builtYearBasis "開削（文政6年）"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:irrigatedArea 420.0 ;
+    whis:managedBy "立梅用水土地改良区"@ja ;
+    whis:pointAddress "三重県松阪市飯南町粥見"@ja ;
+    whis:prefectureCode "JP-24" ;
+    whis:registeredYear "2014"^^xsd:gYear ;
+    whis:representativePoint "立梅井堰"@ja ;
+    whis:waterSource wd:Q6447936 ;
+    whis:waterSourceName "櫛田川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-005/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(136.398788 34.459446)"^^geo:wktLiteral .
+

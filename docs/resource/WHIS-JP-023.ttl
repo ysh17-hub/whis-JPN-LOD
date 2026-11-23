@@ -1,0 +1,42 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
+    rdfs:label "明治用水"@ja ;
+    dcterms:identifier "WHIS-JP-023" ;
+    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf>,
+        <https://www.pref.aichi.jp/uploaded/attachment/489986.pdf> ;
+    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023/geometry> ;
+    rdfs:comment "都築弥厚の計画。現頭首工は1958年完成"@ja ;
+    rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E6%98%8E%E6%B2%BB%E7%94%A8%E6%B0%B4> ;
+    owl:sameAs wd:Q11512382 ;
+    wgs84:lat 35.045993 ;
+    wgs84:long 137.17821 ;
+    schema:addressLocality "安城市他"@ja ;
+    schema:addressRegion "愛知県"@ja ;
+    schema:containedInPlace wd:Q80434 ;
+    schema:name "明治用水"@ja ;
+    whis:builtYear "1880"^^xsd:gYear ;
+    whis:builtYearBasis "完成"@ja ;
+    whis:facilityType "水路"@ja ;
+    whis:managedBy "明治用水土地改良区"@ja ;
+    whis:pointAddress "愛知県豊田市水源町六丁目"@ja ;
+    whis:prefectureCode "JP-23" ;
+    whis:registeredYear "2016"^^xsd:gYear ;
+    whis:representativePoint "明治用水頭首工"@ja ;
+    whis:waterSource wd:Q1132256 ;
+    whis:waterSourceName "矢作川"@ja .
+
+<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023/geometry> a geo:Geometry ;
+    geo:asWKT "POINT(137.17821 35.045993)"^^geo:wktLiteral .
+
