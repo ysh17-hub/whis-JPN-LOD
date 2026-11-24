@@ -2536,7 +2536,7 @@ wd:Q999162 rdfs:label "大阪湾"@ja .
     rdfs:label "CSV から RDF・サイトを作り、SHACL でチェックする処理（lod.py build）"@ja ;
     prov:endedAtTime "2026-11-24"^^xsd:date ;
     prov:used <https://github.com/ysh17-hub/whis-lod>,
-        <https://github.com/ysh17-hub/whis-lod/commit/85a5ad1ea68ca2ff40f27735e3bd708fa3170774> .
+        <https://github.com/ysh17-hub/whis-lod/commit/4d77e2bc4d30ae00c740f16ae3bc5931d6c26ee9> .
 
 <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry> a geo:Geometry ;
     geo:asWKT "POINT(141.097605 40.592154)"^^geo:wktLiteral .

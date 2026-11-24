@@ -1,18 +1,6 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-033/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(138.358437 36.228835)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg",
+  "@id": "https://commons.wikimedia.org/wiki/File:Gorob%C4%93_Y%C5%8Dsui_01.jpg",
   "@type": [
    "https://schema.org/ImageObject"
   ],
@@ -23,7 +11,7 @@
   ],
   "https://schema.org/contentUrl": [
    {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg"
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gorob%C4%93_Y%C5%8Dsui_01.jpg"
    }
   ],
   "https://schema.org/creditText": [
@@ -38,7 +26,7 @@
   ],
   "https://schema.org/name": [
    {
-    "@value": "Former Gorobē Yōsui 02.jpg"
+    "@value": "Gorobē Yōsui 01.jpg"
    }
   ]
  },
@@ -203,7 +191,19 @@
   ]
  },
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Gorob%C4%93_Y%C5%8Dsui_01.jpg",
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-033/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(138.358437 36.228835)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg",
   "@type": [
    "https://schema.org/ImageObject"
   ],
@@ -214,7 +214,7 @@
   ],
   "https://schema.org/contentUrl": [
    {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gorob%C4%93_Y%C5%8Dsui_01.jpg"
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg"
    }
   ],
   "https://schema.org/creditText": [
@@ -229,7 +229,7 @@
   ],
   "https://schema.org/name": [
    {
-    "@value": "Gorobē Yōsui 01.jpg"
+    "@value": "Former Gorobē Yōsui 02.jpg"
    }
   ]
  }

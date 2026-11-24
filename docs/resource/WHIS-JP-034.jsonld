@@ -31,37 +31,6 @@
   ]
  },
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11653384"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Kansai explorer"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Nagase river, Higashiosaka, Osaka01.JPG"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
@@ -266,6 +235,37 @@
    {
     "@language": "ja",
     "@value": "大和川"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11653384"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Nagase_river%2C_Higashiosaka%2C_Osaka01.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Kansai explorer"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Nagase river, Higashiosaka, Osaka01.JPG"
    }
   ]
  }

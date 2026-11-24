@@ -1,36 +1,5 @@
 [
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q28688082"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Kitadate_Ozeki.png"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "国土地理院"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Kitadate Ozeki.png"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -234,6 +203,37 @@
    {
     "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
     "@value": "POINT(140.020452 38.778738)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q28688082"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Kitadate_Ozeki.png"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "国土地理院"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Kitadate Ozeki.png"
    }
   ]
  }

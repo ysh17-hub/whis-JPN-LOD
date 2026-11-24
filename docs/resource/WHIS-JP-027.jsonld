@@ -12,6 +12,37 @@
   ]
  },
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q17225723"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "shunsaku hara (r265)"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "百太郎溝 Hyakutarou Waterway - panoramio.jpg"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -198,37 +229,6 @@
    {
     "@language": "ja",
     "@value": "球磨川"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q17225723"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "shunsaku hara (r265)"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "百太郎溝 Hyakutarou Waterway - panoramio.jpg"
    }
   ]
  }
