@@ -34,6 +34,12 @@ def collect():
                 for r in csv.DictReader(f):
                     if r.get(col):
                         out.append((kind, r[col], r["id"]))
+    dead = set()
+    sp = ROOT / "data" / "source_status.csv"
+    if sp.exists():
+        with open(sp, encoding="utf-8-sig") as f:
+            dead = {r["url"] for r in csv.DictReader(f) if r.get("status") == "消失"}
+    out = [(k, u, i) for k, u, i in out if u not in dead]   # 消えたと分かっている出典は数えない（ページに「リンク切れ」と表示済み）
     seen, uniq = set(), []
     for k, u, i in out:
         if u not in seen:

@@ -277,7 +277,10 @@ def cmd_build():
                            "データの数値は、出典の資料で確認しています。\n") if cfg.get("ai_note") else "")
     for name in ["README.md", "LICENSE"]:
         t = (ROOT / "templates" / f"{name}.tmpl").read_text(encoding="utf-8")
-        (ROOT / name).write_text(fill(t, values), encoding="utf-8")
+        text = fill(t, values)
+        if name == "README.md":
+            text = protect_urls(text)
+        (ROOT / name).write_text(text, encoding="utf-8")
     print(f"\nREADME.md と LICENSE を作りました（作成者：{cfg['creator']}）")
     print(f"座標あり {c['N_COORDS']}/{c['N_ROWS']}、Wikidata 確認 {c['N_CHECKED']}/{c['N_ROWS']}"
           f"（対応あり {c['N_VERIFIED']}、なし {c['N_NO_WD']}、構成施設のリンクあり {c['N_RELATED']}）")
@@ -287,6 +290,21 @@ def cmd_build():
     b = base_url(cfg)
     for u in [b, b + "resource/WHIS-JP-026", b + "whis_japan.ttl", b + "sparql.html", b + "ontology.html", repo_url(cfg)]:
         print("  ", u)
+
+
+def protect_urls(text):
+    """GitHub は URL のすぐ後ろに日本語が続くと、その日本語までリンクに含めてしまう（例：「…/whis-lod/（背景…」）。
+    そういう URL を <URL> で囲み、リンクが日本語の手前で終わるようにする。"""
+    import re
+
+    def fix(m):
+        url = m.group(0)
+        cut = re.search(r"[^\x00-\x7f]", url)
+        if not cut:
+            return url
+        head, tail = url[:cut.start()], url[cut.start():]
+        return f"<{head}>{tail}"
+    return re.sub(r"(?<![(\[<`])https?://[^\s<>\]\)`]+", fix, text)
 
 
 # ---------- status ----------

@@ -70,6 +70,7 @@
 | 代表地点の住所・市区町村 | `whis:pointAddressArea`（住所LOD の IRI）、`whis:pointMunicipality`（統計LOD の標準地域コードの IRI。例：`sac:C04215-20190201`＝大崎市） |
 | 代表地点の標高 | `whis:pointElevation`（m、`xsd:decimal`）、`whis:pointElevationSource`（DEM5A・DEM10B など） |
 | ほかのデータベース | `rdfs:seeAlso`（「同じ施設」の Wikidata 項目にある GeoNames・OpenStreetMap・国立国会図書館典拠などのURL。%%N_SEEALSO_FAC%%施設） |
+| データの品質と来歴 | W3C Data Quality Vocabulary（%%BASE%%quality.ttl。出典のある割合、項目ごとの値がある割合、標高の一致率、Wikidata との座標の一致率、リンクが開ける割合など）、PROV-O（`prov:wasDerivedFrom`・`prov:wasGeneratedBy`）、`dcat:version`。変更は [CHANGELOG.md](CHANGELOG.md) |
 | データセット全体の説明 | DCAT（`dcat:Dataset`、`dcat:Distribution`）、`dcterms:license`、`dcterms:creator`、`dcterms:modified`。ほかのデータとのつながりの数は VoID（%%BASE%%void.ttl、`void:Linkset`）で、地図のページには検索エンジン向けに schema.org の `Dataset` を埋め込んでいる |
 
 施設ごとのURL（例：%%BASE%%resource/WHIS-JP-026 ＝満濃池）をブラウザで開くと、その施設の説明ページが表示されます。ページには、検索エンジンなどが読み取れる形（schema.org の JSON-LD）でもデータを埋め込んでいます。施設ごとの Turtle・JSON-LD ファイル（例：%%BASE%%resource/WHIS-JP-026.ttl）もあり、ページの `<link rel="alternate">` からたどれます。

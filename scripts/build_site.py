@@ -146,6 +146,12 @@ def ext_html(exts):
             f'（{e(exts[0].get("retrieved", ""))} 時点）。</small></p><ul>{"".join(items)}</ul>')
 
 
+def dead_sources():
+    """公開元から消えた出典（data/source_status.csv の status=消失）。ページに「リンク切れ」と出す。"""
+    p = ROOT / "data" / "source_status.csv"
+    return {x["url"]: x for x in conv.load_rows(str(p)) if x.get("status") == "消失"} if p.exists() else {}
+
+
 def current_terrain(r, terrain):
     """今の座標で求めた標高・空中写真の記録だけを返す（座標を直したあとの古い値は使わない）。"""
     t = (terrain or [{}])[0]
@@ -217,7 +223,11 @@ def resource_page(r, base, creator, imgs=None, exts=None, terrain=None, addr=Non
     rel = conv.split_qids(r.get("wikidata_related"))
     if rel:
         wd += "<br>構成施設：" + "、".join(f'<a href="https://www.wikidata.org/wiki/{e(q)}">{e(q)}</a>' for q in rel)
-    srcs = "".join(f'<li><a href="{e(u)}">{e(u)}</a></li>' for u in conv.split_urls(r.get("source_url")))
+    dead = dead_sources()
+    srcs = "".join(
+        f'<li><a href="{e(u)}">{e(u)}</a>'
+        + (f' <small>（リンク切れ：公開元から削除されました。{e(dead[u]["checked"])}確認。データ作成時に参照した資料）</small>' if u in dead else "")
+        + '</li>' for u in conv.split_urls(r.get("source_url")))
     ld = json.dumps(add_media(jsonld_for(r, base), imgs, exts), ensure_ascii=False, indent=1).replace("</", "<\\/")
     return f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -412,12 +422,16 @@ def quality_page(rows, base, terrain, addr, imgs, g, today):
                      and t.get("gsi_elevation_api_mesh") == m)
     loa = sum(1 for r in rows if (addr.get(r["id"]) or [{}])[0].get("loa_uri"))
     sac = sum(1 for r in rows if (addr.get(r["id"]) or [{}])[0].get("sac_uri"))
-    srcs = len({u for r in rows for u in conv.split_urls(r.get("source_url"))})
+    all_src = {u for r in rows for u in conv.split_urls(r.get("source_url"))}
+    srcs = len(all_src)
+    n_dead = len(all_src & set(dead_sources()))
+    maff_pdf = sum(1 for r in rows if any("/ICID/his/attach/pdf/" in u for u in conv.split_urls(r.get("source_url"))))
     same_wd = sum(1 for r in rows if r.get("verified") == "1" and r.get("wikidata_qid"))
     checked_wd = sum(1 for r in rows if r.get("wikidata_checked") == "1")
     n_img = sum(len(v) for v in imgs.values())
     checks = [
-        ("出典", f"{n}/{n} 施設に出典URL（重複を除いて {srcs} 件の資料）", "出典URLのない行があると、SHACL のチェックで止まって公開されない"),
+        ("出典", f"{n}/{n} 施設に出典URL（重複を除いて {srcs} 件の資料）。{maff_pdf}/{n} 施設に農林水産省の施設概要PDF（現行の番号）。公開元から消えた出典 {n_dead} 件は「リンク切れ」と表示",
+         "出典URLのない行があると、SHACL のチェックで止まって公開されない。農林水産省の施設概要PDFは、登録施設の概要ページの現在のリンクと照合（2026-11-24）"),
         ("データの形（SHACL）", "%%SHACL_RESULT%%",
          "IDの形・登録年の型・座標の範囲・出典の有無・写真のライセンス・リンク先の形など。更新のたびに自動でチェック（shacl_report.txt）"),
         ("座標", f"{sum(1 for r in rows if r.get('lat'))}/{n} 施設", "代表地点を航空写真で確かめて1点ずつ入力"),
@@ -430,6 +444,25 @@ def quality_page(rows, base, terrain, addr, imgs, g, today):
         ("写真", f"{n_img} 枚（{len(imgs)} 施設）すべてに撮影者とライセンス", "撮影者かライセンスが欠けるとSHACLで止まる"),
         ("全体", f"{len(g)} トリプル", "VoID（void.ttl）にほかのデータとのつながりの数"),
     ]
+    cc = ROOT / "data" / "wikidata_crosscheck.csv"
+    if cc.exists():
+        xs = conv.load_rows(str(cc))
+        pts = [x for x in xs if x.get("facility_type") in ("ため池", "堰", "揚水機場") and x.get("distance_km")]
+        near = [x for x in pts if float(x["distance_km"]) <= 1.0]
+        cans = [float(x["distance_km"]) for x in xs if x.get("facility_type") not in ("ため池", "堰", "揚水機場") and x.get("distance_km")]
+        yrs = [x for x in xs if x.get("our_built_year") and x.get("wd_inception_year")]
+        same_y = [x for x in yrs if x["our_built_year"] == x["wd_inception_year"]]
+        dec_y = [x for x in yrs if x not in same_y and x.get("wd_inception_precision") == "10年単位"
+                 and int(x["our_built_year"]) // 10 == int(x["wd_inception_year"]) // 10]
+        diff_y = [x for x in yrs if x not in same_y and x not in dec_y]
+        when = max((x.get("retrieved", "") for x in xs), default="")
+        checks.append(("Wikidata との突き合わせ（外部のデータとの照合）",
+                       f"座標：点の施設（ため池・堰など）{len(near)}/{len(pts)} 件が Wikidata の座標から1km以内。"
+                       f"水路は代表地点の選び方が違うため参考（{min(cans):.1f}〜{max(cans):.1f}km）。"
+                       f"年：比べられる {len(yrs)} 件のうち一致 {len(same_y)}、10年単位で一致 {len(dec_y)}、差あり {len(diff_y)}"
+                       + ("（" + "、".join(f"{x['id'].replace('WHIS-JP-', '')}：このデータ {x['our_built_year']}・Wikidata {x['wd_inception_year']}" for x in diff_y) + "）" if diff_y else "")
+                       + f"（{when}）",
+                       "「同じ施設」とした Wikidata 項目の座標（P625）と開始年（P571）を、このデータと自動で比べた（data/wikidata_crosscheck.csv）。年の差は、何の年（着工・完成など）を採ったかの違いもありうるので、このデータでは「建設年の根拠」欄に何の年かを書いている"))
     lr = ROOT / "docs" / "link_report.csv"
     if lr.exists():
         rep = conv.load_rows(str(lr))
@@ -451,7 +484,8 @@ def quality_page(rows, base, terrain, addr, imgs, g, today):
 <title>検証レポート｜世界かんがい施設遺産（日本）LOD</title><style>{PAGE_CSS}</style></head><body>
 <nav><a href="index.html">地図</a><a href="sparql.html">SPARQL</a><a href="watersystems.html">水系</a><a href="ontology.html">語彙</a><a href="en.html">English</a></nav>
 <h1>検証レポート</h1>
-<p>このデータに対して行っているチェックと、その結果です（{e(today)} に作成）。サイトを作り直すたびに自動で作り直されます。</p>
+<p>このデータに対して行っているチェックと、その結果です（{e(today)} に作成）。サイトを作り直すたびに自動で作り直されます。
+同じ数値を、W3C の Data Quality Vocabulary（DQV）で機械が読める形にした <a href="quality.ttl">quality.ttl</a> もあります。</p>
 <table><tr><th>項目</th><td><b>結果</b></td><td><b>確かめ方</b></td></tr>{rows_html}</table>
 <h2>項目ごとの値がある施設の数</h2>
 <p><small>出典に書かれていない値や、資料で値が違う値は空欄にしています（空欄＝不明。0ではありません）。</small></p>
@@ -510,6 +544,74 @@ def watersystem_page(rows, flow):
 <p><small>湧水・地下水、小さな川など、Wikidata に項目が見つからなかったもの。</small><br>{rest}</p>
 </body></html>
 """
+
+
+def quality_ttl(rows, base, terrain, addr, imgs, today):
+    """検証レポートの数値を、W3C の Data Quality Vocabulary（DQV）で機械が読める形にする（quality.ttl）。"""
+    from rdflib import Graph, Literal, Namespace, URIRef, RDF
+    from rdflib.namespace import XSD, SKOS, DCTERMS
+    DQV = Namespace("http://www.w3.org/ns/dqv#")
+    W = Namespace(base + "ontology#")
+    q = Graph()
+    q.bind("dqv", DQV); q.bind("skos", SKOS); q.bind("dcterms", DCTERMS); q.bind("whis", W)
+    ds = URIRef(base + "dataset")
+    n = len(rows)
+
+    def measure(key, label, definition, value, dim):
+        m = W["metric-" + key]
+        q.add((m, RDF.type, DQV.Metric))
+        q.add((m, SKOS.prefLabel, Literal(label, lang="ja")))
+        q.add((m, SKOS.definition, Literal(definition, lang="ja")))
+        q.add((m, DQV.expectedDataType, XSD.decimal))
+        q.add((m, DQV.inDimension, W["dimension-" + dim]))
+        qm = URIRef(base + f"quality.ttl#{key}")
+        q.add((qm, RDF.type, DQV.QualityMeasurement))
+        q.add((qm, DQV.computedOn, ds))
+        q.add((qm, DQV.isMeasurementOf, m))
+        q.add((qm, DQV.value, Literal(f"{value:.4f}", datatype=XSD.decimal)))
+        q.add((qm, DCTERMS.date, Literal(today, datatype=XSD.date)))
+        q.add((ds, DQV.hasQualityMeasurement, qm))
+
+    for dim, lab in [("completeness", "完全性"), ("accuracy", "正確さ"), ("provenance", "来歴"), ("linkability", "つながり")]:
+        d = W["dimension-" + dim]
+        q.add((d, RDF.type, DQV.Dimension)); q.add((d, SKOS.prefLabel, Literal(lab, lang="ja")))
+    measure("source-coverage", "出典のある施設の割合", "出典URLが1つ以上ある施設の数÷施設の数",
+            sum(1 for r in rows if conv.split_urls(r.get("source_url"))) / n, "provenance")
+    for col, lab in [("lat", "座標"), ("built_year", "建設年"), ("irrigated_area_ha", "かんがい面積"),
+                     ("managing_org", "管理者"), ("name_en", "英語名")]:
+        measure(f"completeness-{col}", f"{lab}がある施設の割合", f"{lab}の値がある施設の数÷施設の数（空欄は不明の意味）",
+                sum(1 for r in rows if (r.get(col) or "").strip()) / n, "completeness")
+    ts = [current_terrain(r, terrain.get(r["id"])) for r in rows]
+    chk = [t for t in ts if t.get("gsi_elevation_api_m")]
+    if chk:
+        from decimal import Decimal, ROUND_HALF_UP
+        mesh = {"DEM1A": "1m", "DEM5A": "5m", "DEM5B": "5m", "DEM5C": "5m", "DEM10B": "10m"}
+        ok = 0
+        for t in chk:
+            m_ = mesh.get(t.get("elevation_dem"), "")
+            qq = Decimal("1") if m_ == "10m" else Decimal("0.1")
+            ok += (Decimal(t["elevation_m"]).quantize(qq, ROUND_HALF_UP) == Decimal(t["gsi_elevation_api_m"]).quantize(qq, ROUND_HALF_UP)
+                   and t.get("gsi_elevation_api_mesh") == m_)
+        measure("elevation-agreement", "標高が国土地理院の標高表示と一致した割合",
+                "国土地理院の標高APIの値（同じ単位に丸める）と、使った標高モデルの種類が一致した地点の数÷照合した地点の数", ok / len(chk), "accuracy")
+    cc = ROOT / "data" / "wikidata_crosscheck.csv"
+    if cc.exists():
+        xs = [x for x in conv.load_rows(str(cc)) if x.get("facility_type") in ("ため池", "堰", "揚水機場") and x.get("distance_km")]
+        if xs:
+            measure("wikidata-point-agreement", "点の施設の座標が Wikidata と1km以内の割合",
+                    "ため池・堰・揚水機場で、Wikidata の座標（P625）から1km以内にある施設の数÷比べた施設の数",
+                    sum(1 for x in xs if float(x["distance_km"]) <= 1) / len(xs), "accuracy")
+    measure("address-link-coverage", "住所LODにつないだ代表地点の割合", "住所LODの IRI がある施設の数÷施設の数",
+            sum(1 for r in rows if (addr.get(r["id"]) or [{}])[0].get("loa_uri")) / n, "linkability")
+    measure("wikidata-same-coverage", "Wikidata と「同じ施設」でつないだ施設の割合", "owl:sameAs がある施設の数÷施設の数",
+            sum(1 for r in rows if r.get("verified") == "1" and r.get("wikidata_qid")) / n, "linkability")
+    lr = ROOT / "docs" / "link_report.csv"
+    if lr.exists():
+        rep = conv.load_rows(str(lr))
+        if rep:
+            measure("link-health", "開けたリンクの割合", "毎月のリンク健康診断で開けたURLの数÷確かめたURLの数",
+                    sum(1 for x in rep if x.get("ok") == "1") / len(rep), "accuracy")
+    return q.serialize(format="turtle")
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
@@ -578,6 +680,7 @@ def main(argv=None):
     (docs / "ontology.html").write_text(ontology_page(base), encoding="utf-8")
     (docs / "en.html").write_text(english_page(rows, base, terrain, images), encoding="utf-8")
     (docs / "watersystems.html").write_text(watersystem_page(rows, flow), encoding="utf-8")
+    (docs / "quality.ttl").write_text(quality_ttl(rows, base, terrain, addr, images, a.modified), encoding="utf-8")
     (docs / "quality.html").write_text(quality_page(rows, base, terrain, addr, images, g, a.modified), encoding="utf-8")
     print(f"施設ページ {len(rows)} 件（HTML・Turtle・JSON-LD）、ontology.html、JSON-LD、CSV を {docs} に出力しました")
     return rc

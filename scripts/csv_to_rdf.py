@@ -22,6 +22,7 @@
   足りない分だけ独自語彙 whis: を最小限で定義する。
 """
 import argparse
+import os
 import re
 import csv
 import json
@@ -271,6 +272,26 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None,
     for s in dataset_meta["sources"]:
         g.add((ds, DCTERMS.source, URIRef(s)))
     g.add((ds, DCAT.landingPage, URIRef(base)))
+    # 版と来歴（W3C PROV-O）：このデータが何から、いつ、どのプログラムで作られたか
+    PROV = Namespace("http://www.w3.org/ns/prov#")
+    g.bind("prov", PROV)
+    g.add((ds, DCAT.version, Literal(dataset_meta["modified"])))
+    for src in ["https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html",   # 農林水産省 登録施設の概要
+                "https://maps.gsi.go.jp/development/ichiran.html",                 # 地理院タイル（標高・空中写真）
+                "https://www.wikidata.org/", "https://commons.wikimedia.org/",
+                "https://uedayou.net/loa/", "https://data.e-stat.go.jp/lodw/", "https://agrovoc.fao.org/"]:
+        g.add((ds, PROV.wasDerivedFrom, URIRef(src)))
+    act = URIRef(base + "dataset#build")
+    g.add((ds, PROV.wasGeneratedBy, act))
+    g.add((act, RDF.type, PROV.Activity))
+    g.add((act, RDFS.label, Literal("CSV から RDF・サイトを作り、SHACL でチェックする処理（lod.py build）", lang="ja")))
+    g.add((act, PROV.endedAtTime, Literal(dataset_meta.get("generated") or dataset_meta["modified"],
+                                           datatype=XSD.dateTime if "T" in (dataset_meta.get("generated") or "") else XSD.date)))
+    code = URIRef("https://github.com/ysh17-hub/whis-lod")
+    g.add((act, PROV.used, code))
+    sha = os.environ.get("GITHUB_SHA")
+    if sha:   # GitHub Actions で作ったときは、どのコミットから作ったかも記録する
+        g.add((act, PROV.used, URIRef(f"https://github.com/ysh17-hub/whis-lod/commit/{sha}")))
     g.add((ds, DCTERMS.spatial, WD["Q17"]))  # 日本
     g.add((ds, DCTERMS.language, URIRef("http://id.loc.gov/vocabulary/iso639-1/ja")))
     for kw in ["世界かんがい施設遺産", "World Heritage Irrigation Structures", "かんがい", "農業水利", "ICID"]:
