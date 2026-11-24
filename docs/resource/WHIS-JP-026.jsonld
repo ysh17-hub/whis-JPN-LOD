@@ -1,36 +1,5 @@
 [
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Mannolake1.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q20983084"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mannolake1.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "miea.system"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Mannolake1.JPG"
-   }
-  ]
- },
- {
   "@id": "https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg",
   "@type": [
    "https://schema.org/ImageObject"
@@ -262,6 +231,37 @@
    {
     "@language": "ja",
     "@value": "金倉川"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Mannolake1.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q20983084"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mannolake1.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "miea.system"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Mannolake1.JPG"
    }
   ]
  }

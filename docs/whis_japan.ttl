@@ -2636,7 +2636,7 @@ whis:type-canal a skos:Concept ;
     dcterms:creator "abe" ;
     dcterms:language <http://id.loc.gov/vocabulary/iso639-1/ja> ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-11-23"^^xsd:date ;
+    dcterms:modified "2026-11-24"^^xsd:date ;
     dcterms:source <https://www.cgr.mlit.go.jp/okakawa/kouhou/hyakenkaitiku/history/pdf/tsuda_nagatada.pdf>,
         <https://www.city.kobe.lg.jp/a83166/kanko/bunka/bunkazai/history/isan/ougososui.html>,
         <https://www.city.kumamoto.jp/kiji00319258/5_19258_313287_up_3YT166OX.pdf>,

@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-025/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(131.283333 33.95)"
-   }
-  ]
- },
- {
   "@id": "https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg",
   "@type": [
    "https://schema.org/ImageObject"
@@ -39,6 +27,18 @@
   "https://schema.org/name": [
    {
     "@value": "Tokiwa park.jpg"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-025/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(131.283333 33.95)"
    }
   ]
  },

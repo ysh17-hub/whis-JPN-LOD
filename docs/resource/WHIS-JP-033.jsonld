@@ -1,36 +1,5 @@
 [
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q21653080"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Indiana jo"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Former Gorobē Yōsui 02.jpg"
-   }
-  ]
- },
- {
   "@id": "https://commons.wikimedia.org/wiki/File:Gorob%C4%93_Y%C5%8Dsui_01.jpg",
   "@type": [
    "https://schema.org/ImageObject"
@@ -216,6 +185,37 @@
    {
     "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
     "@value": "POINT(138.358437 36.228835)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q21653080"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Indiana jo"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Former Gorobē Yōsui 02.jpg"
    }
   ]
  }

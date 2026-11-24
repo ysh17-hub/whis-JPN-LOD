@@ -4,8 +4,7 @@
 
 日本にある「世界かんがい施設遺産」60施設（2014〜2026年に認定・登録）の基本情報を、出典付きで、コンピュータが読み取って他のデータとつなげられる形（Linked Open Data）にまとめたデータセットと地図です。
 
-- 地図：https://ysh17-hub.github.io/whis-lod/
-- （背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
+- 地図：https://ysh17-hub.github.io/whis-lod/（背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
 - 水系でみる：https://ysh17-hub.github.io/whis-lod/watersystems.html ／ 検証レポート：https://ysh17-hub.github.io/whis-lod/quality.html ／ English：https://ysh17-hub.github.io/whis-lod/en.html
 - SPARQL（ブラウザの中で問い合わせ）：https://ysh17-hub.github.io/whis-lod/sparql.html
 - データ：[Turtle](docs/whis_japan.ttl)／[JSON-LD](docs/whis_japan.jsonld)／[N-Triples](docs/whis_japan.nt)／[GeoJSON](docs/whis_japan.geojson)／[CSV](data/whis_japan.csv)
@@ -206,7 +205,7 @@ abe
 
 代表地点の座標と Wikidata とのつながりは、作成者が航空写真と Wikidata のページを見て1件ずつ確認しました。数値は、各行の出典URLの資料にもとづいています。
 
-（最終更新：2026-11-23）
+（最終更新：2026-11-24）
 
 ---
 

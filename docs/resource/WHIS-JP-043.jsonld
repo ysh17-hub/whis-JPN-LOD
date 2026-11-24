@@ -1,13 +1,32 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-043/geometry",
+  "@id": "https://commons.wikimedia.org/wiki/File:Teragaike_04.jpg",
   "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
+   "https://schema.org/ImageObject"
   ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
+  "https://schema.org/about": [
    {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.558333 34.462867)"
+    "@id": "http://www.wikidata.org/entity/Q1018718"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Teragaike_04.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "JEXP"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Teragaike 04.jpg"
    }
   ]
  },
@@ -181,33 +200,14 @@
   ]
  },
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Teragaike_04.jpg",
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-043/geometry",
   "@type": [
-   "https://schema.org/ImageObject"
+   "http://www.opengis.net/ont/geosparql#Geometry"
   ],
-  "https://schema.org/about": [
+  "http://www.opengis.net/ont/geosparql#asWKT": [
    {
-    "@id": "http://www.wikidata.org/entity/Q1018718"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Teragaike_04.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "JEXP"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Teragaike 04.jpg"
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.558333 34.462867)"
    }
   ]
  }

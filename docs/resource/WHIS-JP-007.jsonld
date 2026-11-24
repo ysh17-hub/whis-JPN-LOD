@@ -1,36 +1,5 @@
 [
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11488870"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Shijimi-river_siphon-bridge.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Bakkai"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Shijimi-river siphon-bridge.jpg"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -218,6 +187,37 @@
    {
     "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
     "@value": "POINT(135.055806 34.790278)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11488870"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Shijimi-river_siphon-bridge.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Bakkai"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Shijimi-river siphon-bridge.jpg"
    }
   ]
  }
