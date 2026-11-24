@@ -1,5 +1,36 @@
 [
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11481531"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tokiwa_park.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Original uploader was Historian at en.wikipedia"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/2.5"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Tokiwa park.jpg"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-025/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
@@ -35,6 +66,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-51.pdf"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
@@ -45,10 +79,14 @@
   "http://www.w3.org/2000/01/rdf-schema#comment": [
    {
     "@language": "ja",
-    "@value": "築造年は公的資料で未確認のため空欄"
+    "@value": "1695年に築堤着手、1698年に完成（農林水産省の施設概要）"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Tokiwako Reservoir"
+   },
    {
     "@language": "ja",
     "@value": "常盤湖"
@@ -106,8 +144,24 @@
   ],
   "https://schema.org/name": [
    {
+    "@language": "en",
+    "@value": "Tokiwako Reservoir"
+   },
+   {
     "@language": "ja",
     "@value": "常盤湖"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtYear": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+    "@value": "1698"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
+   {
+    "@language": "ja",
+    "@value": "完成。1695年に築堤着手"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
@@ -163,37 +217,6 @@
    {
     "@language": "ja",
     "@value": "常盤湖（ときわ公園）"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Tokiwa_park.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11481531"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tokiwa_park.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Original uploader was Historian at en.wikipedia"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/2.5"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Tokiwa park.jpg"
    }
   ]
  }

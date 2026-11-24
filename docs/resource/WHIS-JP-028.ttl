@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
-    rdfs:label "土淵堰"@ja ;
+    rdfs:label "Doen Irrigation System"@en,
+        "土淵堰"@ja ;
     dcterms:identifier "WHIS-JP-028" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-25.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-25.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-028/geometry> ;
     rdfs:comment "延長約16kmの開水路で、水田約8,300haに用水を供給（農林水産省）"@ja ;
     rdfs:seeAlso <https://sws.geonames.org/8412802/> ;
@@ -25,7 +27,8 @@ res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "青森県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C02000-19700401>,
         wd:Q71699 ;
-    schema:name "土淵堰"@ja ;
+    schema:name "Doen Irrigation System"@en,
+        "土淵堰"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:irrigatedArea 8300.0 ;

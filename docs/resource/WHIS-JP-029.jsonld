@@ -1,5 +1,17 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(139.986289 37.038616)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -20,11 +32,20 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-5.pdf"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
    {
     "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029/geometry"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#comment": [
+   {
+    "@language": "ja",
+    "@value": "英語名は、農林水産省の英語の紹介資料では「Nasu Irrigation System」"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -174,18 +195,6 @@
    {
     "@language": "ja",
     "@value": "那珂川"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(139.986289 37.038616)"
    }
   ]
  }

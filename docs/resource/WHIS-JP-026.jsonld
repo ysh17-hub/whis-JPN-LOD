@@ -1,36 +1,5 @@
 [
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q6750928"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Σ64"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Mano Dam 02.jpg"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
@@ -74,6 +43,37 @@
   ]
  },
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q6750928"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Σ64"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Mano Dam 02.jpg"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -96,6 +96,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-52.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/46_manno/index.html"
    },
    {
@@ -114,6 +117,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Mannou-ike Reservoir"
+   },
    {
     "@language": "ja",
     "@value": "満濃池"
@@ -178,6 +185,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Mannou-ike Reservoir"
+   },
    {
     "@language": "ja",
     "@value": "満濃池"

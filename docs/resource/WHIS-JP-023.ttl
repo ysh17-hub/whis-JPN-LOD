@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
-    rdfs:label "明治用水"@ja ;
+    rdfs:label "Meiji-yousui Irrigation Canal"@en,
+        "明治用水"@ja ;
     dcterms:identifier "WHIS-JP-023" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-42.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf>,
         <https://www.pref.aichi.jp/uploaded/attachment/489986.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023/geometry> ;
@@ -27,7 +29,8 @@ res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "愛知県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C23000-19700401>,
         wd:Q80434 ;
-    schema:name "明治用水"@ja ;
+    schema:name "Meiji-yousui Irrigation Canal"@en,
+        "明治用水"@ja ;
     whis:builtYear "1880"^^xsd:gYear ;
     whis:builtYearBasis "完成"@ja ;
     whis:facilityCategory whis:type-canal ;

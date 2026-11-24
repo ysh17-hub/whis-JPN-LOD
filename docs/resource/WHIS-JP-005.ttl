@@ -9,11 +9,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
-    rdfs:label "立梅用水"@ja ;
+    rdfs:label "Tachibaiyousui Irrigation Canal"@en,
+        "立梅用水"@ja ;
     dcterms:identifier "WHIS-JP-005" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-44.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/34_tatiba/index.html>,
         <https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/pdf/07_04.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-005/geometry> ;
@@ -24,7 +26,8 @@ res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "三重県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C24000-19700401>,
         wd:Q128196 ;
-    schema:name "立梅用水"@ja ;
+    schema:name "Tachibaiyousui Irrigation Canal"@en,
+        "立梅用水"@ja ;
     whis:builtYear "1823"^^xsd:gYear ;
     whis:builtYearBasis "開削（文政6年）"@ja ;
     whis:facilityCategory whis:type-canal ;

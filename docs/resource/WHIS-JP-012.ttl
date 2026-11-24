@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-012 a whis:HeritageIrrigationStructure ;
-    rdfs:label "入鹿池"@ja ;
+    rdfs:label "Irukaike Reservoir"@en,
+        "入鹿池"@ja ;
     dcterms:identifier "WHIS-JP-012" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-41.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/26_iruka/index.html>,
         <https://www.mlit.go.jp/common/001140232.pdf>,
         <https://www.pref.aichi.jp/uploaded/attachment/275757.pdf> ;
@@ -29,7 +31,8 @@ res:WHIS-JP-012 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C23000-19700401>,
         wd:Q80434 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Irukaike_pond_1.JPG> ;
-    schema:name "入鹿池"@ja ;
+    schema:name "Irukaike Reservoir"@en,
+        "入鹿池"@ja ;
     whis:builtYear "1633"^^xsd:gYear ;
     whis:builtYearBasis "完成"@ja ;
     whis:facilityCategory whis:type-tameike ;

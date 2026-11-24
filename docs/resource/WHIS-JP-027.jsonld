@@ -1,36 +1,5 @@
 [
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q17225723"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "shunsaku hara (r265)"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "百太郎溝 Hyakutarou Waterway - panoramio.jpg"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
@@ -65,12 +34,21 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-55.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
    {
     "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027/geometry"
+   }
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#comment": [
+   {
+    "@language": "ja",
+    "@value": "管理者は、農林水産省の施設概要に幸野溝土地改良区による維持管理の記載があるもの。百太郎溝の管理者は同資料に記載なし"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -161,6 +139,12 @@
     "@value": "水路"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
+   {
+    "@language": "ja",
+    "@value": "幸野溝土地改良区（幸野溝）"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
    {
     "@language": "ja",
@@ -214,6 +198,37 @@
    {
     "@language": "ja",
     "@value": "球磨川"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q17225723"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/%E7%99%BE%E5%A4%AA%E9%83%8E%E6%BA%9D_Hyakutarou_Waterway_-_panoramio.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "shunsaku hara (r265)"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "百太郎溝 Hyakutarou Waterway - panoramio.jpg"
    }
   ]
  }

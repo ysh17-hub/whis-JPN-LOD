@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-019 a whis:HeritageIrrigationStructure ;
-    rdfs:label "拾ヶ堰"@ja ;
+    rdfs:label "Jikkasegi Irrigation System"@en,
+        "拾ヶ堰"@ja ;
     dcterms:identifier "WHIS-JP-019" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-33.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-019/geometry> ;
     rdfs:comment "延長約15km。表記は資料により拾ヶ堰／拾ケ堰"@ja ;
@@ -26,7 +28,8 @@ res:WHIS-JP-019 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "長野県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C20000-19700401>,
         wd:Q127877 ;
-    schema:name "拾ヶ堰"@ja ;
+    schema:name "Jikkasegi Irrigation System"@en,
+        "拾ヶ堰"@ja ;
     whis:builtYear "1816"^^xsd:gYear ;
     whis:builtYearBasis "開削"@ja ;
     whis:facilityCategory whis:type-canal ;

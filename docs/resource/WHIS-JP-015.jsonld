@@ -22,6 +22,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-27.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.pref.miyagi.jp/soshiki/nosonshin/uchikawa.html"
    }
   ],
@@ -37,6 +40,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Uchikawa Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "内川"
@@ -85,6 +92,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Uchikawa Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "内川"

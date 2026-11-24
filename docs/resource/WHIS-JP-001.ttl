@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
-    rdfs:label "稲生川"@ja ;
+    rdfs:label "Inaoigawa Irrigation Canal"@en,
+        "稲生川"@ja ;
     dcterms:identifier "WHIS-JP-001" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-24.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/aomori/index.html>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/suido/attach/pdf/170425-2.pdf>,
         <https://www.pref.aomori.lg.jp/soshiki/nourin/ka-nosui/files/inaoigawawalk2024.pdf> ;
@@ -29,7 +31,8 @@ res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "青森県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C02000-19700401>,
         wd:Q71699 ;
-    schema:name "稲生川"@ja ;
+    schema:name "Inaoigawa Irrigation Canal"@en,
+        "稲生川"@ja ;
     whis:builtYear "1855"^^xsd:gYear ;
     whis:builtYearBasis "着工"@ja ;
     whis:facilityCategory whis:type-canal ;

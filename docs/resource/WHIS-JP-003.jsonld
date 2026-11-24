@@ -1,13 +1,32 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003/geometry",
+  "@id": "https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG",
   "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
+   "https://schema.org/ImageObject"
   ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
+  "https://schema.org/about": [
    {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(138.984754 35.230123)"
+    "@id": "http://www.wikidata.org/entity/Q11560257"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Indiana jo"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "深良用水3.JPG"
    }
   ]
  },
@@ -34,6 +53,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-36.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf"
    }
   ],
@@ -49,6 +71,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Fukarayousui Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "深良用水"
@@ -105,6 +131,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Fukarayousui Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "深良用水"
@@ -196,33 +226,14 @@
   ]
  },
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG",
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003/geometry",
   "@type": [
-   "https://schema.org/ImageObject"
+   "http://www.opengis.net/ont/geosparql#Geometry"
   ],
-  "https://schema.org/about": [
+  "http://www.opengis.net/ont/geosparql#asWKT": [
    {
-    "@id": "http://www.wikidata.org/entity/Q11560257"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Indiana jo"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "深良用水3.JPG"
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(138.984754 35.230123)"
    }
   ]
  }

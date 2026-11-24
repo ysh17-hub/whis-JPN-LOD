@@ -37,6 +37,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-56.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf"
    }
   ],
@@ -106,6 +109,12 @@
    {
     "@language": "ja",
     "@value": "白川流域かんがい用水群"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+   {
+    "@language": "ja",
+    "@value": "約400年前"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [

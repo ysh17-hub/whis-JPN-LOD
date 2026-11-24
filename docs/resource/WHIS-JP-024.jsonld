@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-024/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(136.318668 34.614791)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-024",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -34,6 +22,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-45.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/tokai/noson/nn/isan/index.html"
    }
   ],
@@ -45,10 +36,14 @@
   "http://www.w3.org/2000/01/rdf-schema#comment": [
    {
     "@language": "ja",
-    "@value": "全長7km。1729年に南家城井と川口井が統合"
+    "@value": "全長7km。1729年に南家城井と川口井が統合。かんがい面積は約360ha（農林水産省の施設概要）"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Minamiieki-kawaguchi-yusui Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "南家城川口井水"
@@ -88,6 +83,10 @@
   ],
   "https://schema.org/name": [
    {
+    "@language": "en",
+    "@value": "Minamiieki-kawaguchi-yusui Irrigation System"
+   },
+   {
     "@language": "ja",
     "@value": "南家城川口井水"
    }
@@ -113,6 +112,12 @@
    {
     "@language": "ja",
     "@value": "水路"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#irrigatedArea": [
+   {
+    "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value": "360.0"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
@@ -168,6 +173,18 @@
    {
     "@language": "ja",
     "@value": "雲出川"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-024/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(136.318668 34.614791)"
    }
   ]
  }

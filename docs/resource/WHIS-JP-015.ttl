@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
-    rdfs:label "内川"@ja ;
+    rdfs:label "Uchikawa Irrigation System"@en,
+        "内川"@ja ;
     dcterms:identifier "WHIS-JP-015" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-27.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.pref.miyagi.jp/soshiki/nosonshin/uchikawa.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-015/geometry> ;
     rdfs:comment "伊達政宗が開削。かんがい面積は3,300ha超"@ja ;
@@ -26,7 +28,8 @@ res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "宮城県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C04000-19700401>,
         wd:Q47896 ;
-    schema:name "内川"@ja ;
+    schema:name "Uchikawa Irrigation System"@en,
+        "内川"@ja ;
     whis:builtYear "1591"^^xsd:gYear ;
     whis:builtYearBasis "開削"@ja ;
     whis:facilityCategory whis:type-canal ;

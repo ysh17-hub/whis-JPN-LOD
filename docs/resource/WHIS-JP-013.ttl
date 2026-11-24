@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-013 a whis:HeritageIrrigationStructure ;
-    rdfs:label "久米田池"@ja ;
+    rdfs:label "Kumedaike Reservoir"@en,
+        "久米田池"@ja ;
     dcterms:identifier "WHIS-JP-013" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-46.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html>,
         <https://www.pref.osaka.lg.jp/senshunm/gyoumu/kumedaike.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-013/geometry> ;
@@ -28,7 +30,8 @@ res:WHIS-JP-013 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
         wd:Q122723 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Kurumeji15.jpg> ;
-    schema:name "久米田池"@ja ;
+    schema:name "Kumedaike Reservoir"@en,
+        "久米田池"@ja ;
     whis:builtYear "0738"^^xsd:gYear ;
     whis:builtYearBasis "完成（725年着工・14年）"@ja ;
     whis:facilityCategory whis:type-tameike ;

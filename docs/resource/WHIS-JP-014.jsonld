@@ -34,6 +34,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf"
    }
   ],
@@ -49,6 +52,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Teruizeki Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "照井堰用水"
@@ -100,6 +107,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Teruizeki Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "照井堰用水"

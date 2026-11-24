@@ -15,8 +15,10 @@ res:WHIS-JP-029 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-029" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-5.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-5.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029/geometry> ;
+    rdfs:comment "英語名は、農林水産省の英語の紹介資料では「Nasu Irrigation System」"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E9%82%A3%E9%A0%88%E7%96%8F%E6%B0%B4>,
         <https://www.openstreetmap.org/relation/18949446> ;
     owl:sameAs wd:Q11642949 ;

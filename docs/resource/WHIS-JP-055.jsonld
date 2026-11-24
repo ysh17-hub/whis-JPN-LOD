@@ -42,7 +42,7 @@
   "http://www.w3.org/2000/01/rdf-schema#comment": [
    {
     "@language": "ja",
-    "@value": "約170年前。名称は資料により「井出」「井手」の表記あり（要確認）"
+    "@value": "名称は農林水産省のプレスリリース（2025年7月23日）と施設概要の表記「湯の口ため池・井手」による（「井出」と書く資料もある）。施設概要に「500haもの地域を支える施設」とある"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -52,7 +52,7 @@
    },
    {
     "@language": "ja",
-    "@value": "湯の口ため池・井出"
+    "@value": "湯の口ため池・井手"
    }
   ],
   "http://www.w3.org/2003/01/geo/wgs84_pos#lat": [
@@ -94,7 +94,13 @@
    },
    {
     "@language": "ja",
-    "@value": "湯の口ため池・井出"
+    "@value": "湯の口ため池・井手"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+   {
+    "@language": "ja",
+    "@value": "約170年前に建設"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [

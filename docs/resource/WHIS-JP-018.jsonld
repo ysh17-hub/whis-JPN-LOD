@@ -22,6 +22,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-16.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf"
    }
   ],
@@ -37,6 +40,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Murayama Rokkamura-segi Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "村山六ヶ村堰疏水"
@@ -75,6 +82,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Murayama Rokkamura-segi Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "村山六ヶ村堰疏水"

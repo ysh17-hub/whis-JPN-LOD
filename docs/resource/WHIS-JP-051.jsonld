@@ -98,6 +98,12 @@
     "@value": "建部井堰"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+   {
+    "@language": "ja",
+    "@value": "1721年には既に存在"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
    {
     "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-weir"

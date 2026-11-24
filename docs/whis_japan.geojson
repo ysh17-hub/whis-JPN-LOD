@@ -13,12 +13,13 @@
    "properties": {
     "id": "WHIS-JP-001",
     "name_ja": "稲生川",
-    "name_en": "",
+    "name_en": "Inaoigawa Irrigation Canal",
     "prefecture": "青森県",
     "municipality": "十和田市他",
     "registered_year": "2014",
     "built_year": "1855",
     "built_year_basis": "着工",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "奥入瀬川（十和田湖）",
     "managing_org": "稲生川土地改良区",
@@ -29,7 +30,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q1156064;Q1196132",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/aomori/index.html | https://www.maff.go.jp/j/nousin/sekkei/museum/suido/attach/pdf/170425-2.pdf | https://www.pref.aomori.lg.jp/soshiki/nourin/ka-nosui/files/inaoigawawalk2024.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-24.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/aomori/index.html | https://www.maff.go.jp/j/nousin/sekkei/museum/suido/attach/pdf/170425-2.pdf | https://www.pref.aomori.lg.jp/soshiki/nourin/ka-nosui/files/inaoigawawalk2024.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-24.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "1859年完成。かんがい面積は資料で異なる（農水省『先人』ページ：約5,900haの水田／農水省『水土を守る人々』2017：改良区受益地約5,200ha）ため空欄"
    }
   },
@@ -45,12 +46,13 @@
    "properties": {
     "id": "WHIS-JP-002",
     "name_ja": "雄川堰",
-    "name_en": "",
+    "name_en": "Ogawazeki Irrigation Canal",
     "prefecture": "群馬県",
     "municipality": "甘楽町",
     "registered_year": "2014",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "およそ400年前に建設",
     "facility_type": "水路",
     "water_source_river": "",
     "managing_org": "",
@@ -61,7 +63,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-30.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-30.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "関東農政局資料に約400年前とある。年は未確定のため空欄"
    }
   },
@@ -77,12 +79,13 @@
    "properties": {
     "id": "WHIS-JP-003",
     "name_ja": "深良用水",
-    "name_en": "",
+    "name_en": "Fukarayousui Irrigation Canal",
     "prefecture": "静岡県",
     "municipality": "裾野市他",
     "registered_year": "2014",
     "built_year": "1666",
     "built_year_basis": "資料記載年",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "芦ノ湖",
     "managing_org": "静岡県芦湖水利組合",
@@ -93,7 +96,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q187053",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-36.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-36.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "代表地点の座標は国土地理院の地名検索で「深良水門」とされる地点（航空写真で確認）。"
    }
   },
@@ -109,12 +112,13 @@
    "properties": {
     "id": "WHIS-JP-004",
     "name_ja": "七ヶ用水",
-    "name_en": "",
+    "name_en": "Shichikayousui Irrigation System",
     "prefecture": "石川県",
     "municipality": "白山市他",
     "registered_year": "2014",
     "built_year": "1903",
     "built_year_basis": "合口事業完成（七つの用水の取水口統合）",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "手取川",
     "managing_org": "手取川七ヶ用水土地改良区",
@@ -125,7 +129,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q11496932",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/meiji150/toti/20.html | https://www.pref.ishikawa.lg.jp/kisya/r5kyoui/documents/zyubunnositei.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-38.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/meiji150/toti/20.html | https://www.pref.ishikawa.lg.jp/kisya/r5kyoui/documents/zyubunnositei.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-38.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "構成する七用水は近世以来（石川県資料）。built_yearは合口完成年"
    }
   },
@@ -141,12 +145,13 @@
    "properties": {
     "id": "WHIS-JP-005",
     "name_ja": "立梅用水",
-    "name_en": "",
+    "name_en": "Tachibaiyousui Irrigation Canal",
     "prefecture": "三重県",
     "municipality": "多気町他",
     "registered_year": "2014",
     "built_year": "1823",
     "built_year_basis": "開削（文政6年）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "櫛田川",
     "managing_org": "立梅用水土地改良区",
@@ -157,7 +162,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q6447936",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/34_tatiba/index.html | https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/pdf/07_04.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-44.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/34_tatiba/index.html | https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/pdf/07_04.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-44.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "延長約30km"
    }
   },
@@ -173,12 +178,13 @@
    "properties": {
     "id": "WHIS-JP-006",
     "name_ja": "狭山池",
-    "name_en": "",
+    "name_en": "Sayamaike Reservoir",
     "prefecture": "大阪府",
     "municipality": "大阪狭山市",
     "registered_year": "2014",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "1,400年前に築造",
     "facility_type": "ため池",
     "water_source_river": "",
     "managing_org": "",
@@ -189,7 +195,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "農水省概要に約1,400年前とある。年は未確定のため空欄"
    }
   },
@@ -205,12 +211,13 @@
    "properties": {
     "id": "WHIS-JP-007",
     "name_ja": "淡山疏水",
-    "name_en": "",
+    "name_en": "Tanzansosui Irrigation System",
     "prefecture": "兵庫県",
     "municipality": "神戸市他",
     "registered_year": "2014",
     "built_year": "1891",
     "built_year_basis": "淡河川疏水完成",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "淡河川、志染川（山田川）",
     "managing_org": "兵庫県淡河川山田川土地改良区",
@@ -221,7 +228,7 @@
     "wikidata_related": "Q11488870;Q11559782",
     "water_source_river_qid": "Q11491046",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.city.kobe.lg.jp/a83166/kanko/bunka/bunkazai/history/isan/ougososui.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/hyogo/index.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-48.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.city.kobe.lg.jp/a83166/kanko/bunka/bunkazai/history/isan/ougososui.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/hyogo/index.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-48.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "山田川疏水は1911年着工・1915年完成（農水省）。81か所のため池も活用"
    }
   },
@@ -237,12 +244,13 @@
    "properties": {
     "id": "WHIS-JP-008",
     "name_ja": "山田堰、堀川用水、水車群",
-    "name_en": "",
+    "name_en": "Yamadazeki Barrage System",
     "prefecture": "福岡県",
     "municipality": "朝倉市",
     "registered_year": "2014",
     "built_year": "1663",
     "built_year_basis": "堀川用水開削",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "筑後川",
     "managing_org": "",
@@ -253,7 +261,7 @@
     "wikidata_related": "Q42567025",
     "water_source_river_qid": "Q954320",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/ | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/ | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "山田堰（傾斜堰床式石張堰）は1790年古賀百工により完成。かんがい面積は約652ha（aff 2024年9月号）"
    }
   },
@@ -275,6 +283,7 @@
     "registered_year": "2014",
     "built_year": "1855",
     "built_year_basis": "建設（農林水産省の資料に記載）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "",
     "managing_org": "",
@@ -285,7 +294,7 @@
     "wikidata_related": "Q3077059",
     "water_source_river_qid": "",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-54.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-54.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "日本最大の石造アーチ水路橋『通潤橋』を含む"
    }
   },
@@ -301,12 +310,13 @@
    "properties": {
     "id": "WHIS-JP-010",
     "name_ja": "上江用水路",
-    "name_en": "",
+    "name_en": "Uwae Irrigation Canal",
     "prefecture": "新潟県",
     "municipality": "上越市他",
     "registered_year": "2015",
     "built_year": "1648",
     "built_year_basis": "供用開始（新潟県資料）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "関川",
     "managing_org": "関川水系土地改良区",
@@ -317,7 +327,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q11655745",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.niigata.lg.jp/uploaded/attachment/78585.pdf | https://www.pref.niigata.lg.jp/sec/nochikanri/1356831544817.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-37.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.niigata.lg.jp/uploaded/attachment/78585.pdf | https://www.pref.niigata.lg.jp/sec/nochikanri/1356831544817.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-37.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "1573年から工事開始。全長約26km"
    }
   },
@@ -333,12 +343,13 @@
    "properties": {
     "id": "WHIS-JP-011",
     "name_ja": "曽代用水",
-    "name_en": "",
+    "name_en": "Sodaiyousui Irrigation System",
     "prefecture": "岐阜県",
     "municipality": "関市他",
     "registered_year": "2015",
     "built_year": "1663",
     "built_year_basis": "計画・着手（寛文3年）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "長良川",
     "managing_org": "",
@@ -349,7 +360,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q1194094",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/gihu/index.html | https://www.maff.go.jp/tokai/noson/nn/isan/index.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-40.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/gihu/index.html | https://www.maff.go.jp/tokai/noson/nn/isan/index.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-40.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "藩主導でなく関係農家の話し合いで建設（東海農政局）"
    }
   },
@@ -365,12 +376,13 @@
    "properties": {
     "id": "WHIS-JP-012",
     "name_ja": "入鹿池",
-    "name_en": "",
+    "name_en": "Irukaike Reservoir",
     "prefecture": "愛知県",
     "municipality": "犬山市",
     "registered_year": "2015",
     "built_year": "1633",
     "built_year_basis": "完成",
+    "built_period": "",
     "facility_type": "ため池",
     "water_source_river": "五条川（上流を堰き止め）",
     "managing_org": "入鹿用水土地改良区",
@@ -381,7 +393,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q2747208",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/26_iruka/index.html | https://www.mlit.go.jp/common/001140232.pdf | https://www.pref.aichi.jp/uploaded/attachment/275757.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-41.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/26_iruka/index.html | https://www.mlit.go.jp/common/001140232.pdf | https://www.pref.aichi.jp/uploaded/attachment/275757.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-41.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "かんがい面積は資料で異なる（国交省資料：水田約600ha／農水省ため池百選：1,300ha）ため空欄。貯水量15,187,000m3（愛知県）"
    }
   },
@@ -397,12 +409,13 @@
    "properties": {
     "id": "WHIS-JP-013",
     "name_ja": "久米田池",
-    "name_en": "",
+    "name_en": "Kumedaike Reservoir",
     "prefecture": "大阪府",
     "municipality": "岸和田市",
     "registered_year": "2015",
     "built_year": "738",
     "built_year_basis": "完成（725年着工・14年）",
+    "built_period": "",
     "facility_type": "ため池",
     "water_source_river": "牛滝川",
     "managing_org": "久米田池土地改良区",
@@ -413,7 +426,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.osaka.lg.jp/senshunm/gyoumu/kumedaike.html | https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-46.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.osaka.lg.jp/senshunm/gyoumu/kumedaike.html | https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-46.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "行基が関わる。敷葉工法。貯水量157万トン"
    }
   },
@@ -429,12 +442,13 @@
    "properties": {
     "id": "WHIS-JP-014",
     "name_ja": "照井堰用水",
-    "name_en": "",
+    "name_en": "Teruizeki Irrigation Canal",
     "prefecture": "岩手県",
     "municipality": "一関市他",
     "registered_year": "2016",
     "built_year": "1180",
     "built_year_basis": "開削（1180年頃）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "磐井川",
     "managing_org": "照井土地改良区",
@@ -445,7 +459,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q11587850",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "総延長64km。毛越寺浄土庭園への遣水"
    }
   },
@@ -461,12 +475,13 @@
    "properties": {
     "id": "WHIS-JP-015",
     "name_ja": "内川",
-    "name_en": "",
+    "name_en": "Uchikawa Irrigation System",
     "prefecture": "宮城県",
     "municipality": "大崎市",
     "registered_year": "2016",
     "built_year": "1591",
     "built_year_basis": "開削",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "",
     "managing_org": "大崎土地改良区",
@@ -477,7 +492,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.miyagi.jp/soshiki/nosonshin/uchikawa.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-27.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.miyagi.jp/soshiki/nosonshin/uchikawa.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-27.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "伊達政宗が開削。かんがい面積は3,300ha超"
    }
   },
@@ -499,6 +514,7 @@
     "registered_year": "2016",
     "built_year": "1879",
     "built_year_basis": "着工（3年で完成）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "猪苗代湖",
     "managing_org": "安積疏水土地改良区",
@@ -509,7 +525,7 @@
     "wikidata_related": "Q6322355",
     "water_source_river_qid": "Q1140672",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-6.pdf | https://www.maff.go.jp/j/meiji150/toti/index.html",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-6.pdf | https://www.maff.go.jp/j/meiji150/toti/index.html | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "日本初の国直轄農業水利事業。水路約127km"
    }
   },
@@ -525,12 +541,13 @@
    "properties": {
     "id": "WHIS-JP-017",
     "name_ja": "長野堰用水",
-    "name_en": "",
+    "name_en": "Naganoseki Irrigation Canal",
     "prefecture": "群馬県",
     "municipality": "高崎市",
     "registered_year": "2016",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "烏川",
     "managing_org": "長野堰土地改良区",
@@ -541,7 +558,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q3915532",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-31.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-31.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "1814年埋樋、1904年榛名湖隧道（関東農政局資料）。最盛期かんがい1,700ha"
    }
   },
@@ -557,12 +574,13 @@
    "properties": {
     "id": "WHIS-JP-018",
     "name_ja": "村山六ヶ村堰疏水",
-    "name_en": "",
+    "name_en": "Murayama Rokkamura-segi Irrigation Canal",
     "prefecture": "山梨県",
     "municipality": "北杜市",
     "registered_year": "2016",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "",
     "managing_org": "村山六ヶ村堰土地改良区",
@@ -573,7 +591,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-16.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-16.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "関東農政局資料に約1,000年前とある"
    }
   },
@@ -589,12 +607,13 @@
    "properties": {
     "id": "WHIS-JP-019",
     "name_ja": "拾ヶ堰",
-    "name_en": "",
+    "name_en": "Jikkasegi Irrigation System",
     "prefecture": "長野県",
     "municipality": "安曇野市他",
     "registered_year": "2016",
     "built_year": "1816",
     "built_year_basis": "開削",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "奈良井川",
     "managing_org": "長野県拾ケ堰土地改良区",
@@ -605,7 +624,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q11444998",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-33.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-33.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "延長約15km。表記は資料により拾ヶ堰／拾ケ堰"
    }
   },
@@ -621,12 +640,13 @@
    "properties": {
     "id": "WHIS-JP-020",
     "name_ja": "滝之湯堰・大河原堰",
-    "name_en": "",
+    "name_en": "Takinoyusegi and Ohkawarasegi Irrigation System",
     "prefecture": "長野県",
     "municipality": "茅野市",
     "registered_year": "2016",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "1700年代後期に開削",
     "facility_type": "水路",
     "water_source_river": "",
     "managing_org": "",
@@ -637,7 +657,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-34.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-34.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "1700年代後期に坂本養川が開削（関東農政局資料）"
    }
   },
@@ -653,12 +673,13 @@
    "properties": {
     "id": "WHIS-JP-021",
     "name_ja": "源兵衛川",
-    "name_en": "",
+    "name_en": "Genbegawa Irrigation Canal",
     "prefecture": "静岡県",
     "municipality": "三島市",
     "registered_year": "2016",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "小浜池（湧水）",
     "managing_org": "",
@@ -669,7 +690,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-15.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-15.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "16世紀に寺尾源兵衛が整備（関東農政局資料）"
    }
   },
@@ -685,24 +706,25 @@
    "properties": {
     "id": "WHIS-JP-022",
     "name_ja": "足羽川用水",
-    "name_en": "",
+    "name_en": "Asuwagawa Irrigation Canal",
     "prefecture": "福井県",
     "municipality": "福井市",
     "registered_year": "2016",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "江戸時代宝永年間（1710年頃）",
     "facility_type": "用水群",
     "water_source_river": "足羽川",
     "managing_org": "足羽川堰堤土地改良区連合",
-    "irrigated_area_ha": "2000",
+    "irrigated_area_ha": "1997",
     "representative_point": "足羽川頭首工",
     "point_address": "福井県福井市前波町",
     "wikidata_qid": "Q48752727",
     "wikidata_related": "",
     "water_source_river_qid": "Q3307289",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-92.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-39.pdf",
-    "note": "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積は約2,000ha"
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-92.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-39.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
+    "note": "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積1,997ha（農林水産省の施設概要。約2,000haとする資料もある）"
    }
   },
   {
@@ -717,12 +739,13 @@
    "properties": {
     "id": "WHIS-JP-023",
     "name_ja": "明治用水",
-    "name_en": "",
+    "name_en": "Meiji-yousui Irrigation Canal",
     "prefecture": "愛知県",
     "municipality": "安城市他",
     "registered_year": "2016",
     "built_year": "1880",
     "built_year_basis": "完成",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "矢作川",
     "managing_org": "明治用水土地改良区",
@@ -733,7 +756,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q1132256",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf | https://www.pref.aichi.jp/uploaded/attachment/489986.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-42.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf | https://www.pref.aichi.jp/uploaded/attachment/489986.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-42.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "都築弥厚の計画。現頭首工は1958年完成"
    }
   },
@@ -749,24 +772,25 @@
    "properties": {
     "id": "WHIS-JP-024",
     "name_ja": "南家城川口井水",
-    "name_en": "",
+    "name_en": "Minamiieki-kawaguchi-yusui Irrigation System",
     "prefecture": "三重県",
     "municipality": "津市",
     "registered_year": "2016",
     "built_year": "1190",
     "built_year_basis": "開設",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "雲出川",
     "managing_org": "",
-    "irrigated_area_ha": "",
+    "irrigated_area_ha": "360",
     "representative_point": "雲出川の堰（津市白山町真見）",
     "point_address": "三重県津市白山町真見",
     "wikidata_qid": "",
     "wikidata_related": "",
     "water_source_river_qid": "Q11660011",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/tokai/noson/nn/isan/index.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-45.pdf",
-    "note": "全長7km。1729年に南家城井と川口井が統合"
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/tokai/noson/nn/isan/index.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-45.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
+    "note": "全長7km。1729年に南家城井と川口井が統合。かんがい面積は約360ha（農林水産省の施設概要）"
    }
   },
   {
@@ -781,12 +805,13 @@
    "properties": {
     "id": "WHIS-JP-025",
     "name_ja": "常盤湖",
-    "name_en": "",
+    "name_en": "Tokiwako Reservoir",
     "prefecture": "山口県",
     "municipality": "宇部市",
     "registered_year": "2016",
-    "built_year": "",
-    "built_year_basis": "",
+    "built_year": "1698",
+    "built_year_basis": "完成。1695年に築堤着手",
+    "built_period": "",
     "facility_type": "ため池",
     "water_source_river": "",
     "managing_org": "",
@@ -797,8 +822,8 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/chushi/nouson/kangai.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-51.pdf",
-    "note": "築造年は公的資料で未確認のため空欄"
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/chushi/nouson/kangai.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-51.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
+    "note": "1695年に築堤着手、1698年に完成（農林水産省の施設概要）"
    }
   },
   {
@@ -813,12 +838,13 @@
    "properties": {
     "id": "WHIS-JP-026",
     "name_ja": "満濃池",
-    "name_en": "",
+    "name_en": "Mannou-ike Reservoir",
     "prefecture": "香川県",
     "municipality": "まんのう町",
     "registered_year": "2016",
     "built_year": "701",
     "built_year_basis": "築造（大宝年間701〜704）",
+    "built_period": "",
     "facility_type": "ため池",
     "water_source_river": "金倉川",
     "managing_org": "",
@@ -829,7 +855,7 @@
     "wikidata_related": "Q6750928",
     "water_source_river_qid": "Q11646415",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/46_manno/index.html | https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/mannouike.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-52.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/46_manno/index.html | https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/mannouike.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-52.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "821年に空海が修築。貯水量1,540万m3"
    }
   },
@@ -851,9 +877,10 @@
     "registered_year": "2016",
     "built_year": "1705",
     "built_year_basis": "幸野溝の年（百太郎溝は1710）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "球磨川",
-    "managing_org": "",
+    "managing_org": "幸野溝土地改良区（幸野溝）",
     "irrigated_area_ha": "",
     "representative_point": "幸野ダム（幸野溝の取水口）",
     "point_address": "熊本県水上村大字岩野",
@@ -861,8 +888,8 @@
     "wikidata_related": "Q11484089;Q17225723",
     "water_source_river_qid": "Q1358183",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-55.pdf",
-    "note": ""
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-55.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
+    "note": "管理者は、農林水産省の施設概要に幸野溝土地改良区による維持管理の記載があるもの。百太郎溝の管理者は同資料に記載なし"
    }
   },
   {
@@ -877,12 +904,13 @@
    "properties": {
     "id": "WHIS-JP-028",
     "name_ja": "土淵堰",
-    "name_en": "",
+    "name_en": "Doen Irrigation System",
     "prefecture": "青森県",
     "municipality": "弘前市他",
     "registered_year": "2017",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "岩木川",
     "managing_org": "西津軽土地改良区",
@@ -893,7 +921,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q5359180",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-25.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-25.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "延長約16kmの開水路で、水田約8,300haに用水を供給（農林水産省）"
    }
   },
@@ -915,6 +943,7 @@
     "registered_year": "2017",
     "built_year": "1885",
     "built_year_basis": "完成",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "那珂川",
     "managing_org": "那須野ヶ原土地改良区連合",
@@ -925,8 +954,8 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q1076983",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-5.pdf",
-    "note": ""
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-5.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
+    "note": "英語名は、農林水産省の英語の紹介資料では「Nasu Irrigation System」"
    }
   },
   {
@@ -941,12 +970,13 @@
    "properties": {
     "id": "WHIS-JP-030",
     "name_ja": "松原用水・牟呂用水",
-    "name_en": "",
+    "name_en": "Matsubara-Muro Irrigation System",
     "prefecture": "愛知県",
     "municipality": "豊橋市他",
     "registered_year": "2017",
     "built_year": "1567",
     "built_year_basis": "松原用水の取水堰（牟呂用水は1888）",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "豊川",
     "managing_org": "",
@@ -957,7 +987,7 @@
     "wikidata_related": "Q11570262",
     "water_source_river_qid": "Q11633588",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.aichi.jp/soshiki/nochi-keikaku/muromatubara-sekaikangaisisetuisan.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-43.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.aichi.jp/soshiki/nochi-keikaku/muromatubara-sekaikangaisisetuisan.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-43.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "受益面積：松原用水642ha＋牟呂用水970ha（愛知県）の合計"
    }
   },
@@ -973,12 +1003,13 @@
    "properties": {
     "id": "WHIS-JP-031",
     "name_ja": "小田井用水路",
-    "name_en": "",
+    "name_en": "Odai Irrigation Canal",
     "prefecture": "和歌山県",
     "municipality": "橋本市他",
     "registered_year": "2017",
     "built_year": "1707",
     "built_year_basis": "開削（宝永4年）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "紀の川",
     "managing_org": "小田井土地改良区",
@@ -989,7 +1020,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q1042624",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei8/index.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei7/index.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-49.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei8/index.html | https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei7/index.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-49.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "大畑才蔵が開削。かんがい面積約610ha"
    }
   },
@@ -1005,12 +1036,13 @@
    "properties": {
     "id": "WHIS-JP-032",
     "name_ja": "北楯大堰",
-    "name_en": "",
+    "name_en": "Kitadate Irrigation System",
     "prefecture": "山形県",
     "municipality": "庄内町",
     "registered_year": "2018",
     "built_year": "1612",
     "built_year_basis": "開削",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "立谷沢川",
     "managing_org": "山形県（管理者）・最上川土地改良区（使用者）",
@@ -1021,7 +1053,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q11598238",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/tohoku/nouson/seibi/rekisi/6story05.html | https://www.pref.yamagata.jp/documents/38328/07_01_kitadateoozeki.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-28.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/tohoku/nouson/seibi/rekisi/6story05.html | https://www.pref.yamagata.jp/documents/38328/07_01_kitadateoozeki.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-28.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "開削で約5,000haの新田（東北農政局）。登録区間は北楯頭首工〜二俣分水工4.9km"
    }
   },
@@ -1037,12 +1069,13 @@
    "properties": {
     "id": "WHIS-JP-033",
     "name_ja": "五郎兵衛用水",
-    "name_en": "",
+    "name_en": "Gorobe Irrigation Canal",
     "prefecture": "長野県",
     "municipality": "佐久市",
     "registered_year": "2018",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "",
     "managing_org": "",
@@ -1053,7 +1086,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-35.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-35.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": ""
    }
   },
@@ -1069,12 +1102,13 @@
    "properties": {
     "id": "WHIS-JP-034",
     "name_ja": "大和川分水築留掛かり",
-    "name_en": "",
+    "name_en": "Tsukidome Irrigation Canal",
     "prefecture": "大阪府",
     "municipality": "柏原市他",
     "registered_year": "2018",
     "built_year": "1705",
     "built_year_basis": "供用開始（宝永2年）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "大和川",
     "managing_org": "築留土地改良区",
@@ -1085,7 +1119,7 @@
     "wikidata_related": "Q11653384;Q11572360",
     "water_source_river_qid": "Q9001527",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.osaka.lg.jp/chubunm/chubu_nm/tukidome.html | https://www.maff.go.jp/j/nousin/keityo/kikaku/k_panf2002/pdf/15.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-47.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.osaka.lg.jp/chubunm/chubu_nm/tukidome.html | https://www.maff.go.jp/j/nousin/keityo/kikaku/k_panf2002/pdf/15.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-47.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "長瀬川・玉串川。2002年の農水省資料では約320ha"
    }
   },
@@ -1107,6 +1141,7 @@
     "registered_year": "2018",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "約400年前",
     "facility_type": "用水群",
     "water_source_river": "白川",
     "managing_org": "",
@@ -1117,7 +1152,7 @@
     "wikidata_related": "Q11667897",
     "water_source_river_qid": "Q11579688",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.city.kumamoto.jp/kiji00319258/5_19258_313287_up_3YT166OX.pdf | https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-56.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.city.kumamoto.jp/kiji00319258/5_19258_313287_up_3YT166OX.pdf | https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-56.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "加藤清正の時代に築造と伝わる。約1,800haの水田が生まれた（熊本市）"
    }
   },
@@ -1133,12 +1168,13 @@
    "properties": {
     "id": "WHIS-JP-036",
     "name_ja": "十石堀",
-    "name_en": "",
+    "name_en": "Jukkoku-bori Irrigation System",
     "prefecture": "茨城県",
     "municipality": "北茨城市",
     "registered_year": "2019",
     "built_year": "1669",
     "built_year_basis": "資料記載年",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "",
     "managing_org": "十石堀維持管理協議会",
@@ -1149,7 +1185,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-29.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-29.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "約13km"
    }
   },
@@ -1165,12 +1201,13 @@
    "properties": {
     "id": "WHIS-JP-037",
     "name_ja": "見沼代用水",
-    "name_en": "",
+    "name_en": "Minuma-Dai Irrigation System",
     "prefecture": "埼玉県",
     "municipality": "行田市他",
     "registered_year": "2019",
     "built_year": "1728",
     "built_year_basis": "資料記載年",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "利根川",
     "managing_org": "見沼代用水土地改良区",
@@ -1181,8 +1218,8 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q177452",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-32.pdf",
-    "note": "約80km。関東農政局資料に15,000ha"
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-32.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
+    "note": "約80km。関東農政局資料・農林水産省の施設概要に受益15,000ha（新田・既存田の合計）"
    }
   },
   {
@@ -1197,12 +1234,13 @@
    "properties": {
     "id": "WHIS-JP-038",
     "name_ja": "倉安川・百間川かんがい排水施設群",
-    "name_en": "",
+    "name_en": "Kurayasu and Hyakken Rivers Irrigation and Drainage System",
     "prefecture": "岡山県",
     "municipality": "岡山市",
     "registered_year": "2019",
     "built_year": "1679",
     "built_year_basis": "倉安川完成（百間川は1686築造開始）",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "吉井川",
     "managing_org": "",
@@ -1213,7 +1251,7 @@
     "wikidata_related": "Q11580873",
     "water_source_river_qid": "Q11412583",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.city.okayama.jp/jigyosha/0000009053.html | https://www.cgr.mlit.go.jp/okakawa/kouhou/hyakenkaitiku/history/pdf/tsuda_nagatada.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-50.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.city.okayama.jp/jigyosha/0000009053.html | https://www.cgr.mlit.go.jp/okakawa/kouhou/hyakenkaitiku/history/pdf/tsuda_nagatada.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-50.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "倉田新田・沖新田の干拓2,200ha超。吉井水門は現存最古の閘門式水門"
    }
   },
@@ -1235,6 +1273,7 @@
     "registered_year": "2019",
     "built_year": "1615",
     "built_year_basis": "築地井手の建造開始",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "菊池川",
     "managing_org": "菊池市土地改良区",
@@ -1245,7 +1284,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q6406392",
     "verified": "0",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-13.pdf | https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-13.pdf | https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": ""
    }
   },
@@ -1261,12 +1300,13 @@
    "properties": {
     "id": "WHIS-JP-040",
     "name_ja": "天狗岩用水",
-    "name_en": "",
+    "name_en": "Tenguiwa Irrigation System",
     "prefecture": "群馬県",
     "municipality": "前橋市他",
     "registered_year": "2020",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "利根川",
     "managing_org": "天狗岩堰土地改良区",
@@ -1277,7 +1317,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q177452",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.gunma.jp/site/nougyou/9892.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-5.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.gunma.jp/site/nougyou/9892.html | https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-5.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "総社藩主秋元長朝が開削（群馬県）。年は公的資料で未確認のため空欄"
    }
   },
@@ -1293,12 +1333,13 @@
    "properties": {
     "id": "WHIS-JP-041",
     "name_ja": "備前渠用水路",
-    "name_en": "",
+    "name_en": "Bizenkyo Irrigation System",
     "prefecture": "埼玉県",
     "municipality": "本庄市他",
     "registered_year": "2020",
     "built_year": "1604",
     "built_year_basis": "開削（慶長9年）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "利根川",
     "managing_org": "備前渠用水路土地改良区",
@@ -1309,7 +1350,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q177452",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.saitama.lg.jp/documents/265674/28001-6_bizenkyo.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-8.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.pref.saitama.lg.jp/documents/265674/28001-6_bizenkyo.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-8.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "当初の水源は烏川。1930年に利根川堤外導水路で現在の取水位置へ（埼玉県）"
    }
   },
@@ -1325,12 +1366,13 @@
    "properties": {
     "id": "WHIS-JP-042",
     "name_ja": "常西合口用水",
-    "name_en": "",
+    "name_en": "Jyosai-gokuchi Irrigation System",
     "prefecture": "富山県",
     "municipality": "富山市",
     "registered_year": "2020",
     "built_year": "1893",
     "built_year_basis": "完成",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "常願寺川",
     "managing_org": "常西合口用水土地改良区",
@@ -1341,7 +1383,7 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q994562",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-100.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-14.pdf",
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-100.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-14.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
     "note": "デ・レーケ提唱の左岸12取水口の合口。かんがい面積約3,300ha"
    }
   },
@@ -1363,6 +1405,7 @@
     "registered_year": "2021",
     "built_year": "1649",
     "built_year_basis": "完成（1633着工）",
+    "built_period": "",
     "facility_type": "ため池",
     "water_source_river": "石川",
     "managing_org": "",
@@ -1395,6 +1438,7 @@
     "registered_year": "2021",
     "built_year": "1156",
     "built_year_basis": "平田井路の年",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "駅館川",
     "managing_org": "",
@@ -1427,6 +1471,7 @@
     "registered_year": "2022",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "17世紀初期に建設",
     "facility_type": "水路",
     "water_source_river": "狩野川",
     "managing_org": "沼津市・香貫用水委員会",
@@ -1459,6 +1504,7 @@
     "registered_year": "2022",
     "built_year": "1590",
     "built_year_basis": "完成",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "天竜川",
     "managing_org": "寺谷用水土地改良区",
@@ -1491,6 +1537,7 @@
     "registered_year": "2022",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "樫井川",
     "managing_org": "",
@@ -1523,6 +1570,7 @@
     "registered_year": "2023",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "馬見ヶ崎川",
     "managing_org": "",
@@ -1555,6 +1603,7 @@
     "registered_year": "2023",
     "built_year": "1603",
     "built_year_basis": "完成",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "黄瀬川",
     "managing_org": "本宿共有財産管理委員会・本宿部農会",
@@ -1587,6 +1636,7 @@
     "registered_year": "2023",
     "built_year": "1582",
     "built_year_basis": "建設",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "芝川",
     "managing_org": "富士宮市北山用水運営協力委員会",
@@ -1619,6 +1669,7 @@
     "registered_year": "2023",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "1721年には既に存在",
     "facility_type": "堰",
     "water_source_river": "旭川",
     "managing_org": "",
@@ -1651,6 +1702,7 @@
     "registered_year": "2024",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "約380年前",
     "facility_type": "水路",
     "water_source_river": "",
     "managing_org": "",
@@ -1683,6 +1735,7 @@
     "registered_year": "2024",
     "built_year": "1913",
     "built_year_basis": "竣工",
+    "built_period": "",
     "facility_type": "揚水機場",
     "water_source_river": "地下水",
     "managing_org": "",
@@ -1715,6 +1768,7 @@
     "registered_year": "2024",
     "built_year": "1915",
     "built_year_basis": "完成（1912着工）",
+    "built_period": "",
     "facility_type": "水路",
     "water_source_river": "岡部川",
     "managing_org": "西光寺野土地改良区",
@@ -1740,13 +1794,14 @@
    },
    "properties": {
     "id": "WHIS-JP-055",
-    "name_ja": "湯の口ため池・井出",
+    "name_ja": "湯の口ため池・井手",
     "name_en": "Yunokuchi Tameike Irrigation System",
     "prefecture": "熊本県",
     "municipality": "山鹿市",
     "registered_year": "2025",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "約170年前に建設",
     "facility_type": "ため池",
     "water_source_river": "",
     "managing_org": "",
@@ -1758,7 +1813,7 @@
     "water_source_river_qid": "",
     "verified": "0",
     "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-61.pdf",
-    "note": "約170年前。名称は資料により「井出」「井手」の表記あり（要確認）"
+    "note": "名称は農林水産省のプレスリリース（2025年7月23日）と施設概要の表記「湯の口ため池・井手」による（「井出」と書く資料もある）。施設概要に「500haもの地域を支える施設」とある"
    }
   },
   {
@@ -1779,6 +1834,7 @@
     "registered_year": "2025",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "",
     "managing_org": "",
@@ -1811,6 +1867,7 @@
     "registered_year": "2026",
     "built_year": "1660",
     "built_year_basis": "供用開始（水路体系完成）",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "利根川",
     "managing_org": "葛西用水路土地改良区",
@@ -1837,12 +1894,13 @@
    "properties": {
     "id": "WHIS-JP-058",
     "name_ja": "小笠地域かんがい用水群",
-    "name_en": "",
+    "name_en": "Ogasa Regional Irrigation System",
     "prefecture": "静岡県",
     "municipality": "掛川市、菊川市",
     "registered_year": "2026",
     "built_year": "1594",
     "built_year_basis": "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "",
     "managing_org": "大井川右岸土地改良区（申請者）",
@@ -1854,7 +1912,7 @@
     "water_source_river_qid": "",
     "verified": "0",
     "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-5.pdf | https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/085/031/09_0821nouchiseibi.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-58.pdf",
-    "note": "構成10施設（用水路3、ため池7）"
+    "note": "構成10施設（用水路3、ため池7）：加茂用水・十内圦・嶺田用水と、地域を代表する7か所のため池（静岡県の発表資料）"
    }
   },
   {
@@ -1869,12 +1927,13 @@
    "properties": {
     "id": "WHIS-JP-059",
     "name_ja": "日根荘大木のかんがい用水群",
-    "name_en": "",
+    "name_en": "Irrigation Canal System of Hineno-sho Ogi",
     "prefecture": "大阪府",
     "municipality": "泉佐野市",
     "registered_year": "2026",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "",
     "managing_org": "",
@@ -1901,12 +1960,13 @@
    "properties": {
     "id": "WHIS-JP-060",
     "name_ja": "崇神天皇陵堀",
-    "name_en": "",
+    "name_en": "Emperor Sujin Mausoleum Moat (Reservoir)",
     "prefecture": "奈良県",
     "municipality": "天理市",
     "registered_year": "2026",
     "built_year": "",
     "built_year_basis": "",
+    "built_period": "4世紀前半に築造",
     "facility_type": "ため池",
     "water_source_river": "",
     "managing_org": "",
@@ -1918,7 +1978,7 @@
     "water_source_river_qid": "",
     "verified": "0",
     "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-6.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-60.pdf",
-    "note": "堀は4世紀前半に墳丘と共に築造と考えられる。1864〜1865年に柳本藩が改修"
+    "note": "堀は4世紀前半に墳丘と共に築造と考えられる。1864〜1865年に柳本藩が改修。農林水産省の施設概要に「当時の水田約140ha」の記載"
    }
   }
  ]

@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-060/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.847645 34.557805)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-060",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -45,10 +33,14 @@
   "http://www.w3.org/2000/01/rdf-schema#comment": [
    {
     "@language": "ja",
-    "@value": "堀は4世紀前半に墳丘と共に築造と考えられる。1864〜1865年に柳本藩が改修"
+    "@value": "堀は4世紀前半に墳丘と共に築造と考えられる。1864〜1865年に柳本藩が改修。農林水産省の施設概要に「当時の水田約140ha」の記載"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Emperor Sujin Mausoleum Moat (Reservoir)"
+   },
    {
     "@language": "ja",
     "@value": "崇神天皇陵堀"
@@ -88,8 +80,18 @@
   ],
   "https://schema.org/name": [
    {
+    "@language": "en",
+    "@value": "Emperor Sujin Mausoleum Moat (Reservoir)"
+   },
+   {
     "@language": "ja",
     "@value": "崇神天皇陵堀"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+   {
+    "@language": "ja",
+    "@value": "4世紀前半に築造"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
@@ -145,6 +147,18 @@
    {
     "@language": "ja",
     "@value": "崇神天皇陵"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-060/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.847645 34.557805)"
    }
   ]
  }

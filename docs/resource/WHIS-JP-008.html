@@ -10,7 +10,9 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 .gallery figcaption{font-size:12px;color:#555;line-height:1.4;margin-top:4px}
 #lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center}
 #lb>div{max-width:92vw;max-height:92vh;text-align:center;color:#fff}#lb img{max-width:92vw;max-height:78vh}#lb p{font-size:13px}#lb a{color:#9cf}
-#lb button{font-size:14px;padding:4px 14px}</style>
+#lb button{font-size:14px;padding:4px 14px}
+a,td,th,code{overflow-wrap:anywhere}
+@media (max-width:600px){th{width:auto;min-width:5.5em}td,th{padding:5px 4px}}</style>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -21,6 +23,10 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
   {
    "@value": "山田堰、堀川用水、水車群",
    "@language": "ja"
+  },
+  {
+   "@value": "Yamadazeki Barrage System",
+   "@language": "en"
   }
  ],
  "address": {
@@ -35,7 +41,8 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
   "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html",
   "https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html",
   "https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/",
-  "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf"
+  "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf",
+  "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
  ],
  "geo": {
   "@type": "GeoCoordinates",
@@ -61,7 +68,7 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 <nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../watersystems.html">水系</a><a href="../quality.html">検証</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a><a href="../en.html">English</a></nav>
 <h1>山田堰、堀川用水、水車群</h1>
 <p><small>URI: <code>https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008</code>　この施設のデータ：<a href="WHIS-JP-008.ttl">Turtle</a>／<a href="WHIS-JP-008.jsonld">JSON-LD</a></small></p>
-<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>福岡県</td></tr><tr><th>市町村</th><td>朝倉市</td></tr><tr><th>登録年</th><td>2014</td></tr><tr><th>建設年</th><td>1663</td></tr><tr><th>建設年の根拠</th><td>堀川用水開削</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-irrigation-system">用水群</a></td></tr><tr><th>水源</th><td>筑後川（Wikidata：<a href="https://www.wikidata.org/wiki/Q954320">Q954320</a>）</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>652</td></tr><tr><th>代表地点</th><td>山田堰</td></tr><tr><th>代表地点の住所（座標から）</th><td>福岡県朝倉市山田（標高 約30.1m・DEM10B）<br><small><a href="https://uedayou.net/loa/福岡県朝倉市山田">住所LOD</a>／<a href="http://data.e-stat.go.jp/lod/sac/C40228-20060320">統計LOD（標準地域コード 40228）</a></small></td></tr><tr><th>緯度</th><td>33.365371</td></tr><tr><th>経度</th><td>130.759267</td></tr><tr><th>注記</th><td>山田堰（傾斜堰床式石張堰）は1790年古賀百工により完成。かんがい面積は約652ha（aff 2024年9月号）</td></tr><tr><th>Wikidata</th><td><br>構成施設：<a href="https://www.wikidata.org/wiki/Q42567025">Q42567025</a></td></tr></table>
+<table><tr><th>英語名</th><td>Yamadazeki Barrage System</td></tr><tr><th>都道府県</th><td>福岡県</td></tr><tr><th>市町村</th><td>朝倉市</td></tr><tr><th>登録年</th><td>2014</td></tr><tr><th>建設年</th><td>1663</td></tr><tr><th>建設年の根拠</th><td>堀川用水開削</td></tr><tr><th>建設時期（資料の表現）</th><td>—</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-irrigation-system">用水群</a></td></tr><tr><th>水源</th><td>筑後川（Wikidata：<a href="https://www.wikidata.org/wiki/Q954320">Q954320</a>）</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>652</td></tr><tr><th>代表地点</th><td>山田堰</td></tr><tr><th>代表地点の住所（座標から）</th><td>福岡県朝倉市山田（標高 約30.1m・DEM10B）<br><small><a href="https://uedayou.net/loa/福岡県朝倉市山田">住所LOD</a>／<a href="http://data.e-stat.go.jp/lod/sac/C40228-20060320">統計LOD（標準地域コード 40228）</a></small></td></tr><tr><th>緯度</th><td>33.365371</td></tr><tr><th>経度</th><td>130.759267</td></tr><tr><th>注記</th><td>山田堰（傾斜堰床式石張堰）は1790年古賀百工により完成。かんがい面積は約652ha（aff 2024年9月号）</td></tr><tr><th>Wikidata</th><td><br>構成施設：<a href="https://www.wikidata.org/wiki/Q42567025">Q42567025</a></td></tr></table>
 <h2>写真</h2><p><small>Wikidata の項目に登録されている Wikimedia Commons の写真です。押すと大きく表示されます。このデータセットのライセンス（CC BY 4.0）ではなく、各写真のライセンスに従います。</small></p><div class="gallery"><figure><a href="https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg" onclick="return openImg(this)" data-big="https://commons.wikimedia.org/wiki/Special:FilePath/Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg?width=1280" data-alt="堀川用水" data-cap="構成施設「堀川用水」　撮影：そらみみ／&lt;a href=&quot;https://creativecommons.org/licenses/by-sa/4.0&quot;&gt;CC BY-SA 4.0&lt;/a&gt;／&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg&quot;&gt;Wikimedia Commons&lt;/a&gt;"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg?width=500" alt="堀川用水の写真" loading="lazy"></a><figcaption>構成施設「堀川用水」　撮影：そらみみ／<a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>／<a href="https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg">Wikimedia Commons</a></figcaption></figure></div>
 <h2>航空写真・地形で見る</h2>
 <p><small>代表地点（山田堰）のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
@@ -81,7 +88,7 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 })();
 </script>
 <h2>ほかのデータベース・百科事典</h2><p><small>つながっている Wikidata の項目に登録されている外部ID・記事です（2026-11-23 時点）。</small></p><ul><li>ウィキペディア日本語版（構成施設「堀川用水」）：<a href="https://ja.wikipedia.org/wiki/%E5%A0%80%E5%B7%9D%E7%94%A8%E6%B0%B4">堀川用水</a></li><li>OpenStreetMap（構成施設「堀川用水」）：<a href="https://www.openstreetmap.org/relation/19563817">19563817</a></li></ul>
-<h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html">https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html</a></li><li><a href="https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/">https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/</a></li><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf</a></li></ul>
+<h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html">https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html</a></li><li><a href="https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/">https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/</a></li><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf</a></li><li><a href="https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf">https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf</a></li></ul>
 <p><small>データ: CC BY 4.0（作成: abe）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>
 <div id="lb" onclick="if(event.target===this)this.style.display='none'"><div><img id="lbimg" alt=""><p id="lbcap"></p><button onclick="document.getElementById('lb').style.display='none'">閉じる</button></div></div>
 <script>

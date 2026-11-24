@@ -97,6 +97,12 @@
     "@value": "香貫用水"
    }
   ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+   {
+    "@language": "ja",
+    "@value": "17世紀初期に建設"
+   }
+  ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
    {
     "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"

@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
-    rdfs:label "天狗岩用水"@ja ;
+    rdfs:label "Tenguiwa Irrigation System"@en,
+        "天狗岩用水"@ja ;
     dcterms:identifier "WHIS-JP-040" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-5.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf>,
         <https://www.pref.gunma.jp/site/nougyou/9892.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-040/geometry> ;
@@ -27,7 +29,8 @@ res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "群馬県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C10000-19700401>,
         wd:Q129499 ;
-    schema:name "天狗岩用水"@ja ;
+    schema:name "Tenguiwa Irrigation System"@en,
+        "天狗岩用水"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "天狗岩堰土地改良区"@ja ;

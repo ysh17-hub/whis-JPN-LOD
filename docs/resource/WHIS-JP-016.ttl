@@ -16,7 +16,8 @@ res:WHIS-JP-016 a whis:HeritageIrrigationStructure ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/meiji150/toti/index.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-6.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-6.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016/geometry> ;
     rdfs:comment "日本初の国直轄農業水利事業。水路約127km"@ja ;
     rdfs:seeAlso <https://id.ndl.go.jp/auth/ndlna/001267172>,

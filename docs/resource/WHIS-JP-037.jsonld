@@ -1,48 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-037/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(139.472632 36.187309)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11630206"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "京浜にけ"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Konosu Ninuma Canal Or Hoshi River 1.JPG"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-037",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -65,6 +22,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-32.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf"
    }
   ],
@@ -76,10 +36,14 @@
   "http://www.w3.org/2000/01/rdf-schema#comment": [
    {
     "@language": "ja",
-    "@value": "約80km。関東農政局資料に15,000ha"
+    "@value": "約80km。関東農政局資料・農林水産省の施設概要に受益15,000ha（新田・既存田の合計）"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Minuma-Dai Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "見沼代用水"
@@ -136,6 +100,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Minuma-Dai Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "見沼代用水"
@@ -223,6 +191,49 @@
    {
     "@language": "ja",
     "@value": "利根川"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11630206"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "京浜にけ"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Konosu Ninuma Canal Or Hoshi River 1.JPG"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-037/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(139.472632 36.187309)"
    }
   ]
  }

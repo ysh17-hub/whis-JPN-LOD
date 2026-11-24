@@ -31,18 +31,6 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.055806 34.790278)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -68,6 +56,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-48.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/hyogo/index.html"
    }
   ],
@@ -83,6 +74,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Tanzansosui Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "淡山疏水"
@@ -134,6 +129,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Tanzansosui Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "淡山疏水"
@@ -221,6 +220,18 @@
    {
     "@language": "ja",
     "@value": "淡河川、志染川（山田川）"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.055806 34.790278)"
    }
   ]
  }

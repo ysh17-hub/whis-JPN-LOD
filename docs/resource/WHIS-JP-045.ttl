@@ -25,6 +25,7 @@ res:WHIS-JP-045 a whis:HeritageIrrigationStructure ;
         wd:Q131320 ;
     schema:name "Kanuki Irrigation Canal"@en,
         "香貫用水"@ja ;
+    whis:builtPeriod "17世紀初期に建設"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "沼津市・香貫用水委員会"@ja ;

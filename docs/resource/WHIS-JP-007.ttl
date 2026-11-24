@@ -9,12 +9,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-007 a whis:HeritageIrrigationStructure ;
-    rdfs:label "淡山疏水"@ja ;
+    rdfs:label "Tanzansosui Irrigation System"@en,
+        "淡山疏水"@ja ;
     dcterms:identifier "WHIS-JP-007" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.city.kobe.lg.jp/a83166/kanko/bunka/bunkazai/history/isan/ougososui.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-48.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/hyogo/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry> ;
     rdfs:comment "山田川疏水は1911年着工・1915年完成（農水省）。81か所のため池も活用"@ja ;
@@ -27,7 +29,8 @@ res:WHIS-JP-007 a whis:HeritageIrrigationStructure ;
     schema:hasPart wd:Q11488870,
         wd:Q11559782 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Shijimi-river_siphon-bridge.jpg> ;
-    schema:name "淡山疏水"@ja ;
+    schema:name "Tanzansosui Irrigation System"@en,
+        "淡山疏水"@ja ;
     whis:builtYear "1891"^^xsd:gYear ;
     whis:builtYearBasis "淡河川疏水完成"@ja ;
     whis:facilityCategory whis:type-canal ;

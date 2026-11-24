@@ -10,14 +10,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-037 a whis:HeritageIrrigationStructure ;
-    rdfs:label "見沼代用水"@ja ;
+    rdfs:label "Minuma-Dai Irrigation System"@en,
+        "見沼代用水"@ja ;
     dcterms:identifier "WHIS-JP-037" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-32.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-037/geometry> ;
-    rdfs:comment "約80km。関東農政局資料に15,000ha"@ja ;
+    rdfs:comment "約80km。関東農政局資料・農林水産省の施設概要に受益15,000ha（新田・既存田の合計）"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E8%A6%8B%E6%B2%BC%E4%BB%A3%E7%94%A8%E6%B0%B4>,
         <https://www.openstreetmap.org/relation/18912091> ;
     owl:sameAs wd:Q11630206 ;
@@ -28,7 +30,8 @@ res:WHIS-JP-037 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C11000-19700401>,
         wd:Q128186 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG> ;
-    schema:name "見沼代用水"@ja ;
+    schema:name "Minuma-Dai Irrigation System"@en,
+        "見沼代用水"@ja ;
     whis:builtYear "1728"^^xsd:gYear ;
     whis:builtYearBasis "資料記載年"@ja ;
     whis:facilityCategory whis:type-canal ;

@@ -9,11 +9,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
-    rdfs:label "十石堀"@ja ;
+    rdfs:label "Jukkoku-bori Irrigation System"@en,
+        "十石堀"@ja ;
     dcterms:identifier "WHIS-JP-036" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-29.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-036/geometry> ;
     rdfs:comment "約13km"@ja ;
@@ -23,7 +25,8 @@ res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "茨城県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C08000-19700401>,
         wd:Q83273 ;
-    schema:name "十石堀"@ja ;
+    schema:name "Jukkoku-bori Irrigation System"@en,
+        "十石堀"@ja ;
     whis:builtYear "1669"^^xsd:gYear ;
     whis:builtYearBasis "資料記載年"@ja ;
     whis:facilityCategory whis:type-canal ;

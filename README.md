@@ -33,15 +33,16 @@
 | 代表地点の住所LOD・統計LOD | 60 | 代表地点の大字・町丁目を住所LOD（Linked Open Addresses Japan）の IRI に（59地点は大字・町丁目、残りは住所LODに大字の項目がないため市区町村）、市区町村を統計LOD（e-Stat）の標準地域コードの IRI（58市区町村）につないだ。住所LODは、LODチャレンジ2026の応募作品「住所 de ジグソーパズル」も使っているデータ。統計LODの標準地域コードを介して、国勢調査などの統計とつなげられる |
 | 代表地点の標高 | 60 | 国土地理院の標高タイル（地理院タイル）から求めた、東京湾平均海面からの高さ（m）。細かいものから順に 1mメッシュ（DEM1A）→5mメッシュ（DEM5A→DEM5B→DEM5C）→10mメッシュ（DEM10B）の値を使った（池や川の水面などで細かいメッシュの値がないときは、次のメッシュ）。どの標高モデルの値かも記録した。地理院地図の標高表示と照合した結果は「データの作り方」の9 |
 | 昔の空中写真があるか | 60 | 代表地点で、国土地理院の空中写真（1945〜1950年：2施設、1961〜1969年：53施設、1974〜1978年：60施設）の画像があるかを確かめて記録した（`data/point_terrain.csv`） |
-| 建設年 | 39 | 年と一緒に、それが何の年か（着工・完成・供用開始など）を記録 |
-| 管理者 | 34 | 土地改良区など |
-| 英語名 | 20 | 農林水産省の資料にある英語表記 |
-| かんがい面積 | 19 | 資料によって値が違うものは空欄にし、注記に両方の値を書いた |
+| 建設年 | 40 | 年と一緒に、それが何の年か（着工・完成・供用開始など）を記録 |
+| 建設時期（年が資料にないもの） | 10 | 資料に西暦の年がない施設は、資料の表現（「およそ400年前に建設」「4世紀前半に築造」など）のまま記録した。年に換算はしていない。建設年と合わせると50施設 |
+| 管理者 | 35 | 土地改良区など |
+| 英語名 | 59 | 農林水産省の英語の紹介資料にある施設一覧（World Heritage Irrigation Structures）と、各施設の施設概要PDFにある英語表記。どちらにも英語表記がない施設は空欄 |
+| かんがい面積 | 20 | 資料によって値が違うものは空欄にし、注記に両方の値を書いた |
 | Wikidata へのリンク（同じ施設） | 28 | 遺産と同じ範囲の項目だと確認できたものだけ。60施設を確認し、同じ範囲の項目が見つからなかったのは32施設 |
 | Wikidata へのリンク（構成施設） | 12 | 遺産の一部分（用水群の中の水路、水路橋、水門など）だけが Wikidata にある場合は、「同じ」とせず構成施設として結んだ |
 | 写真 | 17 | つながっている Wikidata の項目に登録されている Wikimedia Commons の写真（22枚）。撮影者とライセンスを一緒に記録し、ページでは押すと大きく表示される |
 | ほかのデータベース・百科事典 | 37 | つながっている Wikidata の項目にある外部ID・記事（ウィキペディア日本語版、OpenStreetMap、GeoNames、国立国会図書館典拠、国指定文化財等データベース、文化遺産オンライン。73件） |
-| 出典URL | 60 | すべての施設に1つ以上。重複を除くと113の資料 |
+| 出典URL | 60 | すべての施設に1つ以上。重複を除くと114の資料 |
 
 ### このデータでわかること（例）
 
@@ -60,7 +61,7 @@
 | 名称 | `schema:name`、`rdfs:label`（日本語・英語） |
 | 所在地 | `schema:addressRegion`（都道府県）、`schema:addressLocality`（市町村）、`whis:prefectureCode`（都道府県コード、ISO 3166-2:JP）、`schema:containedInPlace`（都道府県の Wikidata 項目） |
 | 座標 | GeoSPARQL（`geo:hasGeometry`、`geo:asWKT`）と W3C Basic Geo（`wgs84:lat`、`wgs84:long`）の両方 |
-| 年 | `whis:registeredYear`（登録年）、`whis:builtYear`（建設年）、`whis:builtYearBasis`（何の年か） |
+| 年 | `whis:registeredYear`（登録年）、`whis:builtYear`（建設年）、`whis:builtYearBasis`（何の年か）、`whis:builtPeriod`（年が資料にないときの建設時期） |
 | 施設の情報 | `whis:facilityType`（種類）、`whis:waterSource`（水源）、`whis:managedBy`（管理者）、`whis:irrigatedArea`（かんがい面積）、`whis:representativePoint`（代表地点）、`whis:pointAddress`（代表地点の住所） |
 | 水源 | `whis:waterSource`（Wikidata の川・湖の項目）、`whis:waterSourceName`（資料の表記） |
 | 出典・注記 | `dcterms:source`、`rdfs:comment` |

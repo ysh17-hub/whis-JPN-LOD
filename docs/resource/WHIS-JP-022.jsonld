@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(136.296509 36.020263)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -35,6 +23,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-39.pdf"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
@@ -45,10 +36,14 @@
   "http://www.w3.org/2000/01/rdf-schema#comment": [
    {
     "@language": "ja",
-    "@value": "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積は約2,000ha"
+    "@value": "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積1,997ha（農林水産省の施設概要。約2,000haとする資料もある）"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Asuwagawa Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "足羽川用水"
@@ -98,8 +93,18 @@
   ],
   "https://schema.org/name": [
    {
+    "@language": "en",
+    "@value": "Asuwagawa Irrigation Canal"
+   },
+   {
     "@language": "ja",
     "@value": "足羽川用水"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+   {
+    "@language": "ja",
+    "@value": "江戸時代宝永年間（1710年頃）"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
@@ -116,7 +121,7 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#irrigatedArea": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
-    "@value": "2000.0"
+    "@value": "1997.0"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
@@ -178,6 +183,18 @@
    {
     "@language": "ja",
     "@value": "足羽川"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(136.296509 36.020263)"
    }
   ]
  }

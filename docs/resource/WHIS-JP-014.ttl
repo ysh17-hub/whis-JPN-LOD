@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
-    rdfs:label "照井堰用水"@ja ;
+    rdfs:label "Teruizeki Irrigation Canal"@en,
+        "照井堰用水"@ja ;
     dcterms:identifier "WHIS-JP-014" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry> ;
     rdfs:comment "総延長64km。毛越寺浄土庭園への遣水"@ja ;
@@ -27,7 +29,8 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "岩手県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C03000-19700401>,
         wd:Q48326 ;
-    schema:name "照井堰用水"@ja ;
+    schema:name "Teruizeki Irrigation Canal"@en,
+        "照井堰用水"@ja ;
     whis:builtYear "1180"^^xsd:gYear ;
     whis:builtYearBasis "開削（1180年頃）"@ja ;
     whis:facilityCategory whis:type-canal ;

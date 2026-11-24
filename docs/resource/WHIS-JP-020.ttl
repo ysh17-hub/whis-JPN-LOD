@@ -9,11 +9,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-020 a whis:HeritageIrrigationStructure ;
-    rdfs:label "滝之湯堰・大河原堰"@ja ;
+    rdfs:label "Takinoyusegi and Ohkawarasegi Irrigation System"@en,
+        "滝之湯堰・大河原堰"@ja ;
     dcterms:identifier "WHIS-JP-020" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-34.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-020/geometry> ;
     rdfs:comment "1700年代後期に坂本養川が開削（関東農政局資料）"@ja ;
@@ -23,7 +25,9 @@ res:WHIS-JP-020 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "長野県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C20000-19700401>,
         wd:Q127877 ;
-    schema:name "滝之湯堰・大河原堰"@ja ;
+    schema:name "Takinoyusegi and Ohkawarasegi Irrigation System"@en,
+        "滝之湯堰・大河原堰"@ja ;
+    whis:builtPeriod "1700年代後期に開削"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "長野県茅野市北山"@ja ;

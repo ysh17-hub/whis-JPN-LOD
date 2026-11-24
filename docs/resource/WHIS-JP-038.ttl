@@ -9,13 +9,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-038 a whis:HeritageIrrigationStructure ;
-    rdfs:label "倉安川・百間川かんがい排水施設群"@ja ;
+    rdfs:label "Kurayasu and Hyakken Rivers Irrigation and Drainage System"@en,
+        "倉安川・百間川かんがい排水施設群"@ja ;
     dcterms:identifier "WHIS-JP-038" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.cgr.mlit.go.jp/okakawa/kouhou/hyakenkaitiku/history/pdf/tsuda_nagatada.pdf>,
         <https://www.city.okayama.jp/jigyosha/0000009053.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-50.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-50.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry> ;
     rdfs:comment "倉田新田・沖新田の干拓2,200ha超。吉井水門は現存最古の閘門式水門"@ja ;
     wgs84:lat 34.718043 ;
@@ -27,7 +29,8 @@ res:WHIS-JP-038 a whis:HeritageIrrigationStructure ;
     schema:hasPart wd:Q11580873 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG>,
         <https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG> ;
-    schema:name "倉安川・百間川かんがい排水施設群"@ja ;
+    schema:name "Kurayasu and Hyakken Rivers Irrigation and Drainage System"@en,
+        "倉安川・百間川かんがい排水施設群"@ja ;
     whis:builtYear "1679"^^xsd:gYear ;
     whis:builtYearBasis "倉安川完成（百間川は1686築造開始）"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;

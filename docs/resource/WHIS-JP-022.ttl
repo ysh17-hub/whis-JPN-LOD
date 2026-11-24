@@ -10,14 +10,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
-    rdfs:label "足羽川用水"@ja ;
+    rdfs:label "Asuwagawa Irrigation Canal"@en,
+        "足羽川用水"@ja ;
     dcterms:identifier "WHIS-JP-022" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-92.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-39.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-39.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry> ;
-    rdfs:comment "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積は約2,000ha"@ja ;
+    rdfs:comment "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積1,997ha（農林水産省の施設概要。約2,000haとする資料もある）"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E8%B6%B3%E7%BE%BD%E5%B7%9D%E7%94%A8%E6%B0%B4> ;
     owl:sameAs wd:Q48752727 ;
     wgs84:lat 36.020263 ;
@@ -26,10 +28,12 @@ res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "福井県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C18000-19700401>,
         wd:Q133879 ;
-    schema:name "足羽川用水"@ja ;
+    schema:name "Asuwagawa Irrigation Canal"@en,
+        "足羽川用水"@ja ;
+    whis:builtPeriod "江戸時代宝永年間（1710年頃）"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
-    whis:irrigatedArea 2000.0 ;
+    whis:irrigatedArea 1997.0 ;
     whis:managedBy "足羽川堰堤土地改良区連合"@ja ;
     whis:pointAddress "福井県福井市前波町"@ja ;
     whis:pointAddressArea <https://uedayou.net/loa/福井県福井市前波町> ;

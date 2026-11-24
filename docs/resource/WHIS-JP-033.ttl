@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
-    rdfs:label "五郎兵衛用水"@ja ;
+    rdfs:label "Gorobe Irrigation Canal"@en,
+        "五郎兵衛用水"@ja ;
     dcterms:identifier "WHIS-JP-033" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-35.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-033/geometry> ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E4%BA%94%E9%83%8E%E5%85%B5%E8%A1%9B%E7%94%A8%E6%B0%B4> ;
@@ -27,7 +29,8 @@ res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
         wd:Q127877 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Former_Gorob%C4%93_Y%C5%8Dsui_02.jpg>,
         <https://commons.wikimedia.org/wiki/File:Gorob%C4%93_Y%C5%8Dsui_01.jpg> ;
-    schema:name "五郎兵衛用水"@ja ;
+    schema:name "Gorobe Irrigation Canal"@en,
+        "五郎兵衛用水"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "長野県佐久市春日"@ja ;

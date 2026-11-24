@@ -16,6 +16,7 @@ res:WHIS-JP-035 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.city.kumamoto.jp/kiji00319258/5_19258_313287_up_3YT166OX.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-56.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-035/geometry> ;
     rdfs:comment "加藤清正の時代に築造と伝わる。約1,800haの水田が生まれた（熊本市）"@ja ;
@@ -28,6 +29,7 @@ res:WHIS-JP-035 a whis:HeritageIrrigationStructure ;
     schema:hasPart wd:Q11667897 ;
     schema:name "Shirakawa basin Irrigation System"@en,
         "白川流域かんがい用水群"@ja ;
+    whis:builtPeriod "約400年前"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:pointAddress "熊本県熊本市中央区黒髪六丁目"@ja ;

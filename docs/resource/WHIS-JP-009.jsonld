@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(130.993611 32.681667)"
-   }
-  ]
- },
- {
   "@id": "https://commons.wikimedia.org/wiki/File:Tsujyunkyo.jpg",
   "@type": [
    "https://schema.org/ImageObject"
@@ -43,6 +31,18 @@
   ]
  },
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(130.993611 32.681667)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -63,6 +63,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-54.pdf"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
    },
    {
     "@id": "https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html"

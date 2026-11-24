@@ -10,12 +10,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
-    rdfs:label "常西合口用水"@ja ;
+    rdfs:label "Jyosai-gokuchi Irrigation System"@en,
+        "常西合口用水"@ja ;
     dcterms:identifier "WHIS-JP-042" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-100.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-14.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-14.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-042/geometry> ;
     rdfs:comment "デ・レーケ提唱の左岸12取水口の合口。かんがい面積約3,300ha"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%B8%B8%E8%A5%BF%E5%90%88%E5%8F%A3%E7%94%A8%E6%B0%B4>,
@@ -27,7 +29,8 @@ res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "富山県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C16000-19700401>,
         wd:Q132929 ;
-    schema:name "常西合口用水"@ja ;
+    schema:name "Jyosai-gokuchi Irrigation System"@en,
+        "常西合口用水"@ja ;
     whis:builtYear "1893"^^xsd:gYear ;
     whis:builtYearBasis "完成"@ja ;
     whis:facilityCategory whis:type-canal ;

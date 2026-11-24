@@ -19,6 +19,12 @@ whis:metric-completeness-built_year a dqv:Metric ;
     dqv:expectedDataType xsd:decimal ;
     dqv:inDimension whis:dimension-completeness .
 
+whis:metric-completeness-built_year_or_period a dqv:Metric ;
+    skos:definition "建設年か、建設時期（資料の表現。年に換算しない）の値がある施設の数÷施設の数"@ja ;
+    skos:prefLabel "建設年または建設時期がある施設の割合"@ja ;
+    dqv:expectedDataType xsd:decimal ;
+    dqv:inDimension whis:dimension-completeness .
+
 whis:metric-completeness-irrigated_area_ha a dqv:Metric ;
     skos:definition "かんがい面積の値がある施設の数÷施設の数（空欄は不明の意味）"@ja ;
     skos:prefLabel "かんがい面積がある施設の割合"@ja ;
@@ -83,13 +89,19 @@ whis:metric-wikidata-same-coverage a dqv:Metric ;
     dcterms:date "2026-11-24"^^xsd:date ;
     dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-built_year ;
-    dqv:value 0.6500 .
+    dqv:value 0.6667 .
+
+<https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-built_year_or_period> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-24"^^xsd:date ;
+    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dqv:isMeasurementOf whis:metric-completeness-built_year_or_period ;
+    dqv:value 0.8333 .
 
 <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-irrigated_area_ha> a dqv:QualityMeasurement ;
     dcterms:date "2026-11-24"^^xsd:date ;
     dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-irrigated_area_ha ;
-    dqv:value 0.3167 .
+    dqv:value 0.3333 .
 
 <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-lat> a dqv:QualityMeasurement ;
     dcterms:date "2026-11-24"^^xsd:date ;
@@ -101,13 +113,13 @@ whis:metric-wikidata-same-coverage a dqv:Metric ;
     dcterms:date "2026-11-24"^^xsd:date ;
     dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-managing_org ;
-    dqv:value 0.5667 .
+    dqv:value 0.5833 .
 
 <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-name_en> a dqv:QualityMeasurement ;
     dcterms:date "2026-11-24"^^xsd:date ;
     dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-name_en ;
-    dqv:value 0.3333 .
+    dqv:value 0.9833 .
 
 <https://ysh17-hub.github.io/whis-lod/quality.ttl#elevation-agreement> a dqv:QualityMeasurement ;
     dcterms:date "2026-11-24"^^xsd:date ;
@@ -119,7 +131,7 @@ whis:metric-wikidata-same-coverage a dqv:Metric ;
     dcterms:date "2026-11-24"^^xsd:date ;
     dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-link-health ;
-    dqv:value 0.9559 .
+    dqv:value 1.0000 .
 
 <https://ysh17-hub.github.io/whis-lod/quality.ttl#source-coverage> a dqv:QualityMeasurement ;
     dcterms:date "2026-11-24"^^xsd:date ;
@@ -150,6 +162,7 @@ whis:dimension-completeness a dqv:Dimension ;
 
 <https://ysh17-hub.github.io/whis-lod/dataset> dqv:hasQualityMeasurement <https://ysh17-hub.github.io/whis-lod/quality.ttl#address-link-coverage>,
         <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-built_year>,
+        <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-built_year_or_period>,
         <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-irrigated_area_ha>,
         <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-lat>,
         <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-managing_org>,

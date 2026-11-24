@@ -190,7 +190,7 @@
         <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-ndl>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#seeAlso-osm>,
         <https://ysh17-hub.github.io/whis-lod/void.ttl#waterSource-wikidata> ;
-    void:triples 2572 ;
+    void:triples 2713 ;
     void:uriSpace "https://ysh17-hub.github.io/whis-lod/resource/" ;
     void:vocabulary dcterms:,
         geo:,

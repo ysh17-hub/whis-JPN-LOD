@@ -16,6 +16,7 @@ res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-54.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry> ;
     rdfs:comment "日本最大の石造アーチ水路橋『通潤橋』を含む"@ja ;

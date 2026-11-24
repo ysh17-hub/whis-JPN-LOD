@@ -22,6 +22,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-49.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei7/index.html"
    },
    {
@@ -40,6 +43,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Odai Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "小田井用水路"
@@ -78,6 +85,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Odai Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "小田井用水路"

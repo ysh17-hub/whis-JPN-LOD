@@ -26,6 +26,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-50.pdf"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
@@ -40,6 +43,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Kurayasu and Hyakken Rivers Irrigation and Drainage System"
+   },
    {
     "@language": "ja",
     "@value": "倉安川・百間川かんがい排水施設群"
@@ -91,6 +98,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Kurayasu and Hyakken Rivers Irrigation and Drainage System"
+   },
    {
     "@language": "ja",
     "@value": "倉安川・百間川かんがい排水施設群"
@@ -176,6 +187,37 @@
   ]
  },
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11580873"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_10.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "by Reggaeman"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Hyakken River 10.JPG"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
@@ -215,37 +257,6 @@
   "https://schema.org/name": [
    {
     "@value": "Hyakken River 11.JPG"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_10.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11580873"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_10.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "by Reggaeman"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Hyakken River 10.JPG"
    }
   ]
  }

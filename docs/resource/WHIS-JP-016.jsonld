@@ -1,48 +1,5 @@
 [
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Jyurokkyou-s-r1.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q6322355"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jyurokkyou-s-r1.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "河川一等兵"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@value": "Public domain"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Jyurokkyou-s-r1.jpg"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(140.024396 37.521342)"
-   }
-  ]
- },
- {
   "@id": "https://commons.wikimedia.org/wiki/File:AsakaSosuiKansenSuiroB.JPG",
   "@type": [
    "https://schema.org/ImageObject"
@@ -74,6 +31,18 @@
   ]
  },
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(140.024396 37.521342)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -97,6 +66,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-6.pdf"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
@@ -270,6 +242,37 @@
    {
     "@language": "ja",
     "@value": "猪苗代湖"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Jyurokkyou-s-r1.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q6322355"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jyurokkyou-s-r1.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "河川一等兵"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@value": "Public domain"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Jyurokkyou-s-r1.jpg"
    }
   ]
  }

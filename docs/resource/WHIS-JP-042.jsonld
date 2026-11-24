@@ -23,6 +23,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-14.pdf"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
@@ -37,6 +40,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Jyosai-gokuchi Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "常西合口用水"
@@ -88,6 +95,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Jyosai-gokuchi Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "常西合口用水"

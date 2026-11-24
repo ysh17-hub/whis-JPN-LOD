@@ -9,21 +9,24 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
-    rdfs:label "崇神天皇陵堀"@ja ;
+    rdfs:label "Emperor Sujin Mausoleum Moat (Reservoir)"@en,
+        "崇神天皇陵堀"@ja ;
     dcterms:identifier "WHIS-JP-060" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-60.pdf>,
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-6.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-060/geometry> ;
-    rdfs:comment "堀は4世紀前半に墳丘と共に築造と考えられる。1864〜1865年に柳本藩が改修"@ja ;
+    rdfs:comment "堀は4世紀前半に墳丘と共に築造と考えられる。1864〜1865年に柳本藩が改修。農林水産省の施設概要に「当時の水田約140ha」の記載"@ja ;
     wgs84:lat 34.557805 ;
     wgs84:long 135.847645 ;
     schema:addressLocality "天理市"@ja ;
     schema:addressRegion "奈良県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C29000-19700401>,
         wd:Q131287 ;
-    schema:name "崇神天皇陵堀"@ja ;
+    schema:name "Emperor Sujin Mausoleum Moat (Reservoir)"@en,
+        "崇神天皇陵堀"@ja ;
+    whis:builtPeriod "4世紀前半に築造"@ja ;
     whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:pointAddress "奈良県天理市柳本町"@ja ;

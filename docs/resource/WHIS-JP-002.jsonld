@@ -34,6 +34,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-30.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf"
    }
   ],
@@ -49,6 +52,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Ogawazeki Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "雄川堰"
@@ -88,8 +95,18 @@
   ],
   "https://schema.org/name": [
    {
+    "@language": "en",
+    "@value": "Ogawazeki Irrigation Canal"
+   },
+   {
     "@language": "ja",
     "@value": "雄川堰"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+   {
+    "@language": "ja",
+    "@value": "およそ400年前に建設"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [

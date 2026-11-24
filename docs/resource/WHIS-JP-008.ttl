@@ -9,11 +9,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
-    rdfs:label "山田堰、堀川用水、水車群"@ja ;
+    rdfs:label "Yamadazeki Barrage System"@en,
+        "山田堰、堀川用水、水車群"@ja ;
     dcterms:identifier "WHIS-JP-008" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/>,
         <https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry> ;
@@ -26,7 +28,8 @@ res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
         wd:Q123258 ;
     schema:hasPart wd:Q42567025 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg> ;
-    schema:name "山田堰、堀川用水、水車群"@ja ;
+    schema:name "Yamadazeki Barrage System"@en,
+        "山田堰、堀川用水、水車群"@ja ;
     whis:builtYear "1663"^^xsd:gYear ;
     whis:builtYearBasis "堀川用水開削"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;

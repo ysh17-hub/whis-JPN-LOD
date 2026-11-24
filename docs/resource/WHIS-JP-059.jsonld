@@ -41,6 +41,10 @@
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
    {
+    "@language": "en",
+    "@value": "Irrigation Canal System of Hineno-sho Ogi"
+   },
+   {
     "@language": "ja",
     "@value": "日根荘大木のかんがい用水群"
    }
@@ -78,6 +82,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Irrigation Canal System of Hineno-sho Ogi"
+   },
    {
     "@language": "ja",
     "@value": "日根荘大木のかんがい用水群"

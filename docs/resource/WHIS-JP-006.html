@@ -10,7 +10,9 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 .gallery figcaption{font-size:12px;color:#555;line-height:1.4;margin-top:4px}
 #lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center}
 #lb>div{max-width:92vw;max-height:92vh;text-align:center;color:#fff}#lb img{max-width:92vw;max-height:78vh}#lb p{font-size:13px}#lb a{color:#9cf}
-#lb button{font-size:14px;padding:4px 14px}</style>
+#lb button{font-size:14px;padding:4px 14px}
+a,td,th,code{overflow-wrap:anywhere}
+@media (max-width:600px){th{width:auto;min-width:5.5em}td,th{padding:5px 4px}}</style>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -21,6 +23,10 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
   {
    "@value": "狭山池",
    "@language": "ja"
+  },
+  {
+   "@value": "Sayamaike Reservoir",
+   "@language": "en"
   }
  ],
  "address": {
@@ -33,7 +39,8 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
  "isPartOf": "https://ysh17-hub.github.io/whis-lod/dataset",
  "citation": [
   "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html",
-  "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf"
+  "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf",
+  "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
  ],
  "geo": {
   "@type": "GeoCoordinates",
@@ -61,7 +68,7 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 <nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../watersystems.html">水系</a><a href="../quality.html">検証</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a><a href="../en.html">English</a></nav>
 <h1>狭山池</h1>
 <p><small>URI: <code>https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006</code>　この施設のデータ：<a href="WHIS-JP-006.ttl">Turtle</a>／<a href="WHIS-JP-006.jsonld">JSON-LD</a></small></p>
-<table><tr><th>英語名</th><td>—</td></tr><tr><th>都道府県</th><td>大阪府</td></tr><tr><th>市町村</th><td>大阪狭山市</td></tr><tr><th>登録年</th><td>2014</td></tr><tr><th>建設年</th><td>—</td></tr><tr><th>建設年の根拠</th><td>—</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-tameike">ため池</a></td></tr><tr><th>水源</th><td>—</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>狭山池</td></tr><tr><th>代表地点の住所（座標から）</th><td>大阪府大阪狭山市大字岩室（標高 約84.4m・DEM10B）<br><small><a href="https://uedayou.net/loa/大阪府大阪狭山市岩室">住所LOD</a>／<a href="http://data.e-stat.go.jp/lod/sac/C27231-20221227">統計LOD（標準地域コード 27231）</a></small></td></tr><tr><th>緯度</th><td>34.503333</td></tr><tr><th>経度</th><td>135.549722</td></tr><tr><th>注記</th><td>農水省概要に約1,400年前とある。年は未確定のため空欄</td></tr><tr><th>Wikidata</th><td><a href="https://www.wikidata.org/wiki/Q11571743">Q11571743</a>（確認済み）</td></tr></table>
+<table><tr><th>英語名</th><td>Sayamaike Reservoir</td></tr><tr><th>都道府県</th><td>大阪府</td></tr><tr><th>市町村</th><td>大阪狭山市</td></tr><tr><th>登録年</th><td>2014</td></tr><tr><th>建設年</th><td>—</td></tr><tr><th>建設年の根拠</th><td>—</td></tr><tr><th>建設時期（資料の表現）</th><td>1,400年前に築造</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-tameike">ため池</a></td></tr><tr><th>水源</th><td>—</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>—</td></tr><tr><th>代表地点</th><td>狭山池</td></tr><tr><th>代表地点の住所（座標から）</th><td>大阪府大阪狭山市大字岩室（標高 約84.4m・DEM10B）<br><small><a href="https://uedayou.net/loa/大阪府大阪狭山市岩室">住所LOD</a>／<a href="http://data.e-stat.go.jp/lod/sac/C27231-20221227">統計LOD（標準地域コード 27231）</a></small></td></tr><tr><th>緯度</th><td>34.503333</td></tr><tr><th>経度</th><td>135.549722</td></tr><tr><th>注記</th><td>農水省概要に約1,400年前とある。年は未確定のため空欄</td></tr><tr><th>Wikidata</th><td><a href="https://www.wikidata.org/wiki/Q11571743">Q11571743</a>（確認済み）</td></tr></table>
 <h2>写真</h2><p><small>Wikidata の項目に登録されている Wikimedia Commons の写真です。押すと大きく表示されます。このデータセットのライセンス（CC BY 4.0）ではなく、各写真のライセンスに従います。</small></p><div class="gallery"><figure><a href="https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG" onclick="return openImg(this)" data-big="https://commons.wikimedia.org/wiki/Special:FilePath/Sayamaike01.JPG?width=1280" data-alt="狭山池" data-cap="撮影：Kansai explorer at Japanese Wikipedia／&lt;a href=&quot;http://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;／&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG&quot;&gt;Wikimedia Commons&lt;/a&gt;"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sayamaike01.JPG?width=500" alt="狭山池の写真" loading="lazy"></a><figcaption>撮影：Kansai explorer at Japanese Wikipedia／<a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>／<a href="https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG">Wikimedia Commons</a></figcaption></figure></div>
 <h2>航空写真・地形で見る</h2>
 <p><small>代表地点（狭山池）のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
@@ -81,7 +88,7 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 })();
 </script>
 <h2>ほかのデータベース・百科事典</h2><p><small>つながっている Wikidata の項目に登録されている外部ID・記事です（2026-11-23 時点）。</small></p><ul><li>ウィキペディア日本語版：<a href="https://ja.wikipedia.org/wiki/%E7%8B%AD%E5%B1%B1%E6%B1%A0_%28%E5%A4%A7%E9%98%AA%E5%BA%9C%29">狭山池_(大阪府)</a></li><li>国指定文化財等データベース：<a href="https://kunishitei.bunka.go.jp/heritage/detail/401/00003898">401/00003898</a></li><li>国立国会図書館典拠：<a href="https://id.ndl.go.jp/auth/ndlna/001219190">001219190</a></li><li>GeoNames：<a href="https://sws.geonames.org/9072610/">9072610</a></li></ul>
-<h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf</a></li></ul>
+<h2>出典</h2><ul><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html</a></li><li><a href="https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf">https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf</a></li><li><a href="https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf">https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf</a></li></ul>
 <p><small>データ: CC BY 4.0（作成: abe）。数値は出典に書かれた範囲のみを記載し、資料で値が異なるものは空欄にして注記に両方を書いています。</small></p>
 <div id="lb" onclick="if(event.target===this)this.style.display='none'"><div><img id="lbimg" alt=""><p id="lbcap"></p><button onclick="document.getElementById('lb').style.display='none'">閉じる</button></div></div>
 <script>

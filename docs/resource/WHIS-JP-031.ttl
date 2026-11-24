@@ -9,11 +9,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-031 a whis:HeritageIrrigationStructure ;
-    rdfs:label "小田井用水路"@ja ;
+    rdfs:label "Odai Irrigation Canal"@en,
+        "小田井用水路"@ja ;
     dcterms:identifier "WHIS-JP-031" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-49.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei7/index.html>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei8/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-031/geometry> ;
@@ -24,7 +26,8 @@ res:WHIS-JP-031 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "和歌山県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C30000-19700401>,
         wd:Q131314 ;
-    schema:name "小田井用水路"@ja ;
+    schema:name "Odai Irrigation Canal"@en,
+        "小田井用水路"@ja ;
     whis:builtYear "1707"^^xsd:gYear ;
     whis:builtYearBasis "開削（宝永4年）"@ja ;
     whis:facilityCategory whis:type-canal ;

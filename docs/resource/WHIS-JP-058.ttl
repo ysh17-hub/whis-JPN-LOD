@@ -9,7 +9,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
-    rdfs:label "小笠地域かんがい用水群"@ja ;
+    rdfs:label "Ogasa Regional Irrigation System"@en,
+        "小笠地域かんがい用水群"@ja ;
     dcterms:identifier "WHIS-JP-058" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
@@ -17,14 +18,15 @@ res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-5.pdf>,
         <https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/085/031/09_0821nouchiseibi.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-058/geometry> ;
-    rdfs:comment "構成10施設（用水路3、ため池7）"@ja ;
+    rdfs:comment "構成10施設（用水路3、ため池7）：加茂用水・十内圦・嶺田用水と、地域を代表する7か所のため池（静岡県の発表資料）"@ja ;
     wgs84:lat 34.674363 ;
     wgs84:long 137.983018 ;
     schema:addressLocality "掛川市、菊川市"@ja ;
     schema:addressRegion "静岡県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
         wd:Q131320 ;
-    schema:name "小笠地域かんがい用水群"@ja ;
+    schema:name "Ogasa Regional Irrigation System"@en,
+        "小笠地域かんがい用水群"@ja ;
     whis:builtYear "1594"^^xsd:gYear ;
     whis:builtYearBasis "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;

@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(130.759267 33.365371)"
-   }
-  ]
- },
- {
   "@id": "https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg",
   "@type": [
    "https://schema.org/ImageObject"
@@ -43,6 +31,18 @@
   ]
  },
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(130.759267 33.365371)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -65,6 +65,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/"
    },
    {
@@ -83,6 +86,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Yamadazeki Barrage System"
+   },
    {
     "@language": "ja",
     "@value": "山田堰、堀川用水、水車群"
@@ -131,6 +138,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Yamadazeki Barrage System"
+   },
    {
     "@language": "ja",
     "@value": "山田堰、堀川用水、水車群"

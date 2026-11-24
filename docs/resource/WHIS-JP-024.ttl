@@ -9,25 +9,29 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-024 a whis:HeritageIrrigationStructure ;
-    rdfs:label "南家城川口井水"@ja ;
+    rdfs:label "Minamiieki-kawaguchi-yusui Irrigation System"@en,
+        "南家城川口井水"@ja ;
     dcterms:identifier "WHIS-JP-024" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-45.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/tokai/noson/nn/isan/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-024/geometry> ;
-    rdfs:comment "全長7km。1729年に南家城井と川口井が統合"@ja ;
+    rdfs:comment "全長7km。1729年に南家城井と川口井が統合。かんがい面積は約360ha（農林水産省の施設概要）"@ja ;
     wgs84:lat 34.614791 ;
     wgs84:long 136.318668 ;
     schema:addressLocality "津市"@ja ;
     schema:addressRegion "三重県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C24000-19700401>,
         wd:Q128196 ;
-    schema:name "南家城川口井水"@ja ;
+    schema:name "Minamiieki-kawaguchi-yusui Irrigation System"@en,
+        "南家城川口井水"@ja ;
     whis:builtYear "1190"^^xsd:gYear ;
     whis:builtYearBasis "開設"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
+    whis:irrigatedArea 360.0 ;
     whis:pointAddress "三重県津市白山町真見"@ja ;
     whis:pointAddressArea <https://uedayou.net/loa/三重県津市白山町真見> ;
     whis:pointElevation 70.1 ;

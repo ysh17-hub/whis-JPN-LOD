@@ -9,11 +9,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-021 a whis:HeritageIrrigationStructure ;
-    rdfs:label "源兵衛川"@ja ;
+    rdfs:label "Genbegawa Irrigation Canal"@en,
+        "源兵衛川"@ja ;
     dcterms:identifier "WHIS-JP-021" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-15.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-021/geometry> ;
     rdfs:comment "16世紀に寺尾源兵衛が整備（関東農政局資料）"@ja ;
@@ -23,7 +25,8 @@ res:WHIS-JP-021 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "静岡県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C22000-19700401>,
         wd:Q131320 ;
-    schema:name "源兵衛川"@ja ;
+    schema:name "Genbegawa Irrigation Canal"@en,
+        "源兵衛川"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:pointAddress "静岡県三島市一番町"@ja ;

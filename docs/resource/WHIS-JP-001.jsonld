@@ -34,6 +34,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-24.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/aomori/index.html"
    },
    {
@@ -55,6 +58,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Inaoigawa Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "稲生川"
@@ -106,6 +113,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Inaoigawa Irrigation Canal"
+   },
    {
     "@language": "ja",
     "@value": "稲生川"

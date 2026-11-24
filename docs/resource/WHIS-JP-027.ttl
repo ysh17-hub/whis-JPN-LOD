@@ -15,8 +15,10 @@ res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-55.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027/geometry> ;
+    rdfs:comment "管理者は、農林水産省の施設概要に幸野溝土地改良区による維持管理の記載があるもの。百太郎溝の管理者は同資料に記載なし"@ja ;
     wgs84:lat 32.306545 ;
     wgs84:long 131.002562 ;
     schema:addressLocality "湯前町他"@ja ;
@@ -32,6 +34,7 @@ res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     whis:builtYearBasis "幸野溝の年（百太郎溝は1710）"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
+    whis:managedBy "幸野溝土地改良区（幸野溝）"@ja ;
     whis:pointAddress "熊本県水上村大字岩野"@ja ;
     whis:pointAddressArea <https://uedayou.net/loa/熊本県球磨郡水上村岩野> ;
     whis:pointElevation 205.2 ;

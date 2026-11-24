@@ -1,5 +1,17 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.549722 34.503333)"
+   }
+  ]
+ },
+ {
   "@id": "https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG",
   "@type": [
    "https://schema.org/ImageObject"
@@ -51,6 +63,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
@@ -65,6 +80,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Sayamaike Reservoir"
+   },
    {
     "@language": "ja",
     "@value": "狭山池"
@@ -128,8 +147,18 @@
   ],
   "https://schema.org/name": [
    {
+    "@language": "en",
+    "@value": "Sayamaike Reservoir"
+   },
+   {
     "@language": "ja",
     "@value": "狭山池"
+   }
+  ],
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+   {
+    "@language": "ja",
+    "@value": "1,400年前に築造"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
@@ -185,18 +214,6 @@
    {
     "@language": "ja",
     "@value": "狭山池"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.549722 34.503333)"
    }
   ]
  }

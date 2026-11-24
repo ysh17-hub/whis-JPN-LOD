@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-011 a whis:HeritageIrrigationStructure ;
-    rdfs:label "曽代用水"@ja ;
+    rdfs:label "Sodaiyousui Irrigation System"@en,
+        "曽代用水"@ja ;
     dcterms:identifier "WHIS-JP-011" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-40.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/gihu/index.html>,
         <https://www.maff.go.jp/tokai/noson/nn/isan/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-011/geometry> ;
@@ -28,7 +30,8 @@ res:WHIS-JP-011 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "岐阜県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C21000-19700401>,
         wd:Q131277 ;
-    schema:name "曽代用水"@ja ;
+    schema:name "Sodaiyousui Irrigation System"@en,
+        "曽代用水"@ja ;
     whis:builtYear "1663"^^xsd:gYear ;
     whis:builtYearBasis "計画・着手（寛文3年）"@ja ;
     whis:facilityCategory whis:type-canal ;

@@ -29,6 +29,7 @@ res:WHIS-JP-051 a whis:HeritageIrrigationStructure ;
         wd:Q132936 ;
     schema:name "Takebe Weir"@en,
         "建部井堰"@ja ;
+    whis:builtPeriod "1721年には既に存在"@ja ;
     whis:facilityCategory whis:type-weir ;
     whis:facilityType "堰"@ja ;
     whis:pointAddress "岡山県岡山市北区建部町品田"@ja ;

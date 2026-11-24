@@ -9,11 +9,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
-    rdfs:label "村山六ヶ村堰疏水"@ja ;
+    rdfs:label "Murayama Rokkamura-segi Irrigation Canal"@en,
+        "村山六ヶ村堰疏水"@ja ;
     dcterms:identifier "WHIS-JP-018" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-16.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-018/geometry> ;
     rdfs:comment "関東農政局資料に約1,000年前とある"@ja ;
@@ -23,7 +25,8 @@ res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "山梨県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C19000-19700401>,
         wd:Q132720 ;
-    schema:name "村山六ヶ村堰疏水"@ja ;
+    schema:name "Murayama Rokkamura-segi Irrigation Canal"@en,
+        "村山六ヶ村堰疏水"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "村山六ヶ村堰土地改良区"@ja ;

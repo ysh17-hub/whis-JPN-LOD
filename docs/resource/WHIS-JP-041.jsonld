@@ -22,6 +22,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-8.pdf"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf"
+   },
+   {
     "@id": "https://www.pref.saitama.lg.jp/documents/265674/28001-6_bizenkyo.pdf"
    }
   ],
@@ -37,6 +40,10 @@
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
+   {
+    "@language": "en",
+    "@value": "Bizenkyo Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "備前渠用水路"
@@ -91,6 +98,10 @@
    }
   ],
   "https://schema.org/name": [
+   {
+    "@language": "en",
+    "@value": "Bizenkyo Irrigation System"
+   },
    {
     "@language": "ja",
     "@value": "備前渠用水路"

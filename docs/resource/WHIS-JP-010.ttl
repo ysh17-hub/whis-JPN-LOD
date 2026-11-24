@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-010 a whis:HeritageIrrigationStructure ;
-    rdfs:label "上江用水路"@ja ;
+    rdfs:label "Uwae Irrigation Canal"@en,
+        "上江用水路"@ja ;
     dcterms:identifier "WHIS-JP-010" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-37.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.pref.niigata.lg.jp/sec/nochikanri/1356831544817.html>,
         <https://www.pref.niigata.lg.jp/uploaded/attachment/78585.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-010/geometry> ;
@@ -28,7 +30,8 @@ res:WHIS-JP-010 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "新潟県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C15000-19700401>,
         wd:Q132705 ;
-    schema:name "上江用水路"@ja ;
+    schema:name "Uwae Irrigation Canal"@en,
+        "上江用水路"@ja ;
     whis:builtYear "1648"^^xsd:gYear ;
     whis:builtYearBasis "供用開始（新潟県資料）"@ja ;
     whis:facilityCategory whis:type-canal ;

@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
-    rdfs:label "備前渠用水路"@ja ;
+    rdfs:label "Bizenkyo Irrigation System"@en,
+        "備前渠用水路"@ja ;
     dcterms:identifier "WHIS-JP-041" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-8.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.pref.saitama.lg.jp/documents/265674/28001-6_bizenkyo.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-041/geometry> ;
     rdfs:comment "当初の水源は烏川。1930年に利根川堤外導水路で現在の取水位置へ（埼玉県）"@ja ;
@@ -28,7 +30,8 @@ res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "埼玉県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C11000-19700401>,
         wd:Q128186 ;
-    schema:name "備前渠用水路"@ja ;
+    schema:name "Bizenkyo Irrigation System"@en,
+        "備前渠用水路"@ja ;
     whis:builtYear "1604"^^xsd:gYear ;
     whis:builtYearBasis "開削（慶長9年）"@ja ;
     whis:facilityCategory whis:type-canal ;

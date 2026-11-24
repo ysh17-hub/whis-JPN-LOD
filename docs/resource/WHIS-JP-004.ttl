@@ -9,12 +9,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-004 a whis:HeritageIrrigationStructure ;
-    rdfs:label "七ヶ用水"@ja ;
+    rdfs:label "Shichikayousui Irrigation System"@en,
+        "七ヶ用水"@ja ;
     dcterms:identifier "WHIS-JP-004" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/meiji150/toti/20.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-38.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.pref.ishikawa.lg.jp/kisya/r5kyoui/documents/zyubunnositei.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-004/geometry> ;
     rdfs:comment "構成する七用水は近世以来（石川県資料）。built_yearは合口完成年"@ja ;
@@ -24,7 +26,8 @@ res:WHIS-JP-004 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "石川県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C17000-19700401>,
         wd:Q131281 ;
-    schema:name "七ヶ用水"@ja ;
+    schema:name "Shichikayousui Irrigation System"@en,
+        "七ヶ用水"@ja ;
     whis:builtYear "1903"^^xsd:gYear ;
     whis:builtYearBasis "合口事業完成（七つの用水の取水口統合）"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;

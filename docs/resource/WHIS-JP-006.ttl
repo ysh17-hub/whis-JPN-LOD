@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-006 a whis:HeritageIrrigationStructure ;
-    rdfs:label "狭山池"@ja ;
+    rdfs:label "Sayamaike Reservoir"@en,
+        "狭山池"@ja ;
     dcterms:identifier "WHIS-JP-006" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-14.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-006/geometry> ;
     rdfs:comment "農水省概要に約1,400年前とある。年は未確定のため空欄"@ja ;
     rdfs:seeAlso <https://id.ndl.go.jp/auth/ndlna/001219190>,
@@ -29,7 +31,9 @@ res:WHIS-JP-006 a whis:HeritageIrrigationStructure ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C27000-19700401>,
         wd:Q122723 ;
     schema:image <https://commons.wikimedia.org/wiki/File:Sayamaike01.JPG> ;
-    schema:name "狭山池"@ja ;
+    schema:name "Sayamaike Reservoir"@en,
+        "狭山池"@ja ;
+    whis:builtPeriod "1,400年前に築造"@ja ;
     whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:pointAddress "大阪府大阪狭山市大字岩室"@ja ;

@@ -36,6 +36,8 @@ whisx:StructureShape
           sh:message "登録年は xsd:gYear で1つ"@ja ] ,
         [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#builtYear> ; sh:maxCount 1 ; sh:datatype xsd:gYear ;
           sh:message "建設年は xsd:gYear で最大1つ"@ja ] ,
+        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod> ; sh:maxCount 1 ; sh:datatype rdf:langString ;
+          sh:message "建設時期は言語タグつきの文字列で最大1つ"@ja ] ,
         [ sh:path wgs84:lat ; sh:maxCount 1 ; sh:datatype xsd:decimal ; sh:minInclusive 20 ; sh:maxInclusive 46 ;
           sh:message "緯度は日本の範囲で最大1つ"@ja ] ,
         [ sh:path wgs84:long ; sh:maxCount 1 ; sh:datatype xsd:decimal ; sh:minInclusive 122 ; sh:maxInclusive 154 ;

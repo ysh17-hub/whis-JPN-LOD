@@ -10,11 +10,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-017 a whis:HeritageIrrigationStructure ;
-    rdfs:label "長野堰用水"@ja ;
+    rdfs:label "Naganoseki Irrigation Canal"@en,
+        "長野堰用水"@ja ;
     dcterms:identifier "WHIS-JP-017" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-31.pdf>,
+        <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-017/geometry> ;
     rdfs:comment "1814年埋樋、1904年榛名湖隧道（関東農政局資料）。最盛期かんがい1,700ha"@ja ;
@@ -27,7 +29,8 @@ res:WHIS-JP-017 a whis:HeritageIrrigationStructure ;
     schema:addressRegion "群馬県"@ja ;
     schema:containedInPlace <http://data.e-stat.go.jp/lod/sac/C10000-19700401>,
         wd:Q129499 ;
-    schema:name "長野堰用水"@ja ;
+    schema:name "Naganoseki Irrigation Canal"@en,
+        "長野堰用水"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "長野堰土地改良区"@ja ;
