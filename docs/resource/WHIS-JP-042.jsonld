@@ -20,6 +20,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-14.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [

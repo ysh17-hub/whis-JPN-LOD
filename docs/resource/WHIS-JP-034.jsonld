@@ -1,48 +1,5 @@
 [
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Tamakushi-river_2008_spring01.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11572360"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tamakushi-river_2008_spring01.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Kansai explorer"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Tamakushi-river 2008 spring01.JPG"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(135.6276 34.580387)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -60,6 +17,9 @@
   "http://purl.org/dc/terms/source": [
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-47.pdf"
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/keityo/kikaku/k_panf2002/pdf/15.pdf"
@@ -252,6 +212,49 @@
   "https://schema.org/name": [
    {
     "@value": "Nagase river, Higashiosaka, Osaka01.JPG"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(135.6276 34.580387)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Tamakushi-river_2008_spring01.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11572360"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tamakushi-river_2008_spring01.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Kansai explorer"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Tamakushi-river 2008 spring01.JPG"
    }
   ]
  }

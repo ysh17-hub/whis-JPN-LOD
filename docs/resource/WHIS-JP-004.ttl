@@ -14,6 +14,7 @@ res:WHIS-JP-004 a whis:HeritageIrrigationStructure ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/meiji150/toti/20.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-38.pdf>,
         <https://www.pref.ishikawa.lg.jp/kisya/r5kyoui/documents/zyubunnositei.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-004/geometry> ;
     rdfs:comment "構成する七用水は近世以来（石川県資料）。built_yearは合口完成年"@ja ;

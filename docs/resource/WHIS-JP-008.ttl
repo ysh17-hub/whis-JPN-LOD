@@ -13,6 +13,7 @@ res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-008" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/>,
         <https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry> ;

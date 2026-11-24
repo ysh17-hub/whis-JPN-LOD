@@ -14,6 +14,7 @@ res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-027" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-55.pdf>,
         <https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027/geometry> ;
     wgs84:lat 32.306545 ;

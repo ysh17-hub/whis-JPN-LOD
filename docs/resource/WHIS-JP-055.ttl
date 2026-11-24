@@ -14,7 +14,7 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-055" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-22.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-61.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-055/geometry> ;
     rdfs:comment "約170年前。名称は資料により「井出」「井手」の表記あり（要確認）"@ja ;
     wgs84:lat 33.018922 ;

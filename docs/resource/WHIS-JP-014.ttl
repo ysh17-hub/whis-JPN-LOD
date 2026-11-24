@@ -14,6 +14,7 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-014" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf>,
         <https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry> ;
     rdfs:comment "総延長64km。毛越寺浄土庭園への遣水"@ja ;

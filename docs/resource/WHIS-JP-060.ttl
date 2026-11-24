@@ -13,6 +13,7 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-060" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-60.pdf>,
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-6.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-060/geometry> ;
     rdfs:comment "堀は4世紀前半に墳丘と共に築造と考えられる。1864〜1865年に柳本藩が改修"@ja ;

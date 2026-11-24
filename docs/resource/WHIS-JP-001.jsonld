@@ -1,5 +1,17 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(141.097605 40.592154)"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -17,6 +29,9 @@
   "http://purl.org/dc/terms/source": [
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-24.pdf"
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/aomori/index.html"
@@ -181,18 +196,6 @@
    {
     "@language": "ja",
     "@value": "奥入瀬川（十和田湖）"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(141.097605 40.592154)"
    }
   ]
  }

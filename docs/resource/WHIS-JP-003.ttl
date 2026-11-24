@@ -14,6 +14,7 @@ res:WHIS-JP-003 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-003" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-36.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003/geometry> ;
     rdfs:comment "代表地点の座標は国土地理院の地名検索で「深良水門」とされる地点（航空写真で確認）。"@ja ;

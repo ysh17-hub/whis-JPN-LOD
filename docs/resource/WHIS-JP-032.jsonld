@@ -19,6 +19,9 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
    },
    {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-28.pdf"
+   },
+   {
     "@id": "https://www.maff.go.jp/tohoku/nouson/seibi/rekisi/6story05.html"
    },
    {
@@ -181,6 +184,18 @@
   ]
  },
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(140.020452 38.778738)"
+   }
+  ]
+ },
+ {
   "@id": "https://commons.wikimedia.org/wiki/File:Kitadate_Ozeki.png",
   "@type": [
    "https://schema.org/ImageObject"
@@ -208,18 +223,6 @@
   "https://schema.org/name": [
    {
     "@value": "Kitadate Ozeki.png"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(140.020452 38.778738)"
    }
   ]
  }

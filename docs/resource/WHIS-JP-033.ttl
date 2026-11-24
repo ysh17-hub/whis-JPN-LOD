@@ -14,6 +14,7 @@ res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-033" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-35.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-033/geometry> ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E4%BA%94%E9%83%8E%E5%85%B5%E8%A1%9B%E7%94%A8%E6%B0%B4> ;

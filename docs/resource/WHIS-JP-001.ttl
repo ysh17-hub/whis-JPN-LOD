@@ -14,6 +14,7 @@ res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-001" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-24.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/aomori/index.html>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/suido/attach/pdf/170425-2.pdf>,
         <https://www.pref.aomori.lg.jp/soshiki/nourin/ka-nosui/files/inaoigawawalk2024.pdf> ;

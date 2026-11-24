@@ -14,6 +14,7 @@ res:WHIS-JP-019 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-019" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-33.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-019/geometry> ;
     rdfs:comment "延長約15km。表記は資料により拾ヶ堰／拾ケ堰"@ja ;

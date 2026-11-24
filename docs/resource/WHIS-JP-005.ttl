@@ -13,6 +13,7 @@ res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-005" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-44.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/34_tatiba/index.html>,
         <https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/pdf/07_04.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-005/geometry> ;

@@ -13,6 +13,7 @@ res:WHIS-JP-057 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-057" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-57.pdf>,
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-8.pdf>,
         <https://www.pref.saitama.lg.jp/a0906/news/page/news2026082103.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-057/geometry> ;

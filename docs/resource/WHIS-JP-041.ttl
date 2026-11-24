@@ -14,7 +14,8 @@ res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-041" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.pref.saitama.lg.jp/documents/10406/51249.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-8.pdf>,
+        <https://www.pref.saitama.lg.jp/documents/265674/28001-6_bizenkyo.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-041/geometry> ;
     rdfs:comment "当初の水源は烏川。1930年に利根川堤外導水路で現在の取水位置へ（埼玉県）"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%82%99%E5%89%8D%E6%B8%A0%E7%94%A8%E6%B0%B4>,

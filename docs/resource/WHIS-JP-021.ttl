@@ -13,6 +13,7 @@ res:WHIS-JP-021 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-021" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-15.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-021/geometry> ;
     rdfs:comment "16世紀に寺尾源兵衛が整備（関東農政局資料）"@ja ;

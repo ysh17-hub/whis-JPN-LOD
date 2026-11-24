@@ -1,5 +1,48 @@
 [
  {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(130.759267 33.365371)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q42567025"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "そらみみ"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Horikawa Aqueduct from Kakureganomoribashi Bridge 2.jpg"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -17,6 +60,9 @@
   "http://purl.org/dc/terms/source": [
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf"
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/"
@@ -172,49 +218,6 @@
    {
     "@language": "ja",
     "@value": "筑後川"
-   }
-  ]
- },
- {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(130.759267 33.365371)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q42567025"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Horikawa_Aqueduct_from_Kakureganomoribashi_Bridge_2.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "そらみみ"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Horikawa Aqueduct from Kakureganomoribashi Bridge 2.jpg"
    }
   ]
  }

@@ -13,6 +13,7 @@ res:WHIS-JP-024 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-024" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-45.pdf>,
         <https://www.maff.go.jp/tokai/noson/nn/isan/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-024/geometry> ;
     rdfs:comment "全長7km。1729年に南家城井と川口井が統合"@ja ;

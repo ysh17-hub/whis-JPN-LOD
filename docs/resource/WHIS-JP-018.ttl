@@ -13,6 +13,7 @@ res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-018" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-16.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-018/geometry> ;
     rdfs:comment "関東農政局資料に約1,000年前とある"@ja ;

@@ -1,48 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(134.095709 34.718043)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11580873"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_11.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "by Reggaeman"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Hyakken River 11.JPG"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -66,6 +23,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-50.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
@@ -212,6 +172,49 @@
    {
     "@language": "ja",
     "@value": "吉井川"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(134.095709 34.718043)"
+   }
+  ]
+ },
+ {
+  "@id": "https://commons.wikimedia.org/wiki/File:Hyakken_River_11.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11580873"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyakken_River_11.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "by Reggaeman"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Hyakken River 11.JPG"
    }
   ]
  },

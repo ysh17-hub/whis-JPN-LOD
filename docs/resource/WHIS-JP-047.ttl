@@ -14,7 +14,7 @@ res:WHIS-JP-047 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-047" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-8.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-62.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-047/geometry> ;
     rdfs:comment "1316年の絵図に描かれる（農水省概要）"@ja ;
     wgs84:lat 34.374271 ;

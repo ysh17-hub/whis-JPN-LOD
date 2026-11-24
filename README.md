@@ -4,7 +4,7 @@
 
 日本にある「世界かんがい施設遺産」60施設（2014〜2026年に認定・登録）の基本情報を、出典付きで、コンピュータが読み取って他のデータとつなげられる形（Linked Open Data）にまとめたデータセットと地図です。
 
-- 地図：https://ysh17-hub.github.io/whis-lod/（背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
+- 地図：<https://ysh17-hub.github.io/whis-lod/>（背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
 - 水系でみる：https://ysh17-hub.github.io/whis-lod/watersystems.html ／ 検証レポート：https://ysh17-hub.github.io/whis-lod/quality.html ／ English：https://ysh17-hub.github.io/whis-lod/en.html
 - SPARQL（ブラウザの中で問い合わせ）：https://ysh17-hub.github.io/whis-lod/sparql.html
 - データ：[Turtle](docs/whis_japan.ttl)／[JSON-LD](docs/whis_japan.jsonld)／[N-Triples](docs/whis_japan.nt)／[GeoJSON](docs/whis_japan.geojson)／[CSV](data/whis_japan.csv)
@@ -41,7 +41,7 @@
 | Wikidata へのリンク（構成施設） | 12 | 遺産の一部分（用水群の中の水路、水路橋、水門など）だけが Wikidata にある場合は、「同じ」とせず構成施設として結んだ |
 | 写真 | 17 | つながっている Wikidata の項目に登録されている Wikimedia Commons の写真（22枚）。撮影者とライセンスを一緒に記録し、ページでは押すと大きく表示される |
 | ほかのデータベース・百科事典 | 37 | つながっている Wikidata の項目にある外部ID・記事（ウィキペディア日本語版、OpenStreetMap、GeoNames、国立国会図書館典拠、国指定文化財等データベース、文化遺産オンライン。73件） |
-| 出典URL | 60 | すべての施設に1つ以上。重複を除くと72の資料 |
+| 出典URL | 60 | すべての施設に1つ以上。重複を除くと113の資料 |
 
 ### このデータでわかること（例）
 
@@ -70,13 +70,14 @@
 | 代表地点の住所・市区町村 | `whis:pointAddressArea`（住所LOD の IRI）、`whis:pointMunicipality`（統計LOD の標準地域コードの IRI。例：`sac:C04215-20190201`＝大崎市） |
 | 代表地点の標高 | `whis:pointElevation`（m、`xsd:decimal`）、`whis:pointElevationSource`（DEM5A・DEM10B など） |
 | ほかのデータベース | `rdfs:seeAlso`（「同じ施設」の Wikidata 項目にある GeoNames・OpenStreetMap・国立国会図書館典拠などのURL。28施設） |
-| データセット全体の説明 | DCAT（`dcat:Dataset`、`dcat:Distribution`）、`dcterms:license`、`dcterms:creator`、`dcterms:modified`。ほかのデータとのつながりの数は VoID（https://ysh17-hub.github.io/whis-lod/void.ttl、`void:Linkset`）で、地図のページには検索エンジン向けに schema.org の `Dataset` を埋め込んでいる |
+| データの品質と来歴 | W3C Data Quality Vocabulary（<https://ysh17-hub.github.io/whis-lod/quality.ttl>。出典のある割合、項目ごとの値がある割合、標高の一致率、Wikidata との座標の一致率、リンクが開ける割合など）、PROV-O（`prov:wasDerivedFrom`・`prov:wasGeneratedBy`）、`dcat:version`。変更は [CHANGELOG.md](CHANGELOG.md) |
+| データセット全体の説明 | DCAT（`dcat:Dataset`、`dcat:Distribution`）、`dcterms:license`、`dcterms:creator`、`dcterms:modified`。ほかのデータとのつながりの数は VoID（<https://ysh17-hub.github.io/whis-lod/void.ttl>、`void:Linkset`）で、地図のページには検索エンジン向けに schema.org の `Dataset` を埋め込んでいる |
 
-施設ごとのURL（例：https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026 ＝満濃池）をブラウザで開くと、その施設の説明ページが表示されます。ページには、検索エンジンなどが読み取れる形（schema.org の JSON-LD）でもデータを埋め込んでいます。施設ごとの Turtle・JSON-LD ファイル（例：https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026.ttl）もあり、ページの `<link rel="alternate">` からたどれます。
+施設ごとのURL（例：https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026 ＝満濃池）をブラウザで開くと、その施設の説明ページが表示されます。ページには、検索エンジンなどが読み取れる形（schema.org の JSON-LD）でもデータを埋め込んでいます。施設ごとの Turtle・JSON-LD ファイル（例：<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026.ttl>）もあり、ページの `<link rel="alternate">` からたどれます。
 
 ### データの形のチェック（SHACL）
 
-データがどんな形であるべきか（IDの形、登録年の型、座標の範囲、出典URLが必ずあること、「同じ施設」と「構成施設」に同じ項目を入れないこと など）を、SHACL という決まった書き方で [`shapes/whis_shapes.ttl`](shapes/whis_shapes.ttl) に書いています（公開版：https://ysh17-hub.github.io/whis-lod/shapes.ttl）。サイトを作り直すたびに自動でチェックし、結果を https://ysh17-hub.github.io/whis-lod/shacl_report.txt に出しています。今回の結果：**合格**
+データがどんな形であるべきか（IDの形、登録年の型、座標の範囲、出典URLが必ずあること、「同じ施設」と「構成施設」に同じ項目を入れないこと など）を、SHACL という決まった書き方で [`shapes/whis_shapes.ttl`](shapes/whis_shapes.ttl) に書いています（公開版：<https://ysh17-hub.github.io/whis-lod/shapes.ttl>）。サイトを作り直すたびに自動でチェックし、結果を https://ysh17-hub.github.io/whis-lod/shacl_report.txt に出しています。今回の結果：**合格**
 
 ### SPARQL の例
 
@@ -136,7 +137,7 @@ for row in g.query("""PREFIX schema: <https://schema.org/> PREFIX whis: <https:/
 | いつ | 何をするか | どうやって |
 |---|---|---|
 | 毎年、新しい認定が発表されたとき（2026年は8月21日に農林水産省が発表） | 新しい施設を追加する | 下の「更新手順」。座標・標高・空中写真の確認・ページ作成・チェックは自動 |
-| 毎月1日 | 出典URL・外部リンク・写真・住所LODが開けるかを確かめる | GitHub Actions（`.github/workflows/linkcheck.yml`）が `scripts/check_links.py` を実行し、結果を検証レポート（https://ysh17-hub.github.io/whis-lod/quality.html）に出す |
+| 毎月1日 | 出典URL・外部リンク・写真・住所LODが開けるかを確かめる | GitHub Actions（`.github/workflows/linkcheck.yml`）が `scripts/check_links.py` を実行し、結果を検証レポート（<https://ysh17-hub.github.io/whis-lod/quality.html>）に出す |
 | データを直すたび | データの形のチェック（SHACL）と、座標を直した施設の標高の計算し直し | GitHub Actions が自動で行い、誤りがあれば公開しない |
 | 少なくとも2027年3月31日まで | このURLで公開し続ける（リポジトリ名を変えない・非公開にしない） | — |
 

@@ -14,6 +14,7 @@ res:WHIS-JP-012 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-012" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-41.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/26_iruka/index.html>,
         <https://www.mlit.go.jp/common/001140232.pdf>,
         <https://www.pref.aichi.jp/uploaded/attachment/275757.pdf> ;

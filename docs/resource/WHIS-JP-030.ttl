@@ -13,6 +13,7 @@ res:WHIS-JP-030 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-030" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-43.pdf>,
         <https://www.pref.aichi.jp/soshiki/nochi-keikaku/muromatubara-sekaikangaisisetuisan.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-030/geometry> ;
     rdfs:comment "受益面積：松原用水642ha＋牟呂用水970ha（愛知県）の合計"@ja ;

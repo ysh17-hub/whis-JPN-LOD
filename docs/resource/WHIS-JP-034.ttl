@@ -13,6 +13,7 @@ res:WHIS-JP-034 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-034" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-47.pdf>,
         <https://www.maff.go.jp/j/nousin/keityo/kikaku/k_panf2002/pdf/15.pdf>,
         <https://www.pref.osaka.lg.jp/chubunm/chubu_nm/tukidome.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry> ;

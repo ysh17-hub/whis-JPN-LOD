@@ -14,6 +14,7 @@ res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-040" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-5.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf>,
         <https://www.pref.gunma.jp/site/nougyou/9892.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-040/geometry> ;

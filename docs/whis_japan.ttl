@@ -3,6 +3,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
@@ -95,6 +96,7 @@ res:WHIS-JP-001 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-001" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-24.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/aomori/index.html>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/suido/attach/pdf/170425-2.pdf>,
         <https://www.pref.aomori.lg.jp/soshiki/nourin/ka-nosui/files/inaoigawawalk2024.pdf> ;
@@ -132,6 +134,7 @@ res:WHIS-JP-002 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-002" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-30.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-002/geometry> ;
     rdfs:comment "関東農政局資料に約400年前とある。年は未確定のため空欄"@ja ;
@@ -158,6 +161,7 @@ res:WHIS-JP-003 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-003" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-36.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003/geometry> ;
     rdfs:comment "代表地点の座標は国土地理院の地名検索で「深良水門」とされる地点（航空写真で確認）。"@ja ;
@@ -194,6 +198,7 @@ res:WHIS-JP-004 a whis:HeritageIrrigationStructure ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/meiji150/toti/20.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-38.pdf>,
         <https://www.pref.ishikawa.lg.jp/kisya/r5kyoui/documents/zyubunnositei.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-004/geometry> ;
     rdfs:comment "構成する七用水は近世以来（石川県資料）。built_yearは合口完成年"@ja ;
@@ -225,6 +230,7 @@ res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-005" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-44.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/34_tatiba/index.html>,
         <https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/pdf/07_04.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-005/geometry> ;
@@ -291,6 +297,7 @@ res:WHIS-JP-007 a whis:HeritageIrrigationStructure ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.city.kobe.lg.jp/a83166/kanko/bunka/bunkazai/history/isan/ougososui.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-48.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/hyogo/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-007/geometry> ;
     rdfs:comment "山田川疏水は1911年着工・1915年完成（農水省）。81か所のため池も活用"@ja ;
@@ -325,6 +332,7 @@ res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-008" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/>,
         <https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry> ;
@@ -360,6 +368,7 @@ res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-009" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-54.pdf>,
         <https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry> ;
     rdfs:comment "日本最大の石造アーチ水路橋『通潤橋』を含む"@ja ;
@@ -393,6 +402,7 @@ res:WHIS-JP-010 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-010" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-37.pdf>,
         <https://www.pref.niigata.lg.jp/sec/nochikanri/1356831544817.html>,
         <https://www.pref.niigata.lg.jp/uploaded/attachment/78585.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-010/geometry> ;
@@ -429,6 +439,7 @@ res:WHIS-JP-011 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-011" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-40.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_izin/gihu/index.html>,
         <https://www.maff.go.jp/tokai/noson/nn/isan/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-011/geometry> ;
@@ -463,6 +474,7 @@ res:WHIS-JP-012 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-012" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-41.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/26_iruka/index.html>,
         <https://www.mlit.go.jp/common/001140232.pdf>,
         <https://www.pref.aichi.jp/uploaded/attachment/275757.pdf> ;
@@ -499,6 +511,7 @@ res:WHIS-JP-013 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-013" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-46.pdf>,
         <https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html>,
         <https://www.pref.osaka.lg.jp/senshunm/gyoumu/kumedaike.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-013/geometry> ;
@@ -535,6 +548,7 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-014" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf>,
         <https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry> ;
     rdfs:comment "総延長64km。毛越寺浄土庭園への遣水"@ja ;
@@ -569,6 +583,7 @@ res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-015" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-27.pdf>,
         <https://www.pref.miyagi.jp/soshiki/nosonshin/uchikawa.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-015/geometry> ;
     rdfs:comment "伊達政宗が開削。かんがい面積は3,300ha超"@ja ;
@@ -641,6 +656,7 @@ res:WHIS-JP-017 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-017" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-31.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-017/geometry> ;
     rdfs:comment "1814年埋樋、1904年榛名湖隧道（関東農政局資料）。最盛期かんがい1,700ha"@ja ;
@@ -673,6 +689,7 @@ res:WHIS-JP-018 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-018" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-16.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-018/geometry> ;
     rdfs:comment "関東農政局資料に約1,000年前とある"@ja ;
@@ -700,6 +717,7 @@ res:WHIS-JP-019 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-019" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-33.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-019/geometry> ;
     rdfs:comment "延長約15km。表記は資料により拾ヶ堰／拾ケ堰"@ja ;
@@ -734,6 +752,7 @@ res:WHIS-JP-020 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-020" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-34.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-020/geometry> ;
     rdfs:comment "1700年代後期に坂本養川が開削（関東農政局資料）"@ja ;
@@ -760,6 +779,7 @@ res:WHIS-JP-021 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-021" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-15.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-021/geometry> ;
     rdfs:comment "16世紀に寺尾源兵衛が整備（関東農政局資料）"@ja ;
@@ -788,7 +808,8 @@ res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-022" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-92.pdf>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-39.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry> ;
     rdfs:comment "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積は約2,000ha"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E8%B6%B3%E7%BE%BD%E5%B7%9D%E7%94%A8%E6%B0%B4> ;
@@ -820,6 +841,7 @@ res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-023" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-42.pdf>,
         <https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf>,
         <https://www.pref.aichi.jp/uploaded/attachment/489986.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023/geometry> ;
@@ -854,6 +876,7 @@ res:WHIS-JP-024 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-024" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-45.pdf>,
         <https://www.maff.go.jp/tokai/noson/nn/isan/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-024/geometry> ;
     rdfs:comment "全長7km。1729年に南家城井と川口井が統合"@ja ;
@@ -884,7 +907,8 @@ res:WHIS-JP-025 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-025" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/chushi/nouson/kangai.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-51.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-025/geometry> ;
     rdfs:comment "築造年は公的資料で未確認のため空欄"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%B8%B8%E7%9B%A4%E6%B1%A0>,
@@ -914,6 +938,7 @@ res:WHIS-JP-026 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-026" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-52.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/46_manno/index.html>,
         <https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/mannouike.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry> ;
@@ -953,6 +978,7 @@ res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-027" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-55.pdf>,
         <https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-027/geometry> ;
     wgs84:lat 32.306545 ;
@@ -986,9 +1012,9 @@ res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-028" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.pref.aomori.lg.jp/soshiki/nourin/noson/files/k_tsushin36.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-25.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-028/geometry> ;
-    rdfs:comment "江戸時代初期築造、延長16km（青森県）"@ja ;
+    rdfs:comment "延長約16kmの開水路で、水田約8,300haに用水を供給（農林水産省）"@ja ;
     rdfs:seeAlso <https://sws.geonames.org/8412802/> ;
     owl:sameAs wd:Q34962967 ;
     wgs84:lat 40.652053 ;
@@ -1053,6 +1079,7 @@ res:WHIS-JP-030 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-030" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-43.pdf>,
         <https://www.pref.aichi.jp/soshiki/nochi-keikaku/muromatubara-sekaikangaisisetuisan.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-030/geometry> ;
     rdfs:comment "受益面積：松原用水642ha＋牟呂用水970ha（愛知県）の合計"@ja ;
@@ -1085,6 +1112,7 @@ res:WHIS-JP-031 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-031" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-49.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei7/index.html>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei8/index.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-031/geometry> ;
@@ -1118,6 +1146,7 @@ res:WHIS-JP-032 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-032" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-28.pdf>,
         <https://www.maff.go.jp/tohoku/nouson/seibi/rekisi/6story05.html>,
         <https://www.pref.yamagata.jp/documents/38328/07_01_kitadateoozeki.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry> ;
@@ -1153,6 +1182,7 @@ res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-033" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-35.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-033/geometry> ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E4%BA%94%E9%83%8E%E5%85%B5%E8%A1%9B%E7%94%A8%E6%B0%B4> ;
@@ -1182,6 +1212,7 @@ res:WHIS-JP-034 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-034" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-47.pdf>,
         <https://www.maff.go.jp/j/nousin/keityo/kikaku/k_panf2002/pdf/15.pdf>,
         <https://www.pref.osaka.lg.jp/chubunm/chubu_nm/tukidome.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry> ;
@@ -1220,6 +1251,7 @@ res:WHIS-JP-035 a whis:HeritageIrrigationStructure ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.city.kumamoto.jp/kiji00319258/5_19258_313287_up_3YT166OX.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-56.pdf>,
         <https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-035/geometry> ;
     rdfs:comment "加藤清正の時代に築造と伝わる。約1,800haの水田が生まれた（熊本市）"@ja ;
@@ -1250,6 +1282,7 @@ res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-036" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-29.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-036/geometry> ;
     rdfs:comment "約13km"@ja ;
@@ -1279,6 +1312,7 @@ res:WHIS-JP-037 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-037" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-32.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-037/geometry> ;
     rdfs:comment "約80km。関東農政局資料に15,000ha"@ja ;
@@ -1315,7 +1349,8 @@ res:WHIS-JP-038 a whis:HeritageIrrigationStructure ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.cgr.mlit.go.jp/okakawa/kouhou/hyakenkaitiku/history/pdf/tsuda_nagatada.pdf>,
         <https://www.city.okayama.jp/jigyosha/0000009053.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-50.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry> ;
     rdfs:comment "倉田新田・沖新田の干拓2,200ha超。吉井水門は現存最古の閘門式水門"@ja ;
     wgs84:lat 34.718043 ;
@@ -1382,6 +1417,7 @@ res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-040" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-5.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf>,
         <https://www.pref.gunma.jp/site/nougyou/9892.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-040/geometry> ;
@@ -1414,7 +1450,8 @@ res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-041" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.pref.saitama.lg.jp/documents/10406/51249.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-8.pdf>,
+        <https://www.pref.saitama.lg.jp/documents/265674/28001-6_bizenkyo.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-041/geometry> ;
     rdfs:comment "当初の水源は烏川。1930年に利根川堤外導水路で現在の取水位置へ（埼玉県）"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%82%99%E5%89%8D%E6%B8%A0%E7%94%A8%E6%B0%B4>,
@@ -1449,7 +1486,8 @@ res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-042" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-100.pdf>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-14.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-042/geometry> ;
     rdfs:comment "デ・レーケ提唱の左岸12取水口の合口。かんがい面積約3,300ha"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%B8%B8%E8%A5%BF%E5%90%88%E5%8F%A3%E7%94%A8%E6%B0%B4>,
@@ -1616,7 +1654,7 @@ res:WHIS-JP-047 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-047" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-8.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-62.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-047/geometry> ;
     rdfs:comment "1316年の絵図に描かれる（農水省概要）"@ja ;
     wgs84:lat 34.374271 ;
@@ -1870,7 +1908,7 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-055" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-22.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-61.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-055/geometry> ;
     rdfs:comment "約170年前。名称は資料により「井出」「井手」の表記あり（要確認）"@ja ;
     wgs84:lat 33.018922 ;
@@ -1924,6 +1962,7 @@ res:WHIS-JP-057 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-057" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-57.pdf>,
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-8.pdf>,
         <https://www.pref.saitama.lg.jp/a0906/news/page/news2026082103.html> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-057/geometry> ;
@@ -1958,6 +1997,7 @@ res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-058" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-58.pdf>,
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-5.pdf>,
         <https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/085/031/09_0821nouchiseibi.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-058/geometry> ;
@@ -1989,6 +2029,7 @@ res:WHIS-JP-059 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-059" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-59.pdf>,
         <https://www.maff.go.jp/j/press/nousin/sekkei/260821.html>,
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-7.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-059/geometry> ;
@@ -2016,6 +2057,7 @@ res:WHIS-JP-060 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-060" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-60.pdf>,
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-6.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-060/geometry> ;
     rdfs:comment "堀は4世紀前半に墳丘と共に築造と考えられる。1864〜1865年に柳本藩が改修"@ja ;
@@ -2349,6 +2391,12 @@ wd:Q999162 rdfs:label "大阪湾"@ja .
     schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
     schema:name "Tsujyunkyo.jpg" .
 
+<https://ysh17-hub.github.io/whis-lod/dataset#build> a prov:Activity ;
+    rdfs:label "CSV から RDF・サイトを作り、SHACL でチェックする処理（lod.py build）"@ja ;
+    prov:endedAtTime "2026-11-24"^^xsd:date ;
+    prov:used <https://github.com/ysh17-hub/whis-lod>,
+        <https://github.com/ysh17-hub/whis-lod/commit/618b1d99acac71ac8e475e79f5d71129cedd6d35> .
+
 <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry> a geo:Geometry ;
     geo:asWKT "POINT(141.097605 40.592154)"^^geo:wktLiteral .
 
@@ -2658,14 +2706,56 @@ whis:type-canal a skos:Concept ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-2.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-20.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-21.pdf>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-22.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-23.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-24.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-25.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-27.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-28.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-29.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-30.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-31.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-32.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-33.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-34.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-35.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-36.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-37.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-38.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-39.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-4.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-40.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-41.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-42.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-43.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-44.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-45.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-46.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-47.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-48.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-49.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-5.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-50.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-51.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-52.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-54.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-55.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-56.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-57.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-58.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-59.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-6.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-60.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-61.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-62.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-7.pdf>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-8.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-9.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-14.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-15.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-16.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-5.pdf>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-8.pdf>,
         <https://www.maff.go.jp/j/nousin/keityo/kikaku/k_panf2002/pdf/15.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei7/index.html>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei8/index.html>,
@@ -2696,7 +2786,6 @@ whis:type-canal a skos:Concept ;
         <https://www.pref.aichi.jp/uploaded/attachment/275757.pdf>,
         <https://www.pref.aichi.jp/uploaded/attachment/489986.pdf>,
         <https://www.pref.aomori.lg.jp/soshiki/nourin/ka-nosui/files/inaoigawawalk2024.pdf>,
-        <https://www.pref.aomori.lg.jp/soshiki/nourin/noson/files/k_tsushin36.pdf>,
         <https://www.pref.gunma.jp/site/nougyou/9892.html>,
         <https://www.pref.ishikawa.lg.jp/kisya/r5kyoui/documents/zyubunnositei.pdf>,
         <https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/mannouike.html>,
@@ -2706,7 +2795,7 @@ whis:type-canal a skos:Concept ;
         <https://www.pref.osaka.lg.jp/chubunm/chubu_nm/tukidome.html>,
         <https://www.pref.osaka.lg.jp/senshunm/gyoumu/kumedaike.html>,
         <https://www.pref.saitama.lg.jp/a0906/news/page/news2026082103.html>,
-        <https://www.pref.saitama.lg.jp/documents/10406/51249.pdf>,
+        <https://www.pref.saitama.lg.jp/documents/265674/28001-6_bizenkyo.pdf>,
         <https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/085/031/09_0821nouchiseibi.pdf>,
         <https://www.pref.yamagata.jp/documents/38328/07_01_kitadateoozeki.pdf> ;
     dcterms:spatial wd:Q17 ;
@@ -2721,7 +2810,16 @@ whis:type-canal a skos:Concept ;
         "かんがい"@ja,
         "世界かんがい施設遺産"@ja,
         "農業水利"@ja ;
-    dcat:landingPage <https://ysh17-hub.github.io/whis-lod/> .
+    dcat:landingPage <https://ysh17-hub.github.io/whis-lod/> ;
+    dcat:version "2026-11-24" ;
+    prov:wasDerivedFrom <https://agrovoc.fao.org/>,
+        <https://commons.wikimedia.org/>,
+        <https://data.e-stat.go.jp/lodw/>,
+        <https://maps.gsi.go.jp/development/ichiran.html>,
+        <https://uedayou.net/loa/>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.wikidata.org/> ;
+    prov:wasGeneratedBy <https://ysh17-hub.github.io/whis-lod/dataset#build> .
 
 whis:HeritageIrrigationStructure a owl:Class ;
     rdfs:label "World Heritage Irrigation Structure"@en,

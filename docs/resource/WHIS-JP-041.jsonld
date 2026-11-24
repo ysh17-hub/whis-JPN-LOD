@@ -19,7 +19,10 @@
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
    },
    {
-    "@id": "https://www.pref.saitama.lg.jp/documents/10406/51249.pdf"
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-8.pdf"
+   },
+   {
+    "@id": "https://www.pref.saitama.lg.jp/documents/265674/28001-6_bizenkyo.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [

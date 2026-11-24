@@ -14,9 +14,9 @@ res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-028" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
-        <https://www.pref.aomori.lg.jp/soshiki/nourin/noson/files/k_tsushin36.pdf> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-25.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-028/geometry> ;
-    rdfs:comment "江戸時代初期築造、延長16km（青森県）"@ja ;
+    rdfs:comment "延長約16kmの開水路で、水田約8,300haに用水を供給（農林水産省）"@ja ;
     rdfs:seeAlso <https://sws.geonames.org/8412802/> ;
     owl:sameAs wd:Q34962967 ;
     wgs84:lat 40.652053 ;

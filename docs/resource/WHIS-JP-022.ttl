@@ -14,7 +14,8 @@ res:WHIS-JP-022 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-022" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-92.pdf>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-39.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-022/geometry> ;
     rdfs:comment "7つの幹線用水路の総称、総延長74km。起源は奈良時代、江戸時代に合口。かんがい面積は約2,000ha"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E8%B6%B3%E7%BE%BD%E5%B7%9D%E7%94%A8%E6%B0%B4> ;

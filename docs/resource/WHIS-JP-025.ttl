@@ -14,7 +14,8 @@ res:WHIS-JP-025 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-025" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/chushi/nouson/kangai.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-51.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-025/geometry> ;
     rdfs:comment "築造年は公的資料で未確認のため空欄"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%B8%B8%E7%9B%A4%E6%B1%A0>,

@@ -13,6 +13,7 @@ res:WHIS-JP-020 a whis:HeritageIrrigationStructure ;
     dcterms:identifier "WHIS-JP-020" ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-34.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-020/geometry> ;
     rdfs:comment "1700年代後期に坂本養川が開削（関東農政局資料）"@ja ;

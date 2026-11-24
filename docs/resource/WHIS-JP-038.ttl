@@ -14,7 +14,8 @@ res:WHIS-JP-038 a whis:HeritageIrrigationStructure ;
     dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
     dcterms:source <https://www.cgr.mlit.go.jp/okakawa/kouhou/hyakenkaitiku/history/pdf/tsuda_nagatada.pdf>,
         <https://www.city.okayama.jp/jigyosha/0000009053.html>,
-        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html> ;
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
+        <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-50.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-038/geometry> ;
     rdfs:comment "倉田新田・沖新田の干拓2,200ha超。吉井水門は現存最古の閘門式水門"@ja ;
     wgs84:lat 34.718043 ;

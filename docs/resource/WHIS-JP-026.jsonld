@@ -43,6 +43,37 @@
   ]
  },
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Mannolake1.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q20983084"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mannolake1.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "miea.system"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Mannolake1.JPG"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -60,6 +91,9 @@
   "http://purl.org/dc/terms/source": [
    {
     "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html"
+   },
+   {
+    "@id": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-52.pdf"
    },
    {
     "@id": "https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/46_manno/index.html"
@@ -231,37 +265,6 @@
    {
     "@language": "ja",
     "@value": "金倉川"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Mannolake1.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q20983084"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mannolake1.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "miea.system"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Mannolake1.JPG"
    }
   ]
  }
