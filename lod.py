@@ -67,9 +67,10 @@ def counts(rows):
     c["N_RELATED"] = sum(1 for r in rows if (r.get("wikidata_related") or "").strip())
     c["N_RIVER_QID"] = sum(1 for r in rows if (r.get("water_source_river_qid") or "").strip())
     c["N_RIVER_DISTINCT"] = len({q.strip() for r in rows for q in (r.get("water_source_river_qid") or "").split(";") if q.strip()})
-    for k in ["facility_type", "water_source_river", "representative_point", "built_year",
+    for k in ["facility_type", "water_source_river", "representative_point", "built_year", "built_period",
               "managing_org", "name_en", "irrigated_area_ha", "point_address"]:
         c["N_" + k] = filled(k)
+    c["N_BUILT_ANY"] = sum(1 for r in rows if (r.get("built_year") or r.get("built_period") or "").strip())
     c["N_SOURCES"] = len({u.strip() for r in rows for u in (r.get("source_url") or "").split("|") if u.strip()})
     # 写真と外部データベース（data/images.csv・data/external_links.csv。なければ 0）
     imgs, exts = [], []

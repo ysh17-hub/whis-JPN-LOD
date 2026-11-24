@@ -154,6 +154,8 @@ def validate(rows):
             problems.append(f"{rid}: 登録基準（建設から100年以上）と矛盾します（built {by} / registered {y}）")
         if by and not r.get("built_year_basis"):
             problems.append(f"{rid}: built_year の根拠（built_year_basis）が空です")
+        if by and r.get("built_period"):
+            problems.append(f"{rid}: built_period（建設時期）は built_year が空のときだけ使います")
         ft = r.get("facility_type", "")
         if ft and ft not in FACILITY_TYPES:
             problems.append(f"{rid}: facility_type『{ft}』は語彙にありません（{sorted(FACILITY_TYPES)}）")
@@ -210,6 +212,8 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None,
         (WHIS.irrigatedArea, "かんがい面積（ha）", "irrigated area (ha)", XSD.decimal),
         (WHIS.managedBy, "管理者", "managing organization", XSD.string),
         (WHIS.builtYearBasis, "建設年の根拠（着工・完成・供用開始など）", "basis of built year", XSD.string),
+        (WHIS.builtPeriod, "建設時期（資料に西暦の年がないとき、資料の表現のまま。年に換算していない）",
+         "construction period as worded in the source (used only when no exact year is given)", XSD.string),
         (WHIS.representativePoint, "代表地点（座標を取る場所の名前）", "representative point name", XSD.string),
         (WHIS.pointAddress, "代表地点の住所（国土地理院の逆ジオコーダで座標から求めた市区町村・大字）",
          "address of the representative point (reverse-geocoded by GSI)", XSD.string),
@@ -338,6 +342,8 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None,
             g.add((s, WHIS.builtYear, Literal(r["built_year"].zfill(4), datatype=XSD.gYear)))
         if r.get("built_year_basis"):
             g.add((s, WHIS.builtYearBasis, Literal(r["built_year_basis"], lang="ja")))
+        if r.get("built_period"):
+            g.add((s, WHIS.builtPeriod, Literal(r["built_period"], lang="ja")))
         if r.get("representative_point"):
             g.add((s, WHIS.representativePoint, Literal(r["representative_point"], lang="ja")))
         if r.get("point_address"):
@@ -429,7 +435,7 @@ def build_geojson(rows):
             continue
         props = {k: r.get(k, "") for k in
                  ["id", "name_ja", "name_en", "prefecture", "municipality", "registered_year",
-                  "built_year", "built_year_basis", "facility_type", "water_source_river", "managing_org",
+                  "built_year", "built_year_basis", "built_period", "facility_type", "water_source_river", "managing_org",
                   "irrigated_area_ha", "representative_point", "point_address", "wikidata_qid", "wikidata_related",
                   "water_source_river_qid", "verified", "source_url", "note"]}
         feats.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [lon, lat]},

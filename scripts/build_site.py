@@ -27,11 +27,25 @@ ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 import csv_to_rdf as conv  # noqa: E402
 
+
+def link_report_current():
+    """リンク健康診断の結果（docs/link_report.csv）のうち、いまのデータにあるURLだけを返す。
+    あわせて、いまのデータにあるのに診断結果にないURL（診断のあとに加えたもの）の数も返す。
+    データから外したURLや、公開元で消えたと記録したURL（data/source_status.csv）は数えない。"""
+    lr = ROOT / "docs" / "link_report.csv"
+    if not lr.exists():
+        return None, 0
+    import check_links  # 同じフォルダの scripts/check_links.py（URLの集め方を共通にする）
+    cur = {u for _, u, _ in check_links.collect()}
+    rep = [x for x in conv.load_rows(str(lr)) if x.get("url") in cur]
+    return rep, len(cur - {x["url"] for x in rep})
+
 ONTOLOGY_TERMS = [
     ("HeritageIrrigationStructure", "クラス", "世界かんがい施設遺産に登録された施設。schema:LandmarksOrHistoricalBuildings のサブクラス。"),
     ("registeredYear", "xsd:gYear", "ICID（国際かんがい排水委員会）による登録年。"),
     ("builtYear", "xsd:gYear", "建設年。着工・完成・供用開始のどれかは builtYearBasis に書く。"),
     ("builtYearBasis", "文字列", "builtYear の根拠（着工・完成・供用開始・資料記載年など）。"),
+    ("builtPeriod", "文字列", "建設時期。資料に西暦の年がない施設について、資料の表現のまま記録したもの（例：「およそ400年前に建設」「4世紀前半に築造」）。年への換算はしていない。builtYear がある施設には使わない。"),
     ("facilityType", "文字列", "施設の種類（水路・ため池・堰・用水群・揚水機場）。農林水産省が示す対象施設の例（ダム、ため池などの貯水施設、堰・分水施設、水路など）を参考に作成者が分類した。"),
     ("waterSource", "Wikidataの項目（なければ文字列）", "水源の川・湖など。Wikidata に同じ川・湖の項目があるときは、その IRI で示す（複数あり得る）。"),
     ("waterSourceName", "文字列", "水源の名前を資料の表記のまま記録したもの（例：奥入瀬川（十和田湖））。"),
@@ -50,6 +64,7 @@ ONTOLOGY_TERMS = [
 FIELD_LABELS = [
     ("name_en", "英語名"), ("prefecture", "都道府県"), ("municipality", "市町村"),
     ("registered_year", "登録年"), ("built_year", "建設年"), ("built_year_basis", "建設年の根拠"),
+    ("built_period", "建設時期（資料の表現）"),
     ("facility_type", "種類"), ("water_source_river", "水源"), ("managing_org", "管理者"),
     ("irrigated_area_ha", "かんがい面積（ha）"), ("representative_point", "代表地点"),
     ("point_address", "代表地点の住所（座標から）"),
@@ -109,7 +124,9 @@ th{width:11em;color:#444}code{background:#f4f4f4;padding:1px 4px}nav a{margin-ri
 .gallery figcaption{font-size:12px;color:#555;line-height:1.4;margin-top:4px}
 #lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center}
 #lb>div{max-width:92vw;max-height:92vh;text-align:center;color:#fff}#lb img{max-width:92vw;max-height:78vh}#lb p{font-size:13px}#lb a{color:#9cf}
-#lb button{font-size:14px;padding:4px 14px}"""
+#lb button{font-size:14px;padding:4px 14px}
+a,td,th,code{overflow-wrap:anywhere}
+@media (max-width:600px){th{width:auto;min-width:5.5em}td,th{padding:5px 4px}}"""
 
 
 def gallery_html(imgs):
@@ -463,15 +480,16 @@ def quality_page(rows, base, terrain, addr, imgs, g, today):
                        + ("（" + "、".join(f"{x['id'].replace('WHIS-JP-', '')}：このデータ {x['our_built_year']}・Wikidata {x['wd_inception_year']}" for x in diff_y) + "）" if diff_y else "")
                        + f"（{when}）",
                        "「同じ施設」とした Wikidata 項目の座標（P625）と開始年（P571）を、このデータと自動で比べた（data/wikidata_crosscheck.csv）。年の差は、何の年（着工・完成など）を採ったかの違いもありうるので、このデータでは「建設年の根拠」欄に何の年かを書いている"))
-    lr = ROOT / "docs" / "link_report.csv"
-    if lr.exists():
-        rep = conv.load_rows(str(lr))
+    rep, n_new = link_report_current()
+    if rep is not None:
         okn = sum(1 for x in rep if x.get("ok") == "1")
         bad = [x for x in rep if x.get("ok") != "1"]
         when = max((x.get("checked", "") for x in rep), default="")
         checks.append(("リンクの健康診断", f"{len(rep)} 件中 {okn} 件が開けた（{when}）" +
-                       ("" if not bad else "。開けなかったもの：" + "、".join(f"{x['id']}（{x['status']}）" for x in bad[:10])),
-                       "出典URL・外部リンク・写真・住所LODを毎月自動で確かめる（scripts/check_links.py）"))
+                       ("" if not bad else "。開けなかったもの：" + "、".join(f"{x['id']}（{x['status']}）" for x in bad[:10])) +
+                       (f"。この診断のあとに加えたURL {n_new} 件は、次の診断で確かめる" if n_new else ""),
+                       "出典URL・外部リンク・写真・住所LODを毎月自動で確かめる（scripts/check_links.py）。"
+                       "データから外したURLと、公開元で消えたと記録した出典（施設ページに「リンク切れ」と表示）は数えない"))
     else:
         checks.append(("リンクの健康診断", "まだ実行していません",
                        "出典URL・外部リンク・写真・住所LODを毎月自動で確かめる（scripts/check_links.py）"))
@@ -479,6 +497,8 @@ def quality_page(rows, base, terrain, addr, imgs, g, today):
     cols = [(k, lbl) for k, lbl in FIELD_LABELS if k not in ("note",)]
     prof = "".join(
         f"<tr><th>{e(lbl)}</th><td>{sum(1 for r in rows if (r.get(k) or '').strip())}/{n}</td></tr>" for k, lbl in cols)
+    prof += (f"<tr><th>建設年または建設時期</th><td>"
+             f"{sum(1 for r in rows if (r.get('built_year') or r.get('built_period') or '').strip())}/{n}</td></tr>")
     return f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>検証レポート｜世界かんがい施設遺産（日本）LOD</title><style>{PAGE_CSS}</style></head><body>
@@ -581,6 +601,9 @@ def quality_ttl(rows, base, terrain, addr, imgs, today):
                      ("managing_org", "管理者"), ("name_en", "英語名")]:
         measure(f"completeness-{col}", f"{lab}がある施設の割合", f"{lab}の値がある施設の数÷施設の数（空欄は不明の意味）",
                 sum(1 for r in rows if (r.get(col) or "").strip()) / n, "completeness")
+    measure("completeness-built_year_or_period", "建設年または建設時期がある施設の割合",
+            "建設年か、建設時期（資料の表現。年に換算しない）の値がある施設の数÷施設の数",
+            sum(1 for r in rows if (r.get("built_year") or r.get("built_period") or "").strip()) / n, "completeness")
     ts = [current_terrain(r, terrain.get(r["id"])) for r in rows]
     chk = [t for t in ts if t.get("gsi_elevation_api_m")]
     if chk:
@@ -605,12 +628,10 @@ def quality_ttl(rows, base, terrain, addr, imgs, today):
             sum(1 for r in rows if (addr.get(r["id"]) or [{}])[0].get("loa_uri")) / n, "linkability")
     measure("wikidata-same-coverage", "Wikidata と「同じ施設」でつないだ施設の割合", "owl:sameAs がある施設の数÷施設の数",
             sum(1 for r in rows if r.get("verified") == "1" and r.get("wikidata_qid")) / n, "linkability")
-    lr = ROOT / "docs" / "link_report.csv"
-    if lr.exists():
-        rep = conv.load_rows(str(lr))
-        if rep:
-            measure("link-health", "開けたリンクの割合", "毎月のリンク健康診断で開けたURLの数÷確かめたURLの数",
-                    sum(1 for x in rep if x.get("ok") == "1") / len(rep), "accuracy")
+    rep, _ = link_report_current()
+    if rep:
+        measure("link-health", "開けたリンクの割合", "毎月のリンク健康診断で開けたURLの数÷確かめたURLの数",
+                sum(1 for x in rep if x.get("ok") == "1") / len(rep), "accuracy")
     return q.serialize(format="turtle")
 
 def main(argv=None):

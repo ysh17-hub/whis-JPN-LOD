@@ -220,7 +220,8 @@
       .map(q => `<a href="https://www.wikidata.org/wiki/${escapeHtml(q)}" target="_blank" rel="noopener">${escapeHtml(q)}</a>`).join('、');
     return photoHtml(p) + `<b>${escapeHtml(p.name_ja)}</b>${p.name_en ? '<br><i>' + escapeHtml(p.name_en) + '</i>' : ''}<br>` +
       `${escapeHtml(p.prefecture)} ${escapeHtml(p.municipality)}<br>登録: ${escapeHtml(p.registered_year)}年` +
-      (p.built_year ? `<br>建設: ${escapeHtml(p.built_year)}年（${escapeHtml(p.built_year_basis)}）` : '') +
+      (p.built_year ? `<br>建設: ${escapeHtml(p.built_year)}年（${escapeHtml(p.built_year_basis)}）`
+        : (p.built_period ? `<br>建設: ${escapeHtml(p.built_period)}` : '')) +
       (p.facility_type ? `<br>種類: ${escapeHtml(p.facility_type)}` : '') +
       (p.water_source_river ? `<br>水源: ${escapeHtml(p.water_source_river)}` : '') +
       (p.managing_org ? `<br>管理: ${escapeHtml(p.managing_org)}` : '') +
