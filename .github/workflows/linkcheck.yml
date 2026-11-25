@@ -13,15 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
       - name: install
-        run: pip install rdflib pyshacl
+        run: pip install -r requirements.txt
       - name: check links
         run: python scripts/check_links.py
       - name: build
         run: python lod.py build
+      - name: test
+        run: python -m unittest discover -s tests -v
       - name: save
         run: |
           git config user.name "github-actions[bot]"
