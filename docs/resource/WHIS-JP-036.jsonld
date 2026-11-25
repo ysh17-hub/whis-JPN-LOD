@@ -100,7 +100,7 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
    {
     "@language": "ja",
-    "@value": "資料記載年"
+    "@value": "建設（農林水産省の資料に記載）"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [

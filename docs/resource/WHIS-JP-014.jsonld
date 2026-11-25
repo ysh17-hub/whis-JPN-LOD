@@ -1,17 +1,5 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry",
-  "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
-  ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
-   {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(141.020709 38.951358)"
-   }
-  ]
- },
- {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -38,6 +26,9 @@
    },
    {
     "@id": "https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf"
+   },
+   {
+    "@id": "https://www.naro.go.jp/laboratory/nire/mail_magazine/files/172-06-01.pdf"
    }
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
@@ -48,7 +39,7 @@
   "http://www.w3.org/2000/01/rdf-schema#comment": [
    {
     "@language": "ja",
-    "@value": "総延長64km。毛越寺浄土庭園への遣水"
+    "@value": "総延長64km。毛越寺浄土庭園への遣水。開削の年は資料によって異なる（東北農政局：1180年頃、農研機構 農村工学研究部門メールマガジン2024年9月号：1189年、農林水産省の施設概要：平安時代（約850年前））ため、建設年は空欄"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -116,16 +107,10 @@
     "@value": "照井堰用水"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYear": [
-   {
-    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-    "@value": "1180"
-   }
-  ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
    {
     "@language": "ja",
-    "@value": "開削（1180年頃）"
+    "@value": "平安時代末期の1180年頃に開削"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
@@ -198,6 +183,18 @@
    {
     "@language": "ja",
     "@value": "磐井川"
+   }
+  ]
+ },
+ {
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry",
+  "@type": [
+   "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "http://www.opengis.net/ont/geosparql#asWKT": [
+   {
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(141.020709 38.951358)"
    }
   ]
  }

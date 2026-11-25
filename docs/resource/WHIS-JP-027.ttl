@@ -31,7 +31,7 @@ res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     schema:name "Kounomizo-Hyakutaroumizo Irrigation System"@en,
         "幸野溝・百太郎溝水路群"@ja ;
     whis:builtYear "1705"^^xsd:gYear ;
-    whis:builtYearBasis "幸野溝の年（百太郎溝は1710）"@ja ;
+    whis:builtYearBasis "幸野溝の完成（百太郎溝は1710年に完成）"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "幸野溝土地改良区（幸野溝）"@ja ;

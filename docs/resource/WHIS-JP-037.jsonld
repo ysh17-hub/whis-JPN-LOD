@@ -1,13 +1,32 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-037/geometry",
+  "@id": "https://commons.wikimedia.org/wiki/File:Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG",
   "@type": [
-   "http://www.opengis.net/ont/geosparql#Geometry"
+   "https://schema.org/ImageObject"
   ],
-  "http://www.opengis.net/ont/geosparql#asWKT": [
+  "https://schema.org/about": [
    {
-    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-    "@value": "POINT(139.472632 36.187309)"
+    "@id": "http://www.wikidata.org/entity/Q11630206"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "京浜にけ"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Konosu Ninuma Canal Or Hoshi River 1.JPG"
    }
   ]
  },
@@ -130,7 +149,7 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
    {
     "@language": "ja",
-    "@value": "資料記載年"
+    "@value": "築造（農林水産省の資料に記載）"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
@@ -207,33 +226,14 @@
   ]
  },
  {
-  "@id": "https://commons.wikimedia.org/wiki/File:Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG",
+  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-037/geometry",
   "@type": [
-   "https://schema.org/ImageObject"
+   "http://www.opengis.net/ont/geosparql#Geometry"
   ],
-  "https://schema.org/about": [
+  "http://www.opengis.net/ont/geosparql#asWKT": [
    {
-    "@id": "http://www.wikidata.org/entity/Q11630206"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Konosu_Ninuma_Canal_Or_Hoshi_River_1.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "京浜にけ"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/3.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Konosu Ninuma Canal Or Hoshi River 1.JPG"
+    "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+    "@value": "POINT(139.472632 36.187309)"
    }
   ]
  }

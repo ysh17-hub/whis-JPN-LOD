@@ -36,7 +36,7 @@
   "http://www.w3.org/2000/01/rdf-schema#comment": [
    {
     "@language": "ja",
-    "@value": "構成10施設（用水路3、ため池7）：加茂用水・十内圦・嶺田用水と、地域を代表する7か所のため池（静岡県の発表資料）"
+    "@value": "構成10施設（用水路3、ため池7）：加茂用水・十内圦・嶺田用水と、地域を代表する7か所のため池（静岡県の発表資料）。谷田大池は県の資料で1895年、農林水産省の資料では導水トンネルが1896年"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -100,7 +100,7 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
    {
     "@language": "ja",
-    "@value": "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）"
+    "@value": "加茂用水が作られた年（十内圦は1646年、嶺田用水は1678年）"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [

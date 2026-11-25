@@ -58,15 +58,15 @@ a,td,th,code{overflow-wrap:anywhere}
 <nav><a href="../index.html">地図</a><a href="../sparql.html">SPARQL</a><a href="../ontology.html">語彙</a><a href="../watersystems.html">水系</a><a href="../quality.html">検証</a><a href="../whis_japan.ttl">全体のTurtle</a><a href="../whis_japan.csv">CSV</a><a href="../en.html">English</a></nav>
 <h1>松原用水・牟呂用水</h1>
 <p><small>URI: <code>https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-030</code>　この施設のデータ：<a href="WHIS-JP-030.ttl">Turtle</a>／<a href="WHIS-JP-030.jsonld">JSON-LD</a></small></p>
-<table><tr><th>英語名</th><td>Matsubara-Muro Irrigation System</td></tr><tr><th>都道府県</th><td>愛知県</td></tr><tr><th>市町村</th><td>豊橋市他</td></tr><tr><th>登録年</th><td>2017</td></tr><tr><th>建設年</th><td>1567</td></tr><tr><th>建設年の根拠</th><td>松原用水の取水堰（牟呂用水は1888）</td></tr><tr><th>建設時期（資料の表現）</th><td>—</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-irrigation-system">用水群</a></td></tr><tr><th>水源</th><td>豊川（Wikidata：<a href="https://www.wikidata.org/wiki/Q11633588">Q11633588</a>）</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>1612</td></tr><tr><th>代表地点</th><td>牟呂松原頭首工</td></tr><tr><th>代表地点の住所（座標から）</th><td>愛知県新城市豊島（標高 約18.8m・DEM10B）<br><small><a href="https://uedayou.net/loa/愛知県新城市豊島">住所LOD</a>／<a href="http://data.e-stat.go.jp/lod/sac/C23221-20051001">統計LOD（標準地域コード 23221）</a></small></td></tr><tr><th>緯度</th><td>34.875146</td></tr><tr><th>経度</th><td>137.474429</td></tr><tr><th>注記</th><td>受益面積：松原用水642ha＋牟呂用水970ha（愛知県）の合計</td></tr><tr><th>Wikidata</th><td><br>構成施設：<a href="https://www.wikidata.org/wiki/Q11570262">Q11570262</a></td></tr></table>
+<table><tr><th>英語名</th><td>Matsubara-Muro Irrigation System</td></tr><tr><th>都道府県</th><td>愛知県</td></tr><tr><th>市町村</th><td>豊橋市他</td></tr><tr><th>登録年</th><td>2017</td></tr><tr><th>建設年</th><td>1567</td></tr><tr><th>建設年の根拠</th><td>橋尾井堰の築造（松原用水の始まり。牟呂用水は1888年）</td></tr><tr><th>建設時期（資料の表現）</th><td>—</td></tr><tr><th>種類</th><td><a href="../ontology.html#type-irrigation-system">用水群</a></td></tr><tr><th>水源</th><td>豊川（Wikidata：<a href="https://www.wikidata.org/wiki/Q11633588">Q11633588</a>）</td></tr><tr><th>管理者</th><td>—</td></tr><tr><th>かんがい面積（ha）</th><td>1612</td></tr><tr><th>代表地点</th><td>牟呂松原頭首工</td></tr><tr><th>代表地点の住所（座標から）</th><td>愛知県新城市豊島（標高 約18.8m・DEM10B）<br><small><a href="https://uedayou.net/loa/愛知県新城市豊島">住所LOD</a>／<a href="http://data.e-stat.go.jp/lod/sac/C23221-20051001">統計LOD（標準地域コード 23221）</a></small></td></tr><tr><th>緯度</th><td>34.875146</td></tr><tr><th>経度</th><td>137.474429</td></tr><tr><th>注記</th><td>受益面積：松原用水642ha＋牟呂用水970ha（愛知県）の合計</td></tr><tr><th>Wikidata</th><td><br>構成施設：<a href="https://www.wikidata.org/wiki/Q11570262">Q11570262</a></td></tr></table>
 
 <h2>航空写真・地形で見る</h2>
 <p><small>代表地点（牟呂松原頭首工）のまわりです。右上で背景を「航空写真（最新）」「色別標高図」などに切り替えられます。
 この地点で見つかった昔の空中写真：1961〜1969年・1974〜1978年。「昔の航空写真を重ねる」で選び、「濃さ」を動かすと今と比べられます。
 （出典：国土地理院 地理院タイル）　<a href="https://maps.gsi.go.jp/#17/34.875146/137.474429/&amp;base=std&amp;ls=std%7Cseamlessphoto&amp;disp=01">地理院地図で開く</a></small></p>
 <div id="amap" style="height:380px;border-radius:6px"></div>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="../vendor/leaflet/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=">
+<script src="../vendor/leaflet/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="></script>
 <script src="../gsi_layers.js"></script>
 <script>
 (function(){

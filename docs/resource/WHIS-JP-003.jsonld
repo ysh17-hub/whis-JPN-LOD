@@ -1,5 +1,36 @@
 [
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q11560257"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Indiana jo"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "深良用水3.JPG"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-003",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -118,7 +149,7 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
    {
     "@language": "ja",
-    "@value": "資料記載年"
+    "@value": "建設（農林水産省の資料に記載）"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
@@ -191,37 +222,6 @@
    {
     "@language": "ja",
     "@value": "芦ノ湖"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q11560257"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B7%B1%E8%89%AF%E7%94%A8%E6%B0%B43.JPG"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Indiana jo"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by-sa/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "深良用水3.JPG"
    }
   ]
  },

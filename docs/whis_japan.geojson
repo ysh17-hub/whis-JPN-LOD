@@ -84,7 +84,7 @@
     "municipality": "裾野市他",
     "registered_year": "2014",
     "built_year": "1666",
-    "built_year_basis": "資料記載年",
+    "built_year_basis": "建設（農林水産省の資料に記載）",
     "built_period": "",
     "facility_type": "水路",
     "water_source_river": "芦ノ湖",
@@ -446,9 +446,9 @@
     "prefecture": "岩手県",
     "municipality": "一関市他",
     "registered_year": "2016",
-    "built_year": "1180",
-    "built_year_basis": "開削（1180年頃）",
-    "built_period": "",
+    "built_year": "",
+    "built_year_basis": "",
+    "built_period": "平安時代末期の1180年頃に開削",
     "facility_type": "水路",
     "water_source_river": "磐井川",
     "managing_org": "照井土地改良区",
@@ -459,8 +459,8 @@
     "wikidata_related": "",
     "water_source_river_qid": "Q11587850",
     "verified": "1",
-    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf",
-    "note": "総延長64km。毛越寺浄土庭園への遣水"
+    "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf | https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf | https://www.naro.go.jp/laboratory/nire/mail_magazine/files/172-06-01.pdf",
+    "note": "総延長64km。毛越寺浄土庭園への遣水。開削の年は資料によって異なる（東北農政局：1180年頃、農研機構 農村工学研究部門メールマガジン2024年9月号：1189年、農林水産省の施設概要：平安時代（約850年前））ため、建設年は空欄"
    }
   },
   {
@@ -842,9 +842,9 @@
     "prefecture": "香川県",
     "municipality": "まんのう町",
     "registered_year": "2016",
-    "built_year": "701",
-    "built_year_basis": "築造（大宝年間701〜704）",
-    "built_period": "",
+    "built_year": "",
+    "built_year_basis": "",
+    "built_period": "大宝年間（701〜704年）に築造",
     "facility_type": "ため池",
     "water_source_river": "金倉川",
     "managing_org": "",
@@ -876,7 +876,7 @@
     "municipality": "湯前町他",
     "registered_year": "2016",
     "built_year": "1705",
-    "built_year_basis": "幸野溝の年（百太郎溝は1710）",
+    "built_year_basis": "幸野溝の完成（百太郎溝は1710年に完成）",
     "built_period": "",
     "facility_type": "水路",
     "water_source_river": "球磨川",
@@ -975,7 +975,7 @@
     "municipality": "豊橋市他",
     "registered_year": "2017",
     "built_year": "1567",
-    "built_year_basis": "松原用水の取水堰（牟呂用水は1888）",
+    "built_year_basis": "橋尾井堰の築造（松原用水の始まり。牟呂用水は1888年）",
     "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "豊川",
@@ -1173,7 +1173,7 @@
     "municipality": "北茨城市",
     "registered_year": "2019",
     "built_year": "1669",
-    "built_year_basis": "資料記載年",
+    "built_year_basis": "建設（農林水産省の資料に記載）",
     "built_period": "",
     "facility_type": "水路",
     "water_source_river": "",
@@ -1206,7 +1206,7 @@
     "municipality": "行田市他",
     "registered_year": "2019",
     "built_year": "1728",
-    "built_year_basis": "資料記載年",
+    "built_year_basis": "築造（農林水産省の資料に記載）",
     "built_period": "",
     "facility_type": "水路",
     "water_source_river": "利根川",
@@ -1437,7 +1437,7 @@
     "municipality": "宇佐市",
     "registered_year": "2021",
     "built_year": "1156",
-    "built_year_basis": "平田井路の年",
+    "built_year_basis": "平田井路の開削（広瀬井路は1751年に築造開始、1870年に完成）",
     "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "駅館川",
@@ -1450,7 +1450,7 @@
     "water_source_river_qid": "Q11668226",
     "verified": "0",
     "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-4.pdf | https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf",
-    "note": "広瀬井路は1751〜1870"
+    "note": ""
    }
   },
   {
@@ -1813,7 +1813,7 @@
     "water_source_river_qid": "",
     "verified": "0",
     "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-61.pdf",
-    "note": "名称は農林水産省のプレスリリース（2025年7月23日）と施設概要の表記「湯の口ため池・井手」による（「井出」と書く資料もある）。施設概要に「500haもの地域を支える施設」とある"
+    "note": "名称は、農林水産省のプレスリリース（2025年7月23日）と施設概要PDFの表記「湯の口ため池・井手」による。同省の「登録施設の概要」ページの一覧では「井出」と書かれている。施設概要に「500haもの地域を支える施設」とある"
    }
   },
   {
@@ -1899,7 +1899,7 @@
     "municipality": "掛川市、菊川市",
     "registered_year": "2026",
     "built_year": "1594",
-    "built_year_basis": "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）",
+    "built_year_basis": "加茂用水が作られた年（十内圦は1646年、嶺田用水は1678年）",
     "built_period": "",
     "facility_type": "用水群",
     "water_source_river": "",
@@ -1912,7 +1912,7 @@
     "water_source_river_qid": "",
     "verified": "0",
     "source_url": "https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html | https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-5.pdf | https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/085/031/09_0821nouchiseibi.pdf | https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-58.pdf",
-    "note": "構成10施設（用水路3、ため池7）：加茂用水・十内圦・嶺田用水と、地域を代表する7か所のため池（静岡県の発表資料）"
+    "note": "構成10施設（用水路3、ため池7）：加茂用水・十内圦・嶺田用水と、地域を代表する7か所のため池（静岡県の発表資料）。谷田大池は県の資料で1895年、農林水産省の資料では導水トンネルが1896年"
    }
   },
   {

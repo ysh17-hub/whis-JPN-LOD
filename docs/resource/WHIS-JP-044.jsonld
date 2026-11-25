@@ -30,12 +30,6 @@
     "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-044/geometry"
    }
   ],
-  "http://www.w3.org/2000/01/rdf-schema#comment": [
-   {
-    "@language": "ja",
-    "@value": "広瀬井路は1751〜1870"
-   }
-  ],
   "http://www.w3.org/2000/01/rdf-schema#label": [
    {
     "@language": "en",
@@ -97,7 +91,7 @@
   "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
    {
     "@language": "ja",
-    "@value": "平田井路の年"
+    "@value": "平田井路の開削（広瀬井路は1751年に築造開始、1870年に完成）"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [

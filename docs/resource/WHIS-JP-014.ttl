@@ -17,9 +17,10 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
-        <https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf> ;
+        <https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf>,
+        <https://www.naro.go.jp/laboratory/nire/mail_magazine/files/172-06-01.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry> ;
-    rdfs:comment "総延長64km。毛越寺浄土庭園への遣水"@ja ;
+    rdfs:comment "総延長64km。毛越寺浄土庭園への遣水。開削の年は資料によって異なる（東北農政局：1180年頃、農研機構 農村工学研究部門メールマガジン2024年9月号：1189年、農林水産省の施設概要：平安時代（約850年前））ため、建設年は空欄"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E7%85%A7%E4%BA%95%E5%A0%B0%E7%94%A8%E6%B0%B4>,
         <https://www.openstreetmap.org/relation/21058820> ;
     owl:sameAs wd:Q28690019 ;
@@ -31,8 +32,7 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
         wd:Q48326 ;
     schema:name "Teruizeki Irrigation Canal"@en,
         "照井堰用水"@ja ;
-    whis:builtYear "1180"^^xsd:gYear ;
-    whis:builtYearBasis "開削（1180年頃）"@ja ;
+    whis:builtPeriod "平安時代末期の1180年頃に開削"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "照井土地改良区"@ja ;

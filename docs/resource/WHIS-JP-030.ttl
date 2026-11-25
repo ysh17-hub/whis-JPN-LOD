@@ -29,7 +29,7 @@ res:WHIS-JP-030 a whis:HeritageIrrigationStructure ;
     schema:name "Matsubara-Muro Irrigation System"@en,
         "松原用水・牟呂用水"@ja ;
     whis:builtYear "1567"^^xsd:gYear ;
-    whis:builtYearBasis "松原用水の取水堰（牟呂用水は1888）"@ja ;
+    whis:builtYearBasis "橋尾井堰の築造（松原用水の始まり。牟呂用水は1888年）"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 1612.0 ;

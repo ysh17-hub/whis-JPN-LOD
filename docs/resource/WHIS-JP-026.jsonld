@@ -31,6 +31,37 @@
   ]
  },
  {
+  "@id": "https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg",
+  "@type": [
+   "https://schema.org/ImageObject"
+  ],
+  "https://schema.org/about": [
+   {
+    "@id": "http://www.wikidata.org/entity/Q6750928"
+   }
+  ],
+  "https://schema.org/contentUrl": [
+   {
+    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg"
+   }
+  ],
+  "https://schema.org/creditText": [
+   {
+    "@value": "Σ64"
+   }
+  ],
+  "https://schema.org/license": [
+   {
+    "@id": "https://creativecommons.org/licenses/by/4.0"
+   }
+  ],
+  "https://schema.org/name": [
+   {
+    "@value": "Mano Dam 02.jpg"
+   }
+  ]
+ },
+ {
   "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026",
   "@type": [
    "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
@@ -151,16 +182,10 @@
     "@value": "満濃池"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYear": [
-   {
-    "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-    "@value": "0701"
-   }
-  ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
+  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
    {
     "@language": "ja",
-    "@value": "築造（大宝年間701〜704）"
+    "@value": "大宝年間（701〜704年）に築造"
    }
   ],
   "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
@@ -245,37 +270,6 @@
    {
     "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
     "@value": "POINT(133.871392 34.162667)"
-   }
-  ]
- },
- {
-  "@id": "https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg",
-  "@type": [
-   "https://schema.org/ImageObject"
-  ],
-  "https://schema.org/about": [
-   {
-    "@id": "http://www.wikidata.org/entity/Q6750928"
-   }
-  ],
-  "https://schema.org/contentUrl": [
-   {
-    "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mano_Dam_02.jpg"
-   }
-  ],
-  "https://schema.org/creditText": [
-   {
-    "@value": "Σ64"
-   }
-  ],
-  "https://schema.org/license": [
-   {
-    "@id": "https://creativecommons.org/licenses/by/4.0"
-   }
-  ],
-  "https://schema.org/name": [
-   {
-    "@value": "Mano Dam 02.jpg"
    }
   ]
  }

@@ -17,7 +17,6 @@ res:WHIS-JP-044 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-4.pdf>,
         <https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-044/geometry> ;
-    rdfs:comment "広瀬井路は1751〜1870"@ja ;
     wgs84:lat 33.512209 ;
     wgs84:long 131.336822 ;
     schema:addressLocality "宇佐市"@ja ;
@@ -27,7 +26,7 @@ res:WHIS-JP-044 a whis:HeritageIrrigationStructure ;
     schema:name "Usa Irrigation System"@en,
         "宇佐のかんがい用水群"@ja ;
     whis:builtYear "1156"^^xsd:gYear ;
-    whis:builtYearBasis "平田井路の年"@ja ;
+    whis:builtYearBasis "平田井路の開削（広瀬井路は1751年に築造開始、1870年に完成）"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 240.0 ;

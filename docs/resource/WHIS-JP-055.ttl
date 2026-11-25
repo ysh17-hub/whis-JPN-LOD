@@ -16,7 +16,7 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-61.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-055/geometry> ;
-    rdfs:comment "名称は農林水産省のプレスリリース（2025年7月23日）と施設概要の表記「湯の口ため池・井手」による（「井出」と書く資料もある）。施設概要に「500haもの地域を支える施設」とある"@ja ;
+    rdfs:comment "名称は、農林水産省のプレスリリース（2025年7月23日）と施設概要PDFの表記「湯の口ため池・井手」による。同省の「登録施設の概要」ページの一覧では「井出」と書かれている。施設概要に「500haもの地域を支える施設」とある"@ja ;
     wgs84:lat 33.018922 ;
     wgs84:long 130.746136 ;
     schema:addressLocality "山鹿市"@ja ;

@@ -35,8 +35,7 @@ res:WHIS-JP-026 a whis:HeritageIrrigationStructure ;
         <https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg> ;
     schema:name "Mannou-ike Reservoir"@en,
         "満濃池"@ja ;
-    whis:builtYear "0701"^^xsd:gYear ;
-    whis:builtYearBasis "築造（大宝年間701〜704）"@ja ;
+    whis:builtPeriod "大宝年間（701〜704年）に築造"@ja ;
     whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:irrigatedArea 3239.0 ;

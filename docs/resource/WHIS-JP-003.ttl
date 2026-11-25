@@ -33,7 +33,7 @@ res:WHIS-JP-003 a whis:HeritageIrrigationStructure ;
     schema:name "Fukarayousui Irrigation Canal"@en,
         "深良用水"@ja ;
     whis:builtYear "1666"^^xsd:gYear ;
-    whis:builtYearBasis "資料記載年"@ja ;
+    whis:builtYearBasis "建設（農林水産省の資料に記載）"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "静岡県芦湖水利組合"@ja ;

@@ -192,7 +192,7 @@ res:WHIS-JP-003 a whis:HeritageIrrigationStructure ;
     schema:name "Fukarayousui Irrigation Canal"@en,
         "深良用水"@ja ;
     whis:builtYear "1666"^^xsd:gYear ;
-    whis:builtYearBasis "資料記載年"@ja ;
+    whis:builtYearBasis "建設（農林水産省の資料に記載）"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "静岡県芦湖水利組合"@ja ;
@@ -595,9 +595,10 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-26.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
-        <https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf> ;
+        <https://www.maff.go.jp/tohoku/nouson/nogyo_isan/attach/pdf/iwate_teruizeki.pdf>,
+        <https://www.naro.go.jp/laboratory/nire/mail_magazine/files/172-06-01.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry> ;
-    rdfs:comment "総延長64km。毛越寺浄土庭園への遣水"@ja ;
+    rdfs:comment "総延長64km。毛越寺浄土庭園への遣水。開削の年は資料によって異なる（東北農政局：1180年頃、農研機構 農村工学研究部門メールマガジン2024年9月号：1189年、農林水産省の施設概要：平安時代（約850年前））ため、建設年は空欄"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E7%85%A7%E4%BA%95%E5%A0%B0%E7%94%A8%E6%B0%B4>,
         <https://www.openstreetmap.org/relation/21058820> ;
     owl:sameAs wd:Q28690019 ;
@@ -609,8 +610,7 @@ res:WHIS-JP-014 a whis:HeritageIrrigationStructure ;
         wd:Q48326 ;
     schema:name "Teruizeki Irrigation Canal"@en,
         "照井堰用水"@ja ;
-    whis:builtYear "1180"^^xsd:gYear ;
-    whis:builtYearBasis "開削（1180年頃）"@ja ;
+    whis:builtPeriod "平安時代末期の1180年頃に開削"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "照井土地改良区"@ja ;
@@ -1042,8 +1042,7 @@ res:WHIS-JP-026 a whis:HeritageIrrigationStructure ;
         <https://commons.wikimedia.org/wiki/File:Mano_Dam_02.jpg> ;
     schema:name "Mannou-ike Reservoir"@en,
         "満濃池"@ja ;
-    whis:builtYear "0701"^^xsd:gYear ;
-    whis:builtYearBasis "築造（大宝年間701〜704）"@ja ;
+    whis:builtPeriod "大宝年間（701〜704年）に築造"@ja ;
     whis:facilityCategory whis:type-tameike ;
     whis:facilityType "ため池"@ja ;
     whis:irrigatedArea 3239.0 ;
@@ -1081,7 +1080,7 @@ res:WHIS-JP-027 a whis:HeritageIrrigationStructure ;
     schema:name "Kounomizo-Hyakutaroumizo Irrigation System"@en,
         "幸野溝・百太郎溝水路群"@ja ;
     whis:builtYear "1705"^^xsd:gYear ;
-    whis:builtYearBasis "幸野溝の年（百太郎溝は1710）"@ja ;
+    whis:builtYearBasis "幸野溝の完成（百太郎溝は1710年に完成）"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "幸野溝土地改良区（幸野溝）"@ja ;
@@ -1189,7 +1188,7 @@ res:WHIS-JP-030 a whis:HeritageIrrigationStructure ;
     schema:name "Matsubara-Muro Irrigation System"@en,
         "松原用水・牟呂用水"@ja ;
     whis:builtYear "1567"^^xsd:gYear ;
-    whis:builtYearBasis "松原用水の取水堰（牟呂用水は1888）"@ja ;
+    whis:builtYearBasis "橋尾井堰の築造（松原用水の始まり。牟呂用水は1888年）"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 1612.0 ;
@@ -1408,7 +1407,7 @@ res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
     schema:name "Jukkoku-bori Irrigation System"@en,
         "十石堀"@ja ;
     whis:builtYear "1669"^^xsd:gYear ;
-    whis:builtYearBasis "資料記載年"@ja ;
+    whis:builtYearBasis "建設（農林水産省の資料に記載）"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "十石堀維持管理協議会"@ja ;
@@ -1445,7 +1444,7 @@ res:WHIS-JP-037 a whis:HeritageIrrigationStructure ;
     schema:name "Minuma-Dai Irrigation System"@en,
         "見沼代用水"@ja ;
     whis:builtYear "1728"^^xsd:gYear ;
-    whis:builtYearBasis "資料記載年"@ja ;
+    whis:builtYearBasis "築造（農林水産省の資料に記載）"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "見沼代用水土地改良区"@ja ;
@@ -1689,7 +1688,6 @@ res:WHIS-JP-044 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-4.pdf>,
         <https://www.maff.go.jp/kyusyu/syohianzen/attach/pdf/Heya250609-2.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-044/geometry> ;
-    rdfs:comment "広瀬井路は1751〜1870"@ja ;
     wgs84:lat 33.512209 ;
     wgs84:long 131.336822 ;
     schema:addressLocality "宇佐市"@ja ;
@@ -1699,7 +1697,7 @@ res:WHIS-JP-044 a whis:HeritageIrrigationStructure ;
     schema:name "Usa Irrigation System"@en,
         "宇佐のかんがい用水群"@ja ;
     whis:builtYear "1156"^^xsd:gYear ;
-    whis:builtYearBasis "平田井路の年"@ja ;
+    whis:builtYearBasis "平田井路の開削（広瀬井路は1751年に築造開始、1870年に完成）"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 240.0 ;
@@ -2043,7 +2041,7 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-61.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-055/geometry> ;
-    rdfs:comment "名称は農林水産省のプレスリリース（2025年7月23日）と施設概要の表記「湯の口ため池・井手」による（「井出」と書く資料もある）。施設概要に「500haもの地域を支える施設」とある"@ja ;
+    rdfs:comment "名称は、農林水産省のプレスリリース（2025年7月23日）と施設概要PDFの表記「湯の口ため池・井手」による。同省の「登録施設の概要」ページの一覧では「井出」と書かれている。施設概要に「500haもの地域を支える施設」とある"@ja ;
     wgs84:lat 33.018922 ;
     wgs84:long 130.746136 ;
     schema:addressLocality "山鹿市"@ja ;
@@ -2136,7 +2134,7 @@ res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-5.pdf>,
         <https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/085/031/09_0821nouchiseibi.pdf> ;
     geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-058/geometry> ;
-    rdfs:comment "構成10施設（用水路3、ため池7）：加茂用水・十内圦・嶺田用水と、地域を代表する7か所のため池（静岡県の発表資料）"@ja ;
+    rdfs:comment "構成10施設（用水路3、ため池7）：加茂用水・十内圦・嶺田用水と、地域を代表する7か所のため池（静岡県の発表資料）。谷田大池は県の資料で1895年、農林水産省の資料では導水トンネルが1896年"@ja ;
     wgs84:lat 34.674363 ;
     wgs84:long 137.983018 ;
     schema:addressLocality "掛川市、菊川市"@ja ;
@@ -2146,7 +2144,7 @@ res:WHIS-JP-058 a whis:HeritageIrrigationStructure ;
     schema:name "Ogasa Regional Irrigation System"@en,
         "小笠地域かんがい用水群"@ja ;
     whis:builtYear "1594"^^xsd:gYear ;
-    whis:builtYearBasis "加茂用水の年（谷田大池は県資料1895・農水省資料の導水トンネル1896）"@ja ;
+    whis:builtYearBasis "加茂用水が作られた年（十内圦は1646年、嶺田用水は1678年）"@ja ;
     whis:facilityCategory whis:type-irrigation-system ;
     whis:facilityType "用水群"@ja ;
     whis:irrigatedArea 979.0 ;
@@ -2534,9 +2532,9 @@ wd:Q999162 rdfs:label "大阪湾"@ja .
 
 <https://ysh17-hub.github.io/whis-lod/dataset#build> a prov:Activity ;
     rdfs:label "CSV から RDF・サイトを作り、SHACL でチェックする処理（lod.py build）"@ja ;
-    prov:endedAtTime "2026-11-24"^^xsd:date ;
+    prov:endedAtTime "2026-11-25"^^xsd:date ;
     prov:used <https://github.com/ysh17-hub/whis-lod>,
-        <https://github.com/ysh17-hub/whis-lod/commit/4d77e2bc4d30ae00c740f16ae3bc5931d6c26ee9> .
+        <https://github.com/ysh17-hub/whis-lod/commit/8f589fa3c32aa009d7846ae77f99f643f24e10b5> .
 
 <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-001/geometry> a geo:Geometry ;
     geo:asWKT "POINT(141.097605 40.592154)"^^geo:wktLiteral .
@@ -2825,7 +2823,7 @@ whis:type-canal a skos:Concept ;
     dcterms:creator "abe" ;
     dcterms:language <http://id.loc.gov/vocabulary/iso639-1/ja> ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-11-24"^^xsd:date ;
+    dcterms:modified "2026-11-25"^^xsd:date ;
     dcterms:source <https://www.cgr.mlit.go.jp/okakawa/kouhou/hyakenkaitiku/history/pdf/tsuda_nagatada.pdf>,
         <https://www.city.kobe.lg.jp/a83166/kanko/bunka/bunkazai/history/isan/ougososui.html>,
         <https://www.city.kumamoto.jp/kiji00319258/5_19258_313287_up_3YT166OX.pdf>,
@@ -2924,6 +2922,7 @@ whis:type-canal a skos:Concept ;
         <https://www.mlit.go.jp/common/001140232.pdf>,
         <https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf>,
         <https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/pdf/07_04.pdf>,
+        <https://www.naro.go.jp/laboratory/nire/mail_magazine/files/172-06-01.pdf>,
         <https://www.pref.aichi.jp/soshiki/nochi-keikaku/muromatubara-sekaikangaisisetuisan.html>,
         <https://www.pref.aichi.jp/uploaded/attachment/275757.pdf>,
         <https://www.pref.aichi.jp/uploaded/attachment/489986.pdf>,
@@ -2953,7 +2952,7 @@ whis:type-canal a skos:Concept ;
         "世界かんがい施設遺産"@ja,
         "農業水利"@ja ;
     dcat:landingPage <https://ysh17-hub.github.io/whis-lod/> ;
-    dcat:version "2026-11-24" ;
+    dcat:version "2026-11-25" ;
     prov:wasDerivedFrom <https://agrovoc.fao.org/>,
         <https://commons.wikimedia.org/>,
         <https://data.e-stat.go.jp/lodw/>,

@@ -28,7 +28,7 @@ res:WHIS-JP-036 a whis:HeritageIrrigationStructure ;
     schema:name "Jukkoku-bori Irrigation System"@en,
         "十石堀"@ja ;
     whis:builtYear "1669"^^xsd:gYear ;
-    whis:builtYearBasis "資料記載年"@ja ;
+    whis:builtYearBasis "建設（農林水産省の資料に記載）"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "十石堀維持管理協議会"@ja ;

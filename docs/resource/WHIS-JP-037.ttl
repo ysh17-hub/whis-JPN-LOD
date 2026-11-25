@@ -33,7 +33,7 @@ res:WHIS-JP-037 a whis:HeritageIrrigationStructure ;
     schema:name "Minuma-Dai Irrigation System"@en,
         "見沼代用水"@ja ;
     whis:builtYear "1728"^^xsd:gYear ;
-    whis:builtYearBasis "資料記載年"@ja ;
+    whis:builtYearBasis "築造（農林水産省の資料に記載）"@ja ;
     whis:facilityCategory whis:type-canal ;
     whis:facilityType "水路"@ja ;
     whis:managedBy "見沼代用水土地改良区"@ja ;
