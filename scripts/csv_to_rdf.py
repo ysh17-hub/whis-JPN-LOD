@@ -154,6 +154,10 @@ def validate(rows):
             problems.append(f"{rid}: 登録基準（建設から100年以上）と矛盾します（built {by} / registered {y}）")
         if by and not r.get("built_year_basis"):
             problems.append(f"{rid}: built_year の根拠（built_year_basis）が空です")
+        basis = r.get("built_year_basis", "")
+        if by and (any(w in basis for w in ("資料記載", "頃", "ごろ", "約")) or re.search(r"\d\s*[〜~～]\s*\d", basis)):
+            problems.append(f"{rid}: built_year_basis に、年が一つに決まらない表現か、何の年か分からない表現があります"
+                            f"（{basis}）。年が一つに決まらないときは built_year を空にして built_period に書きます")
         if by and r.get("built_period"):
             problems.append(f"{rid}: built_period（建設時期）は built_year が空のときだけ使います")
         ft = r.get("facility_type", "")
@@ -293,8 +297,8 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None,
                                            datatype=XSD.dateTime if "T" in (dataset_meta.get("generated") or "") else XSD.date)))
     code = URIRef("https://github.com/ysh17-hub/whis-lod")
     g.add((act, PROV.used, code))
-    sha = os.environ.get("GITHUB_SHA")
-    if sha:   # GitHub Actions で作ったときは、どのコミットから作ったかも記録する
+    sha = os.environ.get("WHIS_SOURCE_COMMIT") or os.environ.get("GITHUB_SHA")
+    if sha:   # どのコミット（データや作り方を最後に変えたコミット）から作ったかも記録する
         g.add((act, PROV.used, URIRef(f"https://github.com/ysh17-hub/whis-lod/commit/{sha}")))
     g.add((ds, DCTERMS.spatial, WD["Q17"]))  # 日本
     g.add((ds, DCTERMS.language, URIRef("http://id.loc.gov/vocabulary/iso639-1/ja")))
@@ -400,8 +404,6 @@ def build_graph(rows, base, pref_qids, dataset_meta, images=None, extlinks=None,
             g.add((s, OWL.sameAs, WD[r["wikidata_qid"]]))
         for q in split_qids(r.get("wikidata_related")):
             g.add((s, SCHEMA.hasPart, WD[q]))
-        if r.get("icid_page_url"):
-            g.add((s, RDFS.seeAlso, URIRef(r["icid_page_url"])))
         for u in split_urls(r.get("source_url")):
             g.add((s, DCTERMS.source, URIRef(u)))
         # 写真（Wikidata の P18 にある Wikimedia Commons の画像。作者とライセンスつき）

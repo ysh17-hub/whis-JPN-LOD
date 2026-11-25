@@ -49,11 +49,13 @@ th{background:#f6f6f6}
 
 <p class="muted">データ：CC BY 4.0。Wikidata のデータは CC0。Oxigraph は MIT または Apache-2.0 ライセンスです。</p>
 
+<script src="site_base.js"></script>
 <script type="module">
 import init, * as oxigraph from "./sparql/web.js";
 
 const BASE = new URL(".", location.href).href;
-const PREFIX = `PREFIX whis: <https://ysh17-hub.github.io/whis-lod/ontology#>
+const URI_BASE = window.WHIS_BASE || "https://ysh17-hub.github.io/whis-lod/";   // site_base.js（lod.py build が作る）
+const PREFIX = `PREFIX whis: <${URI_BASE}ontology#>
 PREFIX schema: <https://schema.org/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -191,7 +193,7 @@ function cellHtml(term) {
   if (!term) return "";
   const v = term.value;
   if (term.termType === "NamedNode" || /^https?:\/\//.test(v)) {
-    let label = v.replace("https://ysh17-hub.github.io/whis-lod/resource/", "res:").replace("http://www.wikidata.org/entity/", "wd:");
+    let label = v.replace(URI_BASE + "resource/", "res:").replace("http://www.wikidata.org/entity/", "wd:");
     return `<a href="${esc(v)}" target="_blank" rel="noopener">${esc(label)}</a>`;
   }
   return esc(v);

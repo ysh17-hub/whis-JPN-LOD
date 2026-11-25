@@ -13,7 +13,10 @@
 import csv
 import datetime as dt
 import json
+import os
+import re
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -42,7 +45,9 @@ def load_config(required=True):
 
 
 def base_url(cfg):
-    return f"https://{cfg['github_user'].lower()}.github.io/{cfg['repo']}/"
+    """施設などの URI の土台。site_config.json に "uri_base"（例：https://w3id.org/whis-lod/）があればそれを使う。
+    w3id.org の転送が動き出してから設定する（転送が動く前に変えると、URI が開けなくなる）。"""
+    return cfg.get("uri_base") or f"https://{cfg['github_user'].lower()}.github.io/{cfg['repo']}/"
 
 
 def repo_url(cfg):
@@ -57,7 +62,10 @@ def read_rows(path=DATA):
 
 def counts(rows):
     filled = lambda k: sum(1 for r in rows if (r.get(k) or "").strip())
+    years = sorted((int(r["built_year"]), r["name_ja"]) for r in rows if (r.get("built_year") or "").strip().isdigit())
     c = {
+        "OLDEST_YEAR": years[0][0] if years else "",
+        "OLDEST_NAME": years[0][1] if years else "",
         "N_ROWS": len(rows),
         "N_COORDS": sum(1 for r in rows if r.get("lat") and r.get("lon")),
         "N_VERIFIED": sum(1 for r in rows if r.get("verified") == "1" and r.get("wikidata_qid")),
@@ -114,6 +122,32 @@ def counts(rows):
     return c
 
 
+# ---------- 版（同じ入力からは同じ出力にする） ----------
+# データや作り方そのもの（作ったサイトではなく、元になるファイル）
+SOURCE_PATHS = ["data", "scripts", "templates", "shapes", "lod.py", "site_config.json", "CHANGELOG.md",
+                "requirements.txt", "docs/index.html", "docs/sparql.html", "docs/gsi_layers.js", "docs/vendor"]
+
+
+def source_version():
+    """データの日付と、元になったコミットを返す。
+    ビルドした日ではなく「データや作り方を最後に変えた日」を使うので、同じ入力から何度作っても同じ出力になる。
+    git の記録がなければ CHANGELOG.md のいちばん上の日付を使う。環境変数 WHIS_DATA_DATE があればそれを優先。"""
+    d, sha = os.environ.get("WHIS_DATA_DATE", "").strip(), ""
+    if not d:
+        try:
+            out = subprocess.run(["git", "log", "-1", "--format=%cs %H", "--", *SOURCE_PATHS], cwd=ROOT,
+                                 capture_output=True, text=True, timeout=30).stdout.split()
+            if len(out) == 2 and re.fullmatch(r"\d{4}-\d{2}-\d{2}", out[0]):
+                d, sha = out
+        except (OSError, subprocess.SubprocessError):
+            pass
+    if not d:
+        ch = ROOT / "CHANGELOG.md"
+        m = re.search(r"^## (\d{4}-\d{2}-\d{2})", ch.read_text(encoding="utf-8"), re.M) if ch.exists() else None
+        d = m.group(1) if m else dt.date.today().isoformat()
+    return d, sha
+
+
 # ---------- setup ----------
 def cmd_setup():
     cfg = load_config(required=False)
@@ -130,8 +164,6 @@ def cmd_setup():
         cfg["creator"] = ask("作成者名（空にはできません）")
     print("\n所属（READMEに載せる場合だけ。載せないならそのままEnter）")
     cfg["affiliation"] = ask("所属", cfg.get("affiliation", ""))
-    print("\nREADMEに「生成AIを補助として使った」という一文を入れますか？（y=入れる / n=入れない）")
-    cfg["ai_note"] = ask("y / n", "y" if cfg.get("ai_note", True) else "n").lower().startswith("y")
     CONFIG.write_text(json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\n保存しました → {CONFIG.name}")
     print(f"公開URL（予定）：{base_url(cfg)}")
@@ -250,7 +282,10 @@ def cmd_build():
         for p in problems:
             print("  -", p)
         sys.exit(1)
-    today = dt.date.today().isoformat()
+    today, src_sha = source_version()   # ビルドした日ではなく、データを最後に変えた日
+    if src_sha:
+        os.environ["WHIS_SOURCE_COMMIT"] = src_sha
+    print(f"データの日付：{today}" + (f"（コミット {src_sha[:7]}）" if src_sha else ""))
     # 代表地点の標高・昔の空中写真：まだ値のない施設と、座標を直した施設だけ地理院タイルから計算する
     import terrain
     try:
@@ -272,10 +307,8 @@ def cmd_build():
         sys.exit(1)
     c = counts(rows)
     values = dict(c, BASE=base_url(cfg), SHACL=("合格" if conforms else "未実施"), REPO_URL=repo_url(cfg), CREATOR=cfg["creator"], TODAY=today,
-                  YEAR=dt.date.today().year,
-                  CREATOR_LINE=cfg["creator"] + (f"（{cfg['affiliation']}）" if cfg.get("affiliation") else ""),
-                  AI_NOTE=("\n作成にあたり、資料の探索とプログラムの作成に生成AIを補助として使いました。"
-                           "データの数値は、出典の資料で確認しています。\n") if cfg.get("ai_note") else "")
+                  YEAR=today[:4],
+                  CREATOR_LINE=cfg["creator"] + (f"（{cfg['affiliation']}）" if cfg.get("affiliation") else ""))
     for name in ["README.md", "LICENSE"]:
         t = (ROOT / "templates" / f"{name}.tmpl").read_text(encoding="utf-8")
         text = fill(t, values)

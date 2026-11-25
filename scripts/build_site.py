@@ -28,6 +28,50 @@ sys.path.insert(0, str(HERE))
 import csv_to_rdf as conv  # noqa: E402
 
 
+def stable_nt(g):
+    """N-Triples を行の順に並べて書く（毎回同じ順番になり、変更の差分が読みやすい）。"""
+    lines = {ln for ln in g.serialize(format="nt").splitlines() if ln.strip()}
+    return "\n".join(sorted(lines)) + "\n"
+
+
+def stable_jsonld(g, **kw):
+    """JSON-LD の中の並び順を毎回同じにして書く（@list の中の順番は意味があるので変えない）。"""
+    def canon(x, key=None):
+        if isinstance(x, dict):
+            return {k: canon(v, k) for k, v in x.items()}
+        if isinstance(x, list):
+            items = [canon(v) for v in x]
+            return items if key == "@list" else sorted(
+                items, key=lambda v: json.dumps(v, ensure_ascii=False, sort_keys=True))
+        return x
+    return json.dumps(canon(json.loads(g.serialize(format="json-ld", **kw))), ensure_ascii=False, indent=1) + "\n"
+
+
+def wikidata_crosscheck_current(rows):
+    """data/wikidata_crosscheck.csv（Wikidata 側の値を取った記録）を、いまのデータの建設年・座標で比べ直す。
+    データを直したあとに、古い値のまま比べてしまわないようにするため。"""
+    import math
+    cc = ROOT / "data" / "wikidata_crosscheck.csv"
+    if not cc.exists():
+        return None
+    cur = {r["id"]: r for r in rows}
+    out = []
+    for x in conv.load_rows(str(cc)):
+        r = cur.get(x["id"])
+        if not r:
+            continue
+        x = dict(x, our_built_year=(r.get("built_year") or "").strip(), our_lat=r.get("lat", ""), our_lon=r.get("lon", ""))
+        try:
+            wlon, wlat = (float(v) for v in x["wd_coord"].split())
+            la1, lo1, la2, lo2 = map(math.radians, (float(r["lat"]), float(r["lon"]), wlat, wlon))
+            h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
+            x["distance_km"] = f"{2 * 6371.0088 * math.asin(math.sqrt(h)):.2f}"
+        except (KeyError, ValueError, TypeError):
+            x["distance_km"] = ""
+        out.append(x)
+    return out
+
+
 def link_report_current():
     """リンク健康診断の結果（docs/link_report.csv）のうち、いまのデータにあるURLだけを返す。
     あわせて、いまのデータにあるのに診断結果にないURL（診断のあとに加えたもの）の数も返す。
@@ -196,8 +240,8 @@ def aerial_html(r, terrain):
 この地点で見つかった昔の空中写真：{e(years or 'なし')}。「昔の航空写真を重ねる」で選び、「濃さ」を動かすと今と比べられます。
 （出典：国土地理院 地理院タイル）　<a href="{e(gsi)}">地理院地図で開く</a></small></p>
 <div id="amap" style="height:380px;border-radius:6px"></div>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="../vendor/leaflet/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=">
+<script src="../vendor/leaflet/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="></script>
 <script src="../gsi_layers.js"></script>
 <script>
 (function(){{
@@ -461,9 +505,8 @@ def quality_page(rows, base, terrain, addr, imgs, g, today):
         ("写真", f"{n_img} 枚（{len(imgs)} 施設）すべてに撮影者とライセンス", "撮影者かライセンスが欠けるとSHACLで止まる"),
         ("全体", f"{len(g)} トリプル", "VoID（void.ttl）にほかのデータとのつながりの数"),
     ]
-    cc = ROOT / "data" / "wikidata_crosscheck.csv"
-    if cc.exists():
-        xs = conv.load_rows(str(cc))
+    xs = wikidata_crosscheck_current(rows)
+    if xs:
         pts = [x for x in xs if x.get("facility_type") in ("ため池", "堰", "揚水機場") and x.get("distance_km")]
         near = [x for x in pts if float(x["distance_km"]) <= 1.0]
         cans = [float(x["distance_km"]) for x in xs if x.get("facility_type") not in ("ため池", "堰", "揚水機場") and x.get("distance_km")]
@@ -617,13 +660,12 @@ def quality_ttl(rows, base, terrain, addr, imgs, today):
                    and t.get("gsi_elevation_api_mesh") == m_)
         measure("elevation-agreement", "標高が国土地理院の標高表示と一致した割合",
                 "国土地理院の標高APIの値（同じ単位に丸める）と、使った標高モデルの種類が一致した地点の数÷照合した地点の数", ok / len(chk), "accuracy")
-    cc = ROOT / "data" / "wikidata_crosscheck.csv"
-    if cc.exists():
-        xs = [x for x in conv.load_rows(str(cc)) if x.get("facility_type") in ("ため池", "堰", "揚水機場") and x.get("distance_km")]
-        if xs:
-            measure("wikidata-point-agreement", "点の施設の座標が Wikidata と1km以内の割合",
-                    "ため池・堰・揚水機場で、Wikidata の座標（P625）から1km以内にある施設の数÷比べた施設の数",
-                    sum(1 for x in xs if float(x["distance_km"]) <= 1) / len(xs), "accuracy")
+    xs = [x for x in (wikidata_crosscheck_current(rows) or [])
+          if x.get("facility_type") in ("ため池", "堰", "揚水機場") and x.get("distance_km")]
+    if xs:
+        measure("wikidata-point-agreement", "点の施設の座標が Wikidata と1km以内の割合",
+                "ため池・堰・揚水機場で、Wikidata の座標（P625）から1km以内にある施設の数÷比べた施設の数",
+                sum(1 for x in xs if float(x["distance_km"]) <= 1) / len(xs), "accuracy")
     measure("address-link-coverage", "住所LODにつないだ代表地点の割合", "住所LODの IRI がある施設の数÷施設の数",
             sum(1 for r in rows if (addr.get(r["id"]) or [{}])[0].get("loa_uri")) / n, "linkability")
     measure("wikidata-same-coverage", "Wikidata と「同じ施設」でつないだ施設の割合", "owl:sameAs がある施設の数÷施設の数",
@@ -659,8 +701,11 @@ def main(argv=None):
                     "--riverflow", a.riverflow, "--wdlabels", str(ROOT / "data" / "wikidata_labels.csv")])
     from rdflib import Graph, URIRef
     g = Graph().parse(docs / "whis_japan.ttl", format="turtle")
-    (docs / "whis_japan.jsonld").write_text(g.serialize(format="json-ld", indent=1), encoding="utf-8")
-    (docs / "whis_japan.nt").write_text(g.serialize(format="nt"), encoding="utf-8")   # 1行1トリプル（大量処理・差分比較向け）
+    (docs / "whis_japan.jsonld").write_text(stable_jsonld(g), encoding="utf-8")
+    (docs / "whis_japan.nt").write_text(stable_nt(g), encoding="utf-8")
+    (docs / "site_base.js").write_text(
+        "// lod.py build が作るファイル。施設などの URI の土台（SPARQL のページが使う）\n"
+        f"window.WHIS_BASE = {json.dumps(base)};\n", encoding="utf-8")   # 1行1トリプル（大量処理・差分比較向け）
     shutil.copyfile(a.csv, docs / "whis_japan.csv")
     images = conv.load_optional_csv(a.images)
     exts = conv.load_optional_csv(a.extlinks)
@@ -697,7 +742,7 @@ def main(argv=None):
             for t in g.triples((img, None, None)):
                 sub.add(t)
         (docs / "resource" / f"{r['id']}.ttl").write_text(sub.serialize(format="turtle"), encoding="utf-8")
-        (docs / "resource" / f"{r['id']}.jsonld").write_text(sub.serialize(format="json-ld", indent=1), encoding="utf-8")
+        (docs / "resource" / f"{r['id']}.jsonld").write_text(stable_jsonld(sub), encoding="utf-8")
     (docs / "ontology.html").write_text(ontology_page(base), encoding="utf-8")
     (docs / "en.html").write_text(english_page(rows, base, terrain, images), encoding="utf-8")
     (docs / "watersystems.html").write_text(watersystem_page(rows, flow), encoding="utf-8")

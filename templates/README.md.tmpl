@@ -47,7 +47,7 @@
 ### このデータでわかること（例）
 
 - **利根川は4つの遺産の水源**です（見沼代用水・天狗岩用水・備前渠用水路・葛西用水）。水源を Wikidata の「利根川」の項目につないでいるので、[SPARQLのページ](%%BASE%%sparql.html)で同じ川の遺産をまとめて取り出せ、Wikidata にある川の長さや流域面積とも組み合わせられます。
-- **建設年が分かる施設のうち、最も古いのは満濃池**です。大宝年間（701〜704年）に築かれたと伝えられ、821年に空海が修築しました（香川県）。ただし、狭山池（約1,400年前）のように年を一つに決められない施設は建設年を空欄にしているので、「年が分かる施設の中で」の比較です。
+- **建設の年が一つに決まる施設のうち、最も古いのは%%OLDEST_NAME%%（%%OLDEST_YEAR%%年）**です。年が一つに決まらない施設は、建設年を空欄にして、資料の表現を「建設時期」に記録しています。その中には、崇神天皇陵堀（4世紀前半に築造）、狭山池（1,400年前に築造）、満濃池（大宝年間＝701〜704年に築造）のように、さらに古いものがあります。
 - **都道府県別では、静岡県が7施設で最も多い**です（2026年認定の小笠地域かんがい用水群を含む）。
 - **代表地点の標高は、約6mから約1,218mまで**あります。いちばん高いのは滝之湯堰・大河原堰（長野県茅野市、約1,218m）、次が村山六ヶ村堰疏水の東沢頭首工（山梨県北杜市、約1,165m）です。いちばん低いのは葛西用水の松伏溜井（約6m）と小笠地域かんがい用水群の十内圦（約6m）です。いずれも「代表地点1点」の標高で、施設全体の高さの範囲ではありません。
 
@@ -121,7 +121,7 @@ for row in g.query("""PREFIX schema: <https://schema.org/> PREFIX whis: <%%BASE%
 
 ## データの作り方
 
-1. **数値は、出典の資料に書かれているものだけ**を入れました。「約400年前」のように年が一つに決まらない場合は建設年を空欄にし、資料の表現を注記に残しました。
+1. **数値は、出典の資料に書かれているものだけ**を入れました。「約400年前」「大宝年間（701〜704年）」のように年が一つに決まらない場合や、資料によって年が違う場合は、建設年を空欄にし、資料の表現を「建設時期」の欄に残しました（資料によって違うときは、注記に両方を書きました）。建設年には、それが何の年か（着工・完成・開削・築造など）を必ず添えています。
 2. **資料によって値が違う場合**（例：稲生川のかんがい面積 5,900ha と 5,200ha、入鹿池の 600ha と 1,300ha）は、どちらかを選ばずに空欄にし、注記に両方の値と出典を書きました。
 3. 名称は認定時の正式名称にそろえました（例：2026年4月の申請時は「日根荘のかんがい用水群」、8月の認定時は「日根荘大木のかんがい用水群」）。
 4. 変換用のプログラムは、登録基準（建設から100年以上）と合わない建設年、何の年かが書かれていない建設年、日本の範囲から外れた座標などを自動で見つけて知らせます。
@@ -139,7 +139,7 @@ for row in g.query("""PREFIX schema: <https://schema.org/> PREFIX whis: <%%BASE%
 |---|---|---|
 | 毎年、新しい認定が発表されたとき（2026年は8月21日に農林水産省が発表） | 新しい施設を追加する | 下の「更新手順」。座標・標高・空中写真の確認・ページ作成・チェックは自動 |
 | 毎月1日 | 出典URL・外部リンク・写真・住所LODが開けるかを確かめる | GitHub Actions（`.github/workflows/linkcheck.yml`）が `scripts/check_links.py` を実行し、結果を検証レポート（%%BASE%%quality.html）に出す |
-| データを直すたび | データの形のチェック（SHACL）と、座標を直した施設の標高の計算し直し | GitHub Actions が自動で行い、誤りがあれば公開しない |
+| データを直すたび | データの形のチェック（SHACL）、自動テスト（データの決まり・ページのリンク切れ・出力の並び順など）、座標を直した施設の標高の計算し直し | GitHub Actions が、版を固定したライブラリ（`requirements.txt`）で自動で行い、誤りがあれば公開しない |
 | 少なくとも2027年3月31日まで | このURLで公開し続ける（リポジトリ名を変えない・非公開にしない） | — |
 
 引用するときは [`CITATION.cff`](CITATION.cff) の書き方を使ってください（GitHub の「Cite this repository」からも出せます）。
@@ -150,7 +150,7 @@ for row in g.query("""PREFIX schema: <https://schema.org/> PREFIX whis: <%%BASE%
 2. `tools/pick_coords.html` をブラウザで開いて座標を入れ、保存したCSVを `python lod.py import` で取り込む
 3. `data/whis_japan.csv` を GitHub に上げる
 
-GitHub に上げると、GitHub Actions（[`.github/workflows/build.yml`](.github/workflows/build.yml)）が自動で、CSVのチェック → 新しい施設・座標を直した施設の標高と昔の空中写真の確認（`scripts/terrain.py`。地理院タイルを読む） → RDF・施設ページ・README の作り直し → SHACL のチェックを行い、問題がなければ公開サイトに反映します。座標を直したのに標高が古いままにならないよう、標高は「求めたときの座標」と今の座標が同じときだけ使います。手元で確かめたいときは `python lod.py build` でも同じことができます。
+GitHub に上げると、GitHub Actions（[`.github/workflows/build.yml`](.github/workflows/build.yml)）が自動で、CSVのチェック → 新しい施設・座標を直した施設の標高と昔の空中写真の確認（`scripts/terrain.py`。地理院タイルを読む） → RDF・施設ページ・README の作り直し → SHACL のチェック → 自動テスト（`tests/`）を行い、問題がなければ公開サイトに反映します。同じデータからは何度作っても同じファイルになるように、日付には「データや作り方を最後に変えた日」を使い、出力の並び順も固定しています（変更の差分が読みやすくなります）。座標を直したのに標高が古いままにならないよう、標高は「求めたときの座標」と今の座標が同じときだけ使います。手元で確かめたいときは `python lod.py build` でも同じことができます。
 
 ## ファイル構成
 
@@ -172,6 +172,7 @@ docs/                      GitHub Pages で公開するもの（build_site.py �
   whis_japan.ttl / .jsonld / .geojson / .csv
   void.ttl                 データセットとほかのデータとのつながりの説明（VoID）
   sparql.html              ブラウザの中で SPARQL を実行するページ（sparql/ に Oxigraph の WebAssembly 版）
+  vendor/leaflet/          地図のライブラリ Leaflet 1.9.4（外部の配信サイトに頼らないよう同梱）
   shapes.ttl / shacl_report.txt   データの形の決まり（SHACL）と、チェックの結果
 scripts/
   csv_to_rdf.py            CSV から RDF・GeoJSON を作る（チェック付き）
@@ -184,7 +185,10 @@ queries/sample_queries.rq  SPARQL の例（Wikidata 側で実行する例を含�
 tools/pick_coords.html     座標を確かめて入力するためのツール（航空写真・Wikidata 候補の表示）
 shapes/whis_shapes.ttl     データの形の決まり（SHACL）
 templates/                 README・LICENSE のひな形（lod.py build が README.md と LICENSE を作る）
-.github/workflows/build.yml  データを更新すると自動でチェックしてサイトを作り直す設定
+tests/test_whis.py         自動テスト（python -m unittest discover -s tests）
+requirements.txt           使うライブラリと版（固定）
+.github/workflows/build.yml  データを更新すると自動でチェック・テストしてサイトを作り直す設定（テストに通らなければ公開しない）
+.github/workflows/linkcheck.yml  毎月1日にリンクを確かめる設定
 ~~~
 
 ## 出典と利用条件
@@ -200,6 +204,7 @@ templates/                 README・LICENSE のひな形（lod.py build が READ
 - 施設の種類の対応先：AGROVOC（国連食糧農業機関 FAO、https://agrovoc.fao.org/ ）の概念のURIを参照しているだけで、AGROVOC の内容は写していません。
 - Wikidata のデータは CC0 です。水源の川の流れのつながり（P403）と川・湖の日本語名は Wikidata から写し、`data/river_flow.csv`・`data/wikidata_labels.csv` に取得日と一緒に保存しています。SPARQL のページでは、Wikidata の公開 SPARQL サービス（https://query.wikidata.org/ ）に問い合わせます。
 - SPARQL のページで使っている Oxigraph（https://github.com/oxigraph/oxigraph ）は MIT または Apache-2.0 ライセンスです。
+- 地図に使っている Leaflet 1.9.4（https://leafletjs.com/ ）は BSD 2-Clause License です。外部の配信サイトに頼らないよう、docs/vendor/leaflet/ に同梱しています。
 
 ## 作成者
 

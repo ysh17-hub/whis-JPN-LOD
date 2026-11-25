@@ -1,0 +1,11 @@
+# ビルドとテストに使うライブラリ（版を固定しています。GitHub Actions も同じ版で動かします）
+# 更新するときは、新しい版で python lod.py build と python -m unittest を通してから、ここを書き換えます。
+rdflib==7.6.0
+pyshacl==0.40.2
+# 上の2つが使うもの
+html5rdf==1.2.1
+owlrl==7.6.2
+packaging==26.4
+prettytable==3.19.0
+pyparsing==3.3.3
+wcwidth==0.9.5
