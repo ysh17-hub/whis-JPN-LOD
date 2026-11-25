@@ -8,8 +8,14 @@ on:
       - "scripts/**"
       - "templates/**"
       - "shapes/**"
+      - "tests/**"
       - "lod.py"
       - "site_config.json"
+      - "requirements.txt"
+      - "CHANGELOG.md"
+      - "docs/index.html"
+      - "docs/sparql.html"
+      - "docs/vendor/**"
   workflow_dispatch:
 
 permissions:
@@ -20,18 +26,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # data date = date of the last commit that changed the sources
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
       - name: install
-        run: pip install rdflib pyshacl
+        run: pip install -r requirements.txt
       - name: build
         run: python lod.py build
+      - name: test
+        run: python -m unittest discover -s tests -v
       - name: save
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs README.md LICENSE
+          git add docs README.md LICENSE data/point_terrain.csv
           if git diff --cached --quiet; then
             echo "no changes"
           else
