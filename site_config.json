@@ -2,5 +2,6 @@
   "github_user": "ysh17-hub",
   "repo": "whis-lod",
   "creator": "abe",
-  "affiliation": ""
+    "affiliation": "",
+  "uri_base": "https://w3id.org/whis-lod/"
 }
