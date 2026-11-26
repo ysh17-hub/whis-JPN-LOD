@@ -1,21 +1,21 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     rdfs:label "Yunokuchi Tameike Irrigation System"@en,
         "湯の口ため池・井手"@ja ;
     dcterms:identifier "WHIS-JP-055" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-61.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-055/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-055/geometry> ;
     rdfs:comment "名称は、農林水産省のプレスリリース（2025年7月23日）と施設概要PDFの表記「湯の口ため池・井手」による。同省の「登録施設の概要」ページの一覧では「井出」と書かれている。施設概要に「500haもの地域を支える施設」とある"@ja ;
     wgs84:lat 33.018922 ;
     wgs84:long 130.746136 ;
@@ -37,6 +37,6 @@ res:WHIS-JP-055 a whis:HeritageIrrigationStructure ;
     whis:registeredYear "2025"^^xsd:gYear ;
     whis:representativePoint "蒲生池"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-055/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-055/geometry> a geo:Geometry ;
     geo:asWKT "POINT(130.746136 33.018922)"^^geo:wktLiteral .
 

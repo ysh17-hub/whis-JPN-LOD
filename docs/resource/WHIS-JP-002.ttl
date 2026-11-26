@@ -1,23 +1,23 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-002 a whis:HeritageIrrigationStructure ;
     rdfs:label "Ogawazeki Irrigation Canal"@en,
         "雄川堰"@ja ;
     dcterms:identifier "WHIS-JP-002" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-30.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-002/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-002/geometry> ;
     rdfs:comment "関東農政局資料に約400年前とある。年は未確定のため空欄"@ja ;
     wgs84:lat 36.236364 ;
     wgs84:long 138.919235 ;
@@ -39,6 +39,6 @@ res:WHIS-JP-002 a whis:HeritageIrrigationStructure ;
     whis:registeredYear "2014"^^xsd:gYear ;
     whis:representativePoint "吹上の石樋"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-002/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-002/geometry> a geo:Geometry ;
     geo:asWKT "POINT(138.919235 36.236364)"^^geo:wktLiteral .
 

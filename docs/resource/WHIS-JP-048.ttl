@@ -2,21 +2,21 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-048 a whis:HeritageIrrigationStructure ;
     rdfs:label "Yamagata-goseki Irrigation System"@en,
         "山形五堰"@ja ;
     dcterms:identifier "WHIS-JP-048" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-1.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-048/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-048/geometry> ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%BD%A2%E4%BA%94%E5%A0%B0> ;
     owl:sameAs wd:Q11468370 ;
     wgs84:lat 38.242763 ;
@@ -41,6 +41,6 @@ res:WHIS-JP-048 a whis:HeritageIrrigationStructure ;
     whis:waterSource wd:Q11668059 ;
     whis:waterSourceName "馬見ヶ崎川"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-048/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-048/geometry> a geo:Geometry ;
     geo:asWKT "POINT(140.3795 38.242763)"^^geo:wktLiteral .
 

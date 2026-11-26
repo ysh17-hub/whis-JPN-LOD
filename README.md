@@ -4,9 +4,9 @@
 
 日本にある「世界かんがい施設遺産」60施設（2014〜2026年に認定・登録）の基本情報を、出典付きで、コンピュータが読み取って他のデータとつなげられる形（Linked Open Data）にまとめたデータセットと地図です。
 
-- 地図：<https://ysh17-hub.github.io/whis-lod/>（背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
-- 水系でみる：https://ysh17-hub.github.io/whis-lod/watersystems.html ／ 検証レポート：https://ysh17-hub.github.io/whis-lod/quality.html ／ English：https://ysh17-hub.github.io/whis-lod/en.html
-- SPARQL（ブラウザの中で問い合わせ）：https://ysh17-hub.github.io/whis-lod/sparql.html
+- 地図：<https://w3id.org/whis-lod/>（背景を航空写真・色別標高図に切り替え、1945〜1978年の空中写真を重ねて今と比べられます）
+- 水系でみる：https://w3id.org/whis-lod/watersystems.html ／ 検証レポート：https://w3id.org/whis-lod/quality.html ／ English：https://w3id.org/whis-lod/en.html
+- SPARQL（ブラウザの中で問い合わせ）：https://w3id.org/whis-lod/sparql.html
 - データ：[Turtle](docs/whis_japan.ttl)／[JSON-LD](docs/whis_japan.jsonld)／[N-Triples](docs/whis_japan.nt)／[GeoJSON](docs/whis_japan.geojson)／[CSV](data/whis_japan.csv)
 - ライセンス：データは CC BY 4.0、プログラムは MIT（[LICENSE](LICENSE)）
 
@@ -46,7 +46,7 @@
 
 ### このデータでわかること（例）
 
-- **利根川は4つの遺産の水源**です（見沼代用水・天狗岩用水・備前渠用水路・葛西用水）。水源を Wikidata の「利根川」の項目につないでいるので、[SPARQLのページ](https://ysh17-hub.github.io/whis-lod/sparql.html)で同じ川の遺産をまとめて取り出せ、Wikidata にある川の長さや流域面積とも組み合わせられます。
+- **利根川は4つの遺産の水源**です（見沼代用水・天狗岩用水・備前渠用水路・葛西用水）。水源を Wikidata の「利根川」の項目につないでいるので、[SPARQLのページ](https://w3id.org/whis-lod/sparql.html)で同じ川の遺産をまとめて取り出せ、Wikidata にある川の長さや流域面積とも組み合わせられます。
 - **建設の年が一つに決まる施設のうち、最も古いのは久米田池（738年）**です。年が一つに決まらない施設は、建設年を空欄にして、資料の表現を「建設時期」に記録しています。その中には、崇神天皇陵堀（4世紀前半に築造）、狭山池（1,400年前に築造）、満濃池（大宝年間＝701〜704年に築造）のように、さらに古いものがあります。
 - **都道府県別では、静岡県が7施設で最も多い**です（2026年認定の小笠地域かんがい用水群を含む）。
 - **代表地点の標高は、約6mから約1,218mまで**あります。いちばん高いのは滝之湯堰・大河原堰（長野県茅野市、約1,218m）、次が村山六ヶ村堰疏水の東沢頭首工（山梨県北杜市、約1,165m）です。いちばん低いのは葛西用水の松伏溜井（約6m）と小笠地域かんがい用水群の十内圦（約6m）です。いずれも「代表地点1点」の標高で、施設全体の高さの範囲ではありません。
@@ -71,18 +71,18 @@
 | 代表地点の住所・市区町村 | `whis:pointAddressArea`（住所LOD の IRI）、`whis:pointMunicipality`（統計LOD の標準地域コードの IRI。例：`sac:C04215-20190201`＝大崎市） |
 | 代表地点の標高 | `whis:pointElevation`（m、`xsd:decimal`）、`whis:pointElevationSource`（DEM5A・DEM10B など） |
 | ほかのデータベース | `rdfs:seeAlso`（「同じ施設」の Wikidata 項目にある GeoNames・OpenStreetMap・国立国会図書館典拠などのURL。28施設） |
-| データの品質と来歴 | W3C Data Quality Vocabulary（<https://ysh17-hub.github.io/whis-lod/quality.ttl>。出典のある割合、項目ごとの値がある割合、標高の一致率、Wikidata との座標の一致率、リンクが開ける割合など）、PROV-O（`prov:wasDerivedFrom`・`prov:wasGeneratedBy`）、`dcat:version`。変更は [CHANGELOG.md](CHANGELOG.md) |
-| データセット全体の説明 | DCAT（`dcat:Dataset`、`dcat:Distribution`）、`dcterms:license`、`dcterms:creator`、`dcterms:modified`。ほかのデータとのつながりの数は VoID（<https://ysh17-hub.github.io/whis-lod/void.ttl>、`void:Linkset`）で、地図のページには検索エンジン向けに schema.org の `Dataset` を埋め込んでいる |
+| データの品質と来歴 | W3C Data Quality Vocabulary（<https://w3id.org/whis-lod/quality.ttl>。出典のある割合、項目ごとの値がある割合、標高の一致率、Wikidata との座標の一致率、リンクが開ける割合など）、PROV-O（`prov:wasDerivedFrom`・`prov:wasGeneratedBy`）、`dcat:version`。変更は [CHANGELOG.md](CHANGELOG.md) |
+| データセット全体の説明 | DCAT（`dcat:Dataset`、`dcat:Distribution`）、`dcterms:license`、`dcterms:creator`、`dcterms:modified`。ほかのデータとのつながりの数は VoID（<https://w3id.org/whis-lod/void.ttl>、`void:Linkset`）で、地図のページには検索エンジン向けに schema.org の `Dataset` を埋め込んでいる |
 
-施設ごとのURL（例：https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026 ＝満濃池）をブラウザで開くと、その施設の説明ページが表示されます。ページには、検索エンジンなどが読み取れる形（schema.org の JSON-LD）でもデータを埋め込んでいます。施設ごとの Turtle・JSON-LD ファイル（例：<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026.ttl>）もあり、ページの `<link rel="alternate">` からたどれます。
+施設ごとのURL（例：https://w3id.org/whis-lod/resource/WHIS-JP-026 ＝満濃池）をブラウザで開くと、その施設の説明ページが表示されます。ページには、検索エンジンなどが読み取れる形（schema.org の JSON-LD）でもデータを埋め込んでいます。施設ごとの Turtle・JSON-LD ファイル（例：<https://w3id.org/whis-lod/resource/WHIS-JP-026.ttl>）もあり、ページの `<link rel="alternate">` からたどれます。
 
 ### データの形のチェック（SHACL）
 
-データがどんな形であるべきか（IDの形、登録年の型、座標の範囲、出典URLが必ずあること、「同じ施設」と「構成施設」に同じ項目を入れないこと など）を、SHACL という決まった書き方で [`shapes/whis_shapes.ttl`](shapes/whis_shapes.ttl) に書いています（公開版：<https://ysh17-hub.github.io/whis-lod/shapes.ttl>）。サイトを作り直すたびに自動でチェックし、結果を https://ysh17-hub.github.io/whis-lod/shacl_report.txt に出しています。今回の結果：**合格**
+データがどんな形であるべきか（IDの形、登録年の型、座標の範囲、出典URLが必ずあること、「同じ施設」と「構成施設」に同じ項目を入れないこと など）を、SHACL という決まった書き方で [`shapes/whis_shapes.ttl`](shapes/whis_shapes.ttl) に書いています（公開版：<https://w3id.org/whis-lod/shapes.ttl>）。サイトを作り直すたびに自動でチェックし、結果を https://w3id.org/whis-lod/shacl_report.txt に出しています。今回の結果：**合格**
 
 ### SPARQL の例
 
-[SPARQLのページ](https://ysh17-hub.github.io/whis-lod/sparql.html)では、インストールなしでブラウザの中で問い合わせができます（例：都道府県ごとの件数、同じ川から水を引く遺産、建設年が古い順、出典の発行元ごとの資料数）。このデータから取り出した Wikidata の項目を使って、Wikidata 側の情報（川の長さ・流域面積、ウィキペディアの記事や画像、川がどの本流・海へ注ぐか）と組み合わせる例もあります。たとえば「河口・流出先」（P403）をたどると、足羽川 → 日野川 → 九頭竜川 → 日本海、奈良井川 → 犀川 → 信濃川 → 日本海 のように、遺産の水がどの水系に属するかがわかります。
+[SPARQLのページ](https://w3id.org/whis-lod/sparql.html)では、インストールなしでブラウザの中で問い合わせができます（例：都道府県ごとの件数、同じ川から水を引く遺産、建設年が古い順、出典の発行元ごとの資料数）。このデータから取り出した Wikidata の項目を使って、Wikidata 側の情報（川の長さ・流域面積、ウィキペディアの記事や画像、川がどの本流・海へ注ぐか）と組み合わせる例もあります。たとえば「河口・流出先」（P403）をたどると、足羽川 → 日野川 → 九頭竜川 → 日本海、奈良井川 → 犀川 → 信濃川 → 日本海 のように、遺産の水がどの水系に属するかがわかります。
 
 `scripts/run_queries.py` を使うと、次の問い合わせを自分のパソコンで実行することもできます（Python の rdflib を使います）。
 
@@ -96,7 +96,7 @@
 
 ~~~
 pip install rdflib
-python scripts/run_queries.py --ttl docs/whis_japan.ttl --base https://ysh17-hub.github.io/whis-lod/
+python scripts/run_queries.py --ttl docs/whis_japan.ttl --base https://w3id.org/whis-lod/
 ~~~
 
 ### データを使う（例）
@@ -104,20 +104,20 @@ python scripts/run_queries.py --ttl docs/whis_japan.ttl --base https://ysh17-hub
 ~~~python
 # Python：表として読む（pandas）
 import pandas as pd
-df = pd.read_csv("https://ysh17-hub.github.io/whis-lod/whis_japan.csv")
+df = pd.read_csv("https://w3id.org/whis-lod/whis_japan.csv")
 print(df.groupby("prefecture").size().sort_values(ascending=False).head())
 
 # Python：Linked Open Data として読む（rdflib）
 from rdflib import Graph
-g = Graph().parse("https://ysh17-hub.github.io/whis-lod/whis_japan.ttl")
-for row in g.query("""PREFIX schema: <https://schema.org/> PREFIX whis: <https://ysh17-hub.github.io/whis-lod/ontology#>
+g = Graph().parse("https://w3id.org/whis-lod/whis_japan.ttl")
+for row in g.query("""PREFIX schema: <https://schema.org/> PREFIX whis: <https://w3id.org/whis-lod/ontology#>
   SELECT ?name ?elev WHERE { ?s schema:name ?name ; whis:pointElevation ?elev . FILTER(LANG(?name)="ja") }
   ORDER BY DESC(?elev) LIMIT 5"""):
     print(row.name, row.elev)
 ~~~
 
-- 地図ソフト（QGIS など）：https://ysh17-hub.github.io/whis-lod/whis_japan.geojson をそのままレイヤとして読み込めます。
-- 施設1件だけ：https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026.jsonld のように、施設ごとの JSON-LD・Turtle があります。
+- 地図ソフト（QGIS など）：https://w3id.org/whis-lod/whis_japan.geojson をそのままレイヤとして読み込めます。
+- 施設1件だけ：https://w3id.org/whis-lod/resource/WHIS-JP-026.jsonld のように、施設ごとの JSON-LD・Turtle があります。
 
 ## データの作り方
 
@@ -138,7 +138,7 @@ for row in g.query("""PREFIX schema: <https://schema.org/> PREFIX whis: <https:/
 | いつ | 何をするか | どうやって |
 |---|---|---|
 | 毎年、新しい認定が発表されたとき（2026年は8月21日に農林水産省が発表） | 新しい施設を追加する | 下の「更新手順」。座標・標高・空中写真の確認・ページ作成・チェックは自動 |
-| 毎月1日 | 出典URL・外部リンク・写真・住所LODが開けるかを確かめる | GitHub Actions（`.github/workflows/linkcheck.yml`）が `scripts/check_links.py` を実行し、結果を検証レポート（<https://ysh17-hub.github.io/whis-lod/quality.html>）に出す |
+| 毎月1日 | 出典URL・外部リンク・写真・住所LODが開けるかを確かめる | GitHub Actions（`.github/workflows/linkcheck.yml`）が `scripts/check_links.py` を実行し、結果を検証レポート（<https://w3id.org/whis-lod/quality.html>）に出す |
 | データを直すたび | データの形のチェック（SHACL）、自動テスト（データの決まり・ページのリンク切れ・出力の並び順など）、座標を直した施設の標高の計算し直し | GitHub Actions が、版を固定したライブラリ（`requirements.txt`）で自動で行い、誤りがあれば公開しない |
 | 少なくとも2027年3月31日まで | このURLで公開し続ける（リポジトリ名を変えない・非公開にしない） | — |
 
@@ -212,7 +212,7 @@ abe
 
 代表地点の座標と Wikidata とのつながりは、作成者が航空写真と Wikidata のページを見て1件ずつ確認しました。数値は、各行の出典URLの資料にもとづいています。
 
-（最終更新：2026-11-25）
+（最終更新：2026-11-27）
 
 ---
 

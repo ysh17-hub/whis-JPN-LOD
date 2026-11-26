@@ -62,9 +62,9 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-026",
   "@type": [
-   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+   "https://w3id.org/whis-lod/ontology#HeritageIrrigationStructure"
   ],
   "http://purl.org/dc/terms/identifier": [
    {
@@ -73,7 +73,7 @@
   ],
   "http://purl.org/dc/terms/isPartOf": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+    "@id": "https://w3id.org/whis-lod/dataset"
    }
   ],
   "http://purl.org/dc/terms/source": [
@@ -95,7 +95,7 @@
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry"
+    "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-026/geometry"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#comment": [
@@ -182,79 +182,79 @@
     "@value": "満濃池"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+  "https://w3id.org/whis-lod/ontology#builtPeriod": [
    {
     "@language": "ja",
     "@value": "大宝年間（701〜704年）に築造"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+  "https://w3id.org/whis-lod/ontology#facilityCategory": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-tameike"
+    "@id": "https://w3id.org/whis-lod/ontology#type-tameike"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+  "https://w3id.org/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
     "@value": "ため池"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#irrigatedArea": [
+  "https://w3id.org/whis-lod/ontology#irrigatedArea": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
     "@value": "3239.0"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+  "https://w3id.org/whis-lod/ontology#pointAddress": [
    {
     "@language": "ja",
     "@value": "香川県まんのう町神野"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+  "https://w3id.org/whis-lod/ontology#pointAddressArea": [
    {
     "@id": "https://uedayou.net/loa/香川県仲多度郡まんのう町神野"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+  "https://w3id.org/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
     "@value": "145.0"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+  "https://w3id.org/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM10B"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+  "https://w3id.org/whis-lod/ontology#pointMunicipality": [
    {
     "@id": "http://data.e-stat.go.jp/lod/sac/C37406-20060320"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+  "https://w3id.org/whis-lod/ontology#prefectureCode": [
    {
     "@value": "JP-37"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+  "https://w3id.org/whis-lod/ontology#registeredYear": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#gYear",
     "@value": "2016"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+  "https://w3id.org/whis-lod/ontology#representativePoint": [
    {
     "@language": "ja",
     "@value": "満濃池"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSource": [
+  "https://w3id.org/whis-lod/ontology#waterSource": [
    {
     "@id": "http://www.wikidata.org/entity/Q11646415"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSourceName": [
+  "https://w3id.org/whis-lod/ontology#waterSourceName": [
    {
     "@language": "ja",
     "@value": "金倉川"
@@ -262,7 +262,7 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-026/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
   ],

@@ -1,8 +1,8 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-014",
   "@type": [
-   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+   "https://w3id.org/whis-lod/ontology#HeritageIrrigationStructure"
   ],
   "http://purl.org/dc/terms/identifier": [
    {
@@ -11,7 +11,7 @@
   ],
   "http://purl.org/dc/terms/isPartOf": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+    "@id": "https://w3id.org/whis-lod/dataset"
    }
   ],
   "http://purl.org/dc/terms/source": [
@@ -33,7 +33,7 @@
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry"
+    "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-014/geometry"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#comment": [
@@ -107,79 +107,79 @@
     "@value": "照井堰用水"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod": [
+  "https://w3id.org/whis-lod/ontology#builtPeriod": [
    {
     "@language": "ja",
     "@value": "平安時代末期の1180年頃に開削"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+  "https://w3id.org/whis-lod/ontology#facilityCategory": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+    "@id": "https://w3id.org/whis-lod/ontology#type-canal"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+  "https://w3id.org/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
     "@value": "水路"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
+  "https://w3id.org/whis-lod/ontology#managedBy": [
    {
     "@language": "ja",
     "@value": "照井土地改良区"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+  "https://w3id.org/whis-lod/ontology#pointAddress": [
    {
     "@language": "ja",
     "@value": "岩手県一関市厳美町"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+  "https://w3id.org/whis-lod/ontology#pointAddressArea": [
    {
     "@id": "https://uedayou.net/loa/岩手県一関市厳美町"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+  "https://w3id.org/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
     "@value": "90.0"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+  "https://w3id.org/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM10B"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+  "https://w3id.org/whis-lod/ontology#pointMunicipality": [
    {
     "@id": "http://data.e-stat.go.jp/lod/sac/C03209-20170904"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+  "https://w3id.org/whis-lod/ontology#prefectureCode": [
    {
     "@value": "JP-03"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+  "https://w3id.org/whis-lod/ontology#registeredYear": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#gYear",
     "@value": "2016"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+  "https://w3id.org/whis-lod/ontology#representativePoint": [
    {
     "@language": "ja",
     "@value": "大〆切頭首工"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSource": [
+  "https://w3id.org/whis-lod/ontology#waterSource": [
    {
     "@id": "http://www.wikidata.org/entity/Q11587850"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSourceName": [
+  "https://w3id.org/whis-lod/ontology#waterSourceName": [
    {
     "@language": "ja",
     "@value": "磐井川"
@@ -187,7 +187,7 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-014/geometry",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-014/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
   ],

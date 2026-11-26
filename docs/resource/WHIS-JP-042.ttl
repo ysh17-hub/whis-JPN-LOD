@@ -2,23 +2,23 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
     rdfs:label "Jyosai-gokuchi Irrigation System"@en,
         "常西合口用水"@ja ;
     dcterms:identifier "WHIS-JP-042" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/hokuriku/kokuei/nishihoku/attach/pdf/koho-100.pdf>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-14.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-042/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-042/geometry> ;
     rdfs:comment "デ・レーケ提唱の左岸12取水口の合口。かんがい面積約3,300ha"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%B8%B8%E8%A5%BF%E5%90%88%E5%8F%A3%E7%94%A8%E6%B0%B4>,
         <https://www.openstreetmap.org/relation/18909583> ;
@@ -48,6 +48,6 @@ res:WHIS-JP-042 a whis:HeritageIrrigationStructure ;
     whis:waterSource wd:Q994562 ;
     whis:waterSourceName "常願寺川"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-042/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-042/geometry> a geo:Geometry ;
     geo:asWKT "POINT(137.255608 36.693632)"^^geo:wktLiteral .
 

@@ -2,24 +2,24 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-013 a whis:HeritageIrrigationStructure ;
     rdfs:label "Kumedaike Reservoir"@en,
         "久米田池"@ja ;
     dcterms:identifier "WHIS-JP-013" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-46.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html>,
         <https://www.pref.osaka.lg.jp/senshunm/gyoumu/kumedaike.html> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-013/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-013/geometry> ;
     rdfs:comment "行基が関わる。敷葉工法。貯水量157万トン"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E4%B9%85%E7%B1%B3%E7%94%B0%E6%B1%A0> ;
     owl:sameAs wd:Q55528468 ;
@@ -56,6 +56,6 @@ res:WHIS-JP-013 a whis:HeritageIrrigationStructure ;
     schema:license "Public domain" ;
     schema:name "Kurumeji15.jpg" .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-013/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-013/geometry> a geo:Geometry ;
     geo:asWKT "POINT(135.415956 34.455614)"^^geo:wktLiteral .
 

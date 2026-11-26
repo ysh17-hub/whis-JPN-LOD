@@ -31,9 +31,9 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-032",
   "@type": [
-   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+   "https://w3id.org/whis-lod/ontology#HeritageIrrigationStructure"
   ],
   "http://purl.org/dc/terms/identifier": [
    {
@@ -42,7 +42,7 @@
   ],
   "http://purl.org/dc/terms/isPartOf": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+    "@id": "https://w3id.org/whis-lod/dataset"
    }
   ],
   "http://purl.org/dc/terms/source": [
@@ -64,7 +64,7 @@
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry"
+    "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-032/geometry"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#comment": [
@@ -140,85 +140,85 @@
     "@value": "北楯大堰"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYear": [
+  "https://w3id.org/whis-lod/ontology#builtYear": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#gYear",
     "@value": "1612"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
+  "https://w3id.org/whis-lod/ontology#builtYearBasis": [
    {
     "@language": "ja",
     "@value": "開削"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+  "https://w3id.org/whis-lod/ontology#facilityCategory": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+    "@id": "https://w3id.org/whis-lod/ontology#type-canal"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+  "https://w3id.org/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
     "@value": "水路"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
+  "https://w3id.org/whis-lod/ontology#managedBy": [
    {
     "@language": "ja",
     "@value": "山形県（管理者）・最上川土地改良区（使用者）"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+  "https://w3id.org/whis-lod/ontology#pointAddress": [
    {
     "@language": "ja",
     "@value": "山形県庄内町清川"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+  "https://w3id.org/whis-lod/ontology#pointAddressArea": [
    {
     "@id": "https://uedayou.net/loa/山形県東田川郡庄内町"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+  "https://w3id.org/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
     "@value": "29.5"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+  "https://w3id.org/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM10B"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+  "https://w3id.org/whis-lod/ontology#pointMunicipality": [
    {
     "@id": "http://data.e-stat.go.jp/lod/sac/C06428-20050701"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+  "https://w3id.org/whis-lod/ontology#prefectureCode": [
    {
     "@value": "JP-06"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+  "https://w3id.org/whis-lod/ontology#registeredYear": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#gYear",
     "@value": "2018"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+  "https://w3id.org/whis-lod/ontology#representativePoint": [
    {
     "@language": "ja",
     "@value": "北楯頭首工"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSource": [
+  "https://w3id.org/whis-lod/ontology#waterSource": [
    {
     "@id": "http://www.wikidata.org/entity/Q11598238"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSourceName": [
+  "https://w3id.org/whis-lod/ontology#waterSourceName": [
    {
     "@language": "ja",
     "@value": "立谷沢川"
@@ -226,7 +226,7 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-032/geometry",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-032/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
   ],

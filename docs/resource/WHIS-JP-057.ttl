@@ -1,22 +1,22 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-057 a whis:HeritageIrrigationStructure ;
     rdfs:label "葛西用水"@ja ;
     dcterms:identifier "WHIS-JP-057" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-57.pdf>,
         <https://www.maff.go.jp/j/press/nousin/sekkei/attach/pdf/260821-8.pdf>,
         <https://www.pref.saitama.lg.jp/a0906/news/page/news2026082103.html> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-057/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-057/geometry> ;
     rdfs:comment "事業開始1590年。19世紀最大14,000ha、現在6,800ha。幹線有効延長約80km"@ja ;
     wgs84:lat 35.918702 ;
     wgs84:long 139.804845 ;
@@ -43,6 +43,6 @@ res:WHIS-JP-057 a whis:HeritageIrrigationStructure ;
     whis:waterSource wd:Q177452 ;
     whis:waterSourceName "利根川"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-057/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-057/geometry> a geo:Geometry ;
     geo:asWKT "POINT(139.804845 35.918702)"^^geo:wktLiteral .
 

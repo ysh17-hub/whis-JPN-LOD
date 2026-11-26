@@ -1,7 +1,7 @@
 # 世界かんがい施設遺産（日本）LOD のデータの形（SHACL）
 # python lod.py build を実行すると、pyshacl が入っていればこの形に合っているかを自動で確かめます。
 # GitHub Actions でも、データを更新するたびに同じチェックをします。
-# https://ysh17-hub.github.io/whis-lod は build のときに公開URL（site_config.json から作る）に置き換わります。
+# https://w3id.org/whis-lod は build のときに公開URL（site_config.json から作る）に置き換わります。
 
 @prefix sh:      <http://www.w3.org/ns/shacl#> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
@@ -19,7 +19,7 @@
 whisx:StructureShape
     a sh:NodeShape ;
     rdfs:label "世界かんがい施設遺産1件の形"@ja ;
-    sh:targetClass <https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure> ;
+    sh:targetClass <https://w3id.org/whis-lod/ontology#HeritageIrrigationStructure> ;
     sh:property
         [ sh:path dcterms:identifier ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^WHIS-JP-[0-9]{3}$" ;
           sh:message "ID は WHIS-JP-000 の形で1つだけ"@ja ] ,
@@ -27,16 +27,16 @@ whisx:StructureShape
           sh:message "名称は日本語（と英語）で、言語ごとに1つ"@ja ] ,
         [ sh:path schema:addressRegion ; sh:minCount 1 ; sh:maxCount 1 ;
           sh:message "都道府県は1つ"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode> ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^JP-[0-9]{2}$" ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#prefectureCode> ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^JP-[0-9]{2}$" ;
           sh:message "都道府県コードは JP-00 の形で1つ"@ja ] ,
         [ sh:path schema:containedInPlace ; sh:maxCount 2 ; sh:nodeKind sh:IRI ;
           sh:pattern "^(http://www\\.wikidata\\.org/entity/Q[0-9]+|http://data\\.e-stat\\.go\\.jp/lod/sac/C[0-9]{2}000-19700401)$" ;
           sh:message "都道府県は、Wikidata の項目と統計LODの都道府県コードの IRI（それぞれ1つ）"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#registeredYear> ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:gYear ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#registeredYear> ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:gYear ;
           sh:message "登録年は xsd:gYear で1つ"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#builtYear> ; sh:maxCount 1 ; sh:datatype xsd:gYear ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#builtYear> ; sh:maxCount 1 ; sh:datatype xsd:gYear ;
           sh:message "建設年は xsd:gYear で最大1つ"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#builtPeriod> ; sh:maxCount 1 ; sh:datatype rdf:langString ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#builtPeriod> ; sh:maxCount 1 ; sh:datatype rdf:langString ;
           sh:message "建設時期は言語タグつきの文字列で最大1つ"@ja ] ,
         [ sh:path wgs84:lat ; sh:maxCount 1 ; sh:datatype xsd:decimal ; sh:minInclusive 20 ; sh:maxInclusive 46 ;
           sh:message "緯度は日本の範囲で最大1つ"@ja ] ,
@@ -48,7 +48,7 @@ whisx:StructureShape
           sh:message "同じ施設（owl:sameAs）は Wikidata の項目1つまで。構成施設（schema:hasPart）と同じ項目にはしない"@ja ] ,
         [ sh:path schema:hasPart ; sh:nodeKind sh:IRI ; sh:pattern "^http://www\\.wikidata\\.org/entity/Q[0-9]+$" ;
           sh:message "構成施設は Wikidata の項目"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#waterSource> ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#waterSource> ;
           sh:or ( [ sh:nodeKind sh:IRI ; sh:pattern "^http://www\\.wikidata\\.org/entity/Q[0-9]+$" ]
                   [ sh:datatype rdf:langString ] ) ;
           sh:message "水源は Wikidata の項目か、日本語の名前"@ja ] ,
@@ -56,22 +56,22 @@ whisx:StructureShape
           sh:message "出典のURLが1つ以上必要"@ja ] ,
         [ sh:path dcterms:isPartOf ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dcat:Dataset ;
           sh:message "データセットに属する"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#pointAddress> ; sh:maxCount 1 ; sh:datatype rdf:langString ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#pointAddress> ; sh:maxCount 1 ; sh:datatype rdf:langString ;
           sh:message "代表地点の住所は1つの日本語の文字列"@ja ] ,
         [ sh:path schema:image ; sh:nodeKind sh:IRI ; sh:node whisx:ImageShape ;
           sh:message "写真は Wikimedia Commons のファイルページ（作者・ライセンスつき）"@ja ] ,
         [ sh:path rdfs:seeAlso ; sh:nodeKind sh:IRI ;
           sh:message "外部データベースへのつながりはURL"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory> ; sh:minCount 1 ; sh:maxCount 1 ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#facilityCategory> ; sh:minCount 1 ; sh:maxCount 1 ;
           sh:class skos:Concept ;
           sh:message "施設の種類は、語彙で定めた SKOS の概念のどれか1つ"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea> ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#pointAddressArea> ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
           sh:pattern "^https://uedayou\\.net/loa/" ;
           sh:message "代表地点の住所は住所LODの IRI 1つ"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality> ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#pointMunicipality> ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
           sh:pattern "^http://data\\.e-stat\\.go\\.jp/lod/sac/C[0-9]{5}-[0-9]{8}$" ;
           sh:message "代表地点の市区町村は統計LODの標準地域コードの IRI 1つ"@ja ] ,
-        [ sh:path <https://ysh17-hub.github.io/whis-lod/ontology#pointElevation> ; sh:maxCount 1 ; sh:datatype xsd:decimal ;
+        [ sh:path <https://w3id.org/whis-lod/ontology#pointElevation> ; sh:maxCount 1 ; sh:datatype xsd:decimal ;
           sh:minInclusive -10 ; sh:maxInclusive 3800 ;
           sh:message "標高は1つの数値（m）で、日本の陸地としてありうる範囲"@ja ] .
 

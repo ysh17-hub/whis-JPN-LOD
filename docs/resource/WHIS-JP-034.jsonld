@@ -62,9 +62,9 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-034",
   "@type": [
-   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+   "https://w3id.org/whis-lod/ontology#HeritageIrrigationStructure"
   ],
   "http://purl.org/dc/terms/identifier": [
    {
@@ -73,7 +73,7 @@
   ],
   "http://purl.org/dc/terms/isPartOf": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+    "@id": "https://w3id.org/whis-lod/dataset"
    }
   ],
   "http://purl.org/dc/terms/source": [
@@ -95,7 +95,7 @@
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry"
+    "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-034/geometry"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#comment": [
@@ -172,85 +172,85 @@
     "@value": "大和川分水築留掛かり"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYear": [
+  "https://w3id.org/whis-lod/ontology#builtYear": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#gYear",
     "@value": "1705"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
+  "https://w3id.org/whis-lod/ontology#builtYearBasis": [
    {
     "@language": "ja",
     "@value": "供用開始（宝永2年）"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+  "https://w3id.org/whis-lod/ontology#facilityCategory": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+    "@id": "https://w3id.org/whis-lod/ontology#type-canal"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+  "https://w3id.org/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
     "@value": "水路"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
+  "https://w3id.org/whis-lod/ontology#managedBy": [
    {
     "@language": "ja",
     "@value": "築留土地改良区"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+  "https://w3id.org/whis-lod/ontology#pointAddress": [
    {
     "@language": "ja",
     "@value": "大阪府柏原市上市三丁目"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+  "https://w3id.org/whis-lod/ontology#pointAddressArea": [
    {
     "@id": "https://uedayou.net/loa/大阪府柏原市上市3丁目"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+  "https://w3id.org/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
     "@value": "19.0"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+  "https://w3id.org/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM1A"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+  "https://w3id.org/whis-lod/ontology#pointMunicipality": [
    {
     "@id": "http://data.e-stat.go.jp/lod/sac/C27221-19700401"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+  "https://w3id.org/whis-lod/ontology#prefectureCode": [
    {
     "@value": "JP-27"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+  "https://w3id.org/whis-lod/ontology#registeredYear": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#gYear",
     "@value": "2018"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+  "https://w3id.org/whis-lod/ontology#representativePoint": [
    {
     "@language": "ja",
     "@value": "築留二番樋"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSource": [
+  "https://w3id.org/whis-lod/ontology#waterSource": [
    {
     "@id": "http://www.wikidata.org/entity/Q9001527"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSourceName": [
+  "https://w3id.org/whis-lod/ontology#waterSourceName": [
    {
     "@language": "ja",
     "@value": "大和川"
@@ -258,7 +258,7 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-034/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
   ],

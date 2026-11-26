@@ -1,8 +1,8 @@
 [
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-029",
   "@type": [
-   "https://ysh17-hub.github.io/whis-lod/ontology#HeritageIrrigationStructure"
+   "https://w3id.org/whis-lod/ontology#HeritageIrrigationStructure"
   ],
   "http://purl.org/dc/terms/identifier": [
    {
@@ -11,7 +11,7 @@
   ],
   "http://purl.org/dc/terms/isPartOf": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/dataset"
+    "@id": "https://w3id.org/whis-lod/dataset"
    }
   ],
   "http://purl.org/dc/terms/source": [
@@ -27,7 +27,7 @@
   ],
   "http://www.opengis.net/ont/geosparql#hasGeometry": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029/geometry"
+    "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-029/geometry"
    }
   ],
   "http://www.w3.org/2000/01/rdf-schema#comment": [
@@ -101,85 +101,85 @@
     "@value": "那須疏水"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYear": [
+  "https://w3id.org/whis-lod/ontology#builtYear": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#gYear",
     "@value": "1885"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#builtYearBasis": [
+  "https://w3id.org/whis-lod/ontology#builtYearBasis": [
    {
     "@language": "ja",
     "@value": "完成"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityCategory": [
+  "https://w3id.org/whis-lod/ontology#facilityCategory": [
    {
-    "@id": "https://ysh17-hub.github.io/whis-lod/ontology#type-canal"
+    "@id": "https://w3id.org/whis-lod/ontology#type-canal"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#facilityType": [
+  "https://w3id.org/whis-lod/ontology#facilityType": [
    {
     "@language": "ja",
     "@value": "水路"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#managedBy": [
+  "https://w3id.org/whis-lod/ontology#managedBy": [
    {
     "@language": "ja",
     "@value": "那須野ヶ原土地改良区連合"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddress": [
+  "https://w3id.org/whis-lod/ontology#pointAddress": [
    {
     "@language": "ja",
     "@value": "栃木県那須町大字高久乙"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointAddressArea": [
+  "https://w3id.org/whis-lod/ontology#pointAddressArea": [
    {
     "@id": "https://uedayou.net/loa/栃木県那須郡那須町高久乙"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevation": [
+  "https://w3id.org/whis-lod/ontology#pointElevation": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#decimal",
     "@value": "416.9"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointElevationSource": [
+  "https://w3id.org/whis-lod/ontology#pointElevationSource": [
    {
     "@value": "DEM5A"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#pointMunicipality": [
+  "https://w3id.org/whis-lod/ontology#pointMunicipality": [
    {
     "@id": "http://data.e-stat.go.jp/lod/sac/C09407-19820601"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#prefectureCode": [
+  "https://w3id.org/whis-lod/ontology#prefectureCode": [
    {
     "@value": "JP-09"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#registeredYear": [
+  "https://w3id.org/whis-lod/ontology#registeredYear": [
    {
     "@type": "http://www.w3.org/2001/XMLSchema#gYear",
     "@value": "2017"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#representativePoint": [
+  "https://w3id.org/whis-lod/ontology#representativePoint": [
    {
     "@language": "ja",
     "@value": "西岩崎頭首工"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSource": [
+  "https://w3id.org/whis-lod/ontology#waterSource": [
    {
     "@id": "http://www.wikidata.org/entity/Q1076983"
    }
   ],
-  "https://ysh17-hub.github.io/whis-lod/ontology#waterSourceName": [
+  "https://w3id.org/whis-lod/ontology#waterSourceName": [
    {
     "@language": "ja",
     "@value": "那珂川"
@@ -187,7 +187,7 @@
   ]
  },
  {
-  "@id": "https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-029/geometry",
+  "@id": "https://w3id.org/whis-lod/resource/WHIS-JP-029/geometry",
   "@type": [
    "http://www.opengis.net/ont/geosparql#Geometry"
   ],

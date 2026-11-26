@@ -2,23 +2,23 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
     rdfs:label "Tsujunyousui Irrigation System"@en,
         "通潤用水"@ja ;
     dcterms:identifier "WHIS-JP-009" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-54.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/pr/aff/1608/mf_topics03.html> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-009/geometry> ;
     rdfs:comment "日本最大の石造アーチ水路橋『通潤橋』を含む"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E9%80%9A%E6%BD%A4%E7%94%A8%E6%B0%B4> ;
     owl:sameAs wd:Q17238532 ;
@@ -52,6 +52,6 @@ res:WHIS-JP-009 a whis:HeritageIrrigationStructure ;
     schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
     schema:name "Tsujyunkyo.jpg" .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-009/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-009/geometry> a geo:Geometry ;
     geo:asWKT "POINT(130.993611 32.681667)"^^geo:wktLiteral .
 

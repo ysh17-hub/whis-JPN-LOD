@@ -2,23 +2,23 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-016 a whis:HeritageIrrigationStructure ;
     rdfs:label "Asakasosui Irrigation System"@en,
         "安積疏水"@ja ;
     dcterms:identifier "WHIS-JP-016" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/meiji150/toti/index.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-6.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-016/geometry> ;
     rdfs:comment "日本初の国直轄農業水利事業。水路約127km"@ja ;
     rdfs:seeAlso <https://id.ndl.go.jp/auth/ndlna/001267172>,
         <https://ja.wikipedia.org/wiki/%E5%AE%89%E7%A9%8D%E7%96%8F%E6%B0%B4> ;
@@ -64,6 +64,6 @@ res:WHIS-JP-016 a whis:HeritageIrrigationStructure ;
     schema:license "Public domain" ;
     schema:name "Jyurokkyou-s-r1.jpg" .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-016/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-016/geometry> a geo:Geometry ;
     geo:asWKT "POINT(140.024396 37.521342)"^^geo:wktLiteral .
 

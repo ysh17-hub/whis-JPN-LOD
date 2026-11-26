@@ -1,24 +1,24 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
     rdfs:label "Yamadazeki Barrage System"@en,
         "山田堰、堀川用水、水車群"@ja ;
     dcterms:identifier "WHIS-JP-008" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-53.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_siki/64_yamada/>,
         <https://www.maff.go.jp/j/pr/aff/2409/spe1_03.html> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-008/geometry> ;
     rdfs:comment "山田堰（傾斜堰床式石張堰）は1790年古賀百工により完成。かんがい面積は約652ha（aff 2024年9月号）"@ja ;
     wgs84:lat 33.365371 ;
     wgs84:long 130.759267 ;
@@ -53,6 +53,6 @@ res:WHIS-JP-008 a whis:HeritageIrrigationStructure ;
     schema:license <https://creativecommons.org/licenses/by-sa/4.0> ;
     schema:name "Horikawa Aqueduct from Kakureganomoribashi Bridge 2.jpg" .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-008/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-008/geometry> a geo:Geometry ;
     geo:asWKT "POINT(130.759267 33.365371)"^^geo:wktLiteral .
 

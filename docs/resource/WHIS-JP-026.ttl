@@ -2,24 +2,24 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-026 a whis:HeritageIrrigationStructure ;
     rdfs:label "Mannou-ike Reservoir"@en,
         "満濃池"@ja ;
     dcterms:identifier "WHIS-JP-026" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-52.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/46_manno/index.html>,
         <https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/mannouike.html> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-026/geometry> ;
     rdfs:comment "821年に空海が修築。貯水量1,540万m3"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E6%BA%80%E6%BF%83%E6%B1%A0>,
         <https://www.openstreetmap.org/relation/2304882> ;
@@ -64,6 +64,6 @@ res:WHIS-JP-026 a whis:HeritageIrrigationStructure ;
     schema:license <https://creativecommons.org/licenses/by/4.0> ;
     schema:name "Mano Dam 02.jpg" .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-026/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-026/geometry> a geo:Geometry ;
     geo:asWKT "POINT(133.871392 34.162667)"^^geo:wktLiteral .
 

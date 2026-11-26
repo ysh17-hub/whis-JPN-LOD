@@ -2,24 +2,24 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
     rdfs:label "Tenguiwa Irrigation System"@en,
         "天狗岩用水"@ja ;
     dcterms:identifier "WHIS-JP-040" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-5.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf>,
         <https://www.pref.gunma.jp/site/nougyou/9892.html> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-040/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-040/geometry> ;
     rdfs:comment "総社藩主秋元長朝が開削（群馬県）。年は公的資料で未確認のため空欄"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%8B%97%E5%B2%A9%E7%94%A8%E6%B0%B4> ;
     owl:sameAs wd:Q123201481 ;
@@ -45,6 +45,6 @@ res:WHIS-JP-040 a whis:HeritageIrrigationStructure ;
     whis:waterSource wd:Q177452 ;
     whis:waterSourceName "利根川"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-040/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-040/geometry> a geo:Geometry ;
     geo:asWKT "POINT(139.036337 36.464045)"^^geo:wktLiteral .
 

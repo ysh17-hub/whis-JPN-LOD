@@ -2,23 +2,23 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
     rdfs:label "Bizenkyo Irrigation System"@en,
         "備前渠用水路"@ja ;
     dcterms:identifier "WHIS-JP-041" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/his-8.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.pref.saitama.lg.jp/documents/265674/28001-6_bizenkyo.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-041/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-041/geometry> ;
     rdfs:comment "当初の水源は烏川。1930年に利根川堤外導水路で現在の取水位置へ（埼玉県）"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%82%99%E5%89%8D%E6%B8%A0%E7%94%A8%E6%B0%B4>,
         <https://sws.geonames.org/1864699/>,
@@ -48,6 +48,6 @@ res:WHIS-JP-041 a whis:HeritageIrrigationStructure ;
     whis:waterSource wd:Q177452 ;
     whis:waterSourceName "利根川"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-041/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-041/geometry> a geo:Geometry ;
     geo:asWKT "POINT(139.181583 36.265623)"^^geo:wktLiteral .
 

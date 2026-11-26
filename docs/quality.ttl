@@ -1,7 +1,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 whis:dimension-provenance a dqv:Dimension ;
@@ -79,75 +79,75 @@ whis:metric-wikidata-same-coverage a dqv:Metric ;
     dqv:expectedDataType xsd:decimal ;
     dqv:inDimension whis:dimension-linkability .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#address-link-coverage> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#address-link-coverage> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-address-link-coverage ;
     dqv:value 1.0000 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-built_year> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#completeness-built_year> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-built_year ;
     dqv:value 0.6333 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-built_year_or_period> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#completeness-built_year_or_period> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-built_year_or_period ;
     dqv:value 0.8333 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-irrigated_area_ha> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#completeness-irrigated_area_ha> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-irrigated_area_ha ;
     dqv:value 0.3333 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-lat> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#completeness-lat> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-lat ;
     dqv:value 1.0000 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-managing_org> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#completeness-managing_org> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-managing_org ;
     dqv:value 0.5833 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-name_en> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#completeness-name_en> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-completeness-name_en ;
     dqv:value 0.9833 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#elevation-agreement> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#elevation-agreement> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-elevation-agreement ;
     dqv:value 1.0000 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#link-health> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#link-health> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-link-health ;
     dqv:value 1.0000 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#source-coverage> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#source-coverage> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-source-coverage ;
     dqv:value 1.0000 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#wikidata-point-agreement> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#wikidata-point-agreement> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-wikidata-point-agreement ;
     dqv:value 1.0000 .
 
-<https://ysh17-hub.github.io/whis-lod/quality.ttl#wikidata-same-coverage> a dqv:QualityMeasurement ;
-    dcterms:date "2026-11-25"^^xsd:date ;
-    dqv:computedOn <https://ysh17-hub.github.io/whis-lod/dataset> ;
+<https://w3id.org/whis-lod/quality.ttl#wikidata-same-coverage> a dqv:QualityMeasurement ;
+    dcterms:date "2026-11-27"^^xsd:date ;
+    dqv:computedOn <https://w3id.org/whis-lod/dataset> ;
     dqv:isMeasurementOf whis:metric-wikidata-same-coverage ;
     dqv:value 0.4667 .
 
@@ -160,16 +160,16 @@ whis:dimension-accuracy a dqv:Dimension ;
 whis:dimension-completeness a dqv:Dimension ;
     skos:prefLabel "完全性"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/dataset> dqv:hasQualityMeasurement <https://ysh17-hub.github.io/whis-lod/quality.ttl#address-link-coverage>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-built_year>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-built_year_or_period>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-irrigated_area_ha>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-lat>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-managing_org>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#completeness-name_en>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#elevation-agreement>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#link-health>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#source-coverage>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#wikidata-point-agreement>,
-        <https://ysh17-hub.github.io/whis-lod/quality.ttl#wikidata-same-coverage> .
+<https://w3id.org/whis-lod/dataset> dqv:hasQualityMeasurement <https://w3id.org/whis-lod/quality.ttl#address-link-coverage>,
+        <https://w3id.org/whis-lod/quality.ttl#completeness-built_year>,
+        <https://w3id.org/whis-lod/quality.ttl#completeness-built_year_or_period>,
+        <https://w3id.org/whis-lod/quality.ttl#completeness-irrigated_area_ha>,
+        <https://w3id.org/whis-lod/quality.ttl#completeness-lat>,
+        <https://w3id.org/whis-lod/quality.ttl#completeness-managing_org>,
+        <https://w3id.org/whis-lod/quality.ttl#completeness-name_en>,
+        <https://w3id.org/whis-lod/quality.ttl#elevation-agreement>,
+        <https://w3id.org/whis-lod/quality.ttl#link-health>,
+        <https://w3id.org/whis-lod/quality.ttl#source-coverage>,
+        <https://w3id.org/whis-lod/quality.ttl#wikidata-point-agreement>,
+        <https://w3id.org/whis-lod/quality.ttl#wikidata-same-coverage> .
 

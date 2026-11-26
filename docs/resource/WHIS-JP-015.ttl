@@ -2,23 +2,23 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     rdfs:label "Uchikawa Irrigation System"@en,
         "内川"@ja ;
     dcterms:identifier "WHIS-JP-015" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-27.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.pref.miyagi.jp/soshiki/nosonshin/uchikawa.html> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-015/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-015/geometry> ;
     rdfs:comment "伊達政宗が開削。かんがい面積は3,300ha超"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E5%86%85%E5%B7%9D_%28%E5%A4%A7%E5%B4%8E%E5%B8%82%29> ;
     owl:sameAs wd:Q24867232 ;
@@ -45,6 +45,6 @@ res:WHIS-JP-015 a whis:HeritageIrrigationStructure ;
     whis:registeredYear "2016"^^xsd:gYear ;
     whis:representativePoint "大堰頭首工"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-015/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-015/geometry> a geo:Geometry ;
     geo:asWKT "POINT(140.847135 38.684053)"^^geo:wktLiteral .
 

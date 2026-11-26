@@ -2,24 +2,24 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
     rdfs:label "Meiji-yousui Irrigation Canal"@en,
         "明治用水"@ja ;
     dcterms:identifier "WHIS-JP-023" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-42.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/pdf/yahagigawa-5-05.pdf>,
         <https://www.pref.aichi.jp/uploaded/attachment/489986.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-023/geometry> ;
     rdfs:comment "都築弥厚の計画。現頭首工は1958年完成"@ja ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E6%98%8E%E6%B2%BB%E7%94%A8%E6%B0%B4> ;
     owl:sameAs wd:Q11512382 ;
@@ -47,6 +47,6 @@ res:WHIS-JP-023 a whis:HeritageIrrigationStructure ;
     whis:waterSource wd:Q1132256 ;
     whis:waterSourceName "矢作川"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-023/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-023/geometry> a geo:Geometry ;
     geo:asWKT "POINT(137.17821 35.045993)"^^geo:wktLiteral .
 

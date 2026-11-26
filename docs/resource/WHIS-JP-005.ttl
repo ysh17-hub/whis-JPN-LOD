@@ -1,24 +1,24 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
     rdfs:label "Tachibaiyousui Irrigation Canal"@en,
         "立梅用水"@ja ;
     dcterms:identifier "WHIS-JP-005" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-44.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_kakuti/34_tatiba/index.html>,
         <https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/pdf/07_04.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-005/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-005/geometry> ;
     rdfs:comment "延長約30km"@ja ;
     wgs84:lat 34.459446 ;
     wgs84:long 136.398788 ;
@@ -45,6 +45,6 @@ res:WHIS-JP-005 a whis:HeritageIrrigationStructure ;
     whis:waterSource wd:Q6447936 ;
     whis:waterSourceName "櫛田川"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-005/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-005/geometry> a geo:Geometry ;
     geo:asWKT "POINT(136.398788 34.459446)"^^geo:wktLiteral .
 

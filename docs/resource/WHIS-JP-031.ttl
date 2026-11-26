@@ -1,24 +1,24 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-031 a whis:HeritageIrrigationStructure ;
     rdfs:label "Odai Irrigation Canal"@en,
         "小田井用水路"@ja ;
     dcterms:identifier "WHIS-JP-031" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-49.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei7/index.html>,
         <https://www.maff.go.jp/j/nousin/sekkei/museum/m_bunka/yuukei8/index.html> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-031/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-031/geometry> ;
     rdfs:comment "大畑才蔵が開削。かんがい面積約610ha"@ja ;
     wgs84:lat 34.283105 ;
     wgs84:long 135.448278 ;
@@ -45,6 +45,6 @@ res:WHIS-JP-031 a whis:HeritageIrrigationStructure ;
     whis:waterSource wd:Q1042624 ;
     whis:waterSourceName "紀の川"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-031/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-031/geometry> a geo:Geometry ;
     geo:asWKT "POINT(135.448278 34.283105)"^^geo:wktLiteral .
 

@@ -1,24 +1,24 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-034 a whis:HeritageIrrigationStructure ;
     rdfs:label "Tsukidome Irrigation Canal"@en,
         "大和川分水築留掛かり"@ja ;
     dcterms:identifier "WHIS-JP-034" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-47.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/j/nousin/keityo/kikaku/k_panf2002/pdf/15.pdf>,
         <https://www.pref.osaka.lg.jp/chubunm/chubu_nm/tukidome.html> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-034/geometry> ;
     rdfs:comment "長瀬川・玉串川。2002年の農水省資料では約320ha"@ja ;
     wgs84:lat 34.580387 ;
     wgs84:long 135.6276 ;
@@ -62,6 +62,6 @@ res:WHIS-JP-034 a whis:HeritageIrrigationStructure ;
     schema:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
     schema:name "Tamakushi-river 2008 spring01.JPG" .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-034/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-034/geometry> a geo:Geometry ;
     geo:asWKT "POINT(135.6276 34.580387)"^^geo:wktLiteral .
 

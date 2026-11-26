@@ -1,21 +1,21 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-043 a whis:HeritageIrrigationStructure ;
     rdfs:label "Teragaike Pond and Teragaike Waterway"@en,
         "寺ケ池・寺ケ池水路"@ja ;
     dcterms:identifier "WHIS-JP-043" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-2.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-043/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-043/geometry> ;
     wgs84:lat 34.462867 ;
     wgs84:long 135.558333 ;
     schema:addressLocality "河内長野市"@ja ;
@@ -48,6 +48,6 @@ res:WHIS-JP-043 a whis:HeritageIrrigationStructure ;
     schema:license <https://creativecommons.org/licenses/by-sa/3.0> ;
     schema:name "Teragaike 04.jpg" .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-043/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-043/geometry> a geo:Geometry ;
     geo:asWKT "POINT(135.558333 34.462867)"^^geo:wktLiteral .
 

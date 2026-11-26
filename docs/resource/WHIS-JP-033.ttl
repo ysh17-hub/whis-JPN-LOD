@@ -2,23 +2,23 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     rdfs:label "Gorobe Irrigation Canal"@en,
         "五郎兵衛用水"@ja ;
     dcterms:identifier "WHIS-JP-033" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-35.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf>,
         <https://www.maff.go.jp/kanto/syo_an/seikatsu/tenji/attach/pdf/tokubetutennji-22.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-033/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-033/geometry> ;
     rdfs:seeAlso <https://ja.wikipedia.org/wiki/%E4%BA%94%E9%83%8E%E5%85%B5%E8%A1%9B%E7%94%A8%E6%B0%B4> ;
     owl:sameAs wd:Q21653080 ;
     wgs84:lat 36.228835 ;
@@ -56,6 +56,6 @@ res:WHIS-JP-033 a whis:HeritageIrrigationStructure ;
     schema:license <https://creativecommons.org/licenses/by-sa/4.0> ;
     schema:name "Gorobē Yōsui 01.jpg" .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-033/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-033/geometry> a geo:Geometry ;
     geo:asWKT "POINT(138.358437 36.228835)"^^geo:wktLiteral .
 

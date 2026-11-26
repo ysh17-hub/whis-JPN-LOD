@@ -2,22 +2,22 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix res: <https://ysh17-hub.github.io/whis-lod/resource/> .
+@prefix res: <https://w3id.org/whis-lod/resource/> .
 @prefix schema: <https://schema.org/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix whis: <https://ysh17-hub.github.io/whis-lod/ontology#> .
+@prefix whis: <https://w3id.org/whis-lod/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
     rdfs:label "Doen Irrigation System"@en,
         "土淵堰"@ja ;
     dcterms:identifier "WHIS-JP-028" ;
-    dcterms:isPartOf <https://ysh17-hub.github.io/whis-lod/dataset> ;
+    dcterms:isPartOf <https://w3id.org/whis-lod/dataset> ;
     dcterms:source <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/abstruct.html>,
         <https://www.maff.go.jp/j/nousin/kaigai/ICID/his/attach/pdf/abstruct-25.pdf>,
         <https://www.maff.go.jp/j/nousin/kantai/giahs_7/attach/pdf/index-9.pdf> ;
-    geo:hasGeometry <https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-028/geometry> ;
+    geo:hasGeometry <https://w3id.org/whis-lod/resource/WHIS-JP-028/geometry> ;
     rdfs:comment "延長約16kmの開水路で、水田約8,300haに用水を供給（農林水産省）"@ja ;
     rdfs:seeAlso <https://sws.geonames.org/8412802/> ;
     owl:sameAs wd:Q34962967 ;
@@ -44,6 +44,6 @@ res:WHIS-JP-028 a whis:HeritageIrrigationStructure ;
     whis:waterSource wd:Q5359180 ;
     whis:waterSourceName "岩木川"@ja .
 
-<https://ysh17-hub.github.io/whis-lod/resource/WHIS-JP-028/geometry> a geo:Geometry ;
+<https://w3id.org/whis-lod/resource/WHIS-JP-028/geometry> a geo:Geometry ;
     geo:asWKT "POINT(140.46079 40.652053)"^^geo:wktLiteral .
 
